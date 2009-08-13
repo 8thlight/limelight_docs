@@ -5,13 +5,17 @@ describe "Walkthrough" do
  
   uses_scene :walkthrough
   
+  before(:each) do
+    @prop = Limelight::Prop.new
+    @navigator = mock(Navigator, :slide => @prop)
+    scene.navigator = @navigator
+  end
+  
   describe "Next Button Clicked" do
     before(:each) do
-      @prop = Limelight::Prop.new
-      @navigator = mock(Navigator, :next => nil, :slide => @prop)
-      scene.navigator = @navigator
+      @navigator.stub!(:next)
     end
-
+    
     it "should advance the naviagtor" do
       @navigator.should_receive(:next)
       scene.find("next").mouse_clicked(nil)
@@ -32,13 +36,26 @@ describe "Walkthrough" do
 
       scene.find("next").mouse_clicked(nil)
     end
+  end
+  
+  describe "Previous Button Clicked" do
+    before(:each) do
+      @navigator.stub!(:previous)
+    end
+    
+    it "should reverse the slide show" do
+      @navigator.should_receive(:previous)
+      
+      scene.find("previous").mouse_clicked(nil)
+    end
+    
+    it "should replace the props underneath the canvas with those in the navigator" do
+      @navigator.stub!(:slide).and_return(@prop)
 
-    it "should handle when you have reached the end of the navigation" do
-      @navigator.stub!(:slide).and_return(nil)
+      scene.find("previous").mouse_clicked(nil)
 
-      lambda{scene.find("next").mouse_clicked(nil)}.should_not raise_error
       canvas = scene.find("canvas")
-      canvas.children.should_not be_empty
+      canvas.children.should == [@prop]
     end
   end
 end

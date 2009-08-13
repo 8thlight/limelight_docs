@@ -1,6 +1,6 @@
 module NextButton
   
   def mouse_clicked(event)
-    scene.advance_forward
+    scene.advance
   end
 end
