@@ -10,7 +10,7 @@
 #  end
 
 stage "default" do
-  default_scene "default_scene"
+  default_scene "walkthrough"
   title "Limelight Documentation"
   location [200, 25]
   size [800, 800]

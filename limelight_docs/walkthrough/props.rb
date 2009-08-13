@@ -3,4 +3,9 @@
 #
 # For more information see: http://limelightwiki.8thlight.com/index.php/A_Cook%27s_Tour_of_Limelight#PropBuilder_DSL
 
-root
+previous_button :id => "previous"
+logo
+next_button :id => "next"
+canvas do
+  step :id => "step1", :text => "Install JRuby dickhead"
+end

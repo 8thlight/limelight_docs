@@ -12,8 +12,32 @@ default_scene {
   background_image "images/splash.png"
 }
 
-root {
-  width 400
-  height 110
+previous_button {
+  width 150
+  height 100
+  right_margin 50 
+  background_color :blue
+}
+
+logo {
   background_image "images/logo.png"
+  width 450
+  right_margin 50
+  height 110
+}
+
+next_button {
+  width 150
+  height 100
+  left_margin 50
+  background_color :white  
+}
+
+canvas {
+  border_width 1
+  border_color :black
+}
+
+step1 {
+  font_size 28
 }

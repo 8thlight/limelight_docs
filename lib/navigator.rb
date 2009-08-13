@@ -1,0 +1,2 @@
+class Navigator
+end
