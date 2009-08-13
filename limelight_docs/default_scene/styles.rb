@@ -13,6 +13,7 @@ default_scene {
 }
 
 root {
-  text_color :white
-  font_size 18
+  text_color :red
+  font_size 26
+  font_style :bold
 }
