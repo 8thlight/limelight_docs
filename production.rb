@@ -24,7 +24,7 @@ module Production
 #  end
 #
 #  # The system will call this methods when it wishes to close the production, perhaps when the user quits the
-#  # application.  By default the production will always return true. You may override this behavior by re-implenting
+#  # application.  By default the production will always return true. You may override this behavior by re-doing
 #  # the methods here.
 #  def allow_close?
 #    return true
