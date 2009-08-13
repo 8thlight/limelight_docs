@@ -12,7 +12,6 @@ module Production
 #  # This is a good place to require needed files and instantiate objects in the busines layer.
   def production_opening
     require 'lib/slideshow'
-    @slide1 = 
   end
 #
 #  # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
@@ -23,7 +22,7 @@ module Production
 #  # Hook #3.  Called when the production, and all the scenes, have fully opened.
   def production_opened
     @walkthrough = theater['default'].current_scene
-    @walkthrough.slideshow = Slideshow.new([])
+    @walkthrough.slideshow = Slideshow.new([@walkthrough.find("slide1"), @walkthrough.find("slide2")])
   end
 #
 #  # The system will call this methods when it wishes to close the production, perhaps when the user quits the

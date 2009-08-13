@@ -7,5 +7,6 @@ previous_button :id => "previous"
 logo
 next_button :id => "next"
 canvas :id => "canvas" do
-  step :id => "step1", :text => "Install JRuby dickhead"
+  step :id => "slide1", :text => "Install JRuby Jim"
+  step :id => "slide2", :text => "Make sure it works"
 end

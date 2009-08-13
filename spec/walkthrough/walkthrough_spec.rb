@@ -20,22 +20,6 @@ describe "Walkthrough" do
       @slideshow.should_receive(:next)
       scene.find("next").mouse_clicked(nil)
     end
-
-    it "should replace the prop(s) underneath canvas with the prop the slideshow returns" do
-      @slideshow.stub!(:slide).and_return(@prop)
-
-      scene.find("next").mouse_clicked(nil)
-
-      canvas = scene.find("canvas")
-      canvas.children.should == [@prop]
-    end
-
-    it "should call next before asking for the slide" do
-      @slideshow.should_receive(:next).ordered
-      @slideshow.should_receive(:slide).ordered.and_return(@prop)
-
-      scene.find("next").mouse_clicked(nil)
-    end
   end
   
   describe "Previous Button Clicked" do
@@ -47,15 +31,6 @@ describe "Walkthrough" do
       @slideshow.should_receive(:previous)
       
       scene.find("previous").mouse_clicked(nil)
-    end
-    
-    it "should replace the props underneath the canvas with those in the slideshow" do
-      @slideshow.stub!(:slide).and_return(@prop)
-
-      scene.find("previous").mouse_clicked(nil)
-
-      canvas = scene.find("canvas")
-      canvas.children.should == [@prop]
     end
   end
 end
