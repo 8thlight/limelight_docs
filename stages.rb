@@ -11,7 +11,7 @@
 
 stage "default" do
   default_scene "default_scene"
-  title "Limelight"
+  title "Limelight Documentation"
   location [200, 25]
   size [800, 800]
 end
