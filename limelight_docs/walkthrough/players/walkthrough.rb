@@ -1,19 +1,19 @@
 module Walkthrough
-  attr_accessor :navigator
+  attr_accessor :slideshow
   
   def advance
-    @navigator.next
+    @slideshow.next
     update_canvas
   end
   
   def reverse
-    @navigator.previous
+    @slideshow.previous
     update_canvas    
   end
   
   def update_canvas
     canvas = find("canvas")
     canvas.remove_all
-    canvas << @navigator.slide
+    canvas << @slideshow.slide
   end
 end

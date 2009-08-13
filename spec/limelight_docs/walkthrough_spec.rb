@@ -1,5 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
-require 'navigator'
+require 'slideshow'
  
 describe "Walkthrough" do
  
@@ -7,22 +7,22 @@ describe "Walkthrough" do
   
   before(:each) do
     @prop = Limelight::Prop.new
-    @navigator = mock(Navigator, :slide => @prop)
-    scene.navigator = @navigator
+    @slideshow = mock(Slideshow, :slide => @prop)
+    scene.slideshow = @slideshow
   end
   
   describe "Next Button Clicked" do
     before(:each) do
-      @navigator.stub!(:next)
+      @slideshow.stub!(:next)
     end
     
     it "should advance the naviagtor" do
-      @navigator.should_receive(:next)
+      @slideshow.should_receive(:next)
       scene.find("next").mouse_clicked(nil)
     end
 
-    it "should replace the prop(s) underneath canvas with the prop the navigator returns" do
-      @navigator.stub!(:slide).and_return(@prop)
+    it "should replace the prop(s) underneath canvas with the prop the slideshow returns" do
+      @slideshow.stub!(:slide).and_return(@prop)
 
       scene.find("next").mouse_clicked(nil)
 
@@ -31,8 +31,8 @@ describe "Walkthrough" do
     end
 
     it "should call next before asking for the slide" do
-      @navigator.should_receive(:next).ordered
-      @navigator.should_receive(:slide).ordered.and_return(@prop)
+      @slideshow.should_receive(:next).ordered
+      @slideshow.should_receive(:slide).ordered.and_return(@prop)
 
       scene.find("next").mouse_clicked(nil)
     end
@@ -40,17 +40,17 @@ describe "Walkthrough" do
   
   describe "Previous Button Clicked" do
     before(:each) do
-      @navigator.stub!(:previous)
+      @slideshow.stub!(:previous)
     end
     
     it "should reverse the slide show" do
-      @navigator.should_receive(:previous)
+      @slideshow.should_receive(:previous)
       
       scene.find("previous").mouse_clicked(nil)
     end
     
-    it "should replace the props underneath the canvas with those in the navigator" do
-      @navigator.stub!(:slide).and_return(@prop)
+    it "should replace the props underneath the canvas with those in the slideshow" do
+      @slideshow.stub!(:slide).and_return(@prop)
 
       scene.find("previous").mouse_clicked(nil)
 
