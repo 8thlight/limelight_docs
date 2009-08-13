@@ -3,4 +3,4 @@
 #
 # For more information see: http://limelightwiki.8thlight.com/index.php/A_Cook%27s_Tour_of_Limelight#PropBuilder_DSL
 
-root :text => "Welcome to the Limelight Documentation"
+root

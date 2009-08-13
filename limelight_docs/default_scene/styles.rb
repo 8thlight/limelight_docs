@@ -5,15 +5,15 @@
 # For a complete listing of style attributes see: http://limelightwiki.8thlight.com/index.php/Style_Attributes
 
 default_scene {
-  background_color :black
-  horizontal_alignment :center
-  vertical_alignment :center
   width "100%"
   height "100%"
+  top_padding 20
+  left_padding 20
+  background_image "images/splash.png"
 }
 
 root {
-  text_color :red
-  font_size 26
-  font_style :bold
+  width 400
+  height 110
+  background_image "images/logo.png"
 }
