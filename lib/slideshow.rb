@@ -1,30 +1,31 @@
 class Slideshow
   
-  def initialize(props)
-    @props = props
+  def initialize(canvas)
+    @canvas = canvas
+    @slides = canvas.children
+    clear_sideshow
     @current_slide = 0
-    hide_unshown_slides
+    show_current_slide
   end
   
   def next
+    clear_sideshow
     increment_current_slide
     show_current_slide
-    hide_unshown_slides
   end
-  
+    
   def previous
+    clear_sideshow
     decrement_current_slide
     show_current_slide
-    hide_unshown_slides
   end
   
-  def hide_unshown_slides
-    @props[(@current_slide + 1)..-1].each { |prop| prop.style.transparency = "100%" }
-    @props[(@current_slide - 1)..0].each { |prop| prop.style.transparency = "100%" }
+  def clear_sideshow
+    @canvas.remove_all
   end
   
   def increment_current_slide
-    @current_slide += 1 unless @current_slide >= (@props.length - 1)
+    @current_slide += 1 unless @current_slide >= (@slides.length - 1)
   end
   
   def decrement_current_slide
@@ -32,6 +33,6 @@ class Slideshow
   end
   
   def show_current_slide
-    @props[@current_slide].style.transparency = "0%"
+    @canvas.add @slides[@current_slide]
   end
 end

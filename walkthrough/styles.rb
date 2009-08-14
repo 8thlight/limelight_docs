@@ -33,11 +33,14 @@ next_button {
   background_color :white  
 }
 
-canvas {
-  border_width 1
-  border_color :black
+slideshow {
+  margin 20
+  background_color :black
+  gradient :on
 }
 
-step1 {
+directions {
+  font_face :helvetica
+  text_color :red
   font_size 28
 }
