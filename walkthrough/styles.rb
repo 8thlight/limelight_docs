@@ -34,13 +34,31 @@ next_button {
 }
 
 slideshow {
+  width "100%"
   margin 20
-  background_color :black
+  rounded_corner_radius 20
+  background_color "#fffa"
+  secondary_background_color "#fff6"
   gradient :on
+  gradient_angle 270
+  padding 10
+  horizontal_alignment :center
 }
 
 directions {
-  font_face :helvetica
-  text_color :red
-  font_size 28
+  width "100%"
+  horizontal_alignment :center
+  font_size 25
+  font_face "Arial Rounded MT Bold"
+  text_color "#666"
+  margin 25
+}
+
+directions_specific {
+  width "100%"
+  horizontal_alignment :center
+  font_size 14
+  font_face "Arial Rounded MT Bold"
+  text_color "#666"
+  margin 10
 }

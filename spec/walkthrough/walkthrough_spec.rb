@@ -33,4 +33,16 @@ describe "Walkthrough" do
       scene.find("previous").mouse_clicked(nil)
     end
   end
+  
+  describe "Link Clicked" do
+    
+    it "should call our new fancy method openURL with the url" do
+      link = scene.find("link")
+      
+      something.should_receive(:openURL).with("www.link.com")
+      
+      link.mouse_clicked(nil)
+    end
+    
+  end
 end
