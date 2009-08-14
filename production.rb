@@ -21,8 +21,8 @@ module Production
 #
 #  # Hook #3.  Called when the production, and all the scenes, have fully opened.
   def production_opened
-    @walkthrough = theater['default'].current_scene
-    @walkthrough.slideshow = Slideshow.new(@walkthrough.find("slideshow"))
+    # @walkthrough = theater['default'].current_scene
+    # @walkthrough.slideshow = Slideshow.new(@walkthrough.find("slideshow"))
   end
 #
 #  # The system will call this methods when it wishes to close the production, perhaps when the user quits the
