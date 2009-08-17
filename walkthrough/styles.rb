@@ -35,6 +35,7 @@ next_button {
 
 slideshow {
   width "100%"
+  horizontal_alignment :center
   margin 20
   rounded_corner_radius 20
   background_color "#fffa"
@@ -42,6 +43,10 @@ slideshow {
   gradient :on
   gradient_angle 270
   padding 10
+}
+
+slide {
+  width "100%"
   horizontal_alignment :center
 }
 
@@ -80,5 +85,11 @@ green_button {
 }
 
 code {
+  width "100%"
   font_face "Courier"
+  horizontal_alignment :center
+}
+
+screenshot {
+  horizontal_alignment :center
 }

@@ -3,5 +3,6 @@ module Link
   
   def mouse_clicked(e)
     launch(self.url)
+    scene.advance
   end
 end

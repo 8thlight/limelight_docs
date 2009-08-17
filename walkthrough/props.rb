@@ -9,13 +9,13 @@ slideshow :id => "slideshow" do
   end
   
   slide do
-    heading :text => "Installing JRuby"
+    heading :text => "1. Installing JRuby"
     directions :text => "Limelight is a JRuby application, and you'll need it installed and in your path in order to run.  The button below will take you to the JRuby website, where you can find the instructions."
     link :text => "Click Me", :url => "http://www.jruby.org", :styles => "green_button"
   end
 
   slide do
-    heading :text => "Verify Installation"
+    heading :text => "2. Verify Installation"
     directions :text => "When you've completed the installation go to your command prompt (cmd.exe on Windows - Terminal on a Mac) and type:"
     code :text => "jruby -V"
     directions :text => "If you see output like:"
@@ -25,7 +25,7 @@ slideshow :id => "slideshow" do
   end
 
   slide do
-    heading :text => "Installing Limelight"
+    heading :text => "3. Installing Limelight"
     directions :text => "The next order of business is to install the Limelight Gem.  In the command prompt you opened before type:"
     code :text => "jruby -S gem install limelight"
     directions :text => "On successful completion you should see a message like this:"
@@ -33,6 +33,16 @@ slideshow :id => "slideshow" do
     code :text => "1 gem installed"
     code :text => "Installing ri documentation for limelight-0.3.1-java..."
     code :text => "Installing RDoc documentation for limelight-0.3.1-java..."
+  end
+  
+  slide do
+    heading :text => "4. Your First Limelight App"
+    directions :text => "Now that you've installed the gem you can create your first limelight app.  At that same command prompt go to the directory of your choosing and type:"
+    code :text => "limelight create production hello_limelight"
+    directions :text => "Verify that the application was created correctly by then typing:" 
+    code :text => "limelight open hello_limelight"
+    directions :text => "If you see an application like this you're ready to get started: "
+    screenshot :image => "images/screenshot.jpg", :height => 300, :scaled => false, :players => "image"
   end
   
 end
