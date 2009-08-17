@@ -1,4 +1,4 @@
-# __ :background_image => "images/splash.png"
+
 header do
   logo :players => "image", :image => "images/logo.png"
 end
