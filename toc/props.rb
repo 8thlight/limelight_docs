@@ -1,4 +1,4 @@
-__ :name => "default_scene"
+__ :styles => "default_scene"
 header do
   logo :players => "image", :image => "images/logo.png"
 end

@@ -1,5 +1,9 @@
+# __ :background_image => "images/splash.png"
+header do
+  logo :players => "image", :image => "images/logo.png"
+end
+
 previous_button :id => "previous"
-logo
 next_button :id => "next"
 slideshow :id => "slideshow" do
   
