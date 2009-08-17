@@ -13,11 +13,8 @@ describe "Link Player" do
   
   it "should call openURL on its url" do
     link = MockLink.new
-    os = mock("Limelight OS")
-    instance = mock("Limelight OS instance", :os => os)
-    Java::limelight.Context.stub!(:instance).and_return(instance)
-
-    os.should_receive(:openURL).with("test url")
+    link.should_receive(:launch).with("test url")
+    
     link.mouse_clicked(nil)
   end
 end

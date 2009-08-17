@@ -45,7 +45,7 @@ slideshow {
   horizontal_alignment :center
 }
 
-directions {
+heading {
   width "100%"
   horizontal_alignment :center
   font_size 25
@@ -54,11 +54,31 @@ directions {
   margin 25
 }
 
-directions_specific {
+directions {
   width "100%"
   horizontal_alignment :center
   font_size 14
   font_face "Arial Rounded MT Bold"
   text_color "#666"
   margin 10
+}
+
+green_button {
+  width "100%"
+  font_size 28
+  horizontal_alignment :center
+  background_color "#59A615"
+  text_color :white
+  font_style :bold
+  font_face "Helvetica"
+  top_margin 25
+  top_padding 10
+  bottom_padding 10
+  left_margin 240
+  right_margin 240
+  rounded_corner_radius 15
+}
+
+code {
+  font_face "Courier"
 }
