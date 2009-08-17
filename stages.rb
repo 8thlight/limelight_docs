@@ -10,17 +10,17 @@
 #  end
 
 stage "default" do
-  default_scene "sandbox"
+  default_scene "toc"
   title "Limelight Documentation"
   location [200, 25]
   size [800, 800]
 end
 
-stage "devtool" do
-  default_scene "devtool"
-  title "Dev Tool"
-  location [50, 25]
-  size [100, 100]
-  background_color "transparent"
-  framed false
-end
+# stage "devtool" do
+#   default_scene "devtool"
+#   title "Dev Tool"
+#   location [50, 25]
+#   size [100, 100]
+#   background_color "transparent"
+#   framed false
+# end

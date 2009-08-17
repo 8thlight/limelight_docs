@@ -19,13 +19,6 @@ previous_button {
   background_color :blue
 }
 
-logo {
-  background_image "images/logo.png"
-  width 450
-  right_margin 50
-  height 110
-}
-
 next_button {
   width 150
   height 100
@@ -43,15 +36,6 @@ slideshow {
   gradient_angle 270
   padding 10
   horizontal_alignment :center
-}
-
-heading {
-  width "100%"
-  horizontal_alignment :center
-  font_size 25
-  font_face "Arial Rounded MT Bold"
-  text_color "#666"
-  margin 25
 }
 
 directions {
