@@ -13,22 +13,11 @@ walkthrough {
 }
 
 previous_button {
-  width 150
-  height 100
-  right_margin 50 
-  background_color :blue
+  width "91%"
 }
 
-next_button {
-  width 150
-  height 100
-  left_margin 50
-  background_color :white  
-}
-
-slide {
+canvas {
   width "100%"
-  horizontal_alignment :center
   margin 20
   rounded_corner_radius 20
   background_color "#fffa"
@@ -39,36 +28,44 @@ slide {
 }
 
 directions {
-  width "100%"
-  horizontal_alignment :center
   font_size 14
   font_face "Arial Rounded MT Bold"
   text_color "#666"
   margin 10
 }
 
-green_button {
+jruby_button {
   width "100%"
-  font_size 28
   horizontal_alignment :center
+}
+
+green_button {
+  font_size 28
   background_color "#59A615"
   text_color :white
   font_style :bold
   font_face "Helvetica"
-  top_margin 25
+  top_margin 10
+  top_padding 7
+  bottom_padding 7
+  left_padding 15
+  right_padding 15
+  rounded_corner_radius 12
+}
+
+codeblock {
+  width "100%"
   top_padding 10
   bottom_padding 10
-  left_margin 240
-  right_margin 240
-  rounded_corner_radius 15
+  left_padding 30
 }
 
 code {
   width "100%"
-  font_face "Courier"
-  horizontal_alignment :center
+  font_face "Terminal"
 }
 
-screenshot {
+screenshot_div {
+  width "100%"
   horizontal_alignment :center
 }
