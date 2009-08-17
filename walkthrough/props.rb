@@ -1,12 +1,10 @@
-# __ :background_image => "images/splash.png"
 header do
   logo :players => "image", :image => "images/logo.png"
 end
 
 previous_button :id => "previous"
-next_button :id => "next"
-slideshow :id => "slideshow" do
-  
+next_button :id => "next", :players => "image", :image => "images/next.png"
+slideshow :id => "slideshow" do  
   slide do
     heading :text => "Developing In Limelight"
     directions :text => "So you've seen Limelight and now you want to develop in it.  You're one of the cool kids.  Now let's get you started.  To follow this tutorial simply click the next button in the top right corner and follow the directions on each page.  Some pages will have slides to verify that your system is setup properly, so make sure you follow all of the direcitons."
