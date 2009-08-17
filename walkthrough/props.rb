@@ -26,7 +26,7 @@ slideshow :id => "slideshow" do
 
   slide do
     heading :text => "3. Installing Limelight"
-    directions :text => "The next order of business is to install the Limelight Gem.  In the command prompt you opened before type:"
+      directions :text => "The next order of business is to install the Limelight Gem.  In the command prompt you opened before type:"
     code :text => "jruby -S gem install limelight"
     directions :text => "On successful completion you should see a message like this:"
     code :text => "Successfully installed limelight-0.3.1-java"

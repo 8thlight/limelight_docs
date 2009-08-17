@@ -33,7 +33,7 @@ next_button {
   background_color :white  
 }
 
-slideshow {
+slide {
   width "100%"
   horizontal_alignment :center
   margin 20
@@ -43,11 +43,6 @@ slideshow {
   gradient :on
   gradient_angle 270
   padding 10
-}
-
-slide {
-  width "100%"
-  horizontal_alignment :center
 }
 
 heading {
