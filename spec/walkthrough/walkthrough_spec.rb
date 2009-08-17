@@ -4,11 +4,14 @@ require 'slideshow'
 describe "Walkthrough" do
   uses_scene :walkthrough
   
+  before(:each) do
+    @slideshow = mock(Slideshow, :slide => @prop)
+    scene.slideshow = @slideshow
+  end
+  
   describe "Previous and Next Buttons" do
     before(:each) do
       @prop = Limelight::Prop.new
-      @slideshow = mock(Slideshow, :slide => @prop)
-      scene.slideshow = @slideshow
     end
 
     describe "Next Button Clicked" do
@@ -34,7 +37,28 @@ describe "Walkthrough" do
       end
     end
   end
+  
+  describe "Link" do
+    before(:each) do
+      @link = scene.find_by_name("link")[0]
+      @link.stub!(:launch)
+      @slideshow.stub!(:next)
+    end
+    
+    it "should call launch when clicked on its url" do
+      @link.url = "test url"
+      @link.should_receive(:launch).with("test url")
 
+      @link.mouse_clicked(nil)
+    end
+
+    it "should advance to the next scene" do
+      scene.should_receive(:advance)
+    
+      @link.mouse_clicked(nil)    
+    end
+  end
+  
 # It is 8/17/09.  If the verify button doesn't come back in a week or two - delete these specs and the corresponding prop 
 #  describe "Verify Button Clicked" do
 #    before(:each) do
