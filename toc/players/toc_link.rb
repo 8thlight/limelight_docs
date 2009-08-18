@@ -5,7 +5,6 @@ module TocLink
     
     pane.remove_all
     
-    puts "self.scene_file: #{self.scene_file}"
     the_scene = self.scene_file
     pane.build do
       __install the_scene

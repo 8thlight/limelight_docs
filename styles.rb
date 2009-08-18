@@ -17,5 +17,4 @@ heading {
   font_size 25
   font_face "Arial Rounded MT Bold"
   text_color "#666"
-  margin 25
 }

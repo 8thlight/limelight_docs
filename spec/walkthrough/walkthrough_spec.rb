@@ -6,7 +6,7 @@ describe "Walkthrough" do
   
   before(:each) do
     @slideshow = mock(Slideshow, :slide => @prop)
-    scene.slideshow = @slideshow
+    Slideshow.stub!(:new).and_return(@slideshow)
   end
   
   describe "Previous and Next Buttons" do

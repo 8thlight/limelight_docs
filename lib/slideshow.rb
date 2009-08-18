@@ -1,8 +1,9 @@
 class Slideshow
   
-  def initialize(canvas)
+  def initialize(canvas, previous_button, next_button)
     @canvas = canvas
     @slides = canvas.children
+    @previous_button = previous_button
     clear_sideshow
     @current_slide = 0
     show_current_slide
