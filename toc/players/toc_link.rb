@@ -9,8 +9,6 @@ module TocLink
     pane.build do
       __install the_entrance
     end
-    
-    scene.the_context = scene.find("walkthrough")
   end
   
 end

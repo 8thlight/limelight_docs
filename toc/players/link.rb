@@ -3,6 +3,6 @@ module Link
   
   def mouse_clicked(e)
     launch(self.url)
-    scene.advance
+    scene.find("slideshow").next
   end
 end

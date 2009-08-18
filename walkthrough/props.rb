@@ -15,6 +15,7 @@ walkthrough :id => "walkthrough" do
       jruby_button do
         link :text => "Click Me", :url => "http://www.jruby.org", :styles => "green_button"
       end
+    end
       
     slide do
       heading :text => "2. Verify Installation"
@@ -112,5 +113,6 @@ walkthrough :id => "walkthrough" do
         screenshot :image => "images/screenshot2.jpg", :players => "image"
       end
     end
+    
   end
 end

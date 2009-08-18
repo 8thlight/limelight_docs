@@ -1,6 +1,6 @@
 module NextButton
   
   def mouse_clicked(event)
-    scene.the_context.advance
+    scene.find("slideshow").next
   end
 end

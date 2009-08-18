@@ -1,6 +1,6 @@
 module PreviousButton
   
   def mouse_clicked(event)
-    scene.the_context.reverse
+    scene.find("slideshow").previous
   end
 end

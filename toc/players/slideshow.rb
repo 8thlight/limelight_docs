@@ -1,10 +1,10 @@
-class Slideshow
-  
-  def initialize(canvas, previous_button, next_button)
-    @canvas = canvas
-    @slides = canvas.children
-    @previous_button = previous_button
-    @next_button = next_button
+module Slideshow
+
+  def casted
+    @current_slide = 0
+    @slides = self.children
+    @previous_button = scene.find("previous")
+    @next_button = scene.find("next")
     update_slideshow { @current_slide = 0 }
   end
   
@@ -24,7 +24,7 @@ class Slideshow
   end
   
   def clear_sideshow
-    @canvas.remove_all
+    self.remove_all
   end
   
   def increment_current_slide
@@ -36,7 +36,7 @@ class Slideshow
   end
   
   def show_current_slide
-    @canvas.add @slides[@current_slide]
+    self.add @slides[@current_slide]
   end
   
   def update_arrows

@@ -1,57 +1,69 @@
-require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
-require 'slideshow'
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'toc/players/slideshow'
+
+class TestSlideshow < Limelight::Prop
+  attr_accessor :scene
+  
+  include Slideshow
+  
+end
 
 describe "Slideshow" do
   
   before(:each) do
-    @parent_prop = Limelight::Prop.new
+    @slideshow = TestSlideshow.new
+    
     @prop1 = Limelight::Prop.new
     @prop2 = Limelight::Prop.new
-    @parent_prop << @prop1 << @prop2
+    @prop3 = Limelight::Prop.new
+    @slideshow << @prop1 << @prop2 << @prop3
     
     @previous_button = Limelight::Prop.new
     @next_button = Limelight::Prop.new
+    @scene = mock(Limelight::Scene, :null_object => true)
+    @scene.stub!(:find).with("previous").and_return(@previous_button)
+    @scene.stub!(:find).with("next").and_return(@next_button)
+    @slideshow.scene = @scene
+    
+    @slideshow.casted
   end
   
   describe "Two Slides in the slideshow" do
-    before(:each) do
-      @slideshow = Slideshow.new(@parent_prop, @previous_button, @next_button)
-    end
-    
     it "should make the next slide visible on next" do
       @slideshow.next
 
-      @parent_prop.children.length.should == 1
-      @parent_prop.children[0].should == @prop2
+      @slideshow.children.length.should == 1
+      @slideshow.children[0].should == @prop2
     end
 
     it "should halt at the end if you try to advance past it" do
       @slideshow.next
       @slideshow.next
-
-      @parent_prop.children.length.should == 1
-      @parent_prop.children[0].should == @prop2
+      @slideshow.next
+  
+      @slideshow.children.length.should == 1
+      @slideshow.children[0].should == @prop3
     end
-
+  
     it "should move backwards with previous" do
       @slideshow.next
       @slideshow.previous
-
-      @parent_prop.children.length.should == 1
-      @parent_prop.children[0].should == @prop1
+  
+      @slideshow.children.length.should == 1
+      @slideshow.children[0].should == @prop1
     end
-
+  
     it "should not move past 0" do
       @slideshow.next
       @slideshow.previous
       @slideshow.previous
-
-      @parent_prop.children.length.should == 1
-      @parent_prop.children[0].should == @prop1
+  
+      @slideshow.children.length.should == 1
+      @slideshow.children[0].should == @prop1
     end
     
-    it "should make the previous prop transparent on init" do
-      # @previous_button.style.transparency.should == "100%"
+    it "should make the previous button prop transparent on casting" do
+      @previous_button.style.transparency.should == "100%"
     end
     
     it "should show the previous prop when it is available" do
@@ -69,6 +81,7 @@ describe "Slideshow" do
     
     it "should hide the next button when it reaches the end of the slideshow" do
       @slideshow.next
+      @slideshow.next
       
       @next_button.style.transparency.should == "100%"
     end
@@ -85,26 +98,4 @@ describe "Slideshow" do
     end
   end
   
-  describe "Add a third Slide" do
-    before(:each) do
-      @prop3 = Limelight::Prop.new
-      @parent_prop.add @prop3
-      
-      @slideshow = Slideshow.new(@parent_prop, @previous_button, @next_button)
-    end
-    
-    it "should add the first prop to the slideshow, and remove all other props on creation" do
-      @parent_prop.children.length.should == 1
-      @parent_prop.children[0].should == @prop1
-    end
-
-    it "should remove all other props on moving" do
-      @parent_prop.add @prop3
-      
-      @slideshow.next
-
-      @parent_prop.children.length.should == 1
-      @parent_prop.children[0].should == @prop2
-    end
-  end
 end
