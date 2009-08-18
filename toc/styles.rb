@@ -1,5 +1,4 @@
 toc {
-  # extends "default_scene"
   width "100%"
   height "100%"
   top_padding 20
@@ -25,4 +24,10 @@ toc_link {
   width "100%"
   left_padding 8
   top_padding 8
+  font_size 14
+  font_face "Arial Rounded MT Bold"
+  text_color "#666"
+  hover {
+    text_color "#000"
+  }
 }

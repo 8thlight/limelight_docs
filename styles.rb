@@ -3,14 +3,6 @@ header {
   horizontal_alignment :center
 }
 
-default_scene {
-  width "100%"
-  height "100%"
-  top_padding 20
-  left_padding 20
-  background_image "images/splash.png"
-}
-
 heading {
   width "100%"
   horizontal_alignment :center
@@ -26,7 +18,7 @@ canvas {
   secondary_background_color "#fff6"
   gradient :on
   gradient_angle 270
-  bottom_padding 15
+  padding 15
   left_margin 15
 }
 
@@ -34,7 +26,6 @@ directions {
   font_size 14
   font_face "Arial Rounded MT Bold"
   text_color "#666"
-  margin 10
 }
 
 jruby_button {
@@ -65,7 +56,8 @@ codeblock {
 
 code {
   width "100%"
-  font_face "Terminal"
+  font_face "Courier New"
+  font_size 10
 }
 
 previous_button {
