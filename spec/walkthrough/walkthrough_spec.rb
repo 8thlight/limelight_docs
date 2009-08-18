@@ -19,7 +19,7 @@ describe "Walkthrough" do
         @slideshow.stub!(:next)
       end
 
-      it "should advance the naviagtor" do
+      it "should advance the navigator" do
         @slideshow.should_receive(:next)
         scene.find("next").mouse_clicked(nil)
       end
