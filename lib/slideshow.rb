@@ -1,8 +1,9 @@
 class Slideshow
   
-  def initialize(canvas)
+  def initialize(canvas, previous_button, next_button)
     @canvas = canvas
     @slides = canvas.children
+    @previous_button = previous_button
     clear_sideshow
     @current_slide = 0
     show_current_slide
@@ -18,14 +19,6 @@ class Slideshow
     clear_sideshow
     decrement_current_slide
     show_current_slide
-  end
-  
-  def has_previous?
-    return @current_slide > 0
-  end
-  
-  def has_next?
-    return @current_slide < (@slides.length - 1)
   end
   
   def clear_sideshow
