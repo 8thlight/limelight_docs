@@ -10,4 +10,5 @@ module Walkthrough
   def reverse
     @slideshow.previous  
   end
+  
 end

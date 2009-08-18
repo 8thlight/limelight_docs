@@ -15,8 +15,7 @@ walkthrough :id => "walkthrough" do
       jruby_button do
         link :text => "Click Me", :url => "http://www.jruby.org", :styles => "green_button"
       end
-    end
-
+      
     slide do
       heading :text => "2. Verify Installation"
       directions :text => "When you've completed the installation go to your command prompt (cmd.exe on Windows - Terminal on a Mac) and type:"
@@ -112,7 +111,6 @@ walkthrough :id => "walkthrough" do
       screenshot_div do
         screenshot :image => "images/screenshot2.jpg", :players => "image"
       end
-      directions :text => "Congratulations!  You've made your first Limelight application.  Now why don't you start by tweaking that app to look pretty?"
     end
   end
 end

@@ -54,12 +54,35 @@ describe "Slideshow" do
       # @previous_button.style.transparency.should == "100%"
     end
     
-    # it "should show the previous prop when it is available" do
-    #   @slideshow.next
-    #   
-    #   @previous_button.style.transparency.should == "0%"
-    # end
+    it "should show the previous prop when it is available" do
+      @slideshow.next
+      
+      @previous_button.style.transparency.should == "0%"
+    end
     
+    it "should hide the previous prop when it is no longer available" do
+      @slideshow.next
+      @slideshow.previous
+      
+      @previous_button.style.transparency.should == "100%"
+    end
+    
+    it "should hide the next button when it reaches the end of the slideshow" do
+      @slideshow.next
+      
+      @next_button.style.transparency.should == "100%"
+    end
+    
+    it "should show the next button on init" do
+      @next_button.style.transparency.should == "0%"
+    end
+    
+    it "should show the next button after going backwards again" do
+      @slideshow.next
+      @slideshow.previous
+      
+      @next_button.style.transparency.should == "0%"
+    end
   end
   
   describe "Add a third Slide" do
