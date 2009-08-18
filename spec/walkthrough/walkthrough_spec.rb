@@ -1,9 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require 'slideshow'
- 
-describe "Walkthrough" do
-  uses_scene :walkthrough
-  
+
+describe "Walkthrough" do  
   before(:each) do
     @slideshow = mock(Slideshow, :slide => @prop)
     Slideshow.stub!(:new).and_return(@slideshow)

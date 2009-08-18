@@ -1,6 +1,6 @@
 module PreviousButton
   
   def mouse_clicked(event)
-    scene.reverse
+    scene.the_context.reverse
   end
 end

@@ -1,8 +1,6 @@
 header do
   logo :players => "image", :image => "images/logo.png"
 end
-
-
   
 table_of_contents do
   heading :text => "Contents"
@@ -11,5 +9,3 @@ table_of_contents do
 end
 
 content_pane :id => "content_pane"
-
-

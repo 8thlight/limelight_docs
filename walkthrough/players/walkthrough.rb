@@ -1,6 +1,6 @@
 module Walkthrough
   def casted
-    @slideshow = Slideshow.new(find("slideshow"), find("previous"), find("next"))
+    @slideshow = Slideshow.new(scene.find("slideshow"), scene.find("previous"), scene.find("next"))
   end
   
   def advance

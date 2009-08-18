@@ -14,7 +14,7 @@ class Slideshow
     increment_current_slide
     show_current_slide
   end
-    
+  
   def previous
     clear_sideshow
     decrement_current_slide
