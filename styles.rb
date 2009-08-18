@@ -21,13 +21,13 @@ heading {
 
 canvas {
   width "100%"
-  margin 20
   rounded_corner_radius 20
   background_color "#fffa"
   secondary_background_color "#fff6"
   gradient :on
   gradient_angle 270
-  padding 10
+  bottom_padding 15
+  left_margin 15
 }
 
 directions {
@@ -69,7 +69,7 @@ code {
 }
 
 previous_button {
-  width "91%"
+  width "85%"
 }
 
 screenshot_div {

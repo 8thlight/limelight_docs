@@ -1,4 +1,4 @@
-walkthrough :id => "walkthrough" do
+walkthrough :id => "walkthrough", :styles => "canvas" do
   previous_button(:id => "previous", :players => "image", :image => "images/previous.png", :scaled => false)
   next_button :id => "next", :players => "image", :image => "images/next.png", :scaled => false
 

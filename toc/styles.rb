@@ -18,7 +18,7 @@ table_of_contents {
 }
 
 content_pane {
-  width "500"
+  width "562"
 }
 
 toc_link {
