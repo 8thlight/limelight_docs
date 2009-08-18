@@ -4,20 +4,22 @@ class Slideshow
     @canvas = canvas
     @slides = canvas.children
     @previous_button = previous_button
-    clear_sideshow
-    @current_slide = 0
-    show_current_slide
+    @next_button = next_button
+    update_slideshow { @current_slide = 0 }
   end
   
   def next
-    clear_sideshow
-    increment_current_slide
-    show_current_slide
+    update_slideshow { increment_current_slide }
   end
     
   def previous
+    update_slideshow { decrement_current_slide }
+  end
+  
+  def update_slideshow
     clear_sideshow
-    decrement_current_slide
+    yield
+    update_arrows
     show_current_slide
   end
   
@@ -26,14 +28,43 @@ class Slideshow
   end
   
   def increment_current_slide
-    @current_slide += 1 unless @current_slide >= (@slides.length - 1)
+    @current_slide += 1 unless at_end?
   end
   
   def decrement_current_slide
-    @current_slide -= 1 unless @current_slide <= 0
+    @current_slide -= 1 unless at_beginning?
   end
   
   def show_current_slide
     @canvas.add @slides[@current_slide]
+  end
+  
+  def update_arrows
+    update_previous_button
+    update_next_button
+  end
+  
+  def update_previous_button
+    if at_beginning?
+      @previous_button.style.transparency = "100%"
+    else
+      @previous_button.style.transparency = "0%"
+    end
+  end
+  
+  def update_next_button
+    if at_end?
+      @next_button.style.transparency = "100%"
+    else
+      @next_button.style.transparency = "0%"
+    end
+  end
+  
+  def at_end?
+    @current_slide >= (@slides.length - 1)
+  end
+  
+  def at_beginning?
+    @current_slide <= 0
   end
 end
