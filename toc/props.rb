@@ -10,8 +10,6 @@ table_of_contents do
   toc_link :text => "Sandbox", :scene_file => "sandbox/props.rb"
 end
 
-content_pane :id => "content_pane" do
-  heading :text => "Replace content here"
-end
+content_pane :id => "content_pane"
 
 
