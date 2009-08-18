@@ -46,6 +46,25 @@ describe "Slideshow" do
       @parent_prop.children.length.should == 1
       @parent_prop.children[0].should == @prop1
     end
+    
+    it "should start with has_previous to false" do
+      @slideshow.has_previous?.should be_false
+    end
+    
+    it "should have a previous once the slideshow has advanced" do
+      @slideshow.next
+      @slideshow.has_previous?.should be_true
+    end
+    
+    it "should have a next when the slideshow has not moved" do
+      @slideshow.has_next?.should be_true
+    end
+    
+    it "should not have a next when the slideshow moves to the end" do
+      @slideshow.next
+      @slideshow.has_next?.should be_false
+    end
+    
   end
   
   describe "Add a third Slide" do

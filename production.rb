@@ -24,10 +24,6 @@ module Production
   def production_opened
     #TODO - JTS - Inject this dependency from the TOC
     @walkthrough = theater['default'].current_scene
-    
-    puts "@walkthrough.class: #{@walkthrough.class}"
-    p @walkthrough
-    @walkthrough.slideshow = Slideshow.new(@walkthrough.find("slideshow"))
   end
 #
 #  # The system will call this methods when it wishes to close the production, perhaps when the user quits the

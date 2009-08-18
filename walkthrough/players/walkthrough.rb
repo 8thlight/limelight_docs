@@ -1,5 +1,8 @@
 module Walkthrough
-  attr_accessor :slideshow
+  def casted
+    @slideshow = Slideshow.new(find("slideshow"), find("previous"), find("next"))
+    puts "@slideshow: #{@slideshow}"
+  end
   
   def advance
     @slideshow.next

@@ -20,6 +20,14 @@ class Slideshow
     show_current_slide
   end
   
+  def has_previous?
+    return @current_slide > 0
+  end
+  
+  def has_next?
+    return @current_slide < (@slides.length - 1)
+  end
+  
   def clear_sideshow
     @canvas.remove_all
   end

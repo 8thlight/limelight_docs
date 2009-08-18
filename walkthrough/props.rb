@@ -3,7 +3,7 @@ header do
 end
 
 canvas do
-  previous_button :id => "previous", :players => "image", :image => "images/previous.png", :scaled => false
+  previous_button(:id => "previous", :players => "image", :image => "images/previous.png", :scaled => false)
   next_button :id => "next", :players => "image", :image => "images/next.png", :scaled => false
 
   slideshow :id => "slideshow" do  
