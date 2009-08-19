@@ -7,7 +7,7 @@ module SandboxButton
       begin
         eval(code.text)
       rescue Exception => e
-        prop :text => e.message
+        prop :text => e.message.gsub('(eval):1: ', "Syntax error: ")
       end
     end
   end
