@@ -9,6 +9,7 @@ heading {
   font_size 25
   font_face "Arial Rounded MT Bold"
   text_color "#666"
+  bottom_padding 10
 }
 
 canvas {
@@ -56,7 +57,7 @@ green_button {
   rounded_corner_radius 12
   
   hover {
-    text_color :black
+    text_color "#9CFF88"
   }
 }
 
@@ -78,10 +79,10 @@ navigation {
 }
 
 navigation_button {
+  
 }
 
 previous_button {
-  extends :navigation_button
   horizontal_alignment :left
 }
 
