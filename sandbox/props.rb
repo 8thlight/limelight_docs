@@ -1,4 +1,4 @@
-canvas :id => "directions", :height => "200", :vertical_scrollbar => :on do
+canvas :id => "directions", :height => "290", :vertical_scrollbar => :on do
   directions_text :text => "Props are the fundamental building blocks of a Scene. They form a tree structure where one Prop may contain other Props. In fact, the Scene is itself a Prop that is the root of all Props within it.\n"
   directions_text :text => "The syntax to define Props is as simple as possible. Limelight provides a DSL, or simple syntax, for building Props."
   
