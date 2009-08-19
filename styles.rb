@@ -22,6 +22,15 @@ canvas {
   left_margin 15
 }
 
+walkthrough {
+  extends :canvas
+  height 600
+}
+
+slide {
+  height "100%"
+}
+
 directions {
   font_size 14
   font_face "Arial Rounded MT Bold"
@@ -45,6 +54,10 @@ green_button {
   left_padding 15
   right_padding 15
   rounded_corner_radius 12
+  
+  hover {
+    text_color :black
+  }
 }
 
 codeblock {
@@ -60,11 +73,25 @@ code {
   font_size 10
 }
 
+navigation {
+  width "100%"
+}
+
+navigation_button {
+}
+
 previous_button {
-  width "85%"
+  extends :navigation_button
+  horizontal_alignment :left
+}
+
+next_button {
+  width 450
+  horizontal_alignment :right
 }
 
 screenshot_div {
   width "100%"
+  top_padding 15
   horizontal_alignment :center
 }
