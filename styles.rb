@@ -9,6 +9,7 @@ heading {
   font_size 25
   font_face "Arial Rounded MT Bold"
   text_color "#666"
+  bottom_padding 10
 }
 
 canvas {
@@ -20,6 +21,15 @@ canvas {
   gradient_angle 270
   padding 15
   left_margin 15
+}
+
+walkthrough {
+  extends :canvas
+  height 600
+}
+
+slide {
+  height "100%"
 }
 
 directions {
@@ -51,6 +61,10 @@ green_button {
   left_padding 15
   right_padding 15
   rounded_corner_radius 12
+  
+  hover {
+    text_color "#9CFF88"
+  }
 }
 
 codeblock {
@@ -66,11 +80,25 @@ code {
   font_size 10
 }
 
+navigation {
+  width "100%"
+}
+
+navigation_button {
+  
+}
+
 previous_button {
-  width "85%"
+  horizontal_alignment :left
+}
+
+next_button {
+  width 450
+  horizontal_alignment :right
 }
 
 screenshot_div {
   width "100%"
+  top_padding 15
   horizontal_alignment :center
 }
