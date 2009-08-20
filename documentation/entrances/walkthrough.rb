@@ -191,7 +191,7 @@ walkthrough do
     
     slide do
       heading :text => "11. Your Turn"
-      directions :text => "Congratulations!  You've created your first limelight application.  Feel free to play and experiment with it, and when your ready head to the next tutorial."
+      directions :text => "Congratulations!  You've created your first limelight application.  Feel free to play and experiment with it, and when you're ready head to the next tutorial."
     end
   end
 end

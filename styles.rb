@@ -45,6 +45,11 @@ directions_text {
   bottom_margin "8"
 }
 
+line_break {
+  width "100%"
+  bottom_padding 10
+}
+
 jruby_button {
   width "100%"
   horizontal_alignment :center
