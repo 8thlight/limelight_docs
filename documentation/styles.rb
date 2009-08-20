@@ -20,13 +20,24 @@ content_pane {
   width "562"
 }
 
-toc_link {
+toc_item {
   width "100%"
-  left_padding 8
-  top_padding 8
-  font_size 14
   font_face "Arial Rounded MT Bold"
   text_color "#666"
+}
+
+toc_heading {
+  extends :toc_item
+  font_size 16
+  left_padding 8
+  top_padding 8
+}
+
+toc_link {
+  extends :toc_item
+  font_size 12
+  left_padding 16
+  top_padding 4
   hover {
     text_color "#000"
   }
