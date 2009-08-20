@@ -3,7 +3,7 @@ class Entrance
     pane = scene.find("content_pane")    
     pane.remove_all
     
-    the_entrance = "#{name}/props.rb"
+    the_entrance = "toc/entrances/#{name}.rb"
     pane.build do
       __install the_entrance
     end
