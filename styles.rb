@@ -38,6 +38,13 @@ directions {
   text_color "#666"
 }
 
+directions_text {
+  font_size 10
+  font_face "Arial Rounded MT Bold"
+  text_color "#666"
+  bottom_margin "8"
+}
+
 jruby_button {
   width "100%"
   horizontal_alignment :center

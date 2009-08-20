@@ -1,4 +1,7 @@
-canvas :id => "directions", :height => "200", :vertical_scrollbar => :on do
+canvas :id => "directions", :height => "290", :vertical_scrollbar => :on do
+  directions_text :text => "Props are the fundamental building blocks of a Scene. They form a tree structure where one Prop may contain other Props. In fact, the Scene is itself a Prop that is the root of all Props within it.\n"
+  directions_text :text => "The syntax to define Props is as simple as possible. Limelight provides a DSL, or simple syntax, for building Props."
+  
   directions :text => "To create a new prop:"
   codeblock do
     code :text => "prop :text => 'show me! '"
@@ -13,10 +16,7 @@ canvas :id => "directions", :height => "200", :vertical_scrollbar => :on do
   
   directions :text => "Setting styles on a prop:"
   codeblock do
-    code :text => "prop :id => 'parent', :border_color => 'red', :border_width => '1' do"
-    code :text => "  prop :id => 'child', :border_color => 'blue', :border_width => '1',"
-    code :text => "                       :margin => '3', :text => 'I am a child'"
-    code :text => "end"
+    code :text => "prop :width => '100', :height => '100', :border_color => 'red', :border_width => '1', :text => 'With some bad style'"
   end
 end
 
