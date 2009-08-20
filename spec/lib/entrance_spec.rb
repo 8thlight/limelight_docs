@@ -21,4 +21,12 @@ describe Entrance do
     
     Entrance.cue(@scene, "walkthrough")
   end
+  
+  it "should install common partial" do
+    Entrance.should_receive(:__install).with("documentation/common/sandbox.rb")
+    @content_pane.should_receive(:build).and_yield
+    
+    Entrance.cue_common(@scene, "sandbox")
+  end
+  
 end

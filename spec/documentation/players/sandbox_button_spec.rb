@@ -5,7 +5,7 @@ describe "SandboxButton" do
   uses_scene :documentation
   
   before(:each) do
-    Entrance.cue scene, :sandbox
+    Entrance.cue_common scene, :sandbox
     
     @canvas = scene.find('canvas')
     @code = scene.find('code')
