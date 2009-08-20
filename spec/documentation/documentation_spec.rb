@@ -16,8 +16,8 @@ describe "Documentation" do
       @link.mouse_clicked(nil)
     end  
         
-    it "should install the specified scene file" do
-      @link.entrance = "walkthrough"
+    it "should install the specified entrance file" do
+      @link.entrance = "getting_started"
       
       @link.mouse_clicked(nil)
       
