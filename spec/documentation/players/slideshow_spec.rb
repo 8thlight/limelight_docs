@@ -1,5 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
-require 'toc/players/slideshow'
+require 'documentation/players/slideshow'
 
 class TestSlideshow < Limelight::Prop
   attr_accessor :scene

@@ -16,7 +16,7 @@ describe Entrance do
   end
   
   it "should install the specified scene file" do
-    Entrance.should_receive(:__install).with("toc/entrances/walkthrough.rb")
+    Entrance.should_receive(:__install).with("documentation/entrances/walkthrough.rb")
     @content_pane.should_receive(:build).and_yield
     
     Entrance.cue(@scene, "walkthrough")

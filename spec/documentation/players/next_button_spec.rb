@@ -1,5 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
-require 'toc/players/next_button'
+require 'documentation/players/next_button'
 
 class TestNextButton < Limelight::Prop
   attr_accessor :scene

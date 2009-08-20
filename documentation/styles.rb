@@ -1,4 +1,4 @@
-toc {
+documentation {
   width "100%"
   height "100%"
   top_padding 20

@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
-describe "Toc" do
-  uses_scene :toc
+describe "Documentation" do
+  uses_scene :documentation
   
   describe "toc_link" do
 

@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'entrance'
 
 describe "SandboxButton" do
-  uses_scene :toc
+  uses_scene :documentation
   
   before(:each) do
     Entrance.cue scene, :sandbox
