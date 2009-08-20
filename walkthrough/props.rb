@@ -1,7 +1,9 @@
 walkthrough do
-  navigation do
-    previous_button :id => "previous", :players => "image", :image => "images/previous.png", :scaled => false
-    next_button :id => "next", :players => "image", :image => "images/next.png", :scaled => false
+  left_navigation :width => "50%", :horizontal_alignment => :left do
+    previous_button :id => "previous"
+  end
+  right_navigation :width => "50%", :horizontal_alignment => :right do
+    next_button :id => "next"
   end
 
   slideshow :id => "slideshow" do  

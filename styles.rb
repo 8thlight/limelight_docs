@@ -81,9 +81,6 @@ code {
   font_size 10
 }
 
-navigation {
-  width "100%"
-}
 
 navigation_buttons {
   width 62
@@ -98,8 +95,6 @@ previous_button {
 next_button {
   extends :navigation_buttons
   background_image "images/next.png"
-  horizontal_alignment :right
-  left_margin 100
 }
 
 screenshot_div {
