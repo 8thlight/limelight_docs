@@ -1,29 +1,60 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
-require 'toc/players/sandbox_button'
 
-class TestSandboxButton < Limelight::Prop  
-  include SandboxButton
+class Entrance
+  def self.cue(scene, name)
+    pane = scene.find("content_pane")    
+    pane.remove_all
+    
+    the_entrance = "#{name}/props.rb"
+    pane.build do
+      __install the_entrance
+    end
+  end
 end
 
-
 describe "SandboxButton" do
+  uses_scene :toc
+  
   before(:each) do
-    @scene = mock("Scene", :find => @slideshow, :null_object => true)
-    @sandbox_button = TestSandboxButton.new
-    @sandbox_button.scene = @scene
+    Entrance.cue scene, :sandbox
+    
+    @canvas = scene.find('canvas')
+    @code = scene.find('code')
+    @sandbox_button = scene.find('sandbox_button')
   end
   
-  # it "should call launch when clicked on its url" do
-  #   @link.url = "test url"
-  #   @link.should_receive(:launch).with("test url")
-  # 
-  #   @link.mouse_clicked(nil)
-  # end
-  # 
-  # it "should advance to the next scene" do
-  #   @slideshow.should_receive(:next)
-  #   @scene.should_receive(:find).with("slideshow").and_return(@slideshow)
-  # 
-  #   @link.mouse_clicked(nil)    
-  # end
+  it "should clear the canvas" do
+    prop = Limelight::Prop.new
+    @canvas << prop
+    
+    @sandbox_button.button_pressed(nil)
+    
+    @canvas.children.should_not include(prop)
+  end
+  
+  it "should execute the text in the code prop" do
+    @code.text = "prop :id => 'my_prop'"
+    
+    @sandbox_button.button_pressed(nil)
+    
+    scene.find('my_prop').should_not be_nil
+  end
+  
+  it "should do error handling on the eval" do
+    @code.text = "fjfjfj do"
+
+    @sandbox_button.button_pressed(nil)
+    
+    scene.find('error').should_not be_nil
+  end
+  
+  it "should display a prettied up error message" do
+    @code.text = "fjfjfj do"
+    
+    @sandbox_button.button_pressed(nil)
+    
+    scene.find('error').text.should match(/^Syntax error: .*/)
+    scene.find('error').text.should_not include("eval")
+  end
+  
 end

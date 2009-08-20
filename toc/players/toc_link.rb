@@ -6,6 +6,7 @@ module TocLink
     pane.remove_all
     
     the_entrance = self.scene_file
+    
     pane.build do
       __install the_entrance
     end
