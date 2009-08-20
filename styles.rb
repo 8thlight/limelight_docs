@@ -78,7 +78,7 @@ codeblock {
 code {
   width "100%"
   font_face "Courier New"
-  font_size 10
+  font_size 12
 }
 
 

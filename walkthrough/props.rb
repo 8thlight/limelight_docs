@@ -9,7 +9,7 @@ walkthrough do
   slideshow :id => "slideshow" do  
     slide do
       heading :text => "Developing In Limelight"
-      directions :text => "So you've seen Limelight and now you want to develop in it.  You're one of the cool kids.  Let's get you started.  To follow this tutorial simply click the next arrow in the top right corner and follow the directions on each page.  Click the arrow to get started."
+      directions :text => "So you've seen Limelight and now you want to develop in it.  You're one of the cool kids.  Let's get you started.  To follow this tutorial simply click the next arrow in the top right corner and follow the directions on each page."
     end
 
     slide do
@@ -39,17 +39,17 @@ walkthrough do
 
     slide do
       heading :text => "3. Installing Limelight"
-      directions :text => "The next order of business is to install the Limelight Gem.  In the command prompt you opened before type:"
+      directions :text => "Next we need toto install the Limelight gem.  In the command prompt you opened before type:"
       codeblock do
         code :text => "jruby -S gem install limelight"
       end
   
       directions :text => "On successful completion you should see a message like this:"
       codeblock do
-        code :text => "Successfully installed limelight-0.3.1-java"
+        code :text => "Successfully installed limelight-0.4.0-java"
         code :text => "1 gem installed"
-        code :text => "Installing ri documentation for limelight-0.3.1-java..."
-        code :text => "Installing RDoc documentation for limelight-0.3.1-java..."
+        code :text => "Installing ri documentation for limelight-0.4.0-java..."
+        code :text => "Installing RDoc documentation for limelight-0.4.0-java..."
       end
     end
 
@@ -70,52 +70,128 @@ walkthrough do
         screenshot :image => "images/screenshot.jpg", :height => 300, :scaled => false, :players => "image"
       end
     end
+    
+    slide do
+      heading :text => "5. Running Tests"
+      directions :text => "Before we change our behavior we should run our tests to make sure they all pass.  Limelight uses RSpec for all its testing, so go to the hello_limelight directory and run:"
+      codeblock do
+        code :text => "jruby -S spec spec"
+      end
+      
+      directions :text => "You should see something like this:"
+      codeblock do
+        code :text => "."
+        code :text => ""
+        code :text => "Finished in 0.36 seconds"
+        code :text => ""
+        code :text => "1 example, 0 failures"
+      end
+      
+      directions :text => "Good.  Now let's break them."
+    end
+    
+    slide do
+      heading :text => "6. Tests First"
+      directions :text => "We need to change that passing test to reflect the scene we want to see.  In your project open spec/default_scene/default_scene_spec.rb.  There you'll find one test that looks like this:"
+      
+      codeblock do
+        code :text => "it 'should have default text' do"
+        code :text => "  scene.children.size.should == 1"
+        code :text => "  root = scene.children[0]"
+        code :text => "  root.text.should == 'This is the Default Scene scene.'"
+        code :text => "end"
+      end
+      
+      directions :text => "Change the text from This is the Default Scene scene to Click Me!  Now run the tests again so you see this:"
+      codeblock do
+        code :text => "F"
+        code :text => ""
+        code :text => "1)"
+        code :text => "'Default Scene should have default text' FAILED"
+        code :text => "expected: \"Click Me!\","
+        code :text => "     got: \"This is the Default Scene scene.\" (using ==)"
+        code :text => "/Users/eric/Projects/limelight_projects/hello_limelight/spec/default_scene/default_scene_spec.rb:10:"
+        code :text => ""
+        code :text => "Finished in 0.408 seconds"
+        code :text => ""
+        code :text => "1 example, 1 failure"
+      end
+    end
 
     slide do
-      heading :text => "5. Hello Limelight"
-      directions :text => "You have the default scene running, but that's hardly fun.  Close that application and let's make a Hello Limelight application.  First you'll need to open the directory you created in step 4 in your favorite code editor.  Open the props.rb file in the default_scene.  You'll see this:"
+      heading :text => "7. Text Attribute"
+      directions :text => "A failing test should never stay faling for very long.  Let's change that prop to match the expectation we set in the test.  Open the props.rb file in the default_scene directory.  There you'll see our prop:"
       codeblock do
         code :text => "root :text => \"This is the Default Scene scene.\""
       end
-  
-      directions :text => "We could change that to read 'Hello World!' but that's not useful.  Instead let's change the button to say Click Me and change its text when it's clicked.  First change the text to read:"
+      
+      directions :text => "The text attribute tells the prop root to display the text you see on the screen.  To make our spec pass simple change it to this:"
       codeblock do
         code :text => "root :text => \"Click Me!\""
       end
-  
-      directions :text => "When you've changed the code reopen the application and make sure your change took effect, then proceed to the next step."
+      
+      directions :text => "Run the tests again to verify that your tests pass.  If they fail make sure the string in your spec matches the text attribute of the prop."
     end
-
+    
     slide do
-      heading :text => "6. A Player"
-      directions :text => "In order to add behaviors to props on the stage you need to create a player.  Fortunately that's simple.  The default_scene directory has another subdirectory underneath it named players.  In that directory create a file called root.rb, which will automatically add a player to any props named root.  Type the following code:"
+      heading :text => "8. A Mouse Click"
+      directions :text => "Okay we've changed the text, but we can do better than that.  Let's make the text respond to a mouse click.  Go back to the spec file and create a second block below the previous one that looks like this:"
+      
       codeblock do
-        code :text => "module Root"
-        code :text => "  def mouse_clicked(e)"
-        code :text => "    self.text = 'Hello World!'"
-        code :text => "  end"
+        code :text => "it 'should change the root scene text when it is clicked' do"
+        code :text => "  root = scene.children[0]"
+        code :text => "  root.mouse_clicked(nil)"
+        code :text => "  root.text.should == \"Hello Limelight!\""
         code :text => "end"
       end
-  
-      directions :text => "Save that file, then reopen your new limelight production and click the link.  Then move to the next step."
-    end
-
-    slide do
-      heading :text => "7. A Pretty Player"
-      directions :text => "Okay you've made some interactivity - now let's make that a little more interesting.  Open the styles.rb file in the default_scene directory and edit the root style.  It can look like this:"
+      
+      directions :text => "This test probably requires some explanation.  The method scene is provided by the test harness so you can access the current scene in your specs.  The scene prop is the root prop for the scene - so it's first and only child is the prop we've created - root.  When the mouse is clicked on that prop the method mouse_clicked is called, and we expect the text to change to Hello Limelight! Make sure you run the specs and see them fail.  Go ahead I'll wait."
       codeblock do
-        code :text => "rounded_corner_radius 10"
-        code :text => "padding 10"
-        code :text => "background_color \"#fffa\""
-        code :text => "secondary_background_color \"#fff6\""
-        code :text => "gradient :on"
-        code :text => "gradient_angle 270"
+        code :text => ".F"
+        code :text => ""  
+        code :text => "1)"
+        code :text => "NoMethodError in 'Default Scene should change the root scene text when it is clicked'"
+        code :text => "undefined method `mouse_clicked' for Limelight::Prop[id: , name: root]:Limelight::Prop"
+        code :text => ""
+        code :text => ""
+        code :text => "Finished in 0.383 seconds"
+        code :text => ""
+        code :text => "2 examples, 1 failure"
       end
-  
-      directions :text => "After making those changes close and reopen your application.  You should have something that looks like this:"
+    end
+    
+    slide do
+      heading :text => "9. Get to Green (Lime?)"
+      directions :text => "We need to make that test pass - let's add mouse_click behavior to the prop.  Change your prop to match this"
+      codeblock do
+        code :text => "root :text => \"Click Me!\", :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
+      end
+      
+      directions :text => "Run those tests again, they should pass.  Go ahead and open your limelight app again.  You should be able to click the Click Me! text and see it change fto Hello Limelight!"
+    end
+    
+    slide do
+      heading :text => "10. A Pretty Prop"
+      directions :text => "Okay you've made some interactivity - now let's make that a little more interesting.  Props can have styles, and we can go ahead and use those to make a prettier prop.  Open your props.rb file again and make it look like this:"
+      codeblock do
+        code :text => "root :text => \"Click Me!\"," 
+        code :text => "     :rounded_corner_radius => 10, :padding => 10,"
+        code :text => "     :background_color => '#fffa',"
+        code :text => "     :secondary_background_color => '#fff6',"
+        code :text => "     :gradient => :on, :gradient_angle => 270,"
+        code :text => "     :font_size => 28," 
+        code :text => "     :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
+      end
+      
+      directions :text => "After making those changes close and reopen your application.  You should have something that looks like this after you click Click Me!:"
       screenshot_div do
         screenshot :image => "images/screenshot2.jpg", :players => "image"
       end
+    end
+    
+    slide do
+      heading :text => "11. Your Turn"
+      directions :text => "Congratulations!  You've created your first limelight application.  Feel free to play and experiment with it, and when your ready head to the next tutorial."
     end
   end
 end
