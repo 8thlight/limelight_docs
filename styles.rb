@@ -78,17 +78,21 @@ navigation {
   width "100%"
 }
 
-navigation_button {
-  
+navigation_buttons {
+  width 62
+  height 44
 }
 
 previous_button {
-  horizontal_alignment :left
+  extends :navigation_buttons
+  background_image "images/previous.png"
 }
 
 next_button {
-  width 450
+  extends :navigation_buttons
+  background_image "images/next.png"
   horizontal_alignment :right
+  left_margin 100
 }
 
 screenshot_div {
