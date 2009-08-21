@@ -1,4 +1,4 @@
-walkthrough do
+tutorial do
   __install "documentation/common/navigation_buttons.rb"
   
   slideshow :id => "slideshow" do

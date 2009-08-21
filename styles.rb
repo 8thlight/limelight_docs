@@ -20,10 +20,11 @@ canvas {
   gradient :on
   gradient_angle 270
   padding 15
-  left_margin 15
+  margin 15
+  height 200
 }
 
-walkthrough {
+tutorial {
   extends :canvas
   height 600
 }

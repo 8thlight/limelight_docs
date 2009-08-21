@@ -20,4 +20,25 @@ describe "Styles Tutorial" do
     slideshow.should_not be_nil
     slides.should_not be_empty
   end
+  
+  it "should convert the text to a style - and apply it to the object" do
+    slideshow = scene.find('slideshow')
+    slideshow.next
+    slideshow.next
+    
+    styles_sandbox_button = scene.find("run_styles_button")
+    code_area = scene.find('code')
+
+    style_dsl =<<END
+    prop {
+      text_color :blue
+    }
+END
+    
+    code_area.text = style_dsl
+    styles_sandbox_button.button_pressed(nil)
+    
+    prop = scene.find("test_prop")
+    prop.style.text_color.should == "#0000ffff"
+  end
 end
