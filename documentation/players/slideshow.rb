@@ -36,7 +36,7 @@ module Slideshow
   end
   
   def show_current_slide
-    self.add @slides[@current_slide]
+    self.add @slides[@current_slide] if @slides[@current_slide]
   end
   
   def update_arrows

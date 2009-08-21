@@ -96,6 +96,13 @@ describe "Slideshow" do
       
       @next_button.style.transparency.should == "0%"
     end
+    
+    it "should not crash if there are no slides" do
+      @slideshow = TestSlideshow.new
+      @slideshow.scene = @scene
+      
+      lambda{@slideshow.casted}.should_not raise_error
+    end
   end
   
 end

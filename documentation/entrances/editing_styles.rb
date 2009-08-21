@@ -1,0 +1,1 @@
+__install "documentation/common/tutorial.rb", :slideshow => "editing_styles"

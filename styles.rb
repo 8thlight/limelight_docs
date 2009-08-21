@@ -95,11 +95,13 @@ navigation_buttons {
 previous_button {
   extends :navigation_buttons
   background_image "images/previous.png"
+  hover
 }
 
 next_button {
   extends :navigation_buttons
   background_image "images/next.png"
+  hover
 }
 
 screenshot_div {
