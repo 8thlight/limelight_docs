@@ -4,7 +4,7 @@ describe "Documentation" do
   uses_scene :documentation
   
   describe "toc_link" do
-
+    
     before(:each) do
       @link = scene.find_by_name("toc_link")[0]
     end
@@ -15,7 +15,7 @@ describe "Documentation" do
       
       @link.mouse_clicked(nil)
     end  
-        
+    
     it "should install the specified entrance file" do
       @link.entrance = "getting_started"
       
