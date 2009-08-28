@@ -5,4 +5,5 @@ module Link
     launch(self.url)
     scene.find("slideshow").next
   end
+  
 end

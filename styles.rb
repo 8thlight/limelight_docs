@@ -84,9 +84,13 @@ codeblock {
 code {
   width "100%"
   font_face "Courier New"
-  font_size 12
+  font_size 12  
 }
 
+sandbox_codeblock {
+  extends :codeblock
+  hover
+}
 
 navigation_buttons {
   width 62
