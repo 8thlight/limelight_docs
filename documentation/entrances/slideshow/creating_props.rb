@@ -45,7 +45,19 @@ slide do
 end
 
 slide do
-  heading :text => "5. Putting it all together"
+  heading :text => "5. Events"
+  directions :text => "Every prop has a number of events to which it can respond.  One of these events is mouse_clicked.  To respond to an event, you need to set the handler code for the event."
+  codeblock do
+    
+    code :text => "prop :text => \"Change my color!\", :text_color => :blue, "
+    code :text => " :on_mouse_clicked => \"style.text_color = :red\""
+  end
+
+  __install "documentation/common/sandbox.rb"
+end
+
+slide do
+  heading :text => "6. Putting it all together"
   directions :text => "Now let's put our new skills together with some nested boxes."
   codeblock do
     code :text => "outer_box :width => 100, :border_color => :red, :border_width => 3, :margin => 5 do"
