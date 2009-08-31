@@ -1,6 +1,6 @@
 module SandboxButton
   
-  def button_pressed(e)
+  def button_pressed(e)    
     canvas = scene.find('canvas')
     canvas.remove_all
     code = scene.find('code')

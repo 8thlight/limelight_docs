@@ -26,4 +26,34 @@ describe "Documentation" do
     end
     
   end
+
+  describe "table of contents links" do
+    
+    def check_link(id, entrance, text)
+      link = scene.find(id)
+      
+      link.should_not be_nil
+      link.entrance.should == entrance
+      link.text.should == text
+    end
+
+    it "should have a 'getting started' link" do
+      check_link("getting_started_walkthrough", "getting_started", "Getting Started")
+    end
+    
+    it "should have a 'creating props' link" do
+      check_link("creating_props_walkthrough", "creating_props", "Creating Props")
+    end
+    
+    it "should have an 'editing styles' link" do
+      check_link("editing_styles_walkthrough", "editing_styles", "Editing Styles")
+    end
+    
+    it "should have a 'productions' link" do
+      check_link("productions_walkthrough", "productions", "Productions")
+    end
+    
+  end
+  
+
 end
