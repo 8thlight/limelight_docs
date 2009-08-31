@@ -4,7 +4,7 @@ module SandboxCodeblock
   end
   
   def mouse_clicked(e)
-    prop = scene.find("code")
-    prop.text = code if prop
+    code_box = scene.find("code")
+    code_box.text = code if code_box
   end
 end

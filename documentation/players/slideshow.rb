@@ -16,6 +16,10 @@ module Slideshow
     update_slideshow { decrement_current_slide }
   end
   
+  def num_slides
+    return @slides.length
+  end
+  
   def update_slideshow
     clear_sideshow
     yield

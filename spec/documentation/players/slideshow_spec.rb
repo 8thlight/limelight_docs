@@ -29,9 +29,14 @@ describe "Slideshow" do
   end
   
   describe "Two Slides in the slideshow" do
+    
+    it "should know number of slides" do
+      @slideshow.num_slides.should == 3
+    end
+    
     it "should make the next slide visible on next" do
       @slideshow.next
-
+      
       @slideshow.children.length.should == 1
       @slideshow.children[0].should == @prop2
     end
