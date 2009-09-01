@@ -8,6 +8,7 @@ table_of_contents do
   toc_link :id => "getting_started_walkthrough", :text => "Getting Started", :entrance => "getting_started"
   toc_link :id => "creating_props_walkthrough", :text => "Creating Props", :entrance => "creating_props"
   toc_link :id => "editing_styles_walkthrough", :text => "Editing Styles", :entrance => "editing_styles"
+  toc_link :id => "prop_layout_walkthough", :text => "Prop Layout", :entrance => "prop_layout"
   toc_link :id => "productions_walkthrough", :text => "Productions", :entrance => "productions"
   toc_link :id => "stages_walkthrough", :text => "Stages", :entrance => "stages"
 end

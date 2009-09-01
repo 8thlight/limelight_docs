@@ -57,8 +57,8 @@ describe "Documentation" do
       check_link("stages_walkthrough", "stages", "Stages")
     end
     
-    
+    it "should have a prop sizing link" do
+      check_link("prop_layout_walkthough", "prop_layout", "Prop Layout")
+    end
   end
-  
-
 end
