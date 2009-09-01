@@ -39,13 +39,6 @@ directions {
   text_color "#666"
 }
 
-directions_text {
-  font_size 10
-  font_face "Arial Rounded MT Bold"
-  text_color "#666"
-  bottom_margin "8"
-}
-
 line_break {
   width "100%"
   bottom_padding 10
@@ -92,6 +85,11 @@ sandbox_codeblock {
   hover
 }
 
+styles_sandbox_area {
+   width "95%"
+   margin "2%"
+}
+
 navigation_buttons {
   width 62
   height 44
@@ -113,4 +111,14 @@ screenshot_div {
   width "100%"
   top_padding 15
   horizontal_alignment :center
+}
+
+list {
+  top_padding 10
+  left_padding 10 
+}
+
+list_item {
+  extends :directions
+  font_size 12
 }

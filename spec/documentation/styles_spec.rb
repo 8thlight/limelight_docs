@@ -23,9 +23,9 @@ describe "Styles Tutorial" do
   
   describe "Style Sandbox" do
     before(:each) do
-      slideshow = scene.find('slideshow')
-      slideshow.next
-      slideshow.next
+      @slideshow = scene.find('slideshow')
+      @slideshow.next
+      @slideshow.next
       
       @styles_sandbox_button = scene.find("run_styles_button")
       @code_area = scene.find('code')
@@ -70,6 +70,20 @@ describe "Styles Tutorial" do
       
       test_prop = scene.find('test_prop')
       test_prop.style.text_color.should == "#ff0000ff"
+    end
+    
+    it "should apply to all the props - not just one" do
+      @slideshow.next
+      @slideshow.next
+      @slideshow.next
+      
+      @code_area = scene.find('code')
+      @code_area.text = "prop { text_color :blue }"
+      @styles_sandbox_button.button_pressed(nil)
+      
+      props = scene.find_by_name('prop')
+      props[0].style.text_color.should == "#0000ffff"
+      props[1].style.text_color.should == "#0000ffff"
     end
   end  
 end
