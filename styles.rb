@@ -80,6 +80,11 @@ code {
   font_size 12  
 }
 
+bold_code {
+  extends :code
+  font_style :bold
+}
+
 sandbox_codeblock {
   extends :codeblock
   hover
