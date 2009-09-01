@@ -16,8 +16,8 @@ module RunStylesButton
     canvas = scene.find("canvas")
     styles.each_pair do |prop_name, style|
       canvas.find_by_name(prop_name).each do |prop|
-        prop.style.removeScreen()
-        prop.style.applyScreen(style)
+        prop.style.clear_extensions
+        prop.style.add_extension(style)
       end
     end
   end
