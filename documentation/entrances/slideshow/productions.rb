@@ -134,6 +134,23 @@ slide do
 end
 
 slide do
-  heading :text => "12. Finished"
+  heading :text => "12. Attributes"
+  
+  directions :text => "Key business logic objects can be instantiated from any of the hooks in production.rb.  To access these objects from anywhere within your Production, you must first specify an accessor."
+  line_break
+  code :text => "module Production"
+  bold_code :text => "  attr_accessor :business_object"
+  code :text => "  def production_opened"
+  code :text => "    @business_object = BusinessObject.new"
+  code :text => "  end"
+  code :text => "end"
+  line_break
+  directions :text => "Then, to access this business object from elsewhere in you Production, you can do this:"
+  line_break
+  code :text => "production.business_object"
+end
+
+slide do
+  heading :text => "13. Finished"
   directions :text => "Great!  Now you know all about Productions.  When you're ready, head to the next tutorial."
 end

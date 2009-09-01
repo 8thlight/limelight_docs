@@ -57,6 +57,9 @@ describe "Documentation" do
       check_link("stages_walkthrough", "stages", "Stages")
     end
     
+    it "should have a 'colors' link" do
+      check_link("colors_walkthrough", "colors", "Colors")
+    end    
     
   end
   
