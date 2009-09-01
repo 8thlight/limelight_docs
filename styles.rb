@@ -85,6 +85,11 @@ sandbox_codeblock {
   hover
 }
 
+code_text_area {
+  width "95%"
+  margin "2%"
+}
+
 styles_sandbox_area {
    width "95%"
    margin "2%"
