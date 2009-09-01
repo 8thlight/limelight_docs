@@ -9,6 +9,7 @@ table_of_contents do
   toc_link :id => "creating_props_walkthrough", :text => "Creating Props", :entrance => "creating_props"
   toc_link :id => "editing_styles_walkthrough", :text => "Editing Styles", :entrance => "editing_styles"
   toc_link :id => "productions_walkthrough", :text => "Productions", :entrance => "productions"
+  toc_link :id => "stages_walkthrough", :text => "Stages", :entrance => "stages"
 end
 
 content_pane :id => "content_pane"

@@ -53,6 +53,11 @@ describe "Documentation" do
       check_link("productions_walkthrough", "productions", "Productions")
     end
     
+    it "should have a 'stages' link" do
+      check_link("stages_walkthrough", "stages", "Stages")
+    end
+    
+    
   end
   
 
