@@ -14,10 +14,10 @@ module Production
     $: << File.expand_path(File.dirname(__FILE__) + "/lib")
   end
 
- # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
- # any scenes have been opened.
- def production_loaded
- end
+  # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
+  # any scenes have been opened.
+  def production_loaded
+  end
 
   # Hook #3.  Called when the production, and all the scenes, have fully opened.
   def production_opened
