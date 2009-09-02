@@ -1,11 +1,11 @@
 slide do
   heading :text => "Prop Layout"
-  directions :text => "Limelight's layout system moves from left to right, then top to bottom.  If a prop reaches the end of the space it moves to down to the next available line.  These simple rules can produce almost any interface you want.  Let's go through some examples."
+  directions :text => "Limelight's layout system moves from left to right, then top to bottom.  If a prop reaches the end of the space it moves to down to the next available row.  These simple rules can produce almost any interface you want.  Let's go through some examples."
 end
 
 slide do
   heading :text => "1. Basic Layout"
-  directions :text => "Here we have some props that will run in a row.  Eventually they will reach the end of their parent prop, then move to the next line.  See for yourself with this example."
+  directions :text => "Here we have some props that will run in a row.  Eventually they will reach the end of their parent prop, then move to the next row.  See for yourself with this example."
   
   sandbox_codeblock do
     code :text => "sample :width => 100, :height => 40, :background_color => \"red\""
@@ -20,7 +20,7 @@ end
 
 slide do
   heading :text => "2. Variable Height"
-  directions :text => "That's a great simple case - but what happens when the props are of variable height?  Where can we expect them to go.  Let's see two different examples.  First when the lead prop is higher than the next ones."
+  directions :text => "That's a great simple case - but what happens when the props are of variable height?  Where can we expect them to go?  Let's see two different examples.  What happens when the first prop in a row is taller than all the rest?"
   
   sandbox_codeblock do
     code :text => "sample :width => 200, :height => 40, :background_color => \"red\""
@@ -29,7 +29,7 @@ slide do
     code :text => "sample :width => 200, :height => 20, :background_color => \"orange\""  
   end
   
-  __install "documentation/common/sandbox.rb", {:height => 180}
+  __install "documentation/common/sandbox.rb", {:height => 160}
 end
 
 slide do
@@ -47,16 +47,16 @@ slide do
 end
 
 slide do
-  heading :text => "4. No Wrapping"
+  heading :text => "4. No Cutting"
   
-  directions :text => "In this example we'll demonstrate how props will always go to the next row that fits, without wrapping."
+  directions :text => "If a prop cannot fit on a given row it will always appear on the next row, without being cut in half or shrunk to fit."
   
   sandbox_codeblock do
     code :text => "sample :width => 15, :height => 20, :background_color => \"red\""
     code :text => "sample :width => 450, :height => 40, :background_color => \"green\""
   end
   
-  __install "documentation/common/sandbox.rb", {:height => 180}
+  __install "documentation/common/sandbox.rb"
 end
 
 slide do
