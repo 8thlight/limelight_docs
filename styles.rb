@@ -133,11 +133,15 @@ list_item {
   font_size 12
 }
 
-prop_to_style {
-  width "100%"
-  height "100%"
+containing_prop {
   border_width  1
   border_color :black
+}
+
+prop_to_style {
+  extends :containing_prop
+  width "100%"
+  height "100%"
 }
 
 tiny_prop {

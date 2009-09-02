@@ -59,12 +59,7 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas" do
-    containing_prop :border_width => 1, :border_color => :black do
-      prop :styles => "tiny_prop", :text => "The parent and child are set to auto, and have adjusted to fit this text."
-    end
-  end
-  
+  __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/auto_size_with_text.rb"}  
   __install "documentation/common/styles_sandbox.rb"
 end
 
