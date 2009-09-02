@@ -66,7 +66,7 @@ describe "Documentation" do
     end
     
     it "should have a prop sizing link" do
-      check_link("prop_sizing", "prop_sizing", "Prop Sizing")
+      check_link("prop_sizing_walkthough", "prop_sizing", "Prop Sizing")
     end
   end
 end
