@@ -20,7 +20,7 @@ end
 
 slide do
   heading :text => "2. Variable Height"
-  directions :text => "That's a great simple case - but what happens when the props are of variable height?  Where can we expect them to go?  Let's see two different examples.  First, we'll look at a situation where the first prop is higher than the next props."
+  directions :text => "That's a great simple case - but what happens when the props are of variable height?  Where can we expect them to go?  Let's see two different examples.  What happens when the first prop in a row is taller than all the rest?"
   
   sandbox_codeblock do
     code :text => "sample :width => 200, :height => 40, :background_color => \"red\""
@@ -29,7 +29,7 @@ slide do
     code :text => "sample :width => 200, :height => 20, :background_color => \"orange\""  
   end
   
-  __install "documentation/common/sandbox.rb", {:height => 180}
+  __install "documentation/common/sandbox.rb", {:height => 160}
 end
 
 slide do
@@ -47,16 +47,16 @@ slide do
 end
 
 slide do
-  heading :text => "4. No Wrapping"
+  heading :text => "4. No Cutting"
   
-  directions :text => "In this example we'll demonstrate how props will always go to the next row that fits, without wrapping."
+  directions :text => "If a prop cannot fit on a given row it will always appear on the next row, without being cut in half or shrunk to fit."
   
   sandbox_codeblock do
     code :text => "sample :width => 15, :height => 20, :background_color => \"red\""
     code :text => "sample :width => 450, :height => 40, :background_color => \"green\""
   end
   
-  __install "documentation/common/sandbox.rb", {:height => 180}
+  __install "documentation/common/sandbox.rb"
 end
 
 slide do
