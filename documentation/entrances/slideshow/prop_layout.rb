@@ -1,6 +1,6 @@
 slide do
   heading :text => "Prop Layout"
-  directions :text => "Limelight's layout system moves from left to right, then top to bottom.  If a prop reaches the end of the space it moves to down to the next available row.  These simple rules can produce almost any interface you want.  Let's go through some examples."
+  directions :text => "Limelight's layout system moves from left to right, then top to bottom.  If a prop reaches the end of the space it moves down to the next available row.  These simple rules can produce almost any interface you want.  Let's go through some examples."
 end
 
 slide do
