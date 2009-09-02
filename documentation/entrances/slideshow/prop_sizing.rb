@@ -1,6 +1,6 @@
 slide do
   heading :text => "Prop Sizing"
-  directions :text => "Props will come in variable sizes.  Props have a height and width, which can be sized in pixels or in percentages, or left unspecified in which case automatic sizing will be used."
+  directions :text => "Props have a height and width which can be sized in pixels, percentages, or left unspecified in which case automatic sizing will be used."
 end
 
 slide do
@@ -20,7 +20,7 @@ end
 
 slide do
   heading :text => "2. Percentage"
-  directions :text => "Props are also sized based on a percentage of their containing prop.  This scene has two props, one within another.  Sizing one to 50% of the other will shrink it to half its parent's size."
+  directions :text => "Props are also sized based on a percentage of their containing prop.  This scene has two props where the child prop is named prop and has a blue border.  Sizing it to 50% of the other will shrink it to half its parent's size."
 
   sandbox_codeblock do
     code :text => "prop {"
@@ -29,18 +29,13 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas" do
-    containing_prop :styles => "prop_to_style", :border_width => 1, :border_color => :black do
-      prop :styles => "prop_to_style", :border_width => 1, :border_color => :blue
-    end
-  end
-  
+  __install "documentation/common/canvas_with_props.rb", {:props => "documentation/entrances/prop_sizing_examples/percentage_sizing.rb"}
   __install "documentation/common/styles_sandbox.rb"
 end
 
 slide do
   heading :text => "3. Auto Size"
-  directions :text => "In addition to explicitly sizing props, props can be automatically sized relative to their content.  In this example there are two props, a parent and a child where the parent has a black border and the child has a blue border.  Both have their height and width set to 'auto' which can be done in a style or by not setting the size at all.  When the child prop is sized it the parent prop will expand to fit the child."
+  directions :text => "In addition to explicitly sizing props, props can be automatically sized relative to their content.  In this example there are two props, a parent and a child where the parent has a black border and the child has a blue border.  Both have their height and width set to 'auto' which can be done in a style or by not setting the size at all.  When the child prop is sized the parent prop will expand to fit the child."
   
   sandbox_codeblock do
     code :text => "prop {"
@@ -49,12 +44,7 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas", :height => 150 do
-    containing_prop :border_width => 1, :border_color => :black do
-      prop :border_width => 1, :border_color => :blue, :margin => 3
-    end
-  end
-  
+  __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/auto_size.rb"}
   __install "documentation/common/styles_sandbox.rb"
 end
 
@@ -91,7 +81,7 @@ slide do
   
   canvas :id => "canvas", :height => 150 do
     containing_prop :border_width => 1, :border_color => :black do
-      prop :styles => "tiny_prop", :text => "I will not make my parent props grow."
+      prop :text => "I will not make my parent props grow."
     end
   end
   
