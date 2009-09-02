@@ -132,3 +132,16 @@ list_item {
   extends :directions
   font_size 12
 }
+
+prop_to_style {
+  width "100%"
+  height "100%"
+}
+
+tiny_prop {
+  border_width  1
+  border_color :blue
+  margin 3
+  height 1
+  width 1
+}
