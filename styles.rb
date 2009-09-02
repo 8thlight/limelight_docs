@@ -138,7 +138,7 @@ containing_prop {
   border_color :black
 }
 
-prop_to_style {
+full_size_containing_prop {
   extends :containing_prop
   width "100%"
   height "100%"

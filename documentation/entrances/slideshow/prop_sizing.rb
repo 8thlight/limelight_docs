@@ -64,8 +64,8 @@ slide do
 end
 
 slide do
-  heading :text => "5. Containing Props"
-  directions :text => "If a prop is contained within a prop that has an explicit size it will not grow that containing block beyond its size.  That's true even if the child prop has explicitly large settings for the size.  If the parent prop is auto, then it is constrained by its parent, and so on.  If all the props on the scene were set to auto they would be constrained by the root prop, the scene itself."
+  heading :text => "5. Constraining Props"
+  directions :text => "The size of a prop is constrained by the size of its parent.  That means if the parent is sized to auto, the children can grow the prop to fit.  If the prop is sized by pixels or percentage, then that value is fixed and the child props cannot make their parents grow.  Look what happens when a child prop is very large."
   
   sandbox_codeblock do
     code :text => "prop {"
