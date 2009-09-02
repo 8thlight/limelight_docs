@@ -74,12 +74,7 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas", :height => 150 do
-    containing_prop :border_width => 1, :border_color => :black do
-      prop :text => "I will not make my parent props grow."
-    end
-  end
-  
+  __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/prop_constrainment.rb"}  
   __install "documentation/common/styles_sandbox.rb"
 end
 
