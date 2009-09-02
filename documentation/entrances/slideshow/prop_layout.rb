@@ -1,11 +1,11 @@
 slide do
   heading :text => "Prop Layout"
-  directions :text => "Limelight's layout system moves from left to right, then top to bottom.  If a prop reaches the end of the space it moves to down to the next available line.  These simple rules can produce almost any interface you want.  Let's go through some examples."
+  directions :text => "Limelight's layout system moves from left to right, then top to bottom.  If a prop reaches the end of the space it moves down to the next available row.  These simple rules can produce almost any interface you want.  Let's go through some examples."
 end
 
 slide do
   heading :text => "1. Basic Layout"
-  directions :text => "Here we have some props that will run in a row.  Eventually they will reach the end of their parent prop, then move to the next line.  See for yourself with this example."
+  directions :text => "Here we have some props that will run in a row.  Eventually they will reach the end of their parent prop, then move to the next row.  See for yourself with this example."
   
   sandbox_codeblock do
     code :text => "sample :width => 100, :height => 40, :background_color => \"red\""
@@ -20,7 +20,7 @@ end
 
 slide do
   heading :text => "2. Variable Height"
-  directions :text => "That's a great simple case - but what happens when the props are of variable height?  Where can we expect them to go.  Let's see two different examples.  First when the lead prop is higher than the next ones."
+  directions :text => "That's a great simple case - but what happens when the props are of variable height?  Where can we expect them to go?  Let's see two different examples.  First, we'll look at a situation where the first prop is higher than the next props."
   
   sandbox_codeblock do
     code :text => "sample :width => 200, :height => 40, :background_color => \"red\""

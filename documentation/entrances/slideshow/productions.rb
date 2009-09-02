@@ -39,7 +39,7 @@ slide do
   
   line_break
   
-  directions :text => "Typically a Production will not contain a props.rb file. For the most part, the various file represent the same thing as in a Single Scene Production."
+  directions :text => "Typically a Production will not contain a props.rb file. For the most part, the various files represent the same thing as in a Single Scene Production."
   line_break
   directions :text => "The stages.rb is required to determine which Scene should be loaded on each Stage."
   line_break

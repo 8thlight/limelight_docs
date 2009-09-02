@@ -71,15 +71,11 @@ slide do
   heading :text => "7. Named Colors"
   directions :text => "You may specify a color by name.  Here are some Named Color examples:"
   
-  sandbox_codeblock do
-    code :text => "prop {"
-    code :text => "  background_color :dark_red"
-    code :text => "}"
-  end
+  directions :text => "For a full list of named colors, see http://limelightwiki.8thlight.com/wiki/Colors#Named_Colors."
   
   sandbox_codeblock do
     code :text => "prop {"
-    code :text => "  background_color :blue"
+    code :text => "  background_color :dark_red"
     code :text => "}"
   end
 
