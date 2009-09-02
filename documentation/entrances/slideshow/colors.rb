@@ -35,7 +35,6 @@ slide do
   
   __install "documentation/common/canvas_with_box.rb", :prop_options => {:width => "100%", :height => "100%", :border_width => 1, :border_color => :black}
   __install "documentation/common/styles_sandbox.rb"
-  
 end
 
 slide do
@@ -71,7 +70,8 @@ slide do
   heading :text => "7. Named Colors"
   directions :text => "You may specify a color by name.  Here are some Named Color examples:"
   
-  directions :text => "For a full list of named colors, see http://limelightwiki.8thlight.com/wiki/Colors#Named_Colors."
+  directions :text => "For a full list of named colors, "  
+  link :text => " click here.", :url => "http://limelightwiki.8thlight.com/wiki/Colors#Named_Colors", :styles => "link_in_directions"
   
   sandbox_codeblock do
     code :text => "prop {"

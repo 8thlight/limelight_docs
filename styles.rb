@@ -39,6 +39,14 @@ directions {
   text_color "#666"
 }
 
+link_in_directions {
+  extends :directions
+  font_style :bold
+  hover {
+    text_color "#000"
+  }
+}
+
 line_break {
   width "100%"
   bottom_padding 10

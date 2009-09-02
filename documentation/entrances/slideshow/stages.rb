@@ -69,3 +69,7 @@ slide do
   code :text => "end"
 end
 
+slide do
+  heading :text => "5. Finished"
+  directions :text => "Great!  Now you know all about Stages.  When you're ready, head to the next tutorial."
+end
