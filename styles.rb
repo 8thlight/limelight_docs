@@ -6,7 +6,7 @@ header {
 heading {
   width "100%"
   horizontal_alignment :center
-  font_size 25
+  font_size 22
   font_face "Arial Rounded MT Bold"
   text_color "#666"
   bottom_padding 10
@@ -106,6 +106,19 @@ code_text_area {
 styles_sandbox_area {
    width "95%"
    margin "2%"
+}
+
+navigation_pane {
+  bottom_padding 6
+}
+
+middle_navigation {
+  horizontal_alignment :center
+  vertical_alignment :center
+  font_size 30
+  font_face "Arial Rounded MT Bold"
+  text_color "#666"
+  height 44
 }
 
 navigation_buttons {

@@ -1,10 +1,10 @@
 slide do
-  heading :text => "Prop Sizing"
+  line_break
   directions :text => "Props have a height and width which can be sized in pixels, percentages, or left unspecified in which case automatic sizing will be used."
 end
 
 slide do
-  heading :text => "1. Pixels"
+  heading :text => "Pixels"
   directions :text => "The simplest way to size a prop is to just set a pixel height and a pixel width."
   
   sandbox_codeblock do
@@ -19,7 +19,7 @@ slide do
 end
 
 slide do
-  heading :text => "2. Percentage"
+  heading :text => "Percentage"
   directions :text => "Props are also sized based on a percentage of their containing prop.  This scene has two props where the child prop is named prop and has a blue border.  Sizing it to 50% of the other will shrink it to half its parent's size."
 
   sandbox_codeblock do
@@ -34,7 +34,7 @@ slide do
 end
 
 slide do
-  heading :text => "3. Auto Size"
+  heading :text => "Auto Size"
   directions :text => "In addition to explicitly sizing props, props can be automatically sized relative to their content.  In this example there are two props, a parent and a child where the parent has a black border and the child has a blue border.  Both have their height and width set to 'auto' which can be done in a style or by not setting the size at all.  When the child prop is sized the parent prop will expand to fit the child."
   
   sandbox_codeblock do
@@ -49,7 +49,7 @@ slide do
 end
 
 slide do
-  heading :text => "4. Auto Size Text"
+  heading :text => "Auto Size Text"
   directions :text => "When size is set to auto the prop expands to fit a text block inside it.  Set the sizes to auto in order to see the text."
   
   sandbox_codeblock do
@@ -64,7 +64,7 @@ slide do
 end
 
 slide do
-  heading :text => "5. Constraining Props"
+  heading :text => "Constraining Props"
   directions :text => "The size of a prop is constrained by the size of its parent.  That means if the parent is sized to auto, the children can grow the prop to fit.  If the prop is sized by pixels or percentage, then that value is fixed and the child props cannot make their parents grow.  Look what happens when a child prop is very large."
   
   sandbox_codeblock do
@@ -80,6 +80,6 @@ end
 
 
 slide do
-  heading :text => "6. Finished"
+  heading :text => "Finished"
   directions :text => "Great!  You can make all kinds of sizes of props.  Play some more then move on to the next tutorial."
 end

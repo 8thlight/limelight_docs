@@ -1,5 +1,5 @@
 slide do
-  heading :text => "Styles"
+  line_break
   directions :text => "Up until now you've been adding styles directly to the props.  While this is nice for experimentation, it's not a great way to organize real production code.  Let's take a tour of the preferred way of setting up styles in Limelight, the styles DSL.  "
   line_break
   directions :text => "Along the way we'll also show you a few of the styles you haven't seen yet."
