@@ -46,7 +46,7 @@ end
 
 slide do
   heading :text => "4. Your First Limelight App"
-  directions :text => "Now that you've installed the gem you can create your first limelight app.  At that same command prompt go to the directory of your choosing and type:"
+  directions :text => "Now that you've installed the gem you can create your first Limelight app.  At that same command prompt go to the directory of your choosing and type:"
   codeblock do
     code :text => "limelight create production hello_limelight"
   end
@@ -64,7 +64,7 @@ end
 
 slide do
   heading :text => "5. Running Tests"
-  directions :text => "Before we change our behavior we should run our tests to make sure they all pass.  Limelight uses RSpec for all its testing, so go to the hello_limelight directory and run:"
+  directions :text => "Before we change our behavior we should run our tests to make sure they all pass.  Limelight uses RSpec for all its testing, so go to the hello_Limelight directory and run:"
   codeblock do
     code :text => "jruby -S spec spec"
   end
@@ -158,7 +158,7 @@ slide do
     code :text => "root :text => \"Click Me!\", :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
   end
   
-  directions :text => "Run those tests again, they should pass.  Go ahead and open your limelight app again.  You should be able to click the Click Me! text and see it change fto Hello Limelight!"
+  directions :text => "Run those tests again, they should pass.  Go ahead and open your Limelight app again.  You should be able to click the Click Me! text and see it change fto Hello Limelight!"
 end
 
 slide do
@@ -182,5 +182,5 @@ end
 
 slide do
   heading :text => "11. Your Turn"
-  directions :text => "Congratulations!  You've created your first limelight application.  Feel free to play and experiment with it, and when you're ready head to the next tutorial."
+  directions :text => "Congratulations!  You've created your first Limelight application.  Feel free to play and experiment with it, and when you're ready head to the next tutorial."
 end

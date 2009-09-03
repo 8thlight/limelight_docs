@@ -69,6 +69,7 @@ slide do
   
   canvas :id => "canvas", :height => "160" do
     prop :text => "I am named prop      "
+    line_break
     prop2 :text => "I am named prop2"
   end
 
@@ -87,6 +88,9 @@ slide do
   
   canvas :id => "canvas" do
     prop :text => "I am named prop      "
+    line_break
+    not_the_prop :text => "I am not named prop"
+    line_break
     prop :text => "I am also named prop"
   end
 
@@ -138,29 +142,35 @@ slide do
 end
 
 slide do
-  heading :text => "8. Global Style File"
-  directions :text => "As mentioned earlier each scene can have its own style file.  In addition there is an optional global styles file that lives alongside the stages and production files.  The styles are applied in the following order:"
-  
-  list do
-    list_item :text => "1) Apply any global styles."
-    list_item :text => "2) Apply any styles in the scene styles.rb, overwriting any duplicates in the global styles."
-    list_item :text => "3) Apply any styles written directly in the prop file."
-  end
-end
-
-slide do
-  heading :text => "9. Styles Attribute"
+  heading :text => "8. Styles Attribute"
   
   directions :text => "Sometimes you don't want to match the name of the style to the name of the prop, for example when you want to style one of the built-in props.  In this situation there is a simple syntax for specifying the style name:"
   
   codeblock do
-    code :text => "prop :styles => 'stylename', :text => 'I am text'"
+    code :text => "prop_using_styles_attribute :styles => 'stylename', :text => 'I am text'"
   end
   
+  directions :text => "You can also put multiple style names in the styles attribute.  The styles will be applied in order from left to right, and in the case of a duplicate style attribute the rightmost style takes precedence."
+  
+end
+
+
+slide do
+  heading :text => "9. Production Style File"
+  directions :text => "As mentioned earlier each Scene can have its own style file.  In addition there is an optional Production styles file, named styles.rb, that lives alongside stages.rb and production.rb.  The styles are applied in the following order:"
+  
+  list do
+    list_item :text => "1) Apply any styles in the production style file."
+    list_item :text => "2) Apply any styles in the scene styles.rb."
+    list_item :text => "3) Apply the styles in the styles attribute of the prop."
+    list_item :text => "4) Apply any styles attached directly to the prop."
+  end
+  
+  directions :text => "In the case of duplicate style attributes the last attribute to be applied wins.  So if a Production style sets the text_color to :black but the Scene style sets it to :blue, then the text color will be blue."
 end
 
 slide do
   heading :text => "10. Finished"
   
-  directions :text => "You now know enough to start creating your own styles in limelight.  If you proceed through the next tutorial you'll start learning the details of those very styles."
+  directions :text => "You now know enough to start creating your own styles in Limelight.  If you proceed through the next tutorial you'll start learning the details of those very styles."
 end
