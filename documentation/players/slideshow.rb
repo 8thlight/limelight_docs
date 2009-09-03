@@ -48,6 +48,7 @@ module Slideshow
     update_next_button
   end
   
+  #Debt - duplication
   def update_previous_button
     if at_beginning?
       @previous_button.style.transparency = "100%"

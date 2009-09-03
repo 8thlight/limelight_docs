@@ -159,3 +159,11 @@ tiny_prop {
   height 1
   width 1
 }
+
+style_error {
+  text_color :red
+  font_style :bold
+  width "100%"
+  font_size 16
+  top_padding 4
+}

@@ -85,5 +85,32 @@ describe "Styles Tutorial" do
       props[0].style.text_color.should == "#0000ffff"
       props[1].style.text_color.should == "#0000ffff"
     end
+    
+    it "should not apply to the canvas" do
+      @code_area.text = "canvas {text_color :blue}"
+      @styles_sandbox_button.button_pressed(nil)
+      
+      prop = scene.find_by_name("canvas")[0]
+      prop.style.text_color.should_not == "#0000ffff"
+    end
+    
+    it "should set the text to the error message if the style is invalid" do
+      @code_area.text = "canvas {monkey_butler :red}"
+      @styles_sandbox_button.button_pressed(nil)
+      
+      prop = scene.find('canvas')
+      
+      error = prop.children.last
+      error.text.should == "'monkey_butler' is not a valid style"
+    end
+    
+    it "should clear out the error child if it exists" do
+      @code_area.text = "canvas {monkey_butler :red}"
+      @styles_sandbox_button.button_pressed(nil)
+      @code_area.text = "canvas {text_color :blue}"
+      @styles_sandbox_button.button_pressed(nil)
+      
+      scene.find('canvas').find_by_name("style_error").should be_empty
+    end
   end  
 end
