@@ -14,7 +14,9 @@ end
 
 slide do
   heading :text => "2. Simple Prop"
-  directions :text => "A prop can be named whatever you want.  To create a simple prop that displays text type this code into the box below and click run."
+  directions :text => "A prop can be named whatever you want.  However, you should always give your props meaningful names.  To create a simple prop that displays some text, type this code into the box below and click run."
+  line_break
+  directions :text => "Hint: You can click the code to automatically fill in the text."
   sandbox_codeblock do
     code :text => "my_first_prop :text => 'show me!'"
   end

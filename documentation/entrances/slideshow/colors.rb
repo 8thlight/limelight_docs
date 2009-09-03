@@ -19,7 +19,7 @@ end
 slide do
   heading :text => "3. Full Hex Examples"
   
-  directions :text => "Here are some examples:"
+  directions :text => "Here are some examples."
   
   sandbox_codeblock do
     code :text => "prop {"
@@ -29,11 +29,11 @@ slide do
   
   sandbox_codeblock do
     code :text => "prop {"
-    code :text => "  background_color \"#FF000088\" #translucent red"
+    code :text => "  background_color \"#FF000022\" #translucent red"
     code :text => "}"
   end
   
-  __install "documentation/common/canvas_with_box.rb", :prop_options => {:width => "100%", :height => "100%", :border_width => 1, :border_color => :black}
+  __install "documentation/common/canvas_with_box.rb", :prop_options => {:width => "90%", :height => "85%", :border_width => 1, :border_color => :black}
   __install "documentation/common/styles_sandbox.rb"
 end
 
@@ -58,7 +58,7 @@ slide do
   
   sandbox_codeblock do
     code :text => "prop {"
-    code :text => "  background_color \"#F008\" #translucent red"
+    code :text => "  background_color \"#F002\" #translucent red"
     code :text => "}"
   end
   
