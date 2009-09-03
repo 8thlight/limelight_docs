@@ -7,7 +7,7 @@ end
 
 slide do
   heading :text => "1. Single Stage"
-  directions :text => "Stages are defined and configured in the stages.rb file."
+  directions :text => "Stages are specified and configured in the stages.rb file."
   line_break
   code :text => "stage \"main\" do"
   code :text => "  default_scene \"first_scene\""
@@ -16,7 +16,7 @@ slide do
   code :text => "  size [300, 800]"
   code :text => "end"
   line_break
-  directions :text => "In this example, a single stage has been defined. Upon startup, one window will be displayed .  Its title of \"Main Stage\" will be visible at the top of the window."
+  directions :text => "In this example, a single stage has been specified. Upon startup, one window will be displayed .  Its title of \"Main Stage\" will be visible at the top of the window."
   line_break
   directions :text => "It will be located at the top-left corner of the screen, and it will have a width of 300 pixels and a height of 800 pixels."
   line_break
@@ -25,7 +25,7 @@ end
 
 slide do
   heading :text => "2. Multiple Stages"
-  directions :text => "In this next example, two stages have been defined and configured."
+  directions :text => "In this next example, two stages have been specified."
   line_break
   code :text => "stage \"main\" do"
   code :text => "  default_scene \"first_scene\""
@@ -40,7 +40,7 @@ slide do
   code :text => "  size [200, 200]"
   code :text => "end"
   line_break
-  directions :text => "In this example, two windows will be shows at startup."
+  directions :text => "In this example, two windows will be shown at startup."
   line_break
   directions :text => "The first will have a title of \"Main Stage\", appear in the top-left corner of the screen, and the Scene named \"first_scene\" will be loaded."
   line_break
@@ -50,7 +50,7 @@ end
 
 slide do
   heading :text => "3. Fullscreen"
-  directions :text => "When a stage is set to be fullscreen, it will fill the entire screen and appear on top of all other windows"
+  directions :text => "When a stage is set to be fullscreen, it will fill the entire screen and appear on top of all other windows."
   line_break
   code :text => "stage \"main\" do"
   code :text => "  fullscreen true"

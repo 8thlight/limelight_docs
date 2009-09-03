@@ -10,7 +10,7 @@ end
 
 slide do
   heading :text => "2. Full Hex Values"
-  directions :text => "Each channel uses a 2 digit hex value ranging between 00 (0) and FF (255).  Hex values are not case-sensitive, so both lower and upper case values are allowed."
+  directions :text => "When using full hex values, each channel uses a 2 digit hex value ranging between 00 (0) and FF (255).  You can use both lower and upper case letters."
   line_break
   code :text => "  * #RRGGBB - Format using full hex values, without alpha"
   code :text => "  * #RRGGBBAA - Format using full hex values, with alpha"  
@@ -39,7 +39,7 @@ end
 
 slide do
   heading :text => "4. Short Hex Values"
-  directions :text => "Each channel uses one hex digit. The actual value applied is x * 16 + x or, the hex value \"xx\", where x is the single hex digit."
+  directions :text => "When using short hex values, each channel uses one hex digit. The actual value applied is x * 16 + x or, the hex value \"xx\", where x is the single hex digit."
   line_break
   code :text => "  * #RGB - Format using short hex values, without alpha"
   code :text => "  * #RGBA - Format using short hex values, with alpha"

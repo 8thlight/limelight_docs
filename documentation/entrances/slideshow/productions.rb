@@ -1,6 +1,6 @@
 slide do
   heading :text => "Productions"
-  directions :text => "A Production is the root object in a Limelight application.  The production holds one or more scenes where the action happens."
+  directions :text => "\"Production\" is the term used for applications that run in Limelight.  A Production is a container for Scenes and behavior."
 end
 
 slide do
@@ -58,7 +58,7 @@ end
 
 slide do
   heading :text => "5. Setting the Name of a Production"
-  directions :text => "To set the name of a Production, override the name method in production.rb"
+  directions :text => "To set the name of a Production, override the name method in production.rb.  The name will default to the titleized name of the production directory."
   line_break
   code :text => "module Production"
   code :text => "  def name"
@@ -88,6 +88,8 @@ end
 slide do
   heading :text => "8. Hook #2: production_loaded"
   
+  # gems are loaded, so you can use them if your business objects need them
+  # stages are instantiated, so you can interact with them
   directions :text => "This method is called after internal gems have been loaded and stages have been instantiated, yet before any scenes have been opened."
   
   line_break
@@ -100,6 +102,7 @@ end
 slide do
   heading :text => "9. Hook #3: production_opened"
   
+  # scene is loaded, so you can make changes that will take place immediately and will be visible
   directions :text => "This method is called when the production, and all the scenes, have fully opened."
   
   line_break
@@ -108,6 +111,8 @@ slide do
   code :text => "  end"
   code :text => "end"
 end
+
+# allow_close?
 
 slide do
   heading :text => "10. Hook #4: production_closing"
@@ -133,6 +138,8 @@ slide do
   code :text => "end"
 end
 
+
+# Bring before hooks
 slide do
   heading :text => "12. Attributes"
   
