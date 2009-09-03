@@ -1,1 +1,1 @@
-__install "documentation/entrances/tutorial.rb", :slideshow => "creating_props"
+__install "documentation/entrances/tutorial.rb", :slideshow => "creating_props", :title => "Creating Props"

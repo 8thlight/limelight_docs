@@ -1,12 +1,12 @@
 slide do
-  heading :text => "Stages"
+  line_break
   directions :text => "A Production may have one or more stages.  Stages represent windows on the desktop."
   line_break
   directions :text => "Each stage can have a name, size, location, and may display any Scene."
 end
 
 slide do
-  heading :text => "1. Single Stage"
+  heading :text => "Single Stage"
   directions :text => "Stages are specified and configured in the stages.rb file."
   line_break
   code :text => "stage \"main\" do"
@@ -24,7 +24,7 @@ slide do
 end
 
 slide do
-  heading :text => "2. Multiple Stages"
+  heading :text => "Multiple Stages"
   directions :text => "In this next example, two stages have been specified."
   line_break
   code :text => "stage \"main\" do"
@@ -49,7 +49,7 @@ slide do
 end
 
 slide do
-  heading :text => "3. Fullscreen"
+  heading :text => "Fullscreen"
   directions :text => "When a stage is set to be fullscreen, it will fill the entire screen and appear on top of all other windows."
   line_break
   code :text => "stage \"main\" do"
@@ -58,7 +58,7 @@ slide do
 end
 
 slide do
-  heading :text => "4. Kiosk Mode"
+  heading :text => "Kiosk Mode"
   directions :text => "When a stage is set to be in kiosk mode, it will appear as fullscreen with no frames and with the following OS keys disabled."
   line_break
   directions :text => "  * Mac OS X: Cmd-Tab, Cmd-Alt-Esc, etc..."
@@ -70,6 +70,6 @@ slide do
 end
 
 slide do
-  heading :text => "5. Finished"
+  heading :text => "Finished"
   directions :text => "Great!  Now you know all about Stages.  When you're ready, head to the next tutorial."
 end

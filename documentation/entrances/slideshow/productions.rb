@@ -1,5 +1,5 @@
 slide do
-  heading :text => "Productions"
+  line_break
   directions :text => "\"Production\" is the term used for applications that run in Limelight.  A Production is a container for Scenes and behavior."
 end
 
@@ -22,7 +22,7 @@ slide do
   code :text => "+ spec - Your tests go here."
   code :text => "+ production.rb - For configuring the Production."  
   code :text => "+ stages.rb - Defines and configures the Stages in the Production."
-  code :text => "+ styles.rb - Production Styles go here, to be shared across all scenes."
+  code :text => "+ styles.rb - Production Styles go here, shared across all scenes."
 end
 
 slide do

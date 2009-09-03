@@ -1,1 +1,1 @@
-__install "documentation/entrances/tutorial.rb", :slideshow => "productions"
+__install "documentation/entrances/tutorial.rb", :slideshow => "productions", :title => "Productions"
