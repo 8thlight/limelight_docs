@@ -64,14 +64,25 @@ slide do
 end
 
 slide do
-  heading :text => "Constraining Props"
-  directions :text => "The size of a prop is constrained by the size of its parent.  That means if the parent is sized to auto, the children can grow the prop to fit.  If the prop is sized by pixels or percentage, then that value is fixed and the child props cannot make their parents grow.  Look what happens when a child prop is very large."
+  heading :text => "Parents and Children"
+  directions :text => "If a child prop is bigger than its parent, and that parent has a size set by pixels or percentages, it cannot make its parent grow to fit.  The style on the left will be applied to the prop structure on the right.  Notice how the child prop does not make the parent prop grow - instead it is cut off by the parent prop."
+  
+  side_by_side_code :width => "100%" do
+    sandbox_codeblock :width => "35%" do
+      code :text => "child_prop {"
+      code :text => "  height 1000"
+      code :text => "  width 1000"
+      code :text => "}"
+    end
+        
+    codeblock :width => "65%" do
+      code :text => "parent_prop do"
+      code :text => "  child_prop :text => 'See how I get cut off'"
+      code :text => "end"
+    end
+  end
   
   sandbox_codeblock do
-    code :text => "prop {"
-    code :text => "  height 1000"
-    code :text => "  width 1000"
-    code :text => "}"
   end
   
   __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/prop_constrainment.rb"}  

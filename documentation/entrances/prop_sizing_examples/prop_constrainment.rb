@@ -1,3 +1,3 @@
-containing_prop do
-  prop :text => "I will not make my parent props grow."
+parent_prop :width => 90, :height => 80 do
+  child_prop :text => "See how I get cut off"
 end

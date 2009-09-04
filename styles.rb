@@ -154,13 +154,18 @@ list_item {
   font_size 12
 }
 
-containing_prop {
+parent_prop {
   border_width  1
   border_color :black
 }
 
+child_prop {
+  height 10
+  width 10
+}
+
 full_size_containing_prop {
-  extends :containing_prop
+  extends :parent_prop
   width "100%"
   height "100%"
 }
@@ -169,8 +174,8 @@ tiny_prop {
   border_width  1
   border_color :blue
   margin 3
-  height 1
-  width 1
+  height 12
+  width 12
 }
 
 style_error {

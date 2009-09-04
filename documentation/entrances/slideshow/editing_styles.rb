@@ -40,14 +40,14 @@ slide do
   directions :text => "This DSL should look familiar to CSS developers, but it is important to note that it is not the same.  Each style is actually defined as a Ruby block and does not have colons after the attributes or semicolons after the styles.  Let's try out a style with multiple attributes:"
   
   sandbox_codeblock do
-    code :text => "prop {"
+    code :text => "multiple_attributes {"
     code :text => "  transparency '50%'"
     code :text => "  border_width 10"
     code :text => "}"
   end
   
   canvas :id => "canvas" do
-    prop :text => "Make me translucent with a border!", :id => "test_prop", :font_size => 14
+    multiple_attributes :text => "Make me translucent with a border!", :id => "test_prop", :font_size => 14
   end
 
   __install "documentation/common/styles_sandbox.rb"
@@ -55,22 +55,22 @@ end
 
 slide do
   heading :text => "Multiple Styles"
-  directions :text => "Styles in the DSL just follow one after the other, without a delimeter.  It is simple to add styles for any of the props in your scenes.  Here's an example:"
+  directions :text => "Styles in the DSL just follow one after the other, with only a newline as the delimeter.  It is simple to add styles for any of the props in your scenes.  Here's an example:"
   
   sandbox_codeblock do
-    code :text => "prop {"
+    code :text => "first_prop {"
     code :text => "  text_color :red"
     code :text => "}"
-    code :text => "prop2 {"
+    code :text => "second_prop {"
     code :text => "  background_color :blue"
     code :text => "  text_color :white"
     code :text => "}"
   end
   
   canvas :id => "canvas", :height => "160" do
-    prop :text => "I am named prop      "
+    first_prop :text => "I am named first_prop"
     line_break
-    prop2 :text => "I am named prop2"
+    second_prop :text => "I am named second_prop"
   end
 
   __install "documentation/common/styles_sandbox.rb"
@@ -134,14 +134,14 @@ slide do
     code :text => "prop {"
     code :text => "  text_color :purple"
     code :text => "}"
-    code :text => "the_prop {"
+    code :text => "extended_prop {"
     code :text => "  extends :prop"
     code :text => "  border_width 3"
     code :text => "}"
   end
   
   canvas :id => "canvas", :height => "130" do
-    the_prop :text => "I am named the_prop - note how I get both styles."
+    extended_prop :text => "I am named extended_prop - note how I get both styles."
   end
 
   __install "documentation/common/styles_sandbox.rb"
@@ -152,18 +152,18 @@ slide do
   
   directions :text => "Styles in Limelight do not cascade to nested props like you might expect if you are familiar with CSS.  However since a nested prop is contained within its parent it can share some of its appearance.  See this example for details:"
   sandbox_codeblock do
-    code :text => "prop {"
+    code :text => "outer_prop {"
     code :text => "  text_color :blue"
     code :text => "  background_color :white"
     code :text => "}"    
-    code :text => "prop1 {"
+    code :text => "inner_prop {"
     code :text => "  border_color :black"
     code :text => "}"
   end
   
   canvas :id => "canvas", :height => "130" do
-    prop do
-      prop1 :border_color => :black, :border_width => 2, :margin_width => 3, :text => "Prop 1 is nested in Prop2. It does not get the blue text_color attribute but will have its background_color because it is contained entirely in its parent prop."
+    outer_prop do
+      inner_prop :border_color => :black, :border_width => 2, :margin_width => 3, :text => "Prop 1 is nested in Prop2. It does not get the blue text_color attribute but will have its background_color because it is contained entirely in its parent prop."
     end
   end
   
@@ -195,11 +195,15 @@ slide do
     list_item :text => "4) Apply any styles attached directly to the prop."
   end
   
+  line_break
   directions :text => "In the case of duplicate style attributes the last attribute to be applied wins.  So if a Production style sets the text_color to :black but the Scene style sets it to :blue, then the text color will be blue."
 end
 
 slide do
   heading :text => "Finished"
   
-  directions :text => "You now know enough to start creating your own styles in Limelight.  If you proceed through the next tutorial you'll start learning the details of those very styles."
+  directions :text => "You now know enough to start creating your own styles in Limelight.  If you proceed through the next tutorial you'll start learning the details of those very styles." 
+  line_break
+  directions :text => "For a list of all the style attributes available in limelight"
+  link :text => " click here.", :url => "http://limelightwiki.8thlight.com/wiki/Style_Attributes", :styles => "link_in_directions"
 end
