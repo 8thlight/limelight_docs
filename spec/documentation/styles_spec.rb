@@ -76,12 +76,13 @@ describe "Styles Tutorial" do
       @slideshow.next
       @slideshow.next
       @slideshow.next
+      @slideshow.next
       
       @code_area = scene.find('code')
-      @code_area.text = "prop { text_color :blue }"
+      @code_area.text = "green_prop { text_color :blue }"
       @styles_sandbox_button.button_pressed(nil)
       
-      props = scene.find_by_name('prop')
+      props = scene.find_by_name('green_prop')
       props[0].style.text_color.should == "#0000ffff"
       props[1].style.text_color.should == "#0000ffff"
     end

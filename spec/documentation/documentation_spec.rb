@@ -68,5 +68,10 @@ describe "Documentation" do
     it "should have a prop sizing link" do
       check_link("prop_sizing_walkthough", "prop_sizing", "Prop Sizing")
     end
+    
+    it "should have a link to the tutorial on playah's" do
+      check_link("players_walkthrough", "players", "Players")
+      
+    end
   end
 end
