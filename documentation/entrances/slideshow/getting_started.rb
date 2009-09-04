@@ -93,7 +93,7 @@ slide do
     code :text => "end"
   end
   
-  directions :text => "Change the text from This is the Default Scene scene to Click Me!  Now run the tests again so you see this:"
+  directions :text => "Change the text from \"This is the Default Scene\" scene to \"Click Me!\"  Now run the tests again so you see this:"
   codeblock do
     code :text => "F"
     code :text => ""
@@ -136,7 +136,7 @@ slide do
     code :text => "end"
   end
   
-  directions :text => "This test probably requires some explanation.  The method scene is provided by the test harness so you can access the current scene in your specs.  The scene prop is the root prop for the scene - so it's first and only child is the prop we've created - root.  When the mouse is clicked on that prop the method mouse_clicked is called, and we expect the text to change to Hello Limelight! Make sure you run the specs and see them fail.  Go ahead I'll wait."
+  directions :text => "This test probably requires some explanation.  The method scene is provided by the test harness so you can access the current scene in your specs.  The scene prop is the root prop for the scene - so it's first and only child is the prop we've created - root.  When the mouse is clicked on that prop the method mouse_clicked is called, and we expect the text to change to \"Hello Limelight!\" Make sure you run the specs and see them fail.  Go ahead I'll wait."
   codeblock do
     code :text => ".F"
     code :text => ""  
@@ -152,18 +152,18 @@ slide do
 end
 
 slide do
-  heading :text => "9. Get to Green (Lime?)"
+  heading :text => "9. Get to Green"
   directions :text => "We need to make that test pass - let's add mouse_click behavior to the prop.  Change your prop to match this"
   codeblock do
     code :text => "root :text => \"Click Me!\", :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
   end
   
-  directions :text => "Run those tests again, they should pass.  Go ahead and open your Limelight app again.  You should be able to click the Click Me! text and see it change fto Hello Limelight!"
+  directions :text => "Run those tests again, they should pass.  Go ahead and open your Limelight app again.  You should be able to click the \"Click Me!\" text and see it change to \"Hello Limelight!\""
 end
 
 slide do
   heading :text => "10. A Pretty Prop"
-  directions :text => "Okay you've made some interactivity - now let's make that a little more interesting.  Props can have styles, and we can go ahead and use those to make a prettier prop.  Open your props.rb file again and make it look like this:"
+  directions :text => "Okay you've made the scene interactive - now let's make that a little more interesting.  Props can have styles, and we can go ahead and use those to make a prettier prop.  Open your props.rb file again and make it look like this:"
   codeblock do
     code :text => "root :text => \"Click Me!\"," 
     code :text => "     :rounded_corner_radius => 10, :padding => 10,"
@@ -174,7 +174,7 @@ slide do
     code :text => "     :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
   end
   
-  directions :text => "After making those changes close and reopen your application.  You should have something that looks like this after you click Click Me!:"
+  directions :text => "After making those changes close and reopen your application.  You should have something that looks like this after you click \"Click Me!\":"
   screenshot_div do
     screenshot :image => "images/screenshot2.jpg", :players => "image"
   end
