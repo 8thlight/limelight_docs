@@ -6,6 +6,10 @@ documentation {
   background_image "images/splash.png"
 }
 
+content_pane {
+  width "562"
+}
+
 table_of_contents {
   height "600"
   width "200"
@@ -14,10 +18,6 @@ table_of_contents {
   secondary_background_color "#fff6"
   gradient :on
   gradient_angle 270
-}
-
-content_pane {
-  width "562"
 }
 
 toc_item {
@@ -37,8 +37,13 @@ toc_link {
   extends :toc_item
   font_size 12
   left_padding 16
-  top_padding 4
+  top_padding 2
+  bottom_padding 2
   hover {
     text_color "#000"
   }
+}
+
+selected_toc_item {
+  background_color "#85cd16"
 }
