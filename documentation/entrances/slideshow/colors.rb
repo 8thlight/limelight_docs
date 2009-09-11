@@ -33,9 +33,7 @@ slide do
     code :text => "}"
   end
   
-  
-  
-  __install "documentation/common/styles_sandbox_with_box.rb", :prop => "prop :width => '90%'", :height => 170
+  __install "documentation/common/styles_sandbox_with_box.rb", :height => 170
 end
 
 slide do

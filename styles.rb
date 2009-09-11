@@ -168,8 +168,7 @@ child_prop {
   width 10
 }
 
-full_size_containing_prop {
-  extends :parent_prop
+full_size {
   width "100%"
   height "100%"
 }
