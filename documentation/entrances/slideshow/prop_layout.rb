@@ -15,7 +15,7 @@ slide do
     code :text => "sample :width => 100, :height => 40, :background_color => \"green\""
   end
 
-  __install "documentation/common/sandbox.rb", {:height => 150}
+  __install "documentation/common/prop_sandbox.rb", {:height => 150}
 end
 
 slide do
@@ -29,7 +29,7 @@ slide do
     code :text => "sample :width => 200, :height => 20, :background_color => \"orange\""  
   end
   
-  __install "documentation/common/sandbox.rb", {:height => 160}
+  __install "documentation/common/prop_sandbox.rb", {:height => 160}
 end
 
 slide do
@@ -43,7 +43,7 @@ slide do
     code :text => "sample :width => 200, :height => 20, :background_color => \"orange\""  
   end
   
-  __install "documentation/common/sandbox.rb", {:height => 180}
+  __install "documentation/common/prop_sandbox.rb", {:height => 180}
 end
 
 slide do
@@ -56,7 +56,7 @@ slide do
     code :text => "sample :width => 450, :height => 40, :background_color => \"green\""
   end
   
-  __install "documentation/common/sandbox.rb"
+  __install "documentation/common/prop_sandbox.rb"
 end
 
 slide do

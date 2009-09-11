@@ -13,9 +13,8 @@ slide do
     code :text => "  width 100"
     code :text => "}"
   end
-  
-  __install "documentation/common/canvas_with_box.rb", :prop_options => {:border_width => 1, :border_color => :black}  
-  __install "documentation/common/styles_sandbox.rb"
+    
+  __install "documentation/common/styles_sandbox_with_box.rb" 
 end
 
 slide do
@@ -29,8 +28,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/canvas_with_props.rb", {:props => "documentation/entrances/prop_sizing_examples/percentage_sizing.rb"}
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/prop_sizing_examples/percentage_sizing.rb"
 end
 
 slide do
@@ -44,8 +42,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/auto_size.rb"}
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/auto_size.rb"
 end
 
 slide do
@@ -58,9 +55,8 @@ slide do
     code :text => "  width 'auto'"
     code :text => "}"
   end
-  
-  __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/auto_size_with_text.rb"}  
-  __install "documentation/common/styles_sandbox.rb"
+
+  __install "documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/auto_size_with_text.rb"
 end
 
 slide do
@@ -85,8 +81,7 @@ slide do
   sandbox_codeblock do
   end
   
-  __install "documentation/common/canvas_with_props.rb", {:height => 150, :props => "documentation/entrances/prop_sizing_examples/prop_constrainment.rb"}  
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/prop_constrainment.rb"
 end
 
 

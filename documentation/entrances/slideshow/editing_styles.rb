@@ -27,12 +27,8 @@ slide do
     code :text => "  text_color :blue"
     code :text => "}"
   end
-  
-  canvas :id => "canvas" do
-    prop :text => "Turn Me Blue!", :id => "test_prop"
-  end
 
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop => "prop :text => \"Turn Me Blue!\", :id => \"test_prop\""
 end
 
 slide do
@@ -46,11 +42,7 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas" do
-    multiple_attributes :text => "Make me translucent with a border!", :id => "test_prop", :font_size => 14
-  end
-
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop => "multiple_attributes :text => \"Make me translucent with a border!\", :id => \"test_prop\", :font_size => 14"
 end
 
 slide do
@@ -66,14 +58,8 @@ slide do
     code :text => "  text_color :white"
     code :text => "}"
   end
-  
-  canvas :id => "canvas", :height => "160" do
-    first_prop :text => "I am named first_prop"
-    line_break
-    second_prop :text => "I am named second_prop"
-  end
 
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/two_props_with_different_names.rb", :height => 160
 end
 
 slide do
@@ -87,12 +73,8 @@ slide do
     code :text => "  text_color 'dark_red'"
     code :text => "}"
   end
-  
-  canvas :id => "canvas", :height => 150 do
-    interesting_values :text => "I've got interesting values"
-  end
 
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop => "interesting_values :text => \"I've got interesting values\"", :height => 150
 end
 
 
@@ -110,20 +92,12 @@ slide do
         
     codeblock :width => "65%" do
       code :text => "green_prop :text => 'Green'"
-      code :text => "red_prop :text => 'Red'"
+      code :text => "black_prop :text => 'Black'"
       code :text => "green_prop :text => 'Green'"
     end
   end
   
-  canvas :id => "canvas" do
-    green_prop :text => "Green"
-    line_break
-    red_prop :text => "Red"
-    line_break
-    green_prop :text => "Green"
-  end
-
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/red_and_green_props.rb", :height => 160  
 end
 
 slide do
@@ -140,11 +114,7 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas", :height => "130" do
-    extended_prop :text => "I am named extended_prop - note how I get both styles."
-  end
-
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop => "extended_prop :text => \"I am named extended_prop - note how I get both styles.\"", :height => 130
 end
 
 slide do
@@ -161,13 +131,7 @@ slide do
     code :text => "}"
   end
   
-  canvas :id => "canvas", :height => "130" do
-    outer_prop do
-      inner_prop :border_color => :black, :border_width => 2, :margin_width => 3, :text => "Prop 1 is nested in Prop2. It does not get the blue text_color attribute but will have its background_color because it is contained entirely in its parent prop."
-    end
-  end
-  
-  __install "documentation/common/styles_sandbox.rb"
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/inner_and_outer_prop.rb", :height => 130    
 end
 
 slide do
@@ -180,7 +144,6 @@ slide do
   end
   
   directions :text => "You can also put multiple style names in the styles attribute.  The styles will be applied in order from left to right, and in the case of a duplicate style attribute the rightmost style takes precedence."
-  
 end
 
 

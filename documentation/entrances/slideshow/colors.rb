@@ -33,8 +33,9 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/canvas_with_box.rb", :prop_options => {:width => "90%", :height => "85%", :border_width => 1, :border_color => :black}, :height => 170
-  __install "documentation/common/styles_sandbox.rb"
+  
+  
+  __install "documentation/common/styles_sandbox_with_box.rb", :prop => "prop :width => '90%'", :height => 170
 end
 
 slide do
@@ -62,8 +63,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/canvas_with_box.rb", :prop_options => {:width => "100%", :height => "100%", :border_width => 1, :border_color => :black}, :height => 170
-  __install "documentation/common/styles_sandbox.rb"
+  # __install "documentation/common/styles_sandbox_with_box.rb", :prop => "prop :width => \"100%\", :height => \"100%\", :border_width => 1, :border_color => :black", :height => 170
 end
 
 slide do
@@ -79,8 +79,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/common/canvas_with_box.rb", :prop_options => {:width => "100%", :height => "100%", :border_width => 1, :border_color => :black}
-  __install "documentation/common/styles_sandbox.rb"
+  # __install "documentation/common/styles_sandbox_with_box.rb", :prop => "prop :width => \"100%\", :height => \"100%\", :border_width => 1, :border_color => :black", :height => 170
 end
 
 slide do

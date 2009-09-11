@@ -21,7 +21,7 @@ slide do
     code :text => "my_first_prop :text => 'show me!'"
   end
   
-  __install "documentation/common/sandbox.rb", :height => 180
+  __install "documentation/common/prop_sandbox.rb", :height => 180
 end
 
 slide do
@@ -33,7 +33,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/sandbox.rb"
+  __install "documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -43,7 +43,7 @@ slide do
     code :text => "prop :width => '100', :height => '100', :border_color => 'red', :border_width => '1', :text => 'With some bad style'"
   end
   
-  __install "documentation/common/sandbox.rb"
+  __install "documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -54,7 +54,7 @@ slide do
     code :text => " :on_mouse_clicked => \"style.text_color = :red\""
   end
   
-  __install "documentation/common/sandbox.rb"
+  __install "documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -66,7 +66,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/sandbox.rb", :height => 190
+  __install "documentation/common/prop_sandbox.rb", :height => 190
 end
 
 slide do

@@ -81,7 +81,7 @@ slide do
   
   directions :text => "The prop above is blue, but when it is clicked I want it to turn black.  This is done by finding that Prop in the scene and manipulating it's style.  Fortunately all props have a style object, which you can change.  The code below will make the text change."
   
-  players_codeblock do
+  sandbox_codeblock do
     code :text => "def mouse_clicked(e)"
     code :text => "  prop = scene.find('red_prop')"
     code :text => "  prop.style.text_color = :black"

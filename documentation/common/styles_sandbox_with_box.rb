@@ -1,0 +1,1 @@
+__install "documentation/common/styles_sandbox.rb", :prop => "prop :styles => 'full_size_containing_prop'", :height => @height

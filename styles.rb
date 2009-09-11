@@ -99,17 +99,21 @@ sandbox_codeblock {
 }
 
 code_text_area {
-  width "95%"
+  width "100%"
   margin "2%"
-}
-
-styles_sandbox_area {
-   width "95%"
-   margin "2%"
 }
 
 navigation_pane {
   bottom_padding 6
+}
+
+sandbox_editing_area {
+  width "100%"
+  horizontal_alignment :right
+}
+
+sandbox_button {
+  horizontal_alignment :right
 }
 
 middle_navigation {
