@@ -14,6 +14,7 @@ table_of_contents do
   toc_link :id => "players_walkthrough",          :text => "Players",         :entrance => "players"
   toc_link :id => "productions_walkthrough",      :text => "Productions",     :entrance => "productions"
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :entrance => "stages"
+  toc_link :id => "animations_walkthrough",       :text => "Animations",      :entrance => "animations"
 end
 
 content_pane :id => "content_pane"
