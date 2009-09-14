@@ -33,7 +33,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox_with_box.rb", :height => 170
+  __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
 slide do
@@ -61,7 +61,7 @@ slide do
     code :text => "}"
   end
   
-  # __install "documentation/common/styles_sandbox_with_box.rb", :prop => "prop :width => \"100%\", :height => \"100%\", :border_width => 1, :border_color => :black", :height => 170
+  __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
 slide do
@@ -77,7 +77,7 @@ slide do
     code :text => "}"
   end
 
-  # __install "documentation/common/styles_sandbox_with_box.rb", :prop => "prop :width => \"100%\", :height => \"100%\", :border_width => 1, :border_color => :black", :height => 170
+  __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
 slide do
