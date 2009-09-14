@@ -1,2 +1,1 @@
-text_area :id => "code", :styles => "code_text_area"
-run_player_button :prop_name => @prop_name, :players => "button", :text => "Run", :id => "run_players_button"
+__install "documentation/common/sandbox.rb", :height => @height, :prop_file => @prop_file, :prop => @prop, :button_player => "run_players_button"
