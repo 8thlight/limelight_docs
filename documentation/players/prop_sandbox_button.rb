@@ -1,4 +1,4 @@
-module SandboxButton
+module PropSandboxButton
   
   def button_pressed(e)    
     canvas = scene.find('canvas')

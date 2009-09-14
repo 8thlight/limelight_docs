@@ -8,15 +8,17 @@ describe "RunPlayersButton" do
     Entrance.cue_common scene, :players_sandbox
     @players_button = scene.find("sandbox_button")
     @code = scene.find("code")
+    @canvas = scene.find("canvas")
     @prop_to_extend = Limelight::Prop.new(:name => "prop_to_extend", :id => "mi madre")
     
-    scene << @prop_to_extend
+    @canvas << @prop_to_extend
   end
   
   it "should append behavior on click to prop" do
     @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"
     
     @players_button.mouse_clicked(nil)
+    @prop_to_extend = @canvas.find_by_name("prop_to_extend")[0]
     @prop_to_extend.mouse_clicked(nil)
     
     @code.text.should == "changed"
@@ -24,9 +26,9 @@ describe "RunPlayersButton" do
   
   it "should nicely handle errors" do
     @code.text = "I am not ruby code"
-
+  
     @players_button.mouse_clicked(nil)
-    prop = scene.find("canvas").children[0]
+    prop = @canvas.children[1]
     prop.name.should == "error_message"
     prop.text.should == "(eval):1: , unexpected kNOT\n"
   end
@@ -38,16 +40,6 @@ describe "RunPlayersButton" do
     @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"    
     @players_button.mouse_clicked(nil)
     
-    scene.find("canvas").children.should be_empty
-  end
-  
-  it "should not clear other children of the canvas, or the corn" do
-    scene.find('canvas') << Limelight::Prop.new(:name => "corn")
-    scene.find('canvas') << Limelight::Prop.new(:name => "error_message")
-    
-    @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"    
-    @players_button.mouse_clicked(nil)
-    
-    scene.find("canvas").children.size.should == 1
+    @canvas.children.size.should == 1
   end
 end

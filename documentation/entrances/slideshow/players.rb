@@ -85,14 +85,10 @@ slide do
     code :text => "def mouse_clicked(e)"
     code :text => "  prop = scene.find('red_prop')"
     code :text => "  prop.style.text_color = :black"
-    code :text => "}"
-  end
-  
-  canvas :id => "canvas" do
-    prop_to_extend :id => "red_prop", :text => "I am red, make me black"
+    code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb"  
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black"'
 end
 
 slide do

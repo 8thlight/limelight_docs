@@ -1,11 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'entrance'
 
-describe "SandboxButton" do
+describe "PropSandboxButton" do
   uses_scene :documentation
   
   before(:each) do
-    Entrance.cue_common scene, :sandbox
+    Entrance.cue_common scene, :prop_sandbox
     
     @canvas = scene.find('canvas')
     @code = scene.find('code')
