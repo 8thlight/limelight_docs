@@ -1,1 +1,0 @@
-label :id => "label", :name => "label", :text => "Hello, World!", :text_color => :green, :font_size => 50, :float => :on
