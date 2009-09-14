@@ -18,17 +18,15 @@ end
 
 slide do
   heading :text => "Updates Per Second"
-  directions :text => "The number of updates per second can be specified when creating the animation.  This will default to 60 if you do not specify a value."
-  line_break
-  directions :text => "The default value should work well for you in most cases."
+  directions :text => "The number of updates per second can be specified when creating the animation."
   line_break
   codeblock {code :text => "@animation = animate({:updates_per_second => 30})"}
     
   line_break
-  directions :text => "The block passed to the animate method will be invoked updates_per_second times per second (which defaults to 60), until the Animation is stopped."
+  directions :text => "The block passed to the animate method will be invoked the specified number of times per second (the default is 60), until the Animation is stopped.  The default value should work well for you in most cases."
   
   line_break
-  directions :text => "Note that this is not the same as frames per second.  This value affects the frequency in which the code block is invoked.  Setting this value above 60 will actually begin to degrade performance and thus decrease the frame rate."
+  directions :text => "Note that this is not the same as frames per second.  This value affects the frequency in which the code block is invoked.  Setting this value above 60 will actually begin to degrade performance and likely decrease the frame rate."
   
 end
 
