@@ -27,7 +27,7 @@ describe "Styles Tutorial" do
       @slideshow.next
       @slideshow.next
       
-      @styles_sandbox_button = scene.find("run_styles_button")
+      @styles_sandbox_button = scene.find("sandbox_button")
       @code_area = scene.find('code')
     end
     
