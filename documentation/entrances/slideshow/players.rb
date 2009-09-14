@@ -89,7 +89,7 @@ slide do
   end
   
   canvas :id => "canvas" do
-    red_prop :id => "red_prop", :text => "I am red, make me black"
+    prop_to_extend :id => "red_prop", :text => "I am red, make me black"
   end
 
   __install "documentation/common/players_sandbox.rb"  
