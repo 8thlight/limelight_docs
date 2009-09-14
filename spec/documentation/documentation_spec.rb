@@ -33,7 +33,7 @@ describe "Documentation" do
       check_link("stages_walkthrough", "stages", "Stages")
     end
     
-    it "should have a prop sizing link" do
+    it "should have a 'prop layout' link" do
       check_link("prop_layout_walkthough", "prop_layout", "Prop Layout")
     end
 
@@ -41,13 +41,17 @@ describe "Documentation" do
       check_link("colors_walkthrough", "colors", "Colors")
     end
     
-    it "should have a prop sizing link" do
+    it "should have a 'prop sizing' link" do
       check_link("prop_sizing_walkthough", "prop_sizing", "Prop Sizing")
     end
     
-    it "should have a link to the tutorial on playah's" do
+    it "should have a 'players' link " do
       check_link("players_walkthrough", "players", "Players")
-      
     end
+    
+    it "should have an 'animations' link" do
+      check_link("animations_walkthrough", "animations", "Animations")
+    end
+    
   end
 end
