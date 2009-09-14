@@ -71,35 +71,93 @@ slide do
 end
 
 slide do
-  heading :text => "Scene Manipulation"
-  
-  directions :text => "In order to do anything interesting you have to be able to manipulate the Scene.  You've scene this already in thee above examples, where the first thing done is to find an element in the scene, and then do something with it.  Let's go through some examples."
-end
-
-slide do
   heading :text => "Change Style"
   
-  directions :text => "The prop above is blue, but when it is clicked I want it to turn black.  This is done by finding that Prop in the scene and manipulating it's style.  Fortunately all props have a style object, which you can change.  The code below will make the text change."
+  directions :text => "In order to do anything interesting you have to be able to manipulate the Scene.  You've seen this already in thee above examples, where the first thing done is to find an element in the Scene, and then do something with it.  The Prop below is red, but when it is clicked I want it to turn black and move to the right.  This is done by finding that Prop in the Scene and manipulating its Style.  Fortunately all props have a style object, which you can change.  The code below will make the text change when you click it.  Note: The Run button will not change the text - it will only add the mouse_clicked behavior."
   
   sandbox_codeblock do
     code :text => "def mouse_clicked(e)"
     code :text => "  prop = scene.find('red_prop')"
     code :text => "  prop.style.text_color = :black"
+    code :text => "  prop.style.left_padding = 10"
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black"'
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black.", :text_color => :red', :height => 90
 end
 
 slide do
   heading :text => "Events"
-  directions :text => "All Players can respond to mouse events simply by implementing the necessary methods.  Let's go through a few of them."
+  directions :text => "All Players can respond to mouse events simply by implementing the necessary methods.  You've seen the mouse_clicked event a few times now.  You can also implement mouse_entered and mouse_exited.  Lets use this code to change the text when the mouse passes over a prop."
+  
+  
+  sandbox_codeblock do
+    code :text => "def mouse_entered(e)"
+    code :text => "  prop = scene.find('found_prop')"
+    code :text => "  prop.text = 'Gray'"
+    code :text => "  prop.style.text_color = :gray"
+    code :text => "end"
+    line_break
+    
+    code :text => "def mouse_exited(e)"
+    code :text => "  prop = scene.find('found_prop')"
+    code :text => "  prop.text = 'Blue'"
+    code :text => "  prop.style.text_color = :blue"
+    code :text => "end"
+  end
+
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "found_prop", :text => "Blue", :text_color => :blue', :height => 100
 end
 
 slide do
-  heading :text => "Mouse Clicked"
-  directions :text => "The simplest and most commonly used mouse event is the mouse_clicked event.  The code below shows a test - which you'll make pass by writing the mouse clicked method.  You loser.  "
+  heading :text => "Drag and Drop"
+  directions :text => "You can implemement the mouse_pressed, mouse_dragged, and mouse_released methods.  Here's a simple example of dragging across an area.  When you press the color changes, when you drag it changes again, and when you release it changes back.  Note how self is used instead of finding the desired Prop.  Since the Player is mixed-in to the Prop, self is the Prop."
+  
+  sandbox_codeblock do
+    code :text => "def mouse_pressed(event)"
+    code :text => "  self.style.background_color = :yellow"
+    code :text => "end"
+    line_break
+    
+    code :text => "def mouse_released(event)"
+    code :text => "  self.style.background_color = :blue"
+    code :text => "end"
+    line_break
+    
+    code :text => "def mouse_dragged(event)"
+    code :text => "  self.style.background_color = :red"
+    code :text => "end"
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black', :height => 80
+  
 end
+
+slide do
+  heading :text => "Mouse Movement"
+  directions :text => "You can also just track movement inside the Prop's area.   As the mouse moves over the section below it will get more ad more transparent, assuming you apply the code snippet of course."
+  
+  sandbox_codeblock do
+    code :text => "def mouse_moved(event)"
+    code :text => "  self.style.transparency = self.style.transparency.to_i + 1"
+    code :text => "end"
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black, :background_color => :red'
+end
+
+slide do
+  heading :text => "Event Object"
+  directions :text => "You probably noticed that each one of the mouse event methods takes an Event object.  These objects can be used to get information about the event.  In this case we can display the location of each mouse click."
+  
+  sandbox_codeblock do
+    code :text => "def mouse_clicked(event)"
+    code :text => "  self.text = \"Mouse Click at: \#{event.x}, \#{event.y}\""
+    code :text => "end"
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :text => "The mouse has not been clicked yet.", :width => "100%", :height => "100%"'
+end  
 
 slide do
   heading :text => "Casted"
@@ -118,13 +176,7 @@ slide do
   heading :text => "Finished"
 end
 
-# mouse_clicked - Invoked  when the uses clicks on a Prop. More specifically, it's invoked when a mouse button is pressed and released all the while the location of the mouse is in the bounds of the Prop.
-# mouse_entered - Invoked when the mouse enters the bounds of a Prop.
-# mouse_exited - Invoked when the mouse, previously inside the Prop, move outside the bounds of the Prop.
-# mouse_pressed - Invoked when a mouse button is pressed down while the mouse's location is within the bounds of the Prop.
-# mouse_released - Invoked when a mouse button is released down while the mouse's location is within the bounds of the Prop.
-# mouse_dragged - Invoked when the mouse's location changes within the bounds of the Prop while a mouse button is depressed.
-# mouse_moved - Invoked when the mouse's location changes within the bounds of the Prop.
+
 # key_typed - Invoked when a key is typed. only applicable to built-in input players
 # key_pressed - Invoked when a key is pressed. only applicable to built-in input players
 # key_released - Invoked when a key is released. only applicable to built-in input players
