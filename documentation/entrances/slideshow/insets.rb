@@ -5,7 +5,7 @@ end
 
 slide do
   heading :text => "Margin"
-  directions :text => "Like the margin on a piece of paper the margin of a Prop is outside it's border.  This makes it good for pushing an object away from other objects.  In addition to specifying the margin with the margin style, you can specify top, bottom, left and right margins individually.  This is true of all three of these properties.  Let's move the prop with the border to the right and down, to give its neighbor some space.  Note that the values are relative to its parent prop."
+  directions :text => "Like the margin on a piece of paper the margin of a Prop is outside it's border.  This makes it good for pushing an object away from other objects.  Specifying the margin with the margin style will apply it uniformly around the Prop.  You can also specify top, bottom, left and right margins individually.  This is true of all three of these properties.  Let's move the Prop with the border to the right and down, to give its neighbor some space.  Note that the values are relative to its parent Prop."
   
   sandbox_codeblock do
     code :text => "right_prop {"
@@ -19,7 +19,7 @@ end
 
 slide do
   heading :text => "Percentage"
-  directions :text => "In addition margins, as well as padding, can be specified as a percentage of their parent space.  This way if a prop grows in size its margin will grow proportionally, as opposed to remaining a fix width.  Note how when we grow the parent box here the child box is effected by it.  The child box has a 5% margin."
+  directions :text => "Margins, as well as padding, can be specified as a percentage of their parent space.  This way if a Prop grows in size its margin will grow proportionally, as opposed to remaining a fix width.  Note how when we grow the parent box here the child box is effected by it.  The child box has a 5% margin."
   
   sandbox_codeblock do
     code :text => "box_with_child_with_margin {"
