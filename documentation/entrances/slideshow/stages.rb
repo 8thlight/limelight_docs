@@ -18,7 +18,7 @@ slide do
     code :text => "end"
   end
 
-  directions :text => "In this example, a single stage has been specified. Upon startup, one window will be displayed .  Its title of \"Main Stage\" will be visible at the top of the window."
+  directions :text => "In this example, a single stage has been specified. Upon startup, one window will be displayed.  Its title of \"Main Stage\" will be visible at the top of the window."
   line_break
   directions :text => "It will be located at the top-left corner of the screen, and it will have a width of 300 pixels and a height of 800 pixels."
   line_break
@@ -27,7 +27,7 @@ end
 
 slide do
   heading :text => "Multiple Stages"
-  directions :text => "In this next example, two stages have been specified."
+  directions :text => "Here's another example:"
   
   codeblock do
     code :text => "stage \"main\" do"
@@ -47,7 +47,7 @@ slide do
     code :text => "end"
   end
   
-  directions :text => "In this example, two windows will be shown at startup."
+  directions :text => "Here, two windows will be shown at startup."
   line_break
   directions :text => "The first will have a title of \"Main Stage\", appear in the top-left corner of the screen, and the Scene named \"first_scene\" will be loaded."
   line_break
@@ -56,7 +56,7 @@ end
 
 slide do
   heading :text => "Location"
-  directions :text => "The location of the stage can be specified with integers as seen in previous examples."
+  directions :text => "The location of the stage can be specified with integers as seen in previous examples.  Note that the coordinates that are specified are relative to the top-left corner of the user's screen."
   
   codeblock do
     code :text => "stage \"main\" do"
@@ -83,7 +83,8 @@ end
 
 slide do
   heading :text => "Size"
-  directions :text => "Size can be specified as number of pixels as seen in previous examples.  You can also specify the size using a percentage or as auto."
+  directions :text => "Size can be specified as number of pixels as seen in previous examples.  You can also specify the size using a percentage or as auto.  "
+  directions :text => "A percentage will be relative to the user's screen size.  Auto will attempt to size the window to fit all of the content."
   codeblock do
     code :text => "stage \"main\" do"
     code :text => "  size [\"50%\", :auto]"
