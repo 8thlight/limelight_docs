@@ -110,7 +110,7 @@ slide do
 end
 
 slide do
-  heading :text => "Drag and Drop"
+  heading :text => "Mouse Pressed"
   directions :text => "You can implemement the mouse_pressed, mouse_dragged, and mouse_released methods.  Here's a simple example of dragging across an area.  When you press the color changes, when you drag it changes again, and when you release it changes back.  Note how self is used instead of finding the desired Prop.  Since the Player is mixed-in to the Prop, self is the Prop."
   
   sandbox_codeblock do
@@ -160,27 +160,160 @@ slide do
 end  
 
 slide do
+  heading :text => "Built-in Players"
+  directions :text => "In addition to the ability to add behavior to Props yourself, you can use the built-in players provided by Limelight.  These players are especially useful for the kind of controls you wouldn't want to write yourself, such as generic buttons and text areas.  To specify a default player you can simply add it to the players attribute in the Prop definition.  Let's get started."  
+end
+
+slide do
+  heading :text => "Image"
+  directions :text => "Possibly the simplest prop is the image prop.  It's the easiest way to project an image onto the screen by using the provided image attribute.  To see what the file image.png looks like, use the code below.  Note how the image is scaled and shrunk to fit."
+  
+  sandbox_codeblock do
+    code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :scaled => true, :height => 190"
+  end
+
+  __install "documentation/common/prop_sandbox.rb", :height => 190
+end
+
+slide do
+  heading :text => "Text"
+  directions :text => "Eventually, whether you want them to or not, users are going to want to type in some data.  Text Areas and Text Boxes work just the way you'd expect.  To read the data in the a text Prop you access its text property.  Let's show them here:"
+  
+  sandbox_codeblock do
+    code :text => "text_area_prop :players => 'text_area'"
+    code :text => "text_box_prop :players => 'text_box'"
+  end
+
+  __install "documentation/common/prop_sandbox.rb", :height => 190
+end
+
+
+slide do
+  heading :text => "More Events"
+  directions :text => "There are more built-in Players to come, but before we move on let's look at the new events that come available with the new Players we've just discussed.  The input fields can detect key presses and focus changes, and behave on them by adding a second player to their players hash.  For example the text area below would first mixin the text_area player, then also mixin a custom player of your own design.  These custom players can implement the new Events."
+  
+  codeblock do
+    code :text => "text_box_prop :players => 'text_box, custom'"
+  end
+end
+
+slide do
+  heading :text => "Key Presses"
+  directions :text =>  "Key presses are detected by any of the built in Players, and can be handled by your custom Players.  Ditto key releases and key types.  The event in the key press will contain the key....pressed.  What you thought it was hard?  Applying the code below to the Prop on the screen will allow you to count key presses and releases."
+  
+  sandbox_codeblock do    
+    code :text => "def key_pressed(event)"
+    code :text => "  key_presses_prop = scene.find('key_presses')"
+    code :text => "  key_presses_prop.text = key_presses_prop.text.to_i + 1"
+    code :text => "end"
+    line_break
+    
+    code :text => "def key_released(event)"
+    code :text => "  key_releases_prop = scene.find('key_releases')"
+    code :text => "  key_releases_prop.text = key_releases_prop.text.to_i + 1"
+    code :text => "end"
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :height => 120, :prop_file => "documentation/entrances/player_examples/typing_props.rb"
+end
+
+slide do
+  heading :text => "Focus"
+  directions :text => "The focus of the control can also be dectected.  When focus is gained or lost an event is sent.  Let's use the focus change to change the color of a Prop.  When the focus leaves the text area on the left the Prop will turn blue, when it is gained it will turn red."
+  
+  sandbox_codeblock do
+    code :text => "def focus_gained(event)"
+    code :text => "  box_prop = scene.find('box_prop')"
+    code :text => "  box_prop.style.background_color = :red"
+    code :text => "end"
+    line_break
+    
+    code :text => "def focus_lost(event)"
+    code :text => "  box_prop = scene.find('box_prop')"
+    code :text => "  box_prop.style.background_color = :blue"
+    code :text => "end"    
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/focus_props.rb", :height => 125
+end
+
+slide do
+  heading :text => "Buttons"
+  directions :text => "If we might return to the built in Players for a moment, there are three variations on the same thing that we will discuss next: the Button, the Checkbox and the Radio Button.  These work as you might expect, with the Checkbox and Radio Buttons having extra fields to manipulate them.  The two props on the scene here are a Checkbox that is selected, and a traditional button."
+  
+  sandbox_codeblock do
+     code :text => "button_prop :players => 'button', :text => 'button'"
+     code :text => "checkbox_prop :players => 'check_box', :selected => true"
+   end
+
+   __install "documentation/common/prop_sandbox.rb", :height => 140
+end
+
+slide do
+  heading :text => "Radio Button"
+  directions :text => "The Radio Button requires a small amount of explanation.  Radio Buttons need to be grouped by a name in order to properly select and unselect the buttons. This is done with the group attribute."
+    
+  sandbox_codeblock do
+     code :text => "radio_button_prop :players => 'radio_button', :group => 'button_group'"
+     code :text => "radio_button_prop :players => 'radio_button', :group => 'button_group'"
+     code :text => "radio_button_prop :players => 'radio_button', :group => 'button_group'"
+   end
+
+   __install "documentation/common/prop_sandbox.rb", :height => 120
+end
+
+slide do
+  heading :text => "Button Pressed Event"
+  directions :text => "These new Players introduce a new event - the button press.  This can be implemented to respond to a button press in all the normall ways you might expect.  For instance on this very page the sandbox where you type your code is a Text Area and the Run button is a Button.  With this code you can make a box turn red.  Hey we can't trust you with everything yet."
+ 
+  sandbox_codeblock do
+    code :text => "def button_pressed(event)"
+    code :text => "  box_prop = scene.find('box_prop')"
+    code :text => "  box_prop.style.background_color = :red"
+    code :text => "end"
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/button_props.rb", :height => 140
+end
+
+slide do
+  heading :text => "Combo Box Player"
+  directions :text => "The last built in Player is the Combo Box.  The Combo Box is setup with an array of possible choices, and the current value.  Don't you which HTML was this simple?"
+  
+  sandbox_codeblock do
+    code :text => "combo_box_prop :players => 'combo_box', :choices => ['red', 'blue', 'green', 'black'], :value => 'black'"
+  end
+  
+  __install "documentation/common/prop_sandbox.rb"
+end
+
+slide do
+  heading :text => "Value Changed"
+  directions :text =>  "Combo boxes have a unique event they respond to - the value_changed event.  In this example we'll be using the value_changed event to change the text to the right of the combo box."
+  
+  sandbox_codeblock do
+    code :text => "def value_changed(event)"
+    code :text => "  text_prop = scene.find('current_color')"
+    code :text => "  text_prop.text = self.value"
+    code :text => "end"
+  end
+  
+  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb"
+end
+
+slide do
   heading :text => "Casted"
-  directions :text => "I have been casted for lunch"
-end
-
-slide do
-  heading :text => "Builtin Players"
-end
-
-slide do
-  heading :text => "Methods"
+  directions :text => "Like the real Players in a Production, Players are casted when they are first placed on a scene.  The method casted should be overridden instead of overriding initialize to do any necessary setup, as you cannot know whether or not the current Player will be used in conjunction with any other Props."
+  
+  codeblock do
+    code :text => "def casted"
+    code :text => "  # Here I do setup"
+    code :text => "end"
+  end
 end
 
 slide do
   heading :text => "Finished"
+  
+  directions :text => "We covered a lot of information in this tutorial.  When you're ready, move on to the next one."
 end
-
-
-# key_typed - Invoked when a key is typed. only applicable to built-in input players
-# key_pressed - Invoked when a key is pressed. only applicable to built-in input players
-# key_released - Invoked when a key is released. only applicable to built-in input players
-# focus_gained - Invoked when the keyboard focus is given to the Prop. only applicable to built-in input players
-# focus_lost - Invoked when the keyboard focus is taken from the Prop. only applicable to built-in input players
-# button_pressed - Invoked when a Prop's button is pressed. only applicable to the following built-in players: button, check_box, radio_button
-# value_changed - Invoked when the value of a combo_box Prop is changed. only applicable to the combo-box built-in player
