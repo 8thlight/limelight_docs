@@ -1,11 +1,11 @@
 slide do
   heading :text => "Margins and Padding"
-  directions :text => "Like HTML elements Props can have margins and padding.  As Limelight does not have to deal with multiple browsers these behave in a consistent and reliable fashion, where the margin is always outside the border and the padding is always inside.  Lets go through a few of the ways to use them."
+  directions :text => "Like HTML elements Props can have margins and padding.  As Limelight does not have to deal with multiple browsers these behave in a consistent and reliable fashion, where the margin is always outside the border and the padding is always inside.  Let's go through a few of the ways to use them."
 end
 
 slide do
   heading :text => "Margin"
-  directions :text => "Like the margin on a piece of paper the margin of a Prop is outside it's border.  This makes it good for pushing an object away from other objects.  Specifying the margin with the margin style will apply it uniformly around the Prop.  You can also specify top, bottom, left and right margins individually.  This is true of all three of these properties.  Let's move the Prop with the border to the right and down, to give its neighbor some space.  Note that the values are relative to its parent Prop."
+  directions :text => "Like the margin on a piece of paper the margin of a Prop is outside its border.  This makes it good for pushing a Prop away from other Props.  Specifying the margin with the margin style will apply it uniformly around the Prop.  You can also specify top, bottom, left and right margins individually.  This is true for all of these attributes.  Let's move the Prop with the border to the right and down, to give its neighbor some space.  Note that the values are relative to its parent Prop."
   
   sandbox_codeblock do
     code :text => "right_prop {"
@@ -19,7 +19,7 @@ end
 
 slide do
   heading :text => "Percentage"
-  directions :text => "Margins, as well as padding, can be specified as a percentage of their parent space.  This way if a Prop grows in size its margin will grow proportionally, as opposed to remaining a fix width.  Note how when we grow the parent box here the child box is effected by it.  The child box has a 5% margin."
+  directions :text => "Margins, as well as padding, can be specified as a percentage of their parent space.  If a Prop grows in size, its margin will grow proportionally, as opposed to remaining a fixed width.  Note how when we grow the parent box here the child box is affected by it.  The child box has a 5% margin."
   
   sandbox_codeblock do
     code :text => "box_with_child_with_margin {"
@@ -33,7 +33,7 @@ end
 
 slide do
   heading :text => "Padding"
-  directions :text => "Naturally padding works well within the props own area.  The box below has no padding, and you can see the text is pretty cramped.  Give it some padding to relax it."
+  directions :text => "Naturally, padding works within the Prop's own area.  The box below has no padding, and you can see the text is pretty cramped.  Give it some padding so it can relax."
 
   sandbox_codeblock do
     code :text => "cramped_text {"
