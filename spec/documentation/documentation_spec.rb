@@ -65,9 +65,12 @@ describe "Documentation" do
       check_link("borders_walkthrough", "borders", "Borders")
     end
     
-    it "should have a 'images' link" do
+    it "should have an 'images' link" do
       check_link("images_walkthrough", "images", "Images")
     end
     
+    it "should have an Insets tutorial" do
+      check_link("insets_walkthrough", "insets", "Margin and Padding")
+    end
   end
 end

@@ -14,6 +14,7 @@ table_of_contents do
   toc_link :id => "backgrounds_walkthrough",      :text => "Backgrounds",     :entrance => "backgrounds"
   toc_link :id => "gradients_walkthrough",        :text => "Gradients",       :entrance => "gradients"
   toc_link :id => "borders_walkthrough",          :text => "Borders",         :entrance => "borders"
+  toc_link :id => "insets_walkthrough",           :text => "Margin and Padding",  :entrance => "insets"
   toc_link :id => "players_walkthrough",          :text => "Players",         :entrance => "players"
   toc_link :id => "images_walkthrough",           :text => "Images",          :entrance => "images"
   toc_link :id => "animations_walkthrough",       :text => "Animations",      :entrance => "animations"
