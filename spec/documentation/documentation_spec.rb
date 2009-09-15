@@ -61,6 +61,9 @@ describe "Documentation" do
       check_link("backgrounds_walkthrough", "backgrounds", "Backgrounds")
     end
     
+    it "should have a 'borders' link" do
+      check_link("borders_walkthrough", "borders", "Borders")
+    end
     
   end
 end
