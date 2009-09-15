@@ -15,6 +15,7 @@ table_of_contents do
   toc_link :id => "gradients_walkthrough",        :text => "Gradients",       :entrance => "gradients"
   toc_link :id => "borders_walkthrough",          :text => "Borders",         :entrance => "borders"
   toc_link :id => "players_walkthrough",          :text => "Players",         :entrance => "players"
+  toc_link :id => "images_walkthrough",           :text => "Images",          :entrance => "images"
   toc_link :id => "animations_walkthrough",       :text => "Animations",      :entrance => "animations"
   toc_link :id => "productions_walkthrough",      :text => "Productions",     :entrance => "productions"
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :entrance => "stages"

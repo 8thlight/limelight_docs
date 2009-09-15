@@ -65,5 +65,9 @@ describe "Documentation" do
       check_link("borders_walkthrough", "borders", "Borders")
     end
     
+    it "should have a 'images' link" do
+      check_link("images_walkthrough", "images", "Images")
+    end
+    
   end
 end
