@@ -13,7 +13,7 @@ slide do
     code :text => "prop {"
     code :text => "  background_color :black"
     code :text => "  secondary_background_color :red"
-    code :text => "  gradient :on"
+    bold_code :text => "  gradient :on"
     code :text => "}"
   end
   
@@ -23,12 +23,14 @@ end
 slide do
   heading :text => "Gradient Angle"
   directions :text => "The angle of the gradient can be specified in degrees (based on the trigonometric unit circle).  Specifying a value of 0 will place the background_color on the left and the secondary_background_color on the right.  Specifying a value of 90 will place the background color on the bottom and the secondary_background_color on top.  And so on."
+  line_break
+  directions :text => "The default value is 90."
   
   sandbox_codeblock do
     code :text => "prop {"
     code :text => "  background_color :black"
     code :text => "  secondary_background_color :red"
-    code :text => "  gradient_angle 0"
+    bold_code :text => "  gradient_angle 0"
     code :text => "  gradient :on"
     code :text => "}"
   end
@@ -55,7 +57,7 @@ slide do
     code :text => "prop {"
     code :text => "  background_color :black"
     code :text => "  secondary_background_color :red"
-    code :text => "  gradient_penetration 50"
+    bold_code :text => "  gradient_penetration 50"
     code :text => "  gradient :on"
     code :text => "}"
   end
@@ -80,7 +82,7 @@ slide do
     code :text => "prop {"
     code :text => "  background_color :black"
     code :text => "  secondary_background_color :red"
-    code :text => "  cyclic_gradient :on"
+    bold_code :text => "  cyclic_gradient :on"
     code :text => "  gradient_penetration 20"
     code :text => "  gradient :on"
     code :text => "}"

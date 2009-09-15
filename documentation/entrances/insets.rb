@@ -1,1 +1,1 @@
-__install "documentation/entrances/tutorial.rb", :slideshow => "insets", :title => "Inset"
+__install "documentation/entrances/tutorial.rb", :slideshow => "insets", :title => "Insets"
