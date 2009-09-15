@@ -53,5 +53,17 @@ describe "Documentation" do
       check_link("animations_walkthrough", "animations", "Animations")
     end
     
+    it "should have a 'gradients' link" do
+      check_link("gradients_walkthrough", "gradients", "Gradients")
+    end
+    
+    it "should have a 'backgrounds' link" do
+      check_link("backgrounds_walkthrough", "backgrounds", "Backgrounds")
+    end
+    
+    it "should have a 'borders' link" do
+      check_link("borders_walkthrough", "borders", "Borders")
+    end
+    
   end
 end

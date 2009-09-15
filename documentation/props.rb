@@ -11,10 +11,14 @@ table_of_contents do
   toc_link :id => "prop_layout_walkthough",       :text => "Prop Layout",     :entrance => "prop_layout"
   toc_link :id => "prop_sizing_walkthough",       :text => "Prop Sizing",     :entrance => "prop_sizing"
   toc_link :id => "colors_walkthrough",           :text => "Colors",          :entrance => "colors"
+  toc_link :id => "backgrounds_walkthrough",      :text => "Backgrounds",     :entrance => "backgrounds"
+  toc_link :id => "gradients_walkthrough",        :text => "Gradients",       :entrance => "gradients"
+  toc_link :id => "borders_walkthrough",          :text => "Borders",         :entrance => "borders"
   toc_link :id => "players_walkthrough",          :text => "Players",         :entrance => "players"
+  toc_link :id => "animations_walkthrough",       :text => "Animations",      :entrance => "animations"
   toc_link :id => "productions_walkthrough",      :text => "Productions",     :entrance => "productions"
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :entrance => "stages"
-  toc_link :id => "animations_walkthrough",       :text => "Animations",      :entrance => "animations"
+  
 end
 
 content_pane :id => "content_pane"
