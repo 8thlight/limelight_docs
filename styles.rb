@@ -163,6 +163,11 @@ parent_prop {
   border_color :black
 }
 
+box_with_child_with_margin {
+  height 60
+  width 60
+}
+
 child_prop {
   height 10
   width 10
