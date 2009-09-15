@@ -57,5 +57,10 @@ describe "Documentation" do
       check_link("gradients_walkthrough", "gradients", "Gradients")
     end
     
+    it "should have a 'backgrounds' link" do
+      check_link("backgrounds_walkthrough", "backgrounds", "Backgrounds")
+    end
+    
+    
   end
 end
