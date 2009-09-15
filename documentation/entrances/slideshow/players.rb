@@ -28,16 +28,16 @@ end
 
 slide do
   heading :text => "Players Attribute"
-  directions :text => "Sometimes its inappropriate to name the Prop and the Player the same thing, or perhaps you want to mix-in more than one Player.  This can be done through the players attribute which is used just like the styles attribute."
+  directions :text => "Sometimes its inappropriate to name the Prop and the Player the same thing, or perhaps you want to mix-in more than one Player.  This can be done through the players attribute which is used just like the styles attribute.  In the example below you we define this_prop with the Props DSL and assign it the Players NextButton and HighlightedButton."
   
   codeblock do
-    code :text => "prop_using_players_attribute :players => 'NextButton, HighlightedButton', :text => 'I am text'"
+    code :text => "this_prop :players => 'NextButton, HighlightedButton', :text => 'I am text'"
   end
 end
 
 slide do
   heading :text => "Testing"
-  directions :text => "Testing Player behavior is done using the RSpec tests generated with the Production.  In order to test a Player the simplest thing to do is load the Scene and find the Prop, at which point you call methods on the Prop directly.  You saw this test already:"
+  directions :text => "Testing Player behavior is done using the RSpec tests generated with the Production.  In order to test a Player the simplest thing to do is load the Scene and find the Prop, at which point you call methods on the Prop directly.  You saw this test in the Getting Started tutorial:"
   
   codeblock do
     code :text => "it 'should change the root scene text when it is clicked' do"
@@ -48,18 +48,7 @@ slide do
   end
   
   line_break
-  directions :text => "Every spec has a scene method assuming you use the proper directive at the top of your describe block:" 
-  
-  codeblock do
-    code :text => "it 'should change the root scene text when it is clicked' do"
-    code :text => "  root = scene.children[0]"
-    code :text => "  root.mouse_clicked(nil)"
-    code :text => "  root.text.should == \"Hello Limelight!\""
-    code :text => "end"
-  end
-  
-  line_break
-  directions :text => "Finally each spec for a Scene has the following directive just below the describe block:"
+  directions :text => "Each spec for a Scene has the following directive just below the describe block:"
   
   codeblock do
     code :text => "describe \"MyScene\""
@@ -73,7 +62,7 @@ end
 slide do
   heading :text => "Change Style"
   
-  directions :text => "In order to do anything interesting you have to be able to manipulate the Scene.  You've seen this already in thee above examples, where the first thing done is to find an element in the Scene, and then do something with it.  The Prop below is red, but when it is clicked I want it to turn black and move to the right.  This is done by finding that Prop in the Scene and manipulating its Style.  Fortunately all props have a style object, which you can change.  The code below will make the text change when you click it.  Note: The Run button will not change the text - it will only add the mouse_clicked behavior."
+  directions :text => "In order to do anything interesting you have to be able to manipulate the Scene.  You've seen this already in the previous examples, where the first thing done is to find a Prop in the Scene, and then do something with it.  The Prop below is red, but when it is clicked I want it to turn black and move to the right.  Fortunately all props have a style object, which you can change.  The code below will make the text change when you click it.  Note: The Run button will not change the text - it will only add the mouse_clicked behavior.  You must click Apply to apply the behavior, then click the example Prop to see it."
   
   sandbox_codeblock do
     code :text => "def mouse_clicked(e)"
@@ -106,7 +95,7 @@ slide do
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "found_prop", :text => "Blue", :text_color => :blue', :height => 100
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "found_prop", :text => "Blue", :text_color => :blue, :font_size => 24', :height => 100
 end
 
 slide do
@@ -166,7 +155,7 @@ end
 
 slide do
   heading :text => "Image"
-  directions :text => "Possibly the simplest prop is the image prop.  It's the easiest way to project an image onto the screen by using the provided image attribute.  To see what the file image.png looks like, use the code below.  Note how the image is scaled and shrunk to fit."
+  directions :text => "Possibly the simplest Player is the image.  It's the easiest way to project an image onto the screen by using the provided image attribute.  To see what the file image.png looks like, use the code below.  Note how the image is scaled and shrunk to fit."
   
   sandbox_codeblock do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :scaled => true, :height => 190"
@@ -177,7 +166,7 @@ end
 
 slide do
   heading :text => "Text"
-  directions :text => "Eventually, whether you want them to or not, users are going to want to type in some data.  Text Areas and Text Boxes work just the way you'd expect.  To read the data in the a text Prop you access its text property.  Let's show them here:"
+  directions :text => "Eventually, whether you want them to or not, users are going to want to type in some data.  Text Areas and Text Boxes work just the way you'd expect.  To read the data in a text Prop you access its text property.  Let's show them here:"
   
   sandbox_codeblock do
     code :text => "text_area_prop :players => 'text_area'"
@@ -190,16 +179,16 @@ end
 
 slide do
   heading :text => "More Events"
-  directions :text => "There are more built-in Players to come, but before we move on let's look at the new events that come available with the new Players we've just discussed.  The input fields can detect key presses and focus changes, and behave on them by adding a second player to their players hash.  For example the text area below would first mixin the text_area player, then also mixin a custom player of your own design.  These custom players can implement the new Events."
+  directions :text => "There are more built-in Players to come, but before we move on let's look at the new events that are sent by the new Players.  The input fields can detect key presses and focus changes, and to add behavior when those events occur you add a second Player to the players list with the needed event(s) implemented.  For example the Test Area below would first mixin the text_area player, then also mixin a custom player of your own design.  In the upcoming steps we'll describe how to implement the needed events."
   
   codeblock do
-    code :text => "text_box_prop :players => 'text_box, custom'"
+    code :text => "text_area_prop :players => 'text_area, custom'"
   end
 end
 
 slide do
   heading :text => "Key Presses"
-  directions :text =>  "Key presses are detected by any of the built in Players, and can be handled by your custom Players.  Ditto key releases and key types.  The event in the key press will contain the key....pressed.  What you thought it was hard?  Applying the code below to the Prop on the screen will allow you to count key presses and releases."
+  directions :text =>  "Key presses are detected by any of the built-in Players, and can be handled by your custom Players.  Ditto key releases and key types.  The event in the key press will contain the key....pressed.  What you thought it was hard?  Applying the code below to the Prop on the screen will allow you to count key presses and releases."
   
   sandbox_codeblock do    
     code :text => "def key_pressed(event)"
@@ -239,11 +228,11 @@ end
 
 slide do
   heading :text => "Buttons"
-  directions :text => "If we might return to the built in Players for a moment, there are three variations on the same thing that we will discuss next: the Button, the Checkbox and the Radio Button.  These work as you might expect, with the Checkbox and Radio Buttons having extra fields to manipulate them.  The two props on the scene here are a Checkbox that is selected, and a traditional button."
+  directions :text => "If we might return to the built-in Players for a moment, there are three variations on the same thing that we will discuss next: the Button, the Checkbox and the Radio Button.  These work as you might expect, with the Checkbox and Radio Buttons having extra fields to manipulate them.  The two props on the scene here are a Checkbox that is checked, and a traditional button."
   
   sandbox_codeblock do
      code :text => "button_prop :players => 'button', :text => 'button'"
-     code :text => "checkbox_prop :players => 'check_box', :selected => true"
+     code :text => "checkbox_prop :players => 'check_box', :checked => true"
    end
 
    __install "documentation/common/prop_sandbox.rb", :height => 140
@@ -251,12 +240,15 @@ end
 
 slide do
   heading :text => "Radio Button"
-  directions :text => "The Radio Button requires a small amount of explanation.  Radio Buttons need to be grouped by a name in order to properly select and unselect the buttons. This is done with the group attribute."
+  directions :text => "The Radio Button requires a small amount of explanation.  Radio Buttons need to be grouped by a group name in order to properly select and unselect the buttons. This is done with the group attribute."
     
   sandbox_codeblock do
-     code :text => "radio_button_prop :players => 'radio_button', :group => 'button_group'"
-     code :text => "radio_button_prop :players => 'radio_button', :group => 'button_group'"
-     code :text => "radio_button_prop :players => 'radio_button', :group => 'button_group'"
+     code :text => "radio_button_prop :players => 'radio_button',"
+     code :text => "                  :group => 'button_group'"
+     code :text => "radio_button_prop :players => 'radio_button',"
+     code :text => "                  :group => 'button_group'"
+     code :text => "radio_button_prop :players => 'radio_button',"
+     code :text => "                  :group => 'button_group'"
    end
 
    __install "documentation/common/prop_sandbox.rb", :height => 120
@@ -264,7 +256,7 @@ end
 
 slide do
   heading :text => "Button Pressed Event"
-  directions :text => "These new Players introduce a new event - the button press.  This can be implemented to respond to a button press in all the normall ways you might expect.  For instance on this very page the sandbox where you type your code is a Text Area and the Run button is a Button.  With this code you can make a box turn red.  Hey we can't trust you with everything yet."
+  directions :text => "These new Players introduce a new event - the button press.  This can be implemented to respond to a button press in all the ways you might expect.  The props below are setup with a button and a Prop, ith this code you can make that Prop turn red."
  
   sandbox_codeblock do
     code :text => "def button_pressed(event)"
@@ -278,7 +270,7 @@ end
 
 slide do
   heading :text => "Combo Box Player"
-  directions :text => "The last built in Player is the Combo Box.  The Combo Box is setup with an array of possible choices, and the current value.  Don't you which HTML was this simple?"
+  directions :text => "The last built-in Player is the Combo Box.  The Combo Box is setup with an array of possible choices, and the current value.  Don't you wish HTML was this simple?"
   
   sandbox_codeblock do
     code :text => "combo_box_prop :players => 'combo_box', :choices => ['red', 'blue', 'green', 'black'], :value => 'black'"
@@ -302,8 +294,8 @@ slide do
 end
 
 slide do
-  heading :text => "Casted"
-  directions :text => "Like the real Players in a Production, Players are casted when they are first placed on a scene.  The method casted should be overridden instead of overriding initialize to do any necessary setup, as you cannot know whether or not the current Player will be used in conjunction with any other Props."
+  heading :text => "Cast"
+  directions :text => "When Players are put into a Production they are cast.  In limelight the casted method is called when Players are first put into a Scene.  Use this for any initialization needed for the Player, and remember Players are modules so overriding initialize is a big no no."
   
   codeblock do
     code :text => "def casted"
