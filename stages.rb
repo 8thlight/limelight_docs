@@ -7,9 +7,9 @@ end
 
 # stage "test" do
 #   default_scene "documentation"
-#   title "Test Scene"
-#   location [0, 0]
-#   size [:auto, 800]
+#   title "Limelight Docs"
+#   location [:left, :top]
+#   size [800, 800]
 # end
 
 # stage "devtool" do

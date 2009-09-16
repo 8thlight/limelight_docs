@@ -3,6 +3,19 @@ slide do
   directions :text => "A Production may have one or more stages.  Stages represent windows on the desktop."
   line_break
   directions :text => "Each stage can have a name, size, location, and may display any Scene."
+  line_break
+  
+  screenshot_div do
+    directions :text => "Windows"
+    line_break
+    screenshot :image => "images/stages_windoze.png", :height => 160, :scaled => true, :players => "image"
+  end
+  
+  screenshot_div do
+    directions :text => "Mac"
+    line_break
+    screenshot :image => "images/stages_mac.png", :height => 160, :scaled => true, :players => "image"
+  end
 end
 
 slide do
@@ -64,11 +77,20 @@ slide do
     code :text => "end"
   end
   
+  screenshot_div do
+      screenshot :image => "images/stages_location.jpg", :height => 300, :scaled => true, :players => "image"
+  end
+  
+end
+
+slide do
+  heading :text => "Location Using Styles"
+  
   directions :text => "You can also specify them using the style syntax."
 
   codeblock do
     code :text => "stage \"main\" do"
-    code :text => "  location [:top, :left]"
+    code :text => "  location [:left, :top]"
     code :text => "end"
   end
   
@@ -79,6 +101,7 @@ slide do
   directions :text => "* Vertical - :top, :center and :bottom"
   line_break
   directions :text => "* Horizontal - :left, :center, and :right"
+  
 end
 
 slide do
@@ -89,6 +112,10 @@ slide do
     code :text => "stage \"main\" do"
     code :text => "  size [\"50%\", :auto]"
     code :text => "end"
+  end
+  
+  screenshot_div do
+      screenshot :image => "images/stages_size.jpg", :height => 300, :scaled => true, :players => "image"
   end
 end
 
@@ -126,6 +153,11 @@ slide do
     code :text => "  framed false"
     code :text => "end"
   end
+  
+  screenshot_div do
+    screenshot :image => "images/stages_noframe.png", :height => 300, :scaled => true, :players => "image"
+  end
+  
 end
 
 slide do
