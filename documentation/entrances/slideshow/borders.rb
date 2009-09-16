@@ -31,9 +31,6 @@ slide do
   codeblock do
     code :text => "top_border_width, right_border_width, bottom_border_width, left_border_width"
   end
-  
-
-  
 end
 
 slide do

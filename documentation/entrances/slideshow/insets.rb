@@ -61,6 +61,19 @@ slide do
 end
 
 slide do
-  heading :text => "Finished"
-  directions :text => "You have now mastered padding and margins.  Move on to the next tutorial."
+  heading :text => "Fnished"
+  directions :text => "In summary, the margins and padding can be applied either in total or independently.  Notice how the naming convention is backwards from CSS, i.e. left_padding not padding-left.  All the options can take pixes or percentage."
+  
+  line_break
+  directions :text => "Padding Options"
+  codeblock do
+    code :text => "padding, top_padding, bottom_padding, left_padding, right_padding"
+  end
+  
+  directions :text => "Margi Options"
+  codeblock do
+    code :text => "margin, margin_padding, margin_padding, margin_padding, margin_padding"
+  end
+  
+  directions :text => "You've now got all the information you need to handle layouts in limelight.  Move on to the next tutorial."
 end
