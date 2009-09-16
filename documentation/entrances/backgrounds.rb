@@ -1,1 +1,0 @@
-__install "documentation/entrances/tutorial.rb", :slideshow => "backgrounds", :title => "Backgrounds"

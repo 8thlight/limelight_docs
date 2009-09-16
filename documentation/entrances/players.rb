@@ -1,1 +1,0 @@
-__install "documentation/entrances/tutorial.rb", :slideshow => "players", :title => "Players"

@@ -8,21 +8,13 @@ describe "TocLink" do
   end
   
   it "should cue an entrance" do
-    @link.entrance = "walkthrough"
-    Entrance.should_receive(:cue).with(scene, "walkthrough")
+    @link.slideshow = "walkthrough"
+    @link.title = "The Walkthrough"
+    Entrance.should_receive(:cue).with(scene, "walkthrough", "The Walkthrough")
     
     @link.mouse_clicked(nil)
   end  
-  
-  it "should install the specified entrance file" do
-    @link.entrance = "getting_started"
     
-    @link.mouse_clicked(nil)
-    
-    prop = scene.find("content_pane")
-    prop.children.should_not be_empty
-  end
-  
   it "should highlight the clicked link" do
     @link.mouse_clicked(nil)
     

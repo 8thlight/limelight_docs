@@ -8,25 +8,25 @@ describe Entrance do
     @content_pane = mock("pane", :build => nil, :remove_all => nil)
     @scene.stub!(:find).and_return(@content_pane)
   end
-  
-  it "should clear the content pane" do
-    @content_pane.should_receive(:remove_all)
     
-    Entrance.cue(@scene, nil)
-  end
-  
-  it "should install the specified scene file" do
-    Entrance.should_receive(:__install).with("documentation/entrances/walkthrough.rb")
-    @content_pane.should_receive(:build).and_yield
-    
-    Entrance.cue(@scene, "walkthrough")
-  end
-  
   it "should install common partial" do
-    Entrance.should_receive(:__install).with("documentation/common/sandbox.rb")
+    Entrance.should_receive(:__install).with("documentation/common/sandbox.rb", {})
     @content_pane.should_receive(:build).and_yield
     
     Entrance.cue_common(@scene, "sandbox")
+  end
+  
+  it "should clear the content pane on cueing a slideshow" do
+    @content_pane.should_receive(:remove_all)
+    
+    Entrance.cue(@scene, "my_walkthrough", "My Walkthrough")
+  end
+  
+  it "should cue a slideshow" do
+    Entrance.should_receive(:__install).with("documentation/entrances/tutorial.rb", :slideshow => "my_walkthrough", :title => "My Walkthrough")
+    @content_pane.should_receive(:build).and_yield
+    
+    Entrance.cue(@scene, "my_walkthrough", "My Walkthrough")
   end
   
 end

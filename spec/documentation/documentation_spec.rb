@@ -5,12 +5,13 @@ describe "Documentation" do
 
   describe "table of contents links" do
     
-    def check_link(id, entrance, text)
+    def check_link(id, entrance, text, title=text)
       link = scene.find(id)
       
       link.should_not be_nil
-      link.entrance.should == entrance
+      link.slideshow.should == entrance
       link.text.should == text
+      link.title.should == title
     end
 
     it "should have a 'getting started' link" do
@@ -70,7 +71,7 @@ describe "Documentation" do
     end
     
     it "should have an Insets tutorial" do
-      check_link("insets_walkthrough", "insets", "Margin and Padding")
+      check_link("insets_walkthrough", "insets", "Margin and Padding", "Insets")
     end
   end
 end
