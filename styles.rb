@@ -26,7 +26,7 @@ canvas {
 
 tutorial {
   extends :canvas
-  height 600
+  height 615
 }
 
 slide {
