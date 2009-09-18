@@ -20,6 +20,7 @@ table_of_contents do
   toc_link :id => "animations_walkthrough",       :text => "Animations",      :slideshow => "animations", :title => "Animations"
   toc_link :id => "productions_walkthrough",      :text => "Productions",     :slideshow => "productions", :title => "Productions"
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :slideshow => "stages", :title => "Stages"
+  toc_link :id => "prop_partials_walkthrough",    :text => "Prop Partials",  :slideshow => "prop_partials", :title => "Prop Partials"
   
 end
 
