@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby -wKU
+
+require 'limelight_rdoc'
+
+def with_limelight_generator(arg_list)
+  arg_list.unshift "--fmt=limelight"
+end
+
+RDoc::RDoc.new.document(with_limelight_generator(ARGV))
+
