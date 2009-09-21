@@ -35,6 +35,7 @@ toc_heading {
   text_color "#666"
   padding 8
   font_size 14
+  hover {}
 }
 
 left_toc_heading {
@@ -59,7 +60,6 @@ unselected_toc_heading {
   bottom_border_width 1
   border_color "#AAA"
   background_color "#DDD"
-  hover {}
 }
 
 toc_link {

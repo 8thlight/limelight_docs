@@ -4,8 +4,8 @@ end
   
 table_of_contents do
   toc_categories do
-    toc_heading :text => "Walkthroughs", :selected => true, :styles => "left_toc_heading, selected_toc_heading"
-    toc_heading :text => "RDoc", :styles => "unselected_toc_heading", :styles => "right_toc_heading, unselected_toc_heading"
+    toc_heading :id => "Walkthrough", :text => "Walkthroughs", :tab_content => "walkthrough_links", :styles => "left_toc_heading, selected_toc_heading"
+    toc_heading :id => "RDoc",:text => "RDoc", :styles => "unselected_toc_heading", :tab_content => "rdoc_links", :styles => "right_toc_heading, unselected_toc_heading"
   end
 
   walkthrough_links do
