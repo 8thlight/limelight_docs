@@ -1,4 +1,10 @@
-class_name :text => 'Gems'
+class_name :text => 'ClassName: Limelight::Gems'
+class_description :text => ''
+public_methods_header :text => 'Public Methods'
 method_name :text => 'install'
+method_description :text => ''
 method_name :text => 'install_gems_in_production'
+method_description :text => '#TODO - MDM - This doesn't work when loading gems like: gem 'gem_name'.  Need make use of Gem::SourceIndex. See SourceIndex.load_gems_in
+'
 method_name :text => 'load_path'
+method_description :text => ''

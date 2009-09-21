@@ -1,3 +1,7 @@
-class_name :text => 'StageSizer'
+class_name :text => 'ClassName: Limelight::Builtin::Players::StageSizer'
+class_description :text => ''
+public_methods_header :text => 'Public Methods'
 method_name :text => 'mouse_dragged'
+method_description :text => ''
 method_name :text => 'mouse_pressed'
+method_description :text => ''

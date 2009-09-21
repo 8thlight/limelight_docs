@@ -1,3 +1,7 @@
-class_name :text => 'SpecHelper'
+class_name :text => 'ClassName: Limelight::Specs::SpecHelper'
+class_description :text => ''
+public_methods_header :text => 'Public Methods'
 method_name :text => 'open_scene'
+method_description :text => ''
 method_name :text => 'scene'
+method_description :text => ''

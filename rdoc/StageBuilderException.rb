@@ -1,2 +1,5 @@
-class_name :text => 'StageBuilderException'
+class_name :text => 'ClassName: Limelight::DSL::StageBuilderException'
+class_description :text => 'Exception thrown by StageBuilder in the event of an invalid configuration.'
+public_methods_header :text => 'Public Methods'
 method_name :text => 'new'
+method_description :text => ''

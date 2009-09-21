@@ -1,2 +1,5 @@
-class_name :text => 'Commands'
+class_name :text => 'ClassName: Limelight::Commands'
+class_description :text => ''
+public_methods_header :text => 'Public Methods'
 method_name :text => 'load_command'
+method_description :text => ''

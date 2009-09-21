@@ -1,2 +1,5 @@
-class_name :text => 'Module'
+class_name :text => 'ClassName: Module'
+class_description :text => ''
+public_methods_header :text => 'Public Methods'
 method_name :text => 'prop_reader'
+method_description :text => ''

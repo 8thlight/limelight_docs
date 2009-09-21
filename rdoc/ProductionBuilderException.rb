@@ -1,2 +1,5 @@
-class_name :text => 'ProductionBuilderException'
+class_name :text => 'ClassName: Limelight::DSL::ProductionBuilderException'
+class_description :text => 'Thrown if there is an error in the ProductionBuilder DSL'
+public_methods_header :text => 'Public Methods'
 method_name :text => 'new'
+method_description :text => ''

@@ -1,3 +1,7 @@
-class_name :text => 'Playbills'
+class_name :text => 'ClassName: Limelight::Client::Playbills'
+class_description :text => ''
+public_methods_header :text => 'Public Methods'
 method_name :text => 'from_url'
+method_description :text => ''
 method_name :text => 'from_xml'
+method_description :text => ''

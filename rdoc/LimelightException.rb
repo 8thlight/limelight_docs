@@ -1,2 +1,5 @@
-class_name :text => 'LimelightException'
+class_name :text => 'ClassName: Limelight::LimelightException'
+class_description :text => 'Most exeception thrown by Limelight Ruby code will be of this type.'
+public_methods_header :text => 'Public Methods'
 method_name :text => 'new'
+method_description :text => ''
