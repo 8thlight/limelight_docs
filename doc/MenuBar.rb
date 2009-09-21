@@ -1,5 +1,0 @@
-class_name :text => 'MenuBar'
-method_name :text => 'build'
-method_name :text => 'new'
-method_name :text => 'item'
-method_name :text => 'menu'

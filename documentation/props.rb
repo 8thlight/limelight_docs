@@ -22,9 +22,7 @@ table_of_contents do
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :slideshow => "stages", :title => "Stages"
 
   toc_heading :text => "Documentation"
-  rdoc_contents :id => "rdoc_contents" do
-    generating_message :text => "Generating...", :styles => "toc_link"
-  end
+  __install "rdoc/doc/toc.rb"
 end
 
 content_pane :id => "content_pane"

@@ -73,12 +73,6 @@ describe "Documentation" do
     it "should have an Insets tutorial" do
       check_link("insets_walkthrough", "insets", "Margin and Padding", "Insets")
     end
-    
-    it "should have an rdoc_contents prop with the generating message" do
-      rdoc_contents = scene.find("rdoc_contents")
-      
-      rdoc_contents.find_by_name("generating_message").should_not be_empty
-    end
-    
+
   end
 end

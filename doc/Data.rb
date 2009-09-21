@@ -1,6 +1,0 @@
-class_name :text => 'Data'
-method_name :text => 'downloads_dir'
-method_name :text => 'establish_data_dirs'
-method_name :text => 'productions_dir'
-method_name :text => 'reset'
-method_name :text => 'root'

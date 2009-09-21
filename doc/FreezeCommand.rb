@@ -1,6 +1,0 @@
-class_name :text => 'FreezeCommand'
-method_name :text => 'check_production_path'
-method_name :text => 'establish_gem_dir'
-method_name :text => 'find_system_gem'
-method_name :text => 'freeze_gem'
-method_name :text => 'install_limelight_hook'

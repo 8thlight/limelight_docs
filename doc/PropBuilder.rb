@@ -1,5 +1,0 @@
-class_name :text => 'PropBuilder'
-method_name :text => 'new'
-method_name :text => '__'
-method_name :text => '__install'
-method_name :text => '__install_instance_variables'
