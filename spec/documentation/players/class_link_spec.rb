@@ -18,7 +18,7 @@ describe "ClassLink" do
   
   it "should cue the rdoc" do
     player = TestClassLink.new
-    player.klass_name = "klass_name"
+    player.class_prop_file = "klass_name"
     
     Entrance.should_receive(:cue_rdoc).with(player.scene, "klass_name")
     

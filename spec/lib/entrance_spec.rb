@@ -29,4 +29,17 @@ describe Entrance do
     Entrance.cue_tutorial(@scene, "my_walkthrough", "My Walkthrough")
   end
   
+  it "should cue rdoc" do
+    Entrance.should_receive(:__install).with("rdoc/Client.rb", {})
+    @content_pane.should_receive(:build).and_yield
+    
+    Entrance.cue_rdoc(@scene, "Client.rb")
+  end
+  
+  it "should should remove all props on the pane on cue_rdoc" do
+    @content_pane.should_receive(:remove_all)
+    
+    Entrance.cue_rdoc(@scene, "Client.rb")
+  end
+  
 end
