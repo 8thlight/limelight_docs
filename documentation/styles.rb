@@ -28,6 +28,7 @@ toc_item {
 
 toc_categories {
   extends :toc_item
+  bottom_margin 3
 }
 
 toc_heading {
@@ -58,6 +59,7 @@ unselected_toc_heading {
   bottom_border_width 1
   border_color "#AAA"
   background_color "#DDD"
+  hover {}
 }
 
 toc_link {
