@@ -20,7 +20,11 @@ table_of_contents do
   toc_link :id => "animations_walkthrough",       :text => "Animations",      :slideshow => "animations", :title => "Animations"
   toc_link :id => "productions_walkthrough",      :text => "Productions",     :slideshow => "productions", :title => "Productions"
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :slideshow => "stages", :title => "Stages"
-  
+
+  toc_heading :text => "Documentation"
+  rdoc_contents :id => "rdoc_contents" do
+    generating_message :text => "Generating..."
+  end
 end
 
 content_pane :id => "content_pane"

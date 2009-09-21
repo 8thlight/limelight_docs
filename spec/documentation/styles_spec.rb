@@ -5,7 +5,7 @@ describe "Styles Tutorial" do
   uses_scene :documentation
   
   before(:each) do
-    Entrance.cue scene, :editing_styles
+    Entrance.cue_tutorial scene, :editing_styles
   end
   
   it "should have a root walkthrough" do

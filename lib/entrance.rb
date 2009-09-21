@@ -1,6 +1,6 @@
 class Entrance
   
-  def self.cue(scene, slideshow, title=nil)
+  def self.cue_tutorial(scene, slideshow, title=nil)
     update_content_pane(scene, "entrances", "tutorial", {:slideshow => slideshow, :title => title})
   end
     

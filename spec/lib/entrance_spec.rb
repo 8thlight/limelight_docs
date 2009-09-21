@@ -19,14 +19,14 @@ describe Entrance do
   it "should clear the content pane on cueing a slideshow" do
     @content_pane.should_receive(:remove_all)
     
-    Entrance.cue(@scene, "my_walkthrough", "My Walkthrough")
+    Entrance.cue_tutorial(@scene, "my_walkthrough", "My Walkthrough")
   end
   
-  it "should cue a slideshow" do
+  it "should cue a tutorial" do
     Entrance.should_receive(:__install).with("documentation/entrances/tutorial.rb", :slideshow => "my_walkthrough", :title => "My Walkthrough")
     @content_pane.should_receive(:build).and_yield
     
-    Entrance.cue(@scene, "my_walkthrough", "My Walkthrough")
+    Entrance.cue_tutorial(@scene, "my_walkthrough", "My Walkthrough")
   end
   
 end
