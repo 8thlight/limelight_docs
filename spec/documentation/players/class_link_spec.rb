@@ -24,6 +24,4 @@ describe "ClassLink" do
     
     player.mouse_clicked(nil)
   end
-  
-    
 end
