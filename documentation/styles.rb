@@ -22,6 +22,7 @@ table_of_contents {
 
 toc_links {
   height "100%"
+  vertical_scrollbar :on
 }
 
 toc_item {

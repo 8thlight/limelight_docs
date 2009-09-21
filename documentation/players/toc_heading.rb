@@ -26,13 +26,20 @@ module TocHeading
   end
   
   def load_new_toc_links
-    toc_links = scene.find("toc_links")
-    toc_links.remove_all
+    arbitrary_wrapper = scene.find("arbitrary_wrapper")
+    clear_arbitrary_wrapper(arbitrary_wrapper)
+    build_new_toc_links_on(arbitrary_wrapper)
+  end
+  
+  def clear_arbitrary_wrapper(arbitrary_wrapper)
+    arbitrary_wrapper.remove_all
     
-    handle_redraw_bug_with_full_size_prop_on(toc_links)
-    toc_links.remove_all
-    
-    toc_links.build(:partial_name => "#{self.id.downcase}_links.rb") do
+    handle_redraw_bug_with_full_size_prop_on(arbitrary_wrapper)
+    arbitrary_wrapper.remove_all
+  end
+  
+  def build_new_toc_links_on(arbitrary_wrapper)
+    arbitrary_wrapper.build(:partial_name => "#{self.id.downcase}_links.rb") do
       __install "documentation/#{@partial_name}"
     end
   end

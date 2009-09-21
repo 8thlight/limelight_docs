@@ -9,7 +9,9 @@ table_of_contents do
   end
   
   toc_links :id => "toc_links" do
-    __install "documentation/walkthrough_links.rb"
+    arbitrary_wrapper :id => "arbitrary_wrapper" do
+      __install "documentation/walkthrough_links.rb"
+    end
   end
 
 end
