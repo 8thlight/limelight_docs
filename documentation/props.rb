@@ -23,7 +23,7 @@ table_of_contents do
 
   toc_heading :text => "Documentation"
   rdoc_contents :id => "rdoc_contents" do
-    generating_message :text => "Generating..."
+    generating_message :text => "Generating...", :styles => "toc_link"
   end
 end
 
