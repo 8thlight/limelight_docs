@@ -2,13 +2,15 @@ module TocHeading
   attr_accessor :tab_content
   
   def mouse_clicked(event)
+    return if already_selected?
     unselect_all_headings
     select_current_heading
-    toc_links = scene.find("toc_links")
-    toc_links.remove_all
-    toc_links.build(:partial_name => "#{self.id.downcase}_links.rb") do
-      __install "documentation/#{@partial_name}"
-    end
+    load_new_toc_links
+    clear_content_pane
+  end
+  
+  def already_selected?
+    self.style.has_extension(selected_style)
   end
   
   def unselect_all_headings
@@ -23,11 +25,36 @@ module TocHeading
     style.remove_extension(unselected_style)
   end
   
+  def load_new_toc_links
+    toc_links = scene.find("toc_links")
+    toc_links.remove_all
+    
+    handle_redraw_bug_with_full_size_prop_on(toc_links)
+    toc_links.remove_all
+    
+    toc_links.build(:partial_name => "#{self.id.downcase}_links.rb") do
+      __install "documentation/#{@partial_name}"
+    end
+  end
+  
+  def clear_content_pane
+    content_pane = scene.find("content_pane")
+    content_pane.remove_all
+    handle_redraw_bug_with_full_size_prop_on(content_pane)
+  end
+    
   def selected_style
     scene.styles['selected_toc_heading']
   end
   
   def unselected_style
     scene.styles['unselected_toc_heading']
+  end
+  
+  #needed for redraw bug
+  def handle_redraw_bug_with_full_size_prop_on(content_pane)
+    content_pane.build do
+      empty_prop :height => "100%", :width => "100%"
+    end
   end
 end
