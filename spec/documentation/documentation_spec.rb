@@ -17,18 +17,6 @@ describe "Documentation" do
       rdoc.style.has_extension(scene.styles['unselected_toc_heading']).should be_true
       rdoc.style.has_extension(scene.styles['right_toc_heading']).should be_true
     end
-    
-    it "should have the walkthroughs tab content set to walkthrough_links" do
-      walkthrough = scene.find('Walkthrough')
-      
-      walkthrough.tab_content.should == "walkthrough_links"
-    end
-    
-    it "should should have the rdoc tab content set to rdoc_links" do
-      rdoc = scene.find('RDoc')
-      
-      rdoc.tab_content.should == "rdoc_links"
-    end
   end
 
   describe "table of contents links" do

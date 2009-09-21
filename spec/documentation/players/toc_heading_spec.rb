@@ -2,13 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 
 describe "TocHeading" do
   uses_scene :documentation
+  before(:each) do
+    @rdoc_link = scene.find("RDoc")
+    @rdoc_link.mouse_clicked(nil)
+  end
 
   describe "clicking rdoc" do
-    before(:each) do
-      @rdoc_link = scene.find("RDoc")
-      @rdoc_link.mouse_clicked(nil)
-    end
-
     it "should select the rdoc" do
       @rdoc_link.style.has_extension(@rdoc_link.selected_style).should be_true
     end
@@ -28,8 +27,6 @@ describe "TocHeading" do
   
   describe "clicking rdoc then clicking walkthrough" do
     before(:each) do
-      @rdoc_link = scene.find("RDoc")
-      @rdoc_link.mouse_clicked(nil)
       @walkthrough = scene.find("Walkthrough")
       @walkthrough.mouse_clicked(nil)
     end
@@ -43,9 +40,24 @@ describe "TocHeading" do
     end
   end
   
-  describe "Hiding/Showing tab content" do
-    it "should " do
+  describe "Showing RDoc Content" do
+    before(:each) do
+      @toc_links = scene.find('toc_links')
+    end
+    
+    it "should install the rdoc links when clicked" do
+      @toc_links.find_by_name('class_link').should_not be_empty
+    end
+    
+    it "should should not have any walkthrough links" do
+      @toc_links.find_by_name('toc_link').should be_empty
+    end
+    
+    it "should reinstall the walkthrough links when you click walkthrough" do
+      @walkthrough = scene.find("Walkthrough")
+      @walkthrough.mouse_clicked(nil)
       
+      @toc_links.find_by_name('toc_link').should_not be_empty
     end
   end
 

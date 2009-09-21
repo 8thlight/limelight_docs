@@ -20,6 +20,10 @@ table_of_contents {
   gradient_angle 270
 }
 
+toc_links {
+  height "100%"
+}
+
 toc_item {
   width "100%"
   font_face "Arial Rounded MT Bold"
@@ -68,6 +72,13 @@ toc_link {
   left_padding 16
   top_padding 2
   bottom_padding 2
+  hover {
+    text_color "#000"
+  }
+}
+
+class_link {
+  extends :toc_link
   hover {
     text_color "#000"
   }

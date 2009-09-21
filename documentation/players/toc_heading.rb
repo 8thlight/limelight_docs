@@ -4,6 +4,11 @@ module TocHeading
   def mouse_clicked(event)
     unselect_all_headings
     select_current_heading
+    toc_links = scene.find("toc_links")
+    toc_links.remove_all
+    toc_links.build(:partial_name => "#{self.id.downcase}_links.rb") do
+      __install "documentation/#{@partial_name}"
+    end
   end
   
   def unselect_all_headings
