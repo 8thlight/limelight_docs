@@ -1,0 +1,6 @@
+class_name :text => 'CastingDirector'
+method_name :text => 'new'
+method_name :text => 'cast_additional_players'
+method_name :text => 'cast_default_player'
+method_name :text => 'cast_player'
+method_name :text => 'fill_cast'

@@ -1,0 +1,6 @@
+class_name :text => 'TemplaterLogger'
+method_name :text => 'new'
+method_name :text => 'creating_directory'
+method_name :text => 'creating_file'
+method_name :text => 'file_already_exists'
+method_name :text => 'log'
