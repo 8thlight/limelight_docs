@@ -27,7 +27,4 @@ class_description :text => '--- - Copyright © 2008-2009 8th Light, Inc. All Righ
 class_description :text => '--- - Copyright © 2008-2009 8th Light, Inc. All Rights Reserved. - Limelight and all included source files are distributed under terms of the GNU LGPL.'
 class_description :text => '--- - Copyright © 2008-2009 8th Light, Inc. All Rights Reserved. - Limelight and all included source files are distributed under terms of the GNU LGPL.'
 class_description :text => '--- - Copyright © 2008-2009 8th Light, Inc. All Rights Reserved. - Limelight and all included source files are distributed under terms of the GNU LGPL.'
-attributes_header :text => 'Attributes'
-attributes do
-end
 public_methods_header :text => 'Public Methods'

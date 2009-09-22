@@ -6,7 +6,4 @@ code :text => '      Unpack a limelight production into the tmp directory.'
 code :text => '      options:'
 code :text => '      -h, --help                       Prints this usage summary.'
 end
-attributes_header :text => 'Attributes'
-attributes do
-end
 public_methods_header :text => 'Public Methods'

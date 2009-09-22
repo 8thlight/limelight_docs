@@ -39,9 +39,6 @@ code :text => '       | - <player_name>.rb'
 end
 class_description :text => 'In a Multiple-Scene production, the production acquires that name of the root directory.  In this case the production is named \'sandbox\'. Each directory inside the root directory is a scene.  This production has two scenes named \'fader\' and \'floater\'.  Each scene is structured the same as in a Single-Scene production with the exception of the \'stages.rb\' file.  This file is specific to the production.  The production may contain a \'styles.rb\' which contains styles used by multiple scenes.  If some players are used in multiple Scenes, then it is useful to to create a players directory in the Production root to hold the common players. Other files may exist in the directory structure and they will not conflict with Limelight.'
 class_description :text => 'See Limelight::Commands'
-attributes_header :text => 'Attributes'
-attributes do
-end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

@@ -1,8 +1,5 @@
 class_name :text => 'ClassName: Limelight::DSL::StyleBuilder'
 class_description :text => 'The basis of the DSL for defining a Style object.'
-attributes_header :text => 'Attributes'
-attributes do
-end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do
