@@ -24,7 +24,7 @@ canvas {
   height 200
 }
 
-tutorial {
+content_pane {
   extends :canvas
   height 615
 }

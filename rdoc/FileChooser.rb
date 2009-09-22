@@ -1,0 +1,5 @@
+class_name :text => 'FileChooser'
+method_name :text => 'new'
+method_name :text => 'choose_file'
+method_name :text => 'configure_file_selection_mode'
+method_name :text => 'create_chooser'

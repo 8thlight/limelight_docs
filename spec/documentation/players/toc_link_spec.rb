@@ -10,7 +10,7 @@ describe "TocLink" do
   it "should cue an entrance" do
     @link.slideshow = "walkthrough"
     @link.title = "The Walkthrough"
-    Entrance.should_receive(:cue).with(scene, "walkthrough", "The Walkthrough")
+    Entrance.should_receive(:cue_tutorial).with(scene, "walkthrough", "The Walkthrough")
     
     @link.mouse_clicked(nil)
   end  

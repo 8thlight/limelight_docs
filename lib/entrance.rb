@@ -1,20 +1,25 @@
 class Entrance
   
-  def self.cue(scene, slideshow, title=nil)
-    update_content_pane(scene, "entrances", "tutorial", {:slideshow => slideshow, :title => title})
+  def self.cue_tutorial(scene, slideshow, title=nil)
+    update_content_pane(scene, "documentation/entrances/tutorial.rb", {:slideshow => slideshow, :title => title})
   end
     
   def self.cue_common(scene, name)
-    update_content_pane(scene, "common", name)
+    update_content_pane(scene, "documentation/common/#{name}.rb")
   end
   
-  def self.update_content_pane(scene, folder, name, options={})
+  def self.cue_rdoc(scene, name)
+    update_content_pane(scene, "rdoc/#{name}")
+  end
+  
+  def self.update_content_pane(scene, install_file, options={})
     pane = scene.find("content_pane")    
     pane.remove_all
     
     pane.build do
-      __install "documentation/#{folder}/#{name}.rb", options
+      __install install_file, options
     end
   end
+  
   
 end

@@ -1,0 +1,6 @@
+class_name :text => 'CreateCommand'
+method_name :text => 'create_production'
+method_name :text => 'create_scene'
+method_name :text => 'options_hash'
+method_name :text => 'parse_production'
+method_name :text => 'parse_scene'

@@ -2,6 +2,22 @@ require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 
 describe "Documentation" do
   uses_scene :documentation
+  
+  describe "toc_categories" do
+    it "should have the walkthrough tutorial initially selected" do
+      walkthrough = scene.find('Walkthrough')
+      
+      walkthrough.style.has_extension(scene.styles['selected_toc_heading']).should be_true
+      walkthrough.style.has_extension(scene.styles['left_toc_heading']).should be_true
+    end
+    
+    it "should have the rdoc section initially unselected " do
+      rdoc = scene.find('RDoc')
+      
+      rdoc.style.has_extension(scene.styles['unselected_toc_heading']).should be_true
+      rdoc.style.has_extension(scene.styles['right_toc_heading']).should be_true
+    end
+  end
 
   describe "table of contents links" do
     
@@ -13,7 +29,7 @@ describe "Documentation" do
       link.text.should == text
       link.title.should == title
     end
-
+    
     it "should have a 'getting started' link" do
       check_link("getting_started_walkthrough", "getting_started", "Getting Started")
     end

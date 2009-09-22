@@ -20,17 +20,51 @@ table_of_contents {
   gradient_angle 270
 }
 
+toc_links {
+  height "100%"
+  vertical_scrollbar :on
+}
+
 toc_item {
   width "100%"
   font_face "Arial Rounded MT Bold"
   text_color "#666"
 }
 
-toc_heading {
+toc_categories {
   extends :toc_item
-  font_size 16
-  left_padding 8
-  top_padding 8
+  bottom_margin 3
+}
+
+toc_heading {
+  text_color "#666"
+  padding 8
+  font_size 14
+  hover {}
+}
+
+left_toc_heading {
+  top_left_rounded_corner_radius 20
+  width "65%"
+}
+
+right_toc_heading {
+  border_color "#AAA"
+  left_border_width 1
+  top_right_rounded_corner_radius 20
+  width "35%"
+}
+
+selected_toc_heading {
+  font_face "Arial Rounded MT Bold"
+  background_color "#D8F0BB"
+}
+
+unselected_toc_heading {
+  font_face "Arial Rounded MT"
+  bottom_border_width 1
+  border_color "#AAA"
+  background_color "#DDD"
 }
 
 toc_link {
@@ -39,6 +73,13 @@ toc_link {
   left_padding 16
   top_padding 2
   bottom_padding 2
+  hover {
+    text_color "#000"
+  }
+}
+
+class_link {
+  extends :toc_link
   hover {
     text_color "#000"
   }

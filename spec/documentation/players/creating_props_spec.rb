@@ -6,7 +6,7 @@ describe "CreatingProps" do
   uses_scene :documentation
   
   before(:each) do
-    Entrance.cue scene, :creating_props
+    Entrance.cue_tutorial scene, :creating_props
     @slideshow = scene.find("slideshow")
   end
   
