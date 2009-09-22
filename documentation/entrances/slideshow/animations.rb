@@ -3,7 +3,7 @@ slide do
   line_break
   directions :text => "Composing animations in Limelight is really simple.  Let's take a look at how it is done."
 end
-
+    
 slide do
   heading :text => "The animate method"
   directions :text => "When animate is called on a prop, an animation loop is instantiated.  This is most commonly done in an event handler in a player."

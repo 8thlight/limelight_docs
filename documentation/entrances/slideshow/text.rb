@@ -9,7 +9,7 @@ slide do
   directions :text => "Here's another simple example.  To add text to a prop, simply set the text style attribute."
 
   sandbox_codeblock do
-    code :text => "label :text => 'Some Value'"
+    code :text => "label :text => 'Good Job'"
   end
 
   __install "documentation/common/prop_sandbox.rb"
@@ -21,7 +21,7 @@ slide do
   line_break
   line_break
   sandbox_codeblock do
-    code :text => "label :text => 'Some Value', :font_size => 72"
+    code :text => "label :text => 'Good Job', :font_size => 72"
   end
 
   __install "documentation/common/prop_sandbox.rb"
@@ -31,10 +31,10 @@ slide do
   heading :text => "Text Color"
   directions :text => "Let's try changing the text's color.  Use the text_color style attribute.  Color's can be symbols or hex values (like #FFFFFF)."
   line_break
-  directions :text => "The prop big_label has some styling already provided for you to make it bigger"
+  directions :text => "The prop big_label has some default styling already provided."
 
   sandbox_codeblock do
-    code :text => "big_label :text => 'Some Value', :text_color => :red"
+    code :text => "big_label :text => 'Good Job', :text_color => :red"
   end
 
   __install "documentation/common/prop_sandbox.rb"
@@ -46,7 +46,7 @@ slide do
   
   sandbox_codeblock do
     code :text => "big_label :text => 'Good Job', :font_face => 'Arial'"
-    code :text => "big_label :text => 'Good Job', :font_face => 'Comic Sans MS Bold'"
+    code :text => "big_label :text => 'Good Job', :font_face => 'Times'"
   end
 
   __install "documentation/common/prop_sandbox.rb"
@@ -59,7 +59,7 @@ slide do
   directions :text => "Possible Values are: \"plain\", \"bold\", \"italic\" and \"bold italic\""
 
   sandbox_codeblock do
-    code :text => "big_label :text => 'Some Value', :font_style => 'bold italic'"
+    code :text => "big_label :text => 'Good Job', :font_style => 'bold italic'"
   end
 
   __install "documentation/common/prop_sandbox.rb"
@@ -69,7 +69,7 @@ slide do
   heading :text => "Combining Styles"
   directions :text => "Here we see all the possible styles being used together."
   sandbox_codeblock do
-    code :text => "label :text => 'Some Value',"
+    code :text => "label :text => 'Good Job',"
     code :text => "      :font_size => 72,"
     code :text => "      :text_color => :red,"
     code :text => "      :font_face => 'Arial',"
@@ -81,5 +81,5 @@ end
 
 slide do
   heading :text => "Finished"
-  directions :text => "Now you know how to stlye text. When you're ready, head on to the next tutorial."
+  directions :text => "Now you know how to style text. When you're ready, head on to the next tutorial."
 end
