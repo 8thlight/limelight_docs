@@ -90,5 +90,12 @@ describe "Documentation" do
       check_link("insets_walkthrough", "insets", "Margin and Padding", "Insets")
     end
 
+    it "should have an prop partials tutorial" do
+      check_link("prop_partials_walkthrough", "prop_partials", "Prop Partials")
+    end
+
+    it "should have an styling text tutorial" do
+      check_link("text_walkthrough", "text", "Text")
+    end
   end
 end

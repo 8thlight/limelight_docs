@@ -194,6 +194,11 @@ style_error {
   top_padding 4
 }
 
+big_label {
+  font_size 36
+  width "100%"
+}
+
 # RDoc styles
 rdoc_font {
   font_face "Arial Rounded MT Bold"
@@ -218,4 +223,3 @@ public_methods_header {
   extends :rdoc_font
   font_size 12
 }
-
