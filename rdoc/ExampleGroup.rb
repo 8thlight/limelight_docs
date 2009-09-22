@@ -1,9 +1,14 @@
 class_name :text => 'ClassName: Spec::Example::ExampleGroup'
-class_description :text => ''
 public_methods_header :text => 'Public Methods'
+method do
 method_name :text => 'uses_scene'
-method_description :text => ''
+method_parameters :text => '(scene_name, options = {})'
+end
+method do
 method_name :text => 'producer'
-method_description :text => ''
+method_parameters :text => '()'
+end
+method do
 method_name :text => 'production'
-method_description :text => ''
+method_parameters :text => '()'
+end

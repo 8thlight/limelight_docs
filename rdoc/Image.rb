@@ -1,15 +1,26 @@
 class_name :text => 'ClassName: Limelight::Builtin::Players::Image'
-class_description :text => ''
 public_methods_header :text => 'Public Methods'
+method do
 method_name :text => 'image'
-method_description :text => ''
+method_parameters :text => '()'
+end
+method do
 method_name :text => 'image='
-method_description :text => ''
+method_parameters :text => '(path)'
+end
+method do
 method_name :text => 'rotation'
-method_description :text => ''
+method_parameters :text => '()'
+end
+method do
 method_name :text => 'rotation='
-method_description :text => ''
+method_parameters :text => '(value)'
+end
+method do
 method_name :text => 'scaled='
-method_description :text => ''
+method_parameters :text => '(value)'
+end
+method do
 method_name :text => 'scaled?'
-method_description :text => ''
+method_parameters :text => '()'
+end
