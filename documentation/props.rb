@@ -17,4 +17,7 @@ table_of_contents do
 
 end
 
-content_pane :id => "content_pane"
+content_pane :id => "content_pane" do
+  middle_navigation :width => "100%", :text => "Welcome to Limelight"
+  heading :text => "Choose one the of Tutorials on the left."
+end
