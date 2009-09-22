@@ -7,6 +7,7 @@ table_of_contents do
   toc_heading :text => "Walkthroughs"
   toc_link :id => "getting_started_walkthrough",  :text => "Getting Started", :slideshow => "getting_started", :title => "Getting Started"
   toc_link :id => "creating_props_walkthrough",   :text => "Creating Props",  :slideshow => "creating_props", :title => "Creating Props"
+  toc_link :id => "prop_partials_walkthrough",    :text => "Prop Partials",  :slideshow => "prop_partials", :title => "Prop Partials"
   toc_link :id => "editing_styles_walkthrough",   :text => "Editing Styles",  :slideshow => "editing_styles", :title => "Editing Styles"
   toc_link :id => "prop_layout_walkthough",       :text => "Prop Layout",     :slideshow => "prop_layout", :title => "Prop Layout"
   toc_link :id => "prop_sizing_walkthough",       :text => "Prop Sizing",     :slideshow => "prop_sizing", :title => "Prop Sizing"
@@ -20,7 +21,6 @@ table_of_contents do
   toc_link :id => "animations_walkthrough",       :text => "Animations",      :slideshow => "animations", :title => "Animations"
   toc_link :id => "productions_walkthrough",      :text => "Productions",     :slideshow => "productions", :title => "Productions"
   toc_link :id => "stages_walkthrough",           :text => "Stages",          :slideshow => "stages", :title => "Stages"
-  toc_link :id => "prop_partials_walkthrough",    :text => "Prop Partials",  :slideshow => "prop_partials", :title => "Prop Partials"
   
 end
 
