@@ -1,19 +1,34 @@
 class_name :text => 'ClassName: Production'
-class_description :text => ''
 public_methods_header :text => 'Public Methods'
+method do
 method_name :text => 'alert'
-method_description :text => ''
+method_parameters :text => '(message)'
+end
+method do
 method_name :text => 'default_scene'
-method_description :text => ''
+method_parameters :text => '()'
+end
+method do
 method_name :text => 'load_alert_scene'
-method_description :text => ''
+method_parameters :text => '(message)'
+end
+method do
 method_name :text => 'load_incompatible_version_scene'
-method_description :text => ''
+method_parameters :text => '(production_name, required_version)'
+end
+method do
 method_name :text => 'proceed_with_incompatible_version?'
-method_description :text => ''
+method_parameters :text => '(production_name, required_version)'
+end
+method do
 method_name :text => 'process_alert_response'
-method_description :text => ''
+method_parameters :text => '(response)'
+end
+method do
 method_name :text => 'process_incompatible_version_response'
-method_description :text => ''
+method_parameters :text => '(response)'
+end
+method do
 method_name :text => 'production_opening'
-method_description :text => ''
+method_parameters :text => '()'
+end
