@@ -97,5 +97,9 @@ describe "Documentation" do
     it "should have an styling text tutorial" do
       check_link("text_walkthrough", "text", "Text")
     end
+
+    it "should have a sound tutorial" do
+      check_link("sound_walkthrough", "sound", "Sound")
+    end
   end
 end
