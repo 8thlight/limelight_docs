@@ -200,6 +200,16 @@ big_label {
 }
 
 # RDoc styles
+rdoc_canvas {
+  height "100%"
+  width "100%"
+  vertical_scrollbar :on
+}
+
+rdoc_writable_area {
+  right_padding 8
+}
+
 rdoc_font {
   font_face "Arial Rounded MT Bold"
   text_color "#666"
@@ -212,14 +222,43 @@ class_name {
   width "100%"
 }
 
+method {
+  top_margin 5
+  left_margin 5
+  padding 8
+  background_color :white
+  rounded_corner_radius 20
+}
+
+method_header {
+  width "100%"
+  bottom_padding 8
+}
+
 method_name {
   extends :rdoc_font
-  font_size 10
-  bottom_padding 10
-  width "100%"
+  font_size 12
+}
+
+method_parameters {
+  extends :method_name
+  font_style :italic
 }
 
 public_methods_header {
   extends :rdoc_font
-  font_size 12
+  font_size 14
+  width "100%"
+  bottom_padding 5
+}
+
+class_description {
+  extends :directions
+  font_size 10
+  bottom_padding 5
+}
+
+method_description {
+  extends :class_description
+  left_margin 5
 }

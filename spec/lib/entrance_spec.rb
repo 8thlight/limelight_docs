@@ -30,7 +30,7 @@ describe Entrance do
   end
   
   it "should cue rdoc" do
-    Entrance.should_receive(:__install).with("rdoc/Client.rb", {})
+    Entrance.should_receive(:__install).with("documentation/entrances/rdoc.rb", {:rdoc_propfile => "Client.rb"})
     @content_pane.should_receive(:build).and_yield
     
     Entrance.cue_rdoc(@scene, "Client.rb")

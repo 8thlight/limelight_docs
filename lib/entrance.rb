@@ -9,7 +9,7 @@ class Entrance
   end
   
   def self.cue_rdoc(scene, name)
-    update_content_pane(scene, "rdoc/#{name}")
+    update_content_pane(scene, "documentation/entrances/rdoc.rb", {:rdoc_propfile => name})
   end
   
   def self.update_content_pane(scene, install_file, options={})
