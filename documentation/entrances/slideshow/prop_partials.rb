@@ -1,4 +1,10 @@
 slide do
+  directions :text => "For almost every Limelight production you will need to display text on the screen.  Luckily, Limelight makes it really easy."
+  line_break
+  directions :text => "You've already seen how to add text to a prop, but this tutorial also explains all the ways you can style text."
+end
+
+slide do
   directions :text => "Want to remove duplication from your props files? Need to make them easier to read?"
   line_break
   directions :text => "This can be done through the use of prop partials.  A partial is just a separate file containing a hierarchy of props.  You can include this partial with just one line in a different props file."
