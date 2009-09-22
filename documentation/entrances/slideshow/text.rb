@@ -1,6 +1,12 @@
 slide do
+  directions :text => "For almost every Limelight production you will need to display text on the screen.  Luckily, Limelight makes it really easy."
+  line_break
+  directions :text => "You've already seen how to add text to a prop, but this tutorial also explains all the ways you can style text."
+end
+
+slide do
   heading :text => "Adding Text"
-  directions :text => "You've already seen how to add text to a prop, but just in case, here's another simple example.  To add text to a prop, simply set the text style attribute."
+  directions :text => "Here's another simple example.  To add text to a prop, simply set the text style attribute."
 
   sandbox_codeblock do
     code :text => "label :text => 'Some Value'"
@@ -71,4 +77,9 @@ slide do
   end
 
   __install "documentation/common/prop_sandbox.rb"
+end
+
+slide do
+  heading :text => "Finished"
+  directions :text => "Now you know how to stlye text. When you're ready, head on to the next tutorial."
 end
