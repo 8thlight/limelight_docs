@@ -1,5 +1,28 @@
 class_name :text => 'ClassName: Limelight::Stage'
 class_description :text => 'In the metephorical sense, a Stage is a platform which may hold a scene.  In a more, to-the-point sence, a Stage represents a window on the computer screen.  The Stage objects within a Production are configured by the StagesBuilder. By default a Production will have one Stage.  A Stage may open any number of Scenes but it may only have one current scene loaded at a time.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'default_scene'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'frame'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'current_scene'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'name'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'theater'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

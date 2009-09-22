@@ -1,4 +1,11 @@
 class_name :text => 'ClassName: Limelight::Gems'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'current_production'
+attributes_read_write :text => '[RW]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

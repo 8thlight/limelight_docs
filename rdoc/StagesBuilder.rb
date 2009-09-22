@@ -17,6 +17,13 @@ code :text => '  end'
 end
 class_description :text => 'In this example above, two stages are created for the production.  One is named \'inspector\' and the other is named \'viewer\'.  \'inspector\' has a default scene that will be loaded on startup.  \'viewer\' will not contain any scene on startup.  Using the DSL, each stage can be configured to set the title, location, size, or any other attribute of a stage.'
 class_description :text => 'See Limelight::Stage'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => '__stages__'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

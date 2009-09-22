@@ -26,6 +26,17 @@ code :text => '  }'
 end
 class_description :text => 'This exmple builds three styles: sandbox, sample, spinner.  Within each style block, the individual attributes of the style may be set.'
 class_description :text => 'See Limelight::Styles'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => '__styles'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => '__extendable_styles'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

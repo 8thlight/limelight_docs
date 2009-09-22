@@ -8,6 +8,21 @@ code :text => '      -h, --help                       Prints this usage summary.
 code :text => '      -p, --production=<production>    Specify the production where the gem will be frozen.  Default is \'.\'.'
 code :text => '      -v, --version=<version>          Specify the gem version. Defaults to latest. Ignored if file provided.'
 end
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'gem_name'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'production_path'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'gem_version'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

@@ -1,5 +1,13 @@
 class_name :text => 'ClassName: Limelight::Theater'
 class_description :text => 'A Theater represents a group of Stages.  Productions require a Theater in which to open.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'active_stage'
+attributes_read_write :text => '[R]'
+attribute_description :text => 'Returns the theater\'s active stage.  i.e. the stage most recently used.'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

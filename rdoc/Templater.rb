@@ -1,6 +1,22 @@
 class_name :text => 'ClassName: Limelight::Templates::Templater'
 class_description :text => 'A class to create directories and file templates.  An instance of Templater must be provided with a target_root and a source_root.  The target_root designates a root directory in which all directories and files will be created.  The source_root designated a directory where all the file template can be found.'
 class_description :text => 'A file template is a plain text file.  It may optionally contain token markers in the format !-TOKEN_NAME-!. When a file template is installed by the templater, all the token margers will be replaced by tokens provided in a hash.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'target_root'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'source_root'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'logger'
+attributes_read_write :text => '[RW]'
+attribute_description :text => 'See TemplaterLogger'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

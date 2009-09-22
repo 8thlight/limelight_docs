@@ -1,5 +1,16 @@
 class_name :text => 'ClassName: Limelight::FileChooser'
 class_description :text => 'An object that manages the selection of a file on the file system.  When invoked, a file chooser window will pop up and allow the user to select a file.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'chooser'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'chosen_file'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

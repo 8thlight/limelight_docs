@@ -9,6 +9,13 @@ code :text => '    end'
 code :text => '  end'
 end
 class_description :text => 'This example created one menu named \'File\' with two menu items: \'Open\' and \'Refresh\'. The seconds parameter of the menu items is the symbol of a method on the context that will be invoked when the menu item is selected.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'menu_bar'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

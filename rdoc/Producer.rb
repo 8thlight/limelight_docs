@@ -1,6 +1,21 @@
 class_name :text => 'ClassName: Limelight::Producer'
 class_description :text => 'A Producer has the hefty responsibility of producing Productions.  Given a directory, it will load the neccessary files and create all the neccessary objects to bring a Production to life.'
 class_description :text => 'For directory structures, see Limelight::Main'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'theater'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'production'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'builtin_styles'
+attributes_read_write :text => '[W]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

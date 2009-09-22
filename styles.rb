@@ -250,6 +250,7 @@ public_methods_header {
   font_size 14
   width "100%"
   bottom_padding 5
+  top_padding 5
 }
 
 class_description {
@@ -261,4 +262,29 @@ class_description {
 method_description {
   extends :class_description
   left_margin 5
+}
+
+attributes_header {
+  extends :public_methods_header
+}
+
+attributes {
+  extends :method
+}
+
+attribute_header {
+  extends :method_header
+}
+
+attributes_name {
+  extends :method_name
+}
+
+attribute_description {
+  extends :class_description
+  left_padding 6
+}
+
+attributes_read_write {
+  font_size 6
 }

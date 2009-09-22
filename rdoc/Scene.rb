@@ -1,5 +1,36 @@
 class_name :text => 'ClassName: Limelight::Scene'
 class_description :text => 'A Scene is a root Prop.  Scenes may be loaded onto a Stage.  In addition to being a Prop object, Scenes have a few extra attributes and behaviors.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'button_groups'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'casting_director'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'cast'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'stage'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'visible'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'production'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'styles'
+attributes_read_write :text => '[RW]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

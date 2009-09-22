@@ -6,6 +6,13 @@ code :text => '        Open a limelight production.'
 code :text => '        options:'
 code :text => '        -h, --help                       Prints this usage summary.'
 end
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'drb_port'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

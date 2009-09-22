@@ -19,6 +19,18 @@ end
 class_description :text => 'The above example will create a Limelight::Prop named \'parent\' and add it to the root prop passed into the builder. The \'parent\' prop will contain two props named \'child_one\' and \'child_two\'.  \'child_one\' will contain two props named \'grand_child_one\' and \'grand_child_two\'.  \'child_two\' has no child props nor do \'grand_child_one\' or \'grand_child_two\'.'
 class_description :text => 'An options Hash may be passed into each prop.  The key, value pairs in the hash will be used to set properties on the prop when it is added to a Limelight::Scene.'
 class_description :text => 'See Limelight::Prop'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => '__prop__'
+attributes_read_write :text => '[R]'
+attribute_description :text => 'Returns the root prop either passed in or created by this builder.'
+end
+attribute_header do
+attributes_name :text => '__loader__'
+attributes_read_write :text => '[RW]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

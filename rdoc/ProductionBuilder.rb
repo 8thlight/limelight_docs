@@ -6,6 +6,17 @@ code :text => '  attribute :controller'
 code :text => '  attribute :inspector'
 end
 class_description :text => 'The above example names the Production \'Stage Composer\' and creates two attributes on the Production: \'controller\' and \'inspector\''
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'current_attribute'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => '__production__'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

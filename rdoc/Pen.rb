@@ -1,6 +1,13 @@
 class_name :text => 'ClassName: Limelight::Pen'
 class_description :text => 'The Pen is acquired from Prop.pen.  It is used to draw directly on the screen withing the bounds of the prop from which the Pen was acquired.'
 class_description :text => 'All points used by the Pen are relative to the bounds of the Prop.  The top left corner of the Prop is represented by the point (0, 0).  If a Prop has margin, border, or padding, the point (0, 0) may appear to be outside the Prop.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'context'
+attributes_read_write :text => '[RW]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

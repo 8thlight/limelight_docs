@@ -14,6 +14,9 @@ codeblock do
 code :text => '   $ jruby -S limelight create -s midnight_romance production love_story'
 code :text => '   $ jruby -S limelight create -p love_story scene happily_ever_after'
 end
+attributes_header :text => 'Attributes'
+attributes do
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

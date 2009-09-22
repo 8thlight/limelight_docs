@@ -1,5 +1,8 @@
 class_name :text => 'ClassName: Limelight::DSL::StyleBuilderException'
 class_description :text => 'Exception thrown by StyleBuilder when an error is encountered.'
+attributes_header :text => 'Attributes'
+attributes do
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

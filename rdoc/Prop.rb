@@ -1,6 +1,37 @@
 class_name :text => 'ClassName: Limelight::Prop'
 class_description :text => 'Prop is the fundamental building block of a scene.  A prop represents a rectangular area in the scene, of almost any dimension. It may have borders, backgrounds, margin, padding, and it may contain other props or text.  However it is the props\' Styles that determine their size and appearance.'
 class_description :text => 'A Prop may have one parent and many children.  Hense, when put together, they form a tree structure.  The Scene is the root Prop of a tree.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'style'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'hover_style'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'children'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'parent'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'name'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'id'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'players'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

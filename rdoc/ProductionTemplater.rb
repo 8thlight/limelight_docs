@@ -6,6 +6,13 @@ code :text => '    creating file:       ./love_story/production.rb'
 code :text => '    creating file:       ./love_story/stages.rb'
 code :text => '    creating file:       ./love_story/styles.rb'
 end
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'tokens'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

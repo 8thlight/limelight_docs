@@ -1,5 +1,16 @@
 class_name :text => 'ClassName: Limelight::FileFilter'
 class_description :text => 'A FileFiler is used in conjunction with FileChooser.  It is used to help the user select only files of the desired type.'
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'description'
+attributes_read_write :text => '[R]'
+end
+attribute_header do
+attributes_name :text => 'filter'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

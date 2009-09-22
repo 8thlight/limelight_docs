@@ -14,6 +14,13 @@ class_description :text => 'Props including this Player may implement any of the
 codeblock do
 code :text => '   key_pressed, key_typed, key_released, focus_gained, focus_lost'
 end
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'choices'
+attributes_read_write :text => '[R]'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

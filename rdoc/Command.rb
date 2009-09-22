@@ -8,6 +8,18 @@ code :text => '    freeze         freeze a gem into a production.'
 code :text => '    open           Open a limelight production.'
 code :text => '    pack           Pack a limelight production into a .llp file.'
 end
+attributes_header :text => 'Attributes'
+attributes do
+attribute_header do
+attributes_name :text => 'alias'
+attributes_read_write :text => '[RW]'
+end
+attribute_header do
+attributes_name :text => 'print_backtrace'
+attributes_read_write :text => '[RW]'
+attribute_description :text => 'Flag.  The backtrace on parse errors will be printed if true.'
+end
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

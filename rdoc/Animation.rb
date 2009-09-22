@@ -1,6 +1,9 @@
 class_name :text => 'ClassName: Limelight::Animation'
 class_description :text => 'An object to manage a seqeunce of changes, assuably to a prop.  The Animation object is constructed with options and a block.  Once the Animation is started, the block is invoked repeatedly until the Animation is stopped.'
 class_description :text => 'Although, this object does not update the screen, it provides a means to perform sequential updates in evenly spaced time frames.'
+attributes_header :text => 'Attributes'
+attributes do
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do

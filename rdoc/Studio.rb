@@ -1,5 +1,8 @@
 class_name :text => 'ClassName: Limelight::Studio'
 class_description :text => 'A Studio creates Productions.  There is only one instance of Studio per Limelight runtime.  All open productions are opened by the studio.'
+attributes_header :text => 'Attributes'
+attributes do
+end
 public_methods_header :text => 'Public Methods'
 method do
 method_header do
