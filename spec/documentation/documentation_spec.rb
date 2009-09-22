@@ -51,7 +51,7 @@ describe "Documentation" do
     end
     
     it "should have a 'prop layout' link" do
-      check_link("prop_layout_walkthough", "prop_layout", "Prop Layout")
+      check_link("prop_layout_walkthrough", "prop_layout", "Prop Layout")
     end
 
     it "should have a 'colors' link" do
@@ -59,7 +59,7 @@ describe "Documentation" do
     end
     
     it "should have a 'prop sizing' link" do
-      check_link("prop_sizing_walkthough", "prop_sizing", "Prop Sizing")
+      check_link("prop_sizing_walkthrough", "prop_sizing", "Prop Sizing")
     end
     
     it "should have a 'players' link " do
@@ -100,6 +100,10 @@ describe "Documentation" do
 
     it "should have a sound tutorial" do
       check_link("sound_walkthrough", "sound", "Sound")
+    end
+
+    it "should have a float tutorial" do
+      check_link("float_walkthrough", "float", "Floating Props")
     end
   end
 end
