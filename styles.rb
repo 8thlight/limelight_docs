@@ -193,3 +193,8 @@ style_error {
   font_size 16
   top_padding 4
 }
+
+big_label {
+  font_size 36
+  width "100%"
+}
