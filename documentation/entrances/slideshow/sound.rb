@@ -1,3 +1,3 @@
 slide do
-  heading :text => "Test Sound"
+  heading :text => "Playing a Sound"
 end

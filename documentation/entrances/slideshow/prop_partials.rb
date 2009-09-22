@@ -10,7 +10,7 @@ slide do
   line_break
   directions :text => "Here is the code used to install the partial:"
   sandbox_codeblock do
-    code :text => "__install 'example_partials/sample_one.rb'"
+    code :text => "__install 'sandbox_toys/partial_one.rb'"
   end
 
   __install "documentation/common/prop_sandbox.rb", :height => "140"
@@ -28,7 +28,7 @@ slide do
   line_break
   directions :text => "Again, here is the code used to install the partial.  We just pass a hash of values that get set to instance variables in the partial:"
   sandbox_codeblock do
-    code :text => "__install 'example_partials/sample_two.rb', :text => 'Change me!'"
+    code :text => "__install 'sandbox_toys/partial_two.rb', :text => 'Change me!'"
   end
 
   __install "documentation/common/prop_sandbox.rb", :height => "140"
