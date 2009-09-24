@@ -10,10 +10,12 @@ slide do
   line_break
   directions :text => "One thing to note is that the x and y attributes do nothing if float is off."
   sandbox_codeblock do
-    code :text => "label :text => 'Move Me', :float => :on, :x => 50, :y => '50%'"
+    code :text => "label :text => 'Move Me', :float => :on, :x => 50, :y => '40%'"
+    code :text => "label :text => 'I do not float'"
+    code :text => "image_prop :players => 'image', :image => 'images/homer_small.jpg'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "documentation/common/prop_sandbox.rb", :height => "140"
 end
 
 slide do
