@@ -61,7 +61,4 @@ slide do
   __install "documentation/common/prop_sandbox.rb", :height => "130"
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "Now you know how to install Prop Partials. When you're ready, head on to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

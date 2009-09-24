@@ -104,7 +104,4 @@ slide do
   __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "Great!  Now you know all about Backgrounds.  When you're ready, head to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

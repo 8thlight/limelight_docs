@@ -115,7 +115,4 @@ slide do
   
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "You now know the basics of animations in Limelight.  When you're ready, head to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

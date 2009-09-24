@@ -180,7 +180,4 @@ slide do
   end
 end
 
-slide do
-  heading :text => "11. Your Turn"
-  directions :text => "Congratulations!  You've created your first Limelight application.  Feel free to play and experiment with it and when you're ready, head to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

@@ -18,7 +18,4 @@ slide do
   __install "documentation/common/prop_sandbox.rb", :height => "130"
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "And that's it for sounds.  Time to head on to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

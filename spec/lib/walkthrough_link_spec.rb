@@ -111,5 +111,29 @@ describe WalkthroughLink do
     @link = WalkthroughLink.all[18]
     check_link("stages_walkthrough", "stages", "Stages")
   end
-   
+  
+  describe "next" do
+    before(:each) do
+      @first = WalkthroughLink.all[0]
+      @second = WalkthroughLink.all[1]
+      @third = WalkthroughLink.all[2]
+      @last = WalkthroughLink.all[-1]
+    end
+    
+    it "should find the second" do
+      WalkthroughLink.next(@first.slideshow).slideshow.should == @second.slideshow
+    end
+    
+    it "should find the third" do
+      WalkthroughLink.next(@second.slideshow).slideshow.should == @third.slideshow
+    end
+
+    it "should return nil if the current walkthrough is the last" do
+      WalkthroughLink.next(@last.slideshow).should be_nil
+    end
+    
+    it "should return nil if the current slideshow doesn't exist" do
+      WalkthroughLink.next("bad slideshow").should be_nil
+    end
+  end
 end
