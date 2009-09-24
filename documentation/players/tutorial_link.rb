@@ -1,7 +1,7 @@
 require 'entrance'
 
 module TutorialLink
-  attr_accessor :slideshow, :title
+  attr_accessor :slideshow, :title, :toc_link_id
   
   def mouse_clicked(e)
     Entrance.cue_tutorial(scene, self.slideshow, self.title)
@@ -10,7 +10,8 @@ module TutorialLink
       link.style.remove_extension(scene.styles['selected_toc_item'])
     end
     
-    style.add_extension(scene.styles['selected_toc_item'])
+    toc_link = scene.find(toc_link_id)
+    toc_link.style.add_extension(scene.styles['selected_toc_item'])
   end
   
 end

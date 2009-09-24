@@ -16,6 +16,7 @@ describe "Documentation" do
     next_slideshow.name.should == "tutorial_link"
     next_slideshow.slideshow.should == second.slideshow
     next_slideshow.title.should == second.title
+    next_slideshow.toc_link_id.should == second.id
   end
   
   it "should not have the link to the next slideshow for the last slideshow" do

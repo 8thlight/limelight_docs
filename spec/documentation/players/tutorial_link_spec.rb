@@ -31,6 +31,11 @@ describe "TutorialLink" do
   end
 
   it "should highlight he one in the table of contents even if it is clicked from a different location" do
-    pending
+    Entrance.stub!(:cue_tutorial)
+    scene.build { tutorial_link :id => "next_slideshow", :toc_link_id => "getting_started_walkthrough" }
+    
+    scene.find("next_slideshow").mouse_clicked(nil)
+    
+    scene.find("getting_started_walkthrough").style.has_extension(scene.styles["selected_toc_item"]).should be_true
   end
 end
