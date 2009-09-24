@@ -5,6 +5,10 @@ require 'spec'
 require 'limelight'
 $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../")
 require 'limelight/specs/spec_helper'
+
+ENV['GEM_HOME'] = File.join($PRODUCTION_PATH , "__resources")
+Gem.clear_paths
+
 Dir.glob(File.join("__resources", "gems", "**", "lib")).each do |dir|
   $: << dir
 end

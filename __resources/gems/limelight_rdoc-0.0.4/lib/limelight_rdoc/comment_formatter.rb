@@ -1,4 +1,3 @@
-gem 'statemachine'
 require 'statemachine'
 
 module LimelightRDoc
