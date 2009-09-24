@@ -1,1 +1,1 @@
-__install "rdoc/toc.rb"
+# __install "rdoc/toc.rb"

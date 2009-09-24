@@ -20,6 +20,4 @@ class Entrance
       __install install_file, options
     end
   end
-  
-  
 end

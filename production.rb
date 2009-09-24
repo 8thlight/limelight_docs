@@ -2,6 +2,7 @@
 # The containing production will acquire all the behavior defined in this module.
 # You may define several hooks and initialization steps here.
 module Production
+  attr_accessor :rdoc
 
   # Define this method if you want the production name to be different from the default, directory name.
   def name
@@ -17,12 +18,14 @@ module Production
   # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
   # any scenes have been opened.
   def production_loaded
+    require 'limelight_rdoc/limelight_rdoc'
+    @rdoc = LimelightRDoc::LimelightRDoc.new.props_from($LIMELIGHT_LIB)
   end
 
   # Hook #3.  Called when the production, and all the scenes, have fully opened.
   def production_opened
   end
-
+``
   # The system will call this methods when it wishes to close the production, perhaps when the user quits the
   # application.  By default the production will always return true. You may override this behavior by re-doing
   # the methods here.

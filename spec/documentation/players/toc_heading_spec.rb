@@ -44,11 +44,7 @@ describe "TocHeading" do
     before(:each) do
       @toc_links = scene.find('toc_links')
     end
-    
-    it "should install the rdoc links when clicked" do
-      @toc_links.find_by_name('class_link').should_not be_empty
-    end
-    
+        
     it "should should not have any walkthrough links" do
       @toc_links.find_by_name('toc_link').should be_empty
     end
