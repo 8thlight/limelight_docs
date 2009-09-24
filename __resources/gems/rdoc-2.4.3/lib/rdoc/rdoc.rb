@@ -38,7 +38,7 @@ class RDoc::RDoc
   ##
   # RDoc options
 
-  attr_reader :options
+  attr_accessor :options
 
   ##
   # Accessor for statistics.  Available after each call to parse_files
@@ -216,11 +216,11 @@ class RDoc::RDoc
   ##
   # Parse each file on the command line, recursively entering directories.
 
-  def parse_files(options)
-    files = options.files
+  def parse_files
+    files = @options.files
     files = ["."] if files.empty?
 
-    file_list = normalized_file_list(options, files, true, options.exclude)
+    file_list = normalized_file_list(@options, files, true, @options.exclude)
 
     return [] if file_list.empty?
 
@@ -230,7 +230,7 @@ class RDoc::RDoc
     file_info_lock = Mutex.new
 
     Thread.abort_on_exception = true
-    @stats = RDoc::Stats.new(file_list.size, options.verbosity)
+    @stats = RDoc::Stats.new(file_list.size, @options.verbosity)
     @stats.begin_adding @options.threads
 
     # Create worker threads.
@@ -241,7 +241,7 @@ class RDoc::RDoc
           content = read_file_contents(filename)
           top_level = RDoc::TopLevel.new filename
 
-          parser = RDoc::Parser.for(top_level, filename, content, options,
+          parser = RDoc::Parser.for(top_level, filename, content, @options,
                                     @stats)
           result = parser.scan
 
@@ -298,7 +298,7 @@ class RDoc::RDoc
 
     start_time = Time.now
 
-    file_info = parse_files @options
+    file_info = parse_files
 
     @options.title = "RDoc Documentation"
 
