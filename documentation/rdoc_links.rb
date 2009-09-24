@@ -1,1 +1,2 @@
-# __install "rdoc/toc.rb"
+rdoc_links do
+end

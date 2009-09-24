@@ -27,7 +27,7 @@ module Production
   # Hook #3.  Called when the production, and all the scenes, have fully opened.
   def production_opened
   end
-``
+
   # The system will call this methods when it wishes to close the production, perhaps when the user quits the
   # application.  By default the production will always return true. You may override this behavior by re-doing
   # the methods here.
