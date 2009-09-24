@@ -67,7 +67,7 @@ unselected_toc_heading {
   background_color "#DDD"
 }
 
-toc_link {
+toc_tutorial_link {
   extends :toc_item
   font_size 12
   left_padding 16
@@ -78,8 +78,16 @@ toc_link {
   }
 }
 
+directions_tutorial_link {
+  extends :directions
+  font_style :italic
+  hover {
+    text_color "#000"
+  }
+}
+
 class_link {
-  extends :toc_link
+  extends :toc_tutorial_link
   hover {
     text_color "#000"
   }

@@ -54,7 +54,7 @@ describe "TocHeading" do
     it "should reinstall the walkthrough links when you click walkthrough" do
       click_walkthrough_tab
             
-      @toc_links.find_by_name('toc_link').should_not be_empty
+      @toc_links.find_by_name('tutorial_link').should_not be_empty
     end
     
     it "should not do nothing if it already be the selected one" do

@@ -33,6 +33,7 @@ describe "Documentation" do
       link.slideshow.should == "some slideshow"
       link.text.should == "some text"
       link.title.should == "Some Title"
+      link.toc_link_id.should == "some id"
     end
   end
   
