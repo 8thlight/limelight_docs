@@ -18,7 +18,7 @@ describe "PropSandboxButton" do
     
     @sandbox_button.button_pressed(nil)
     
-    @canvas.children.should_not include(prop)
+    @canvas.children.include?(prop).should be_false
   end
   
   it "should execute the text in the code prop" do
@@ -43,7 +43,7 @@ describe "PropSandboxButton" do
     @sandbox_button.button_pressed(nil)
     
     scene.find('error').text.should match(/^Syntax error: .*/)
-    scene.find('error').text.should_not include("eval")
+    scene.find('error').text.should_not match(/eval/)
   end
   
 end

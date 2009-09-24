@@ -26,7 +26,6 @@ describe "Documentation" do
   end
 
   describe "table of contents links" do
-        
     it "should have a 'getting started' link" do
       link = scene.find("some id")
       link.should_not be_nil
