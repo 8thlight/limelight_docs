@@ -304,8 +304,4 @@ slide do
   end
 end
 
-slide do
-  heading :text => "Finished"
-  
-  directions :text => "We covered a lot of information in this tutorial.  When you're ready, move on to the next one."
-end
+__install "documentation/common/finished_slide.rb"

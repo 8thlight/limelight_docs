@@ -58,7 +58,4 @@ slide do
   __install "documentation/common/prop_sandbox.rb"
 end
 
-slide do 
-  heading :text => "Finished"
-  directions :text => "That covers everything you need to know about image players.  Lets move on to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

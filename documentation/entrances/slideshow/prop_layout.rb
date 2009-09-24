@@ -59,8 +59,4 @@ slide do
   __install "documentation/common/prop_sandbox.rb"
 end
 
-slide do
-  heading :text => "Finished"
-  
-  directions :text => "That's all there is to it.  With the basics of layout understood you should be able to begin creating more complex scenes in Limelight.  Move on to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

@@ -61,7 +61,7 @@ slide do
 end
 
 slide do
-  heading :text => "Fnished"
+  heading :text => "Summary"
   directions :text => "In summary, the margins and padding can be applied either in total or independently.  Notice how the naming convention is backwards from CSS, i.e. left_padding not padding-left.  All the options can take pixes or percentage."
   
   line_break
@@ -75,5 +75,6 @@ slide do
     code :text => "margin, margin_padding, margin_padding, margin_padding, margin_padding"
   end
   
-  directions :text => "You've now got all the information you need to handle layouts in limelight.  Move on to the next tutorial."
 end
+
+__install "documentation/common/finished_slide.rb"

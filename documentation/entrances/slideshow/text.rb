@@ -79,7 +79,4 @@ slide do
   __install "documentation/common/prop_sandbox.rb"
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "Now you know how to style text. When you're ready, head on to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

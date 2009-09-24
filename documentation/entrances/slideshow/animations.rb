@@ -115,9 +115,4 @@ slide do
   
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "You now know the basics of animations in Limelight.  When you're ready, head to the next tutorial."
-  # next_link = WalkthroughLink.next(@slideshow)
-  # toc_link :text => next_link.text, :slideshow => next_link.slideshow, :title => next_link.title
-end
+__install "documentation/common/finished_slide.rb"

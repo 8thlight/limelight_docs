@@ -85,7 +85,4 @@ slide do
 end
 
 
-slide do
-  heading :text => "Finished"
-  directions :text => "Great!  You can make all kinds of sizes of props.  Play some more then move on to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

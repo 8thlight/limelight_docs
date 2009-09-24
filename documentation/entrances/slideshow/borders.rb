@@ -89,7 +89,4 @@ slide do
   end
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "That's all there is to it!  Now you know all about Borders.  When you're ready, head to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

@@ -69,7 +69,4 @@ slide do
   __install "documentation/common/prop_sandbox.rb", :height => 190
 end
 
-slide do
-  heading :text => "Finished"
-  directions :text => "Great!  Now you know how to create props.  When you're ready, head to the next tutorial."
-end
+__install "documentation/common/finished_slide.rb"

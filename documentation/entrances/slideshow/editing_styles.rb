@@ -163,10 +163,12 @@ slide do
 end
 
 slide do
-  heading :text => "Finished"
+  heading :text => "More Information"
   
-  directions :text => "You now know enough to start creating your own styles in Limelight.  If you proceed through the next tutorial you'll start learning the details of those very styles." 
+  directions :text => "You now know enough to start creating your own styles in Limelight." 
   line_break
-  directions :text => "For a list of all the style attributes available in limelight"
+  directions :text => "For a list of all the style attributes available in limelight and their possible values"
   link :text => " click here.", :url => "http://limelightwiki.8thlight.com/wiki/Style_Attributes", :styles => "link_in_directions"
 end
+
+__install "documentation/common/finished_slide.rb"
