@@ -22,9 +22,8 @@ describe "ClearSandboxButton" do
 
       @clear_button.button_pressed(nil)
 
-      @canvas.children.should_not include(prop)
+      @canvas.children.include?(prop).should_not be_true
     end
-
   end
   
   describe "Styles Sandbox" do
@@ -34,7 +33,6 @@ describe "ClearSandboxButton" do
       
       scene.find('clear_sandbox_button').should be_nil
     end
-    
   end
   
   describe "Players Sandbox" do
@@ -44,10 +42,5 @@ describe "ClearSandboxButton" do
       
       scene.find('clear_sandbox_button').should be_nil
     end
-    
-
   end
-  
-  
-
 end
