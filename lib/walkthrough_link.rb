@@ -24,6 +24,11 @@ class WalkthroughLink
     @@walkthroughs.collect{ |options| WalkthroughLink.new(options)}
   end
   
+  def self.next(current_slideshow)
+    all.each_with_index { |link, index| return all[index + 1] if link.slideshow == current_slideshow }
+    return nil
+  end
+  
   def initialize(options)
     @id = options[:id]
     @text = options[:text]
