@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 
-describe "TocLink" do
+describe "TutorialLink" do
   uses_scene :documentation
   
   before(:each) do
-    @link = scene.find_by_name("toc_link")[0]
+    @link = scene.find_by_name("tutorial_link")[0]
   end
   
   it "should cue an entrance" do
@@ -22,7 +22,7 @@ describe "TocLink" do
   end
   
   it "should unhighlight previously selected links" do
-    previous_link = scene.find_by_name("toc_link")[1]
+    previous_link = scene.find_by_name("tutorial_link")[1]
     previous_link.style.add_extension(scene.styles['selected_toc_item'])
     
     @link.mouse_clicked(nil)
@@ -30,4 +30,7 @@ describe "TocLink" do
     previous_link.style.has_extension(scene.styles["selected_toc_item"]).should be_false
   end
 
+  it "should highlight he one in the table of contents even if it is clicked from a different location" do
+    pending
+  end
 end

@@ -1,4 +1,4 @@
 require "walkthrough_link"
 WalkthroughLink.all.each do |link|
-  toc_link :id => link.id,  :text => link.text, :slideshow => link.slideshow, :title => link.title
+  tutorial_link :id => link.id,  :text => link.text, :slideshow => link.slideshow, :title => link.title, :styles => "toc_tutorial_link"
 end

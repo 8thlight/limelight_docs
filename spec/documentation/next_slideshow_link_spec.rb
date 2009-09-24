@@ -13,7 +13,7 @@ describe "Documentation" do
     
     next_slideshow = scene.find("next_slideshow")
     next_slideshow.should_not be_nil
-    next_slideshow.name.should == "toc_link"
+    next_slideshow.name.should == "tutorial_link"
     next_slideshow.slideshow.should == second.slideshow
     next_slideshow.title.should == second.title
   end
