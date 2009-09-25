@@ -1,7 +1,7 @@
 module RdocLinks
   def casted
-    if production.rdoc != nil
-      production.rdoc.keys.sort.each { |class_name| build_class_link_for(class_name) }
+    if scene.rdoc != nil
+      scene.rdoc.keys.sort.each { |class_name| build_class_link_for(class_name) }
     end 
   end
   

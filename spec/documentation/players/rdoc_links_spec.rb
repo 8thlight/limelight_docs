@@ -9,7 +9,7 @@ describe "RDoc Links Player" do
   end
   
   it "should display the props as table of contents when casted" do
-    production.rdoc = {"classname" => "Prop DSL"}
+    scene.rdoc = {"classname" => "Prop DSL"}
     
     @rdoc_link.mouse_clicked(nil)
     
@@ -17,7 +17,7 @@ describe "RDoc Links Player" do
   end
 
   it "should display all the keys, not just the first" do
-    production.rdoc = {"animation" => "Prop DSL", "classname" => "Prop DSL"}
+    scene.rdoc = {"animation" => "Prop DSL", "classname" => "Prop DSL"}
     
     @rdoc_link.mouse_clicked(nil)
     
@@ -26,7 +26,7 @@ describe "RDoc Links Player" do
   end
   
   it "should only do this once" do
-    production.rdoc =  {"classname" => "Prop DSL"}
+    scene.rdoc =  {"classname" => "Prop DSL"}
     
     @rdoc_link.mouse_clicked(nil)
     @rdoc_link.mouse_clicked(nil)
@@ -35,7 +35,7 @@ describe "RDoc Links Player" do
   end
   
   it "should sort them alphabetically" do
-    production.rdoc =  {"zeeeclassname" => "Prop DSL", "aaaaaclassname" => "Prop DSL"}
+    scene.rdoc =  {"zeeeclassname" => "Prop DSL", "aaaaaclassname" => "Prop DSL"}
 
     @rdoc_link.mouse_clicked(nil)
     
@@ -44,7 +44,7 @@ describe "RDoc Links Player" do
   end
   
   it "should not throw an exception if production.props is nil" do
-    production.rdoc = nil
+    scene.rdoc = nil
     
     lambda{ @rdoc_link.mouse_clicked(nil) }.should_not raise_error
   end

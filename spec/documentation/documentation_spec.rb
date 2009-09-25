@@ -1,32 +1,28 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require "walkthrough_link"
+require 'rdoc_loader'
 
 describe "Documentation" do
   before(:each) do
     link = WalkthroughLink.new(:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title")
     WalkthroughLink.stub!(:all).and_return([link])
-    @limelight_rdoc = mock(LimelightRDoc::LimelightRDoc, :props_from => nil)
-    LimelightRDoc::LimelightRDoc.stub!(:new).and_return(@limelight_rdoc)
   end
   
   uses_scene :documentation
   
   describe "Loading RDoc" do
-
-    it "should load the props from $LIMELIGHT_LIB on production_loaded" do
-      @limelight_rdoc.should_receive(:props_from).with($LIMELIGHT_LIB)
+    it "should load the RDoc with the RDoc loader" do
+      loader = mock(RDocLoader)
+      RDocLoader.should_receive(:new).and_return(loader)
+      loader.should_receive(:load)
       
-      scene.casted
+      cast_scene
     end
     
-    it "should store the loaded props in rdoc" do
-      @limelight_rdoc.stub!(:props_from).and_return("Type doesnt matter")
-
-      scene.casted
-
-      scene.rdoc.should == "Type doesnt matter"
+    def cast_scene
+      scene
     end
-    
+        
   end
   
   describe "toc_categories" do
