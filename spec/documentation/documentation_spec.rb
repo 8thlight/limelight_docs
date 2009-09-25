@@ -3,6 +3,8 @@ require "walkthrough_link"
 require 'rdoc_loader'
 
 describe "Documentation" do
+  it_should_behave_like "all documentation scenes"
+  
   before(:each) do
     link = WalkthroughLink.new(:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title")
     WalkthroughLink.stub!(:all).and_return([link])

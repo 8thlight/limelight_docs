@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'entrance'
 
 describe "ClearSandboxButton" do
+  it_should_behave_like "all documentation scenes"
   uses_scene :documentation
   
   describe "Prop Sandbox" do

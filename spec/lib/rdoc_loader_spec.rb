@@ -5,7 +5,10 @@ require 'limelight_rdoc/limelight_rdoc'
 describe "RDocLoader" do
 
   before(:each) do
-    @scene = mock("Scene", :rdoc= => nil)
+    @styles = {}
+    @style = mock("Style", :add_extension => nil, :remove_extension => nil)
+    @prop = mock("Prop", :style => @style)
+    @scene = mock("Scene", :rdoc= => nil, :find => @prop, :styles => @styles)
     @loader = RDocLoader.new(@scene)
     @limelight_rdoc = mock(LimelightRDoc::LimelightRDoc, :props_from => nil)
     LimelightRDoc::LimelightRDoc.stub!(:new).and_return(@limelight_rdoc)
@@ -22,6 +25,23 @@ describe "RDocLoader" do
     
     @scene.should_receive(:rdoc=).with("Type doesnt matter")
 
+    @loader.load
+  end
+  
+  it "should set the rdoc prop to enabled when the props are loaded" do
+    @styles['unselected_toc_heading'] = "Unselected Style"
+    @scene.stub!(:find).with("RDoc").and_return(@prop)
+    
+    @style.should_receive(:add_extension).with("Unselected Style")
+    
+    @loader.load
+  end
+  
+  it "should remove the disabled_toc_heading from the style as well" do
+    @styles['disabled_toc_heading'] = "Disabled Style"
+    
+    @style.should_receive(:remove_extension).with("Disabled Style")
+    
     @loader.load
   end
 

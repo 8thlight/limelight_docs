@@ -4,11 +4,5 @@ module Documentation
   
   def casted
     RDocLoader.new(scene).load
-    
-    # # Begin thread
-    # require 'limelight_rdoc/limelight_rdoc'
-    # @rdoc = LimelightRDoc::LimelightRDoc.new.props_from($LIMELIGHT_LIB)
-    # #Enable button
-    # #end thread
   end
 end

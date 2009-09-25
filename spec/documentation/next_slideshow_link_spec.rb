@@ -3,6 +3,7 @@ require "walkthrough_link"
 require "entrance"
 
 describe "Documentation" do
+  it_should_behave_like "all documentation scenes"
   uses_scene :documentation
   
   it "should have a link to the next slideshow on the last slide of the current slideshow" do

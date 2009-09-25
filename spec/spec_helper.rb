@@ -14,10 +14,14 @@ Dir.glob(File.join("__resources", "gems", "**", "lib")).each do |dir|
 end
 
 Spec::Runner.configure do |config|
+end
 
-  config.before(:each) do
-    require 'limelight_rdoc/limelight_rdoc'
-    limelight_rdoc = Spec::Mocks::Mock.new("LimelightRDoc::LimelightRDoc", :props_from => {})
-    LimelightRDoc::LimelightRDoc.stub!(:new).and_return(limelight_rdoc)
+shared_examples_for "all documentation scenes" do
+
+  before(:each) do
+    require 'rdoc_loader'
+    mock_loader = Spec::Mocks::Mock.new("RDocLoader", :load => nil)
+    RDocLoader.stub!(:new).and_return(mock_loader)
   end
+
 end
