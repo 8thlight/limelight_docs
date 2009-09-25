@@ -45,7 +45,9 @@ describe "TocHeading" do
       @toc_links = scene.find('toc_links')
     end
     
-    it "should load the rdoc page when clicked"
+    it "should load the rdoc page when clicked" do
+      scene.find_by_name("rdoc_links").should_not be_empty
+    end
     
     it "should should not have any walkthrough links" do
       @toc_links.find_by_name('toc_link').should be_empty

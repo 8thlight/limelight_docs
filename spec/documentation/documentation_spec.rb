@@ -36,25 +36,4 @@ describe "Documentation" do
       link.toc_link_id.should == "some id"
     end
   end
-  
-  describe "RDoc" do
-    it "should display the props as table of contents when clicked" do
-      pending
-      production.rdoc = {"classname" => "Prop DSL"}
-      rdoc = scene.find('RDoc')
-      rdoc.mouse_clicked(nil)
-      
-      scene.find_by_name("class_link")[0].text.should == "classname"
-    end
-    
-    it "should display all the keys, not just the first" do
-      pending
-      production.rdoc = {"animation" => "Prop DSL", "classname" => "Prop DSL"}
-      rdoc = scene.find('RDoc')
-      rdoc.mouse_clicked(nil)
-      
-      scene.find_by_name("class_link")[0].text.should == "animation"
-      scene.find_by_name("class_link")[1].text.should == "classname"
-    end
-  end
 end
