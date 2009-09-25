@@ -276,7 +276,7 @@ attribute_header {
   extends :method_header
 }
 
-attributes_name {
+attribute_name {
   extends :method_name
 }
 
@@ -285,6 +285,6 @@ attribute_description {
   left_padding 6
 }
 
-attributes_read_write {
+attribute_read_write {
   font_size 6
 }

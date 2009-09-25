@@ -22,6 +22,7 @@ shared_examples_for "all documentation scenes" do
     require 'rdoc_loader'
     mock_loader = Spec::Mocks::Mock.new("RDocLoader", :load => nil)
     RDocLoader.stub!(:new).and_return(mock_loader)
+    Kernel.stub!(:sleep)
   end
 
 end

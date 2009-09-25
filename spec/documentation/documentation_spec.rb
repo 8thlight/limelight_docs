@@ -1,6 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require "walkthrough_link"
 require 'rdoc_loader'
+require 'documentation/players/documentation'
 
 describe "Documentation" do
   it_should_behave_like "all documentation scenes"
@@ -13,18 +14,34 @@ describe "Documentation" do
   uses_scene :documentation
   
   describe "Loading RDoc" do
-    it "should load the RDoc with the RDoc loader" do
-      loader = mock(RDocLoader)
-      RDocLoader.should_receive(:new).and_return(loader)
-      loader.should_receive(:load)
-      
-      cast_scene
-    end
-    
-    def cast_scene
+    before(:each) do
+      @loader = mock(RDocLoader, :load => nil)
+      @thread = mock(Thread, :priority= => nil)
+      Thread.stub!(:new).and_yield("scene").and_return(@thread)
+      RDocLoader.stub!(:new).and_return(@loader)
       scene
     end
         
+    it "should load the RDoc with the RDoc loader" do
+      RDocLoader.should_receive(:new).with("scene").and_return(@loader)
+      @loader.should_receive(:load)
+      
+      scene.scene_opened(nil)
+    end
+    
+    it "should run it all in a thread" do
+      Thread.should_receive(:new).ordered.and_yield("i dont care yet")
+      RDocLoader.should_receive(:new).ordered.and_return(@loader)
+      
+      scene.scene_opened(nil)
+    end
+    
+    it "should set the thread priority to -1000" do
+      @thread.should_receive(:priority=).with(Documentation::THREAD_PRIORITY)
+      
+      scene.scene_opened(nil)
+    end
+    
   end
   
   describe "toc_categories" do
@@ -42,7 +59,7 @@ describe "Documentation" do
       rdoc.style.has_extension(scene.styles['right_toc_heading']).should be_true
     end
   end
-
+  
   describe "table of contents links" do
     it "should have a 'getting started' link" do
       link = scene.find("some id")
