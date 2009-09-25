@@ -1,8 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'documentation/players/class_link'
+require 'entrance'
 
 class TestClassLink
   include ClassLink
+  attr_accessor :text
   
   def scene
     "scene"
@@ -10,17 +12,14 @@ class TestClassLink
 end
 
 describe "ClassLink" do
-  uses_scene :documentation
+  uses_scene :fake
   
-  before(:each) do
-    @link = scene.find_by_name("class_link")[0]
-  end
-  
-  it "should cue the rdoc" do
+  it "should cue the props from the dsl in the rdoc hash" do
+    production.rdoc = {"class_text" => "Prop DSL"}
     player = TestClassLink.new
-    player.class_prop_file = "klass_name"
+    player.text = "nil"
     
-    Entrance.should_receive(:cue_rdoc).with(player.scene, "klass_name")
+    Entrance.should_receive(:cue_rdoc).with(player.scene, "Prop DSL")
     
     player.mouse_clicked(nil)
   end

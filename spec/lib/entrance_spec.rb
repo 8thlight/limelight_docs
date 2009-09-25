@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
 require 'entrance'
 
-describe Entrance do
+describe Entrance, "installing props from a file" do
 
   before(:each) do
     @scene = mock("scene")
@@ -10,7 +10,7 @@ describe Entrance do
   end
     
   it "should install common partial" do
-    Entrance.should_receive(:__install).with("documentation/common/sandbox.rb", {})
+    Entrance.should_receive(:__install).with("documentation/common/sandbox.rb")
     @content_pane.should_receive(:build).and_yield
     
     Entrance.cue_common(@scene, "sandbox")
@@ -29,17 +29,10 @@ describe Entrance do
     Entrance.cue_tutorial(@scene, "my_walkthrough", "My Walkthrough")
   end
   
-  it "should cue rdoc" do
-    Entrance.should_receive(:__install).with("documentation/entrances/rdoc.rb", {:rdoc_propfile => "Client.rb"})
+  it "should install the props from a DSL passed in" do
+    Entrance.should_receive(:eval).with("prop :id => 'test prop'")
     @content_pane.should_receive(:build).and_yield
     
-    Entrance.cue_rdoc(@scene, "Client.rb")
+    Entrance.cue_rdoc(@scene, "prop :id => 'test prop'")
   end
-  
-  it "should should remove all props on the pane on cue_rdoc" do
-    @content_pane.should_receive(:remove_all)
-    
-    Entrance.cue_rdoc(@scene, "Client.rb")
-  end
-  
 end
