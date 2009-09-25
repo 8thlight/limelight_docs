@@ -16,13 +16,9 @@ end
 Spec::Runner.configure do |config|
 end
 
-shared_examples_for "all documentation scenes" do
-
-  before(:each) do
-    require 'rdoc_loader'
-    mock_loader = Spec::Mocks::Mock.new("RDocLoader", :load => nil)
-    RDocLoader.stub!(:new).and_return(mock_loader)
-    Kernel.stub!(:sleep)
-  end
-
+def stub_doc_loader
+  require 'rdoc_loader'
+  mock_loader = Spec::Mocks::Mock.new("RDocLoader", :load => nil)
+  RDocLoader.stub!(:new).and_return(mock_loader)
+  Kernel.stub!(:sleep)
 end

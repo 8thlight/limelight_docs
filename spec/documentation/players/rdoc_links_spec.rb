@@ -1,12 +1,16 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'documentation/players/rdoc_links'
 
-
-describe "RDoc Links Player" do
-  it_should_behave_like "all documentation scenes"
+describe "RDoc Links Player" do  
+  before(:all) do
+    stub_doc_loader
+  end
+  
   uses_scene :documentation
   
   before(:each) do
     @rdoc_link = scene.find("RDoc")
+    @rdoc_link.enable
   end
   
   it "should display the props as table of contents when casted" do
@@ -14,7 +18,7 @@ describe "RDoc Links Player" do
     
     @rdoc_link.mouse_clicked(nil)
     
-    scene.find_by_name("class_link")[0].text.should == "classname"
+    scene.find_by_name("class_link").should_not be_empty
   end
 
   it "should display all the keys, not just the first" do
@@ -37,7 +41,7 @@ describe "RDoc Links Player" do
   
   it "should sort them alphabetically" do
     scene.rdoc =  {"zeeeclassname" => "Prop DSL", "aaaaaclassname" => "Prop DSL"}
-
+  
     @rdoc_link.mouse_clicked(nil)
     
     scene.find_by_name("class_link")[0].text.should == "aaaaaclassname"

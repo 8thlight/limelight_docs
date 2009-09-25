@@ -2,7 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'entrance'
 
 describe "PropSandboxButton" do
-  it_should_behave_like "all documentation scenes"
+  before(:all) do
+    stub_doc_loader  
+  end
+  
   uses_scene :documentation
   
   before(:each) do

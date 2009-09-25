@@ -2,15 +2,25 @@ module TocHeading
   attr_accessor :tab_content
   
   def mouse_clicked(event)
-    return if already_selected?
+    return if already_selected? || disabled?
     unselect_all_headings
     select_current_heading
     load_new_toc_links
     clear_content_pane
   end
   
+  def enable
+    self.style.add_extension(unselected_style)
+    self.style.remove_extension(disabled_style)
+    self.style.remove_extension(selected_style)
+  end
+  
   def already_selected?
     self.style.has_extension(selected_style)
+  end
+
+  def disabled?
+    self.style.has_extension(disabled_style)
   end
   
   def unselect_all_headings
@@ -56,6 +66,10 @@ module TocHeading
   
   def unselected_style
     scene.styles['unselected_toc_heading']
+  end
+  
+  def disabled_style
+    scene.styles['disabled_toc_heading']
   end
   
   #needed for redraw bug
