@@ -88,6 +88,7 @@ directions_tutorial_link {
 
 class_link {
   extends :toc_tutorial_link
+  font_size 8
   hover {
     text_color "#000"
   }
