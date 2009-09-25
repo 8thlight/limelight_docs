@@ -5,9 +5,29 @@ describe "Documentation" do
   before(:each) do
     link = WalkthroughLink.new(:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title")
     WalkthroughLink.stub!(:all).and_return([link])
+    @limelight_rdoc = mock(LimelightRDoc::LimelightRDoc, :props_from => nil)
+    LimelightRDoc::LimelightRDoc.stub!(:new).and_return(@limelight_rdoc)
   end
   
   uses_scene :documentation
+  
+  describe "Loading RDoc" do
+
+    it "should load the props from $LIMELIGHT_LIB on production_loaded" do
+      @limelight_rdoc.should_receive(:props_from).with($LIMELIGHT_LIB)
+      
+      scene.casted
+    end
+    
+    it "should store the loaded props in rdoc" do
+      @limelight_rdoc.stub!(:props_from).and_return("Type doesnt matter")
+
+      scene.casted
+
+      scene.rdoc.should == "Type doesnt matter"
+    end
+    
+  end
   
   describe "toc_categories" do
     it "should have the walkthrough tutorial initially selected" do
@@ -20,7 +40,7 @@ describe "Documentation" do
     it "should have the rdoc section initially unselected " do
       rdoc = scene.find('RDoc')
       
-      rdoc.style.has_extension(scene.styles['unselected_toc_heading']).should be_true
+      rdoc.style.has_extension(scene.styles['disabled_toc_heading']).should be_true
       rdoc.style.has_extension(scene.styles['right_toc_heading']).should be_true
     end
   end

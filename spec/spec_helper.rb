@@ -15,7 +15,7 @@ end
 
 Spec::Runner.configure do |config|
 
-  config.before(:suite) do
+  config.before(:each) do
     require 'limelight_rdoc/limelight_rdoc'
     limelight_rdoc = Spec::Mocks::Mock.new("LimelightRDoc::LimelightRDoc", :props_from => {})
     LimelightRDoc::LimelightRDoc.stub!(:new).and_return(limelight_rdoc)

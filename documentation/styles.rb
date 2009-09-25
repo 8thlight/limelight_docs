@@ -37,7 +37,6 @@ toc_categories {
 }
 
 toc_heading {
-  text_color "#666"
   padding 8
   font_size 14
   hover {}
@@ -56,15 +55,23 @@ right_toc_heading {
 }
 
 selected_toc_heading {
+  text_color "#222"
   font_face "Arial Rounded MT Bold"
   background_color "#D8F0BB"
 }
 
 unselected_toc_heading {
+  text_color "#222"
   font_face "Arial Rounded MT"
   bottom_border_width 1
   border_color "#AAA"
   background_color "#DDD"
+}
+
+disabled_toc_heading {
+  extends :unselected_toc_heading
+  text_color "#AAA"
+  font_style :italic
 }
 
 toc_tutorial_link {

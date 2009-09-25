@@ -42,4 +42,11 @@ describe "RDoc Links Player" do
     scene.find_by_name("class_link")[0].text.should == "aaaaaclassname"
     scene.find_by_name("class_link")[1].text.should == "zeeeclassname"
   end
+  
+  it "should not throw an exception if production.props is nil" do
+    production.rdoc = nil
+    
+    lambda{ @rdoc_link.mouse_clicked(nil) }.should_not raise_error
+  end
+  
 end

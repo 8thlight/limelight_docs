@@ -20,8 +20,6 @@ module Production
   # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
   # any scenes have been opened.
   def production_loaded
-    require 'limelight_rdoc/limelight_rdoc'
-    @rdoc = LimelightRDoc::LimelightRDoc.new.props_from($LIMELIGHT_LIB)
   end
 
   # Hook #3.  Called when the production, and all the scenes, have fully opened.
