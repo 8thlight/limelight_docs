@@ -18,7 +18,7 @@ module RDoc
       end
     
       def generate(top_levels = nil)
-        TopLevel.all_classes_and_modules.each { |klass| write_class_file_for(klass) }
+        TopLevel.all_classes_and_modules.select{|klass| klass.document_self}.each { |klass| write_class_file_for(klass) }
       end
       
       def write_class_file_for(klass)
