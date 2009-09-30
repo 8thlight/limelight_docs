@@ -8,7 +8,6 @@ class TestClassLink
 end
 
 describe "ClassLink" do
-  uses_scene :fake
   
   it "should cue the props from the dsl in the rdoc hash" do
     player = TestClassLink.new
