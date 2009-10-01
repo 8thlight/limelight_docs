@@ -4,10 +4,8 @@ require 'rubygems'
 require 'spec'
 require 'limelight/specs/spec_helper'
 
-# Set the Gem home to the frozen gems
 $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../")
-ENV['GEM_HOME'] = File.join($PRODUCTION_PATH , "__resources")
-Gem.clear_paths
+Gem.use_paths(File.join($PRODUCTION_PATH , "__resources"), Gem.default_path)
 
 Dir.glob(File.join("__resources", "gems", "**", "lib")).each do |dir|
   $: << dir
