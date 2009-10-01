@@ -2,10 +2,10 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 
 require 'rubygems'
 require 'spec'
-require 'limelight'
-$PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../")
 require 'limelight/specs/spec_helper'
 
+# Set the Gem home to the frozen gems
+$PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../")
 ENV['GEM_HOME'] = File.join($PRODUCTION_PATH , "__resources")
 Gem.clear_paths
 
