@@ -6,9 +6,21 @@ module Documentation
   
   def scene_opened(we_dont_care)
     thread = Thread.new(scene) do |scene|
-      Kernel.sleep(3)
+      sleep_to_allow_interactivity
       RDocLoader.new(scene).load
     end
     thread.priority = THREAD_PRIORITY
+  end
+  
+  def select_toc_prop(prop)
+    @last_selected_toc_link.style.remove_extension(scene.styles['selected_toc_item']) if @last_selected_toc_link
+    @last_selected_toc_link = prop
+    prop.style.add_extension(scene.styles['selected_toc_item'])
+  end
+
+  private ########################
+  
+  def sleep_to_allow_interactivity
+    Kernel.sleep(3)
   end
 end

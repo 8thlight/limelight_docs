@@ -53,10 +53,6 @@ describe "RDoc Links Player" do
     
     lambda{ @rdoc_link.mouse_clicked(nil) }.should_not raise_error
   end
-  
-  it "should use the selected link object to select links" do
-    
-    
-  end
+
   
 end

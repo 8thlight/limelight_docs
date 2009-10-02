@@ -1,5 +1,4 @@
 require 'entrance'
-require 'documentation/players/select_link'
 
 module TutorialLink
   
@@ -7,7 +6,7 @@ module TutorialLink
   
   def mouse_clicked(e)
     Entrance.cue_tutorial(scene, self.slideshow, self.title)
-    SelectLink.new({:scene => scene, :name => "tutorial_link", :id => toc_link_id}).select
+    scene.select_toc_prop(self)
   end
   
 end

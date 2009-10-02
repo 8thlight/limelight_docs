@@ -3,5 +3,6 @@ module ClassLink
   
   def mouse_clicked(event)
     Entrance.cue_rdoc(scene, scene.rdoc[self.text])
+    scene.select_toc_prop(self)
   end
 end

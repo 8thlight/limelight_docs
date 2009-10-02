@@ -3,6 +3,9 @@ require "walkthrough_link"
 require 'rdoc_loader'
 require 'documentation/players/documentation'
 
+
+
+
 describe "Documentation" do
   before(:each) do
     link = WalkthroughLink.new(:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title")
@@ -68,6 +71,25 @@ describe "Documentation" do
       link.text.should == "some text"
       link.title.should == "Some Title"
       link.toc_link_id.should == "some id"
+    end
+  end
+  
+  describe "select_toc_prop" do
+    it "should select the passed in toc prop" do
+      link = scene.find("some id")
+      scene.select_toc_prop(link)
+      
+      link.should have_style_extension("selected_toc_item")
+    end
+    
+    it "should unselect the previous prop" do
+      link = scene.find('some id')
+      rdoc = scene.find('RDoc')
+      
+      scene.select_toc_prop(link)
+      scene.select_toc_prop(rdoc)
+      
+      link.should_not have_style_extension("selected_toc_item")
     end
   end
 end
