@@ -12,16 +12,14 @@ describe TocSection do
       TocSection.all[0].links.should == []      
     end
 
-    it "should return a link" do
-      link = {:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title"}
-
-      TocSection.sections = [:name => "Section One", :links => [link]]
+    it "should return a walkthrough link based on id" do
+      TocSection.sections = [:name => "Section One", :links => ["getting_started_walkthrough"]]
 
       first_link = TocSection.all[0].links[0]
-      first_link.id.should == "some id"
-      first_link.text.should == "some text"
-      first_link.slideshow.should == "some slideshow"
-      first_link.title.should == "Some Title"    
+      first_link.id.should == "getting_started_walkthrough"
+      first_link.text.should == "Getting Started"
+      first_link.slideshow.should == "getting_started"
+      first_link.title.should == "Getting Started"  
     end
   end
   

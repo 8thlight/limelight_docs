@@ -5,7 +5,6 @@ require 'documentation/players/documentation'
 
 describe "Documentation" do
   before(:each) do
-    TocSection.sections = [{:name => "section", :links => [{:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title"}]}]
     stub_doc_loader
   end
   
@@ -60,26 +59,26 @@ describe "Documentation" do
   
   describe "table of contents links" do
     it "should have a 'getting started' link" do
-      link = scene.find("some id")
+      link = scene.find("getting_started_walkthrough")
       link.should_not be_nil
       
-      link.slideshow.should == "some slideshow"
-      link.text.should == "some text"
-      link.title.should == "Some Title"
-      link.toc_link_id.should == "some id"
+      link.slideshow.should == "getting_started"
+      link.text.should == "Getting Started"
+      link.title.should == "Getting Started"
+      link.toc_link_id.should == "getting_started_walkthrough"
     end
   end
   
   describe "select_toc_prop" do
     it "should select the passed in toc prop" do
-      link = scene.find("some id")
+      link = scene.find("RDoc")
       scene.select_toc_prop(link)
       
       link.should have_style_extension("selected_toc_item")
     end
     
     it "should unselect the previous prop" do
-      link = scene.find('some id')
+      link = scene.find('Walkthrough')
       rdoc = scene.find('RDoc')
       
       scene.select_toc_prop(link)
