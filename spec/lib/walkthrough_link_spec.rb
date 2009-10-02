@@ -84,7 +84,7 @@ describe WalkthroughLink do
   end
   
   it "should have a sound tutorial" do
-    check_link("sound_walkthrough", "sound", "Sound")
+    check_link("sound_walkthrough", "sound", "Audio")
   end
     
   it "should have a 'productions' link" do

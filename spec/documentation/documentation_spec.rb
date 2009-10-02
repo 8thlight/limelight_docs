@@ -1,15 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
-require "walkthrough_link"
+require "toc_section"
 require 'rdoc_loader'
 require 'documentation/players/documentation'
 
-
-
-
 describe "Documentation" do
   before(:each) do
-    link = WalkthroughLink.new(:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title")
-    WalkthroughLink.stub!(:all).and_return([link])
+    TocSection.sections = [{:name => "section", :links => [{:id => "some id", :text => "some text", :slideshow => "some slideshow", :title => "Some Title"}]}]
     stub_doc_loader
   end
   

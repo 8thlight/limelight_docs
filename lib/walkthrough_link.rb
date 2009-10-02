@@ -1,5 +1,6 @@
 class WalkthroughLink
   attr_reader :id, :text, :slideshow, :title
+  
   @@walkthroughs = [{:id => "getting_started_walkthrough",  :text => "Getting Started", :slideshow => "getting_started", :title => "Getting Started"},
                     {:id => "creating_props_walkthrough",   :text => "Creating Props",  :slideshow => "creating_props", :title => "Creating Props"},
                     {:id => "prop_sizing_walkthrough",       :text => "Prop Sizing",     :slideshow => "prop_sizing", :title => "Prop Sizing"},
@@ -18,29 +19,8 @@ class WalkthroughLink
                     {:id => "prop_partials_walkthrough",    :text => "Prop Partials",   :slideshow => "prop_partials", :title => "Prop Partials"},
                     {:id => "images_walkthrough",           :text => "Images",          :slideshow => "images", :title => "Images"},
                     {:id => "animations_walkthrough",       :text => "Animations",      :slideshow => "animations", :title => "Animations"},
-                    {:id => "sound_walkthrough",            :text => "Sound",           :slideshow => "sound", :title => "Sound"}]
-  
-  
-                      # 
-                      # Getting Started
-                      # Creating Props
-                      # Prop Sizing
-                      # Prop Layout
-                      # Editing Styles (Rename to Styling Props)
-                      # Text (Rename to Using Text)
-                      # Colors
-                      # Borders
-                      # Margin and Padding
-                      # Backgrounds
-                      # Gradients
-                      # Floating Props
-                      # Players
-                      # Productions
-                      # Stages
-                      # Prop Partials
-                      # Images
-                      # Animations (
-                      # Sound (Rename to Audio)
+                    {:id => "sound_walkthrough",            :text => "Audio",           :slideshow => "sound", :title => "Audio"}]
+
   def self.all
     @@walkthroughs.collect{ |options| WalkthroughLink.new(options)}
   end
@@ -49,7 +29,7 @@ class WalkthroughLink
     all.each_with_index { |link, index| return all[index + 1] if link.slideshow == current_slideshow }
     return nil
   end
-  
+    
   def self.find(id)
     link = all.find {|link| link.id == id}
     return link
