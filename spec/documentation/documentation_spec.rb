@@ -50,15 +50,15 @@ describe "Documentation" do
     it "should have the walkthrough tutorial initially selected" do
       walkthrough = scene.find('Walkthrough')
       
-      walkthrough.style.has_extension(scene.styles['selected_toc_heading']).should be_true
-      walkthrough.style.has_extension(scene.styles['left_toc_heading']).should be_true
+      walkthrough.should have_style_extension("selected_toc_heading")
+      walkthrough.should have_style_extension("left_toc_heading")
     end
     
     it "should have the rdoc section initially unselected " do
       rdoc = scene.find('RDoc')
       
-      rdoc.style.has_extension(scene.styles['disabled_toc_heading']).should be_true
-      rdoc.style.has_extension(scene.styles['right_toc_heading']).should be_true
+      rdoc.should have_style_extension("disabled_toc_heading")
+      rdoc.should have_style_extension("right_toc_heading")
     end
   end
   

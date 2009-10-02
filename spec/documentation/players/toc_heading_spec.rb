@@ -27,25 +27,24 @@ describe "TocHeading" do
 
   describe "clicking rdoc" do
     before(:each) do
-      
       @rdoc_link.enable
       @rdoc_link.mouse_clicked(nil)
     end
     
     it "should select the rdoc" do
-      @rdoc_link.style.has_extension(@rdoc_link.selected_style).should be_true
+      @rdoc_link.should have_style_extension("selected_toc_heading")
     end
   
     it "should remove the unselected stye from the rdoc" do
-      @rdoc_link.style.has_extension(@rdoc_link.unselected_style).should be_false
+      @rdoc_link.should_not have_style_extension("unselected_toc_heading")
     end
   
     it "should add the unselected_toc_heading to walkthrough" do
-      scene.find("Walkthrough").style.has_extension(@rdoc_link.unselected_style).should be_true
+      scene.find("Walkthrough").should have_style_extension("unselected_toc_heading")
     end
     
     it "should remove the selected from walkthrough" do
-      scene.find("Walkthrough").style.has_extension(@rdoc_link.selected_style).should be_false
+      scene.find("Walkthrough").should_not have_style_extension("selected_toc_heading")
     end
     
     describe "clicking rdoc then clicking walkthrough" do
@@ -55,11 +54,11 @@ describe "TocHeading" do
       end
 
       it "should unselect the rdoc" do
-        @rdoc_link.style.has_extension(@rdoc_link.unselected_style).should be_true
+        @rdoc_link.should have_style_extension("unselected_toc_heading")
       end
 
       it "should unselect the rdoc" do      
-        @walkthrough.style.has_extension(@rdoc_link.selected_style).should be_true
+        @walkthrough.should have_style_extension("selected_toc_heading")
       end
     end
 
