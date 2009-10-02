@@ -13,9 +13,11 @@ describe "TutorialLink" do
     player.mouse_clicked(nil)
   end
   
-  it "should select the link with the select link method object" do
+  it "should select the link with the select link method object - based on the toc_link_id" do
     stub_entrance
-    scene.should_receive(:select_toc_prop).with(player)
+    player.toc_link_id = "toc_link_id"
+    scene.stub!(:find).with("toc_link_id").and_return("Alternate prop")
+    scene.should_receive(:select_toc_prop).with("Alternate prop")
   
     player.mouse_clicked(nil)
   end

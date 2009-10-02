@@ -6,7 +6,8 @@ module TutorialLink
   
   def mouse_clicked(e)
     Entrance.cue_tutorial(scene, self.slideshow, self.title)
-    scene.select_toc_prop(self)
+    
+    scene.select_toc_prop(scene.find(toc_link_id))
   end
   
 end
