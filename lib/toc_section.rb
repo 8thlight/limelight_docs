@@ -32,6 +32,11 @@ class TocSection
     @@sections.collect {|section| TocSection.new(section)}
   end
   
+  def self.all_walkthrough_links
+    all_links = @@sections.collect {|section| section[:links]}.flatten
+    return all_links.collect{ |options| WalkthroughLink.new(options)}
+  end
+  
   def self.sections=(sections)
     @@sections = sections
   end
