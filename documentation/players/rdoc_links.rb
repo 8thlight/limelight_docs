@@ -1,3 +1,5 @@
+require 'documentation/players/section_header'
+
 module RdocLinks
   def casted
     @namespaces = []
@@ -19,8 +21,12 @@ module RdocLinks
   end
   
   def write_section_headers
-    @head.each do |name|
-      self.build(:text => name) { class_header :text => @text, :players => 'section_header', :prop_to_remove => @head }
+    @head.each do |text|
+      header = Limelight::Prop.new(:text => text, :name => "class_header")
+      header.include_player(SectionHeader)
+      header.prop_to_remove = "#{text.downcase}_links"
+      self << header
+      
       @namespaces.push name
     end
   end

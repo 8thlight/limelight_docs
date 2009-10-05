@@ -69,8 +69,7 @@ describe "RDoc Links Player" do
     header_prop.prop_to_remove.should == 'limelight_links'
   end
   
-  it "should underscore the full name for the id" do
-  end
+  it "should underscore the full name for the id"
   
   it "should have links for more than one class all in one prop"
   
