@@ -14,13 +14,13 @@ module RdocLinks
   
   def write_section
     @head, @tail = split_class
-    write_section_headers    
-    self.build(:class_text => @tail) { class_link :text => @class_text }
+    write_section_headers
+    self.build(:class_text => @tail) { class_link :text => @class_text}
   end
   
   def write_section_headers
     @head.each do |name|
-      self.build(:text => name) { class_header :text => @text }
+      self.build(:text => name) { class_header :text => @text, :players => 'section_header', :prop_to_remove => @head }
       @namespaces.push name
     end
   end

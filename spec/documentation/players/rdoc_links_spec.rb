@@ -60,7 +60,24 @@ describe "RDoc Links Player" do
     scene.find_by_name('class_header').size.should == 1
   end
   
-  it "should contain its elements"
+  it "should have a header prop with the right prop to remove" do
+    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    
+    player.casted
+    
+    header_prop = scene.find_by_name('class_header')[0]
+    header_prop.prop_to_remove.should == 'limelight_links'
+  end
+  
+  it "should underscore the full name for the id" do
+  end
+  
+  it "should have links for more than one class all in one prop"
+  
+  # limelight_class_header = scene.find_by_name('class_header')[0]
+  # limelight_class_header.children[0].text.should == "Monkey"
+  # limelight_class_header.children[0].name.should == "Builtin"
+  
   
   it "should handle backup up in the namespaces"
   
