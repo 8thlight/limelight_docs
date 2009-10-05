@@ -74,19 +74,10 @@ disabled_toc_heading {
   font_style :italic
 }
 
-section_header {
-  extends :toc_item
-  font_size 14
-  left_padding 8
-  top_padding 5
-  bottom_padding 4
-  hover {}
-}
-
 toc_tutorial_link {
   extends :toc_item
   font_size 12
-  left_padding 22
+  left_padding 16
   top_padding 2
   bottom_padding 2
   hover {
