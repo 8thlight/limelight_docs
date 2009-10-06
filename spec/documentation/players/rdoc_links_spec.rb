@@ -30,6 +30,15 @@ describe "RDoc Links Player" do
     scene.find_by_name("class_link")[1].text.should == "zeeeclassname"
   end
   
+  it "should sort all the unnamespaced names after the props with namespaces" do
+    scene.rdoc =  {"aaaclassname" => "Prop DSL", "Limelight::Prop" => "Prop DSL"}
+    
+    player.casted
+    
+    scene.find_by_name('class_link')[0].text.should == "Prop"
+    scene.find_by_name('class_link')[1].text.should == "aaaclassname"
+  end
+  
   it "should not throw an exception if production.props is nil" do
     scene.rdoc = nil
     

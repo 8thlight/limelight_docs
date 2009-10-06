@@ -7,11 +7,23 @@ module RdocLinks
   def casted
     @section_props = SectionStack.new self
     if scene.rdoc != nil
-      scene.rdoc.keys.sort.each { |class_name| @class_name = class_name; build_class_link }
+      sorted_rdoc_classes.each { |class_name| @class_name = class_name; build_class_link }
     end 
   end
   
   protected ###############################################
+  
+  def sorted_rdoc_classes
+    return scene.rdoc.keys.sort do |a, b|
+      if a.match(/::/) and b.match(/::/).nil?
+        -1
+      elsif b.match(/::/) and a.match(/::/).nil?
+        1
+      else
+        a <=> b
+      end
+    end
+  end
   
   def build_class_link
     write_section
