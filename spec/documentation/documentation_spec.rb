@@ -71,20 +71,29 @@ describe "Documentation" do
   
   describe "select_toc_prop" do
     it "should select the passed in toc prop" do
-      link = scene.find("RDoc")
+      link = scene.find("getting_started_walkthrough")
       scene.select_toc_prop(link)
       
       link.should have_style_extension("selected_toc_item")
     end
     
     it "should unselect the previous prop" do
-      link = scene.find('Walkthrough')
-      rdoc = scene.find('RDoc')
+      link = scene.find('getting_started_walkthrough')
+      rdoc = scene.find('backgrounds_walkthrough')
       
       scene.select_toc_prop(link)
       scene.select_toc_prop(rdoc)
       
       link.should_not have_style_extension("selected_toc_item")
+    end
+    
+    it "should grow the parent" do
+      gsw = scene.find("getting_started_walkthrough")
+
+      gsw.parent.shrink
+      scene.select_toc_prop(gsw)
+      
+      gsw.parent.should_not be_shrunk
     end
   end
 end

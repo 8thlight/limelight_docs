@@ -16,11 +16,12 @@ module Documentation
     @last_selected_toc_link.style.remove_extension(scene.styles['selected_toc_item']) if @last_selected_toc_link
     @last_selected_toc_link = prop
     prop.style.add_extension(scene.styles['selected_toc_item'])
+    prop.parent.grow
   end
 
   private ########################
   
   def sleep_to_allow_interactivity
-    Kernel.sleep(3)
+    Kernel.sleep(2)
   end
 end
