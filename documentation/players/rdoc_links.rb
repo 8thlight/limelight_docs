@@ -37,7 +37,7 @@ module RdocLinks
   def header_prop_with(text)
     header = Limelight::Prop.new(:text => text, :name => "class_header")
     header.include_player(SectionHeader)
-    header.prop_to_remove = "#{text.downcase}_links"
+    header.prop_to_remove = "#{section_id_from(text)}"
     return header
   end
   
@@ -48,7 +48,7 @@ module RdocLinks
   end
   
   def make_shrinkable_prop_with(text)
-    prop = Limelight::Prop.new(:id => "#{text.downcase}_links", :name => 'class_section')
+    prop = Limelight::Prop.new(:id => "#{section_id_from(text)}", :name => 'class_section')
     prop.include_player(Shrinkable)
     prop.shrink
     return prop
@@ -69,6 +69,11 @@ module RdocLinks
     name.gsub!(/^::/, "")
     
     return name.split('::')    
+  end
+  
+  def section_id_from(text)
+    return "#{@section_props.namespace_string.downcase}_#{text.downcase}_links" unless @section_props.namespace_string.empty?
+    return "#{text.downcase}_links"
   end
   
   def parent_prop
