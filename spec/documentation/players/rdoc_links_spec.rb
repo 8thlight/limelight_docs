@@ -153,4 +153,13 @@ describe "RDoc Links Player" do
     class_section = scene.find_by_name('class_header')[1]
     class_section.prop_to_remove.should == "limelight_builtin_links"
   end
+  
+  it "should put the full class name on the class link" do
+    scene.rdoc = {"Limelight::Builtin::Test" => "Prop Blah"}
+    
+    player.casted
+    
+    class_section = scene.find_by_name('class_link')[0]
+    class_section.class_name.should == "Limelight::Builtin::Test"
+  end
 end

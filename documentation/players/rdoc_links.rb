@@ -1,5 +1,6 @@
 require 'documentation/players/section_header'
 require 'documentation/players/shrinkable'
+require 'documentation/players/class_link'
 require 'section_stack'
 
 module RdocLinks
@@ -19,7 +20,7 @@ module RdocLinks
   def write_section
     @head, @tail = split_class
     write_section_headers
-    parent_prop.build(:class_text => @tail) { class_link :text => @class_text}
+    write_class_link
   end
   
   def write_section_headers
@@ -28,6 +29,13 @@ module RdocLinks
       new_section = create_rdoc_section_with(text)
       @section_props.add(text, new_section)
     end
+  end
+  
+  def write_class_link
+    class_link = Limelight::Prop.new(:text => @tail, :name => "class_link")
+    class_link.include_player(ClassLink)
+    class_link.class_name = @class_name
+    parent_prop.add class_link    
   end
   
   def add_header_prop_with(text)
