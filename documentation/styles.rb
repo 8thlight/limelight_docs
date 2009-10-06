@@ -88,6 +88,7 @@ section_header {
 
 toc_tutorial_link {
   extends :toc_item
+  left_padding 16
   font_size 12
   left_margin 3
   top_padding 2
