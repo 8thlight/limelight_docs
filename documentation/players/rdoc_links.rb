@@ -1,8 +1,10 @@
 require 'documentation/players/section_header'
+require 'documentation/players/shrinkable'
+require 'section_stack'
 
 module RdocLinks
   def casted
-    @namespaces = []
+    @section_props = SectionStack.new self
     if scene.rdoc != nil
       scene.rdoc.keys.sort.each { |class_name| @class_name = class_name; build_class_link }
     end 
@@ -17,18 +19,39 @@ module RdocLinks
   def write_section
     @head, @tail = split_class
     write_section_headers
-    self.build(:class_text => @tail) { class_link :text => @class_text}
+    parent_prop.build(:class_text => @tail) { class_link :text => @class_text}
   end
   
   def write_section_headers
     @head.each do |text|
-      header = Limelight::Prop.new(:text => text, :name => "class_header")
-      header.include_player(SectionHeader)
-      header.prop_to_remove = "#{text.downcase}_links"
-      self << header
-      
-      @namespaces.push name
+      add_header_prop_with(text)
+      new_section = create_rdoc_section_with(text)
+      @section_props.add(text, new_section)
     end
+  end
+  
+  def add_header_prop_with(text)
+    parent_prop.add header_prop_with(text)
+  end
+  
+  def header_prop_with(text)
+    header = Limelight::Prop.new(:text => text, :name => "class_header")
+    header.include_player(SectionHeader)
+    header.prop_to_remove = "#{text.downcase}_links"
+    return header
+  end
+  
+  def create_rdoc_section_with(text)
+    shrinkable_prop = make_shrinkable_prop_with(text)
+    parent_prop.add shrinkable_prop
+    return shrinkable_prop
+  end
+  
+  def make_shrinkable_prop_with(text)
+    prop = Limelight::Prop.new(:id => "#{text.downcase}_links", :name => 'class_section')
+    prop.include_player(Shrinkable)
+    prop.shrink
+    return prop
   end
   
   def split_class
@@ -38,13 +61,17 @@ module RdocLinks
   end
   
   def adjusted_class_name
-    if !@namespaces.empty?
-      namespace_string = @namespaces.join("::").concat("::")
-      name = @class_name.gsub(namespace_string, "")
-    else
-      name = @class_name
+    while not(@class_name =~ /#{@section_props.namespace_string}/)
+      @section_props.pop
     end
+
+    name = @class_name.gsub(@section_props.namespace_string, "")
+    name.gsub!(/^::/, "")
     
     return name.split('::')    
+  end
+  
+  def parent_prop
+    @section_props.last_prop
   end
 end

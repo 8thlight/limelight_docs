@@ -69,24 +69,79 @@ describe "RDoc Links Player" do
     header_prop.prop_to_remove.should == 'limelight_links'
   end
   
-  it "should underscore the full name for the id"
+  it "should write a shrinkable section for the built in - already shrunk" do
+    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    
+    player.casted
+
+    shrinkable_section = player.children[1]
+    shrinkable_section.shrunk?.should be_true
+  end
   
-  it "should have links for more than one class all in one prop"
+  it "should add the classname to that shrinkable prop" do
+    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    
+    player.casted
+    
+    shrinkable_section = player.children[1]
+    shrinkable_section.children[0].name.should == "class_link"
+    shrinkable_section.children[0].text.should == "Builtin"
+  end
   
-  # limelight_class_header = scene.find_by_name('class_header')[0]
-  # limelight_class_header.children[0].text.should == "Monkey"
-  # limelight_class_header.children[0].name.should == "Builtin"
+  it "should append the id to the shrinkable prop" do
+    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    
+    player.casted
+    
+    shrinkable_section = player.children[1]
+    shrinkable_section.id.should == "limelight_links"
+  end
   
+  it "should continue nesting deeper into the namespace" do
+    scene.rdoc = {"Limelight::Builtin::Players" => "Prop DSL"}
+    
+    player.casted
+    
+    builtin_section = player.children[1]
+    builtin_section.children[0].name.should == "class_header"
+    builtin_section.children[0].text.should == "Builtin"
+    builtin_section.children[1].should be_shrunk
+  end
   
-  it "should handle backup up in the namespaces"
+  it "should put the class link in the final shrunken prop" do
+    scene.rdoc = {"Limelight::Builtin::Players" => "Prop DSL"}
+    
+    player.casted
+    
+    player.children[1].children[1].children[0].text.should == "Players"
+  end
+    
+  it "should have links for more than one class all in one prop" do
+    scene.rdoc = {"Limelight::Builtin" => "Prop DSL", "Limelight::Monkey" => "Prop DSL"}
+    
+    player.casted
+    
+    class_section = scene.find_by_name('class_section')[0]
+    class_section.children[0].text.should == 'Builtin'
+    class_section.children[1].text.should == 'Monkey'
+  end
   
-  it "should write them with player section_header"
+  it "should handle backup up in the namespaces" do
+    scene.rdoc = {"Limelight::Player" => "", "Limelight::Player::Builtin" => "", "Limelight::Quiz" => ""}
+    
+    player.casted
+    
+    scene.find_by_name('class_header').size.should == 2
+    quiz_section = scene.find_by_name('class_link')[2]
+    quiz_section.text.should == "Quiz"
+  end
   
-  # it "should write the classes as children of their class header" do
-  #   scene.rdoc = {"Limelight::Builtin" => "Monkey", "Limelight::Player" => "Man"}
-  #   
-  #   player.casted
-  #   
-  #   header = scene.find_by_name('class_header')
-  # end
+  it "should make sure the class_section id is unique by using full name with underscores" do
+    scene.rdoc = {"Limelight::Builtin::Test" => "Prop DSL"}
+    
+    player.casted
+    
+    class_section = scene.find_by_name('class_section')[2]
+    class_section.id.should == "limelight_builtin_links"
+  end
 end
