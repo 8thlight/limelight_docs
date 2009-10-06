@@ -60,6 +60,12 @@ describe "RDoc Links Player" do
     scene.find_by_name('class_header').size.should == 1
   end
   
+  it "should contain its elements"
+  
+  it "should handle backup up in the namespaces"
+  
+  it "should write them with player section_header"
+  
   # it "should write the classes as children of their class header" do
   #   scene.rdoc = {"Limelight::Builtin" => "Monkey", "Limelight::Player" => "Man"}
   #   
