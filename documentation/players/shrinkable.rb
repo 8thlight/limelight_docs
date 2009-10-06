@@ -1,6 +1,9 @@
 module Shrinkable
+  attr_accessor :start_shrunk
+  
   def casted
     @height = self.style.height
+    self.shrink
   end
   
   def shrink
