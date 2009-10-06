@@ -12,7 +12,6 @@ describe "Shrinkable" do
     player.shrink
     
     player.style.height.should == '0'
-    player.style.width.should == '0'
   end
   
   it "should grow the height and width back to where they started" do
@@ -20,12 +19,10 @@ describe "Shrinkable" do
     player.grow
     
     player.style.height.should == 'auto'
-    player.style.width.should == 'auto'
   end
     
   it "should return shrunk as true when both height & width are 0" do
     player.style.height = '0'
-    player.style.width = '0'
     player.should be_shrunk
   end
 end
