@@ -7,8 +7,10 @@ module SectionHeader
     
     if @controlled_prop.shrunk?
       @controlled_prop.grow
+      self.style.background_image = "images/arrow_down.png"
     else
       @controlled_prop.shrink
+      self.style.background_image = "images/arrow_right.png"
     end
   end
   

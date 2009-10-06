@@ -33,6 +33,28 @@ describe "Section Header" do
     
     player.mouse_clicked(nil)
   end
+  
+  it "should change the background image to arrow_down if the section is being opened" do
+    player.prop_to_remove = "my_prop"
+    cast_prop_with_id('my_prop')
+    @prop.stub!(:shrunk?).and_return(true)
+    @prop.stub!(:grow)
+    
+    player.mouse_clicked(nil)
+    
+    player.style.background_image.should == "images/arrow_down.png"
+  end
+  
+  it "should change the background image to arrow_down if the section is being opened" do
+    player.prop_to_remove = "my_prop"
+    cast_prop_with_id('my_prop')
+    @prop.stub!(:shrunk?).and_return(false)
+    @prop.stub!(:shrink)
+    
+    player.mouse_clicked(nil)
+    
+    player.style.background_image.should == "images/arrow_right.png"
+  end
     
   def cast_prop_with_id(id)
     @prop = Limelight::Prop.new(:id => id)

@@ -76,22 +76,29 @@ disabled_toc_heading {
 
 section_header {
   extends :toc_item
-  font_size 14
-  left_padding 8
+  left_padding 16
+  left_margin 3
   top_padding 5
   bottom_padding 4
+  background_image "images/arrow_right.png"
+  background_image_fill_strategy :static
+  background_image_y :center
   hover {}
 }
 
 toc_tutorial_link {
   extends :toc_item
   font_size 12
-  left_padding 22
+  left_margin 3
   top_padding 2
   bottom_padding 2
   hover {
     text_color "#000"
   }
+}
+
+section_links {
+  left_padding 19
 }
 
 directions_tutorial_link {
@@ -108,12 +115,11 @@ class_header {
 }
 
 class_section {
-  left_padding 7
+  extends :section_links
 }
 
 class_link {
   extends :toc_tutorial_link
-  left_padding 8
   hover {
     text_color "#000"
   }
