@@ -8,7 +8,7 @@ describe "ClassLink" do
   it "should cue the props from the dsl in the rdoc hash" do
     stub_select_link
     scene.rdoc = {"class_text" => "Prop DSL"}
-    player.text = "class_text"
+    player.class_name = "class_text"
     
     Entrance.should_receive(:cue_rdoc).with(player.scene, "Prop DSL")
     
