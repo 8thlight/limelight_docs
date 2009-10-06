@@ -102,9 +102,18 @@ directions_tutorial_link {
   }
 }
 
+class_header {
+  extends :section_header
+  hover {}
+}
+
+class_section {
+  left_padding 7
+}
+
 class_link {
   extends :toc_tutorial_link
-  font_size 8
+  left_padding 8
   hover {
     text_color "#000"
   }
