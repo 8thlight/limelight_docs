@@ -48,7 +48,7 @@ describe WalkthroughLink do
   end
 
   it "should have a 'prop sizing' link" do
-    check_link("prop_sizing_walkthrough", "prop_sizing", "Prop Sizing")
+    check_link("prop_sizing_walkthrough", "prop_sizing", "Sizing Props")
   end
   
   it "should have a 'colors' link" do

@@ -1,7 +1,7 @@
 slide do
   directions :text => "For almost every Limelight production you will need to display text on the screen.  Luckily, Limelight makes it really easy."
   line_break
-  directions :text => "You've already seen how to add text to a prop, but this tutorial also explains all the ways you can style text."
+  directions :text => "You've already seen how to add text to a prop, but this tutorial also explains all the ways you can style text on that prop."
 end
 
 slide do
