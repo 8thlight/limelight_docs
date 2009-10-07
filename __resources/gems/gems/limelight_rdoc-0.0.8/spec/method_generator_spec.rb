@@ -50,4 +50,16 @@ describe LimelightRDoc::MethodGenerator do
     @props.should match(/line one\n/)
     @props.should match(/line two\n/)
   end
+  
+  it "should have a prop to toggle the source" do
+    @writer.write
+    
+    @props.should match(/toggle_source :text => 'Show Source'/)
+  end
+  
+  it "should wrap the toggle_source prop" do
+    @writer.write
+    
+    @props.should match(/source do\ntoggle_source :text => 'Show Source'\nend/)
+  end
 end

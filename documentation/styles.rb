@@ -6,6 +6,10 @@ documentation {
   background_image "images/splash.png"
 }
 
+method_source_codeblock {
+  height 0
+}
+
 content_pane {
   width "562"
 }
