@@ -13,6 +13,7 @@ describe "ToggleSource" do
   end
 
   before(:each) do
+    scene.find("content_pane").stub!(:update_now)
     scene.build do
       source do
         toggle_source :text => "Show Source", :id => "toggle_source"
