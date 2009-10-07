@@ -6,8 +6,21 @@ documentation {
   background_image "images/splash.png"
 }
 
+toggle_source {
+  text_color "#333"
+  hover {
+    text_color "#555"
+  }
+}
+
 method_source_codeblock {
   height 0
+  margin 10
+  padding 10
+  border_color "black"
+  border_width 1
+  # background_color "#E9F6D5"
+  background_color "#F5F5F5"
 }
 
 content_pane {
