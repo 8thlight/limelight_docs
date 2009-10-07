@@ -1,3 +1,10 @@
+darker_limegreen = "#82b91e"
+dark_limegreen = "#8fc927"
+light_limegreen = "#eaffbe"
+compliment = "#b1226d"
+light_compliment = "#d88b7a"
+default_text_color = "#333"
+
 header {
   width "100%"
   horizontal_alignment :center
@@ -14,12 +21,15 @@ heading {
 
 canvas {
   width "100%"
-  rounded_corner_radius 20
-  background_color "#fffa"
-  secondary_background_color "#fff6"
+  rounded_corner_radius 10
+  secondary_background_color "#fff"
+  background_color light_limegreen
   gradient :on
-  gradient_angle 270
-  padding 15
+  gradient_angle 90
+  gradient_penetration "25%"
+  border_width 1
+  border_color dark_limegreen
+  padding 10
   margin 15
   height 200
 }

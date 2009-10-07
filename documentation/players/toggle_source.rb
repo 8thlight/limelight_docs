@@ -7,7 +7,7 @@ module ToggleSource
       self.text = "Show Source"
       codeblock.style.height = 0 
     end
-    # scene.find("content_pane").update_now
+    scene.find("content_pane").update_now
   end
   
   private ######################
