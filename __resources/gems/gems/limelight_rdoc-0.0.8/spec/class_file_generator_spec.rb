@@ -26,7 +26,7 @@ describe LimelightRDoc::ClassFileGenerator do
   
   describe "Method generation" do
     before(:each) do
-      @method = mock("RDoc::AnyMethod", :name => 'method_name', :comment => "# Comment is here", :params => "(block, params)")
+      @method = mock("RDoc::AnyMethod", :name => 'method_name', :comment => "# Comment is here", :params => "(block, params)", :token_stream => [])
       @rdoc_class.stub!(:each_method).and_yield(@method)
       @rdoc_class.stub!(:method_list).and_return([@method])
       LimelightRDoc::CommentFormatter.stub!(:format).and_return([])

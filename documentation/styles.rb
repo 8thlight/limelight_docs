@@ -92,6 +92,23 @@ main_column {
   height "100%"
 }
 
+toggle_source {
+  text_color "#333"
+  font_face "Arial Rounded MT Bold"
+  hover {
+    text_color "#555"
+  }
+}
+
+method_source_codeblock {
+  height 0
+  margin 10
+  padding 10
+  border_color "black"
+  border_width 1
+  background_color "#F5F5F5"
+}
+
 content_pane {
   width "562"
 }
