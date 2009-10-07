@@ -1,6 +1,6 @@
-require 'documentation/players/section_header'
-require 'documentation/players/shrinkable'
-require 'documentation/players/class_link'
+# require 'documentation/players/section_header'
+# require 'documentation/players/shrinkable'
+# require 'documentation/players/class_link'
 require 'section_stack'
 
 module RdocLinks

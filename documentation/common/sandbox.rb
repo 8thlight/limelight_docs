@@ -7,7 +7,8 @@ end
 
 sandbox_editing_area do
   text_area :styles => "code_text_area", :id => "code"
-  sandbox_button :players => "button #{@button_player}", :text => @button_text, :id => "sandbox_button"
   
   clear_sandbox_button :players => "button", :text => "Clear", :id => "clear_sandbox_button" if @allow_clear
+  
+  sandbox_button :players => "button #{@button_player}", :text => @button_text, :id => "sandbox_button"
 end
