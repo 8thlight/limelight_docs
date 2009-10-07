@@ -82,6 +82,10 @@ codeblock {
   left_padding 30
 }
 
+method_source_codeblock {
+  extends :codeblock
+}
+
 code {
   width "100%"
   font_face "Courier New"
