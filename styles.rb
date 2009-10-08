@@ -44,6 +44,8 @@ slide {
 }
 
 directions {
+  left_padding 10
+  right_padding 10
   font_size 14
   font_face "Arial Rounded MT Bold"
   text_color "#666"

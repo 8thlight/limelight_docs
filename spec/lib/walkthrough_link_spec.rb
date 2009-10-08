@@ -70,9 +70,17 @@ describe WalkthroughLink do
   it "should have an Insets tutorial" do
     check_link("insets_walkthrough", "insets", "Margin and Padding", "Insets")
   end
-
-  it "should have a 'players' link " do
-    check_link("players_walkthrough", "players", "Players")
+  
+  it "should have a players intro link " do
+    check_link("players_intro_walkthrough", "players_intro", "Introduction", "Players Introduction")
+  end
+  
+  it "should have a custom players link " do
+    check_link("players_custom_walkthrough", "players_custom", "Adding Behavior")
+  end
+  
+  it "should have a builtin players link " do
+    check_link("players_built_in_walkthrough", "players_built_in", "Built-In Players")
   end
   
   it "should have an 'images' link" do
