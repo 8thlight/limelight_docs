@@ -17,6 +17,7 @@ class WalkthroughLink
                     {:id => "players_intro_walkthrough",    :text => "Introduction",    :slideshow => "players_intro", :title => "Players Introduction"},
                     {:id => "players_custom_walkthrough",   :text => "Adding Behavior",  :slideshow => "players_custom", :title => "Adding Behavior"},
                     {:id => "players_built_in_walkthrough", :text => "Built-In Players", :slideshow => "players_built_in", :title => "Built-In Players"},
+                    {:id => "building_props_walkthrough",   :text => "Building Props",  :slideshow => "building_props", :title => "Building Props"},
                     {:id => "productions_walkthrough",      :text => "Productions",     :slideshow => "productions", :title => "Productions"},
                     {:id => "stages_walkthrough",           :text => "Stages",          :slideshow => "stages", :title => "Stages"},
                     {:id => "images_walkthrough",           :text => "Images",          :slideshow => "images", :title => "Images"},

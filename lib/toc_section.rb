@@ -6,7 +6,7 @@ class TocSection
   @@sections = [{:name => "Getting Started", :links => ["getting_started_walkthrough"]},
                 {:name => "Props", :links => ["creating_props_walkthrough", "text_walkthrough", "prop_layout_walkthrough", "prop_partials_walkthrough"]},
                 {:name => "Advanced Styles", :links => ["editing_styles_walkthrough", "colors_walkthrough", "prop_sizing_walkthrough", "borders_walkthrough", "insets_walkthrough", "backgrounds_walkthrough", "gradients_walkthrough", "float_walkthrough"]},
-                {:name => "Players", :links => ["players_intro_walkthrough", "players_custom_walkthrough", "players_built_in_walkthrough"]},
+                {:name => "Players", :links => ["players_intro_walkthrough", "players_custom_walkthrough", "players_built_in_walkthrough", "building_props_walkthrough"]},
                 {:name => "Production", :links => ["productions_walkthrough",  "stages_walkthrough"]},
                 {:name => "Multimedia", :links => ["images_walkthrough", "animations_walkthrough", "sound_walkthrough"] } ]
   

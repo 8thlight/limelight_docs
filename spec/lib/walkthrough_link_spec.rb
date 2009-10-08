@@ -83,6 +83,10 @@ describe WalkthroughLink do
     check_link("players_built_in_walkthrough", "players_built_in", "Built-In Players")
   end
   
+  it "should have a building props link " do
+    check_link("building_props_walkthrough", "building_props", "Building Props")
+  end
+  
   it "should have an 'images' link" do
     check_link("images_walkthrough", "images", "Images")
   end
