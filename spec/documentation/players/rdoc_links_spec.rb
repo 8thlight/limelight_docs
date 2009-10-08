@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'documentation/players/rdoc_links'
 
 describe "RDoc Links Player" do
-  uses_player :rdoc_links
+  uses_limelight :with_player => "rdoc_links", :scene_path => "documentation"
   
   it "should display the props as table of contents when casted" do
     scene.rdoc = {"classname" => "Prop DSL"}

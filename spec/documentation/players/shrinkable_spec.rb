@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'documentation/players/shrinkable'
 
 describe "Shrinkable" do
-  uses_player :shrinkable
+  uses_limelight :with_player => "shrinkable", :scene_path => "documentation", :styles => {:height => 'auto'}
   
   before(:each) do
     player.casted

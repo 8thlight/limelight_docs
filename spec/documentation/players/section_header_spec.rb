@@ -55,6 +55,28 @@ describe "Section Header" do
     
     player.style.background_image.should == "images/arrow_right.png"
   end
+  
+  it "should open the section" do
+    player.prop_to_remove = 'test'
+    cast_prop_with_id('test')
+    
+    @prop.should_receive(:grow)
+    
+    player.open_section
+    
+    player.style.background_image.should == "images/arrow_down.png"
+  end
+  
+  it "should close the section" do
+    player.prop_to_remove = 'test'
+    cast_prop_with_id('test')
+    
+    @prop.should_receive(:shrink)
+    
+    player.close_section
+    
+    player.style.background_image.should == "images/arrow_right.png"
+  end
     
   def cast_prop_with_id(id)
     @prop = Limelight::Prop.new(:id => id)
