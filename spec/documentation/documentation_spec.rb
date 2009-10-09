@@ -1,13 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require "toc_section"
-require 'rdoc_loader'
 require 'documentation/players/documentation'
 
-describe "Documentation" do
-  before(:each) do
-    stub_doc_loader
-  end
-  
+describe "Documentation" do  
   uses_scene :documentation
   
   describe "Loading RDoc" do
@@ -38,7 +33,6 @@ describe "Documentation" do
       
       scene.scene_opened(nil)
     end
-    
   end
   
   describe "toc_categories" do
@@ -87,10 +81,10 @@ describe "Documentation" do
       link.should_not have_style_extension("selected_toc_item")
     end
     
-    it "should make sure that the selected toc prop is in an open section" do
-      link = scene.find('getting_started_walkthrough')
-      
-      scene.selected_toc_item(link)
-    end
+    # it "should make sure that the selected toc prop is in an open section" do
+    #   link = scene.find('getting_started_walkthrough')
+    #   
+    #   scene.selected_toc_item(link)
+    # end
   end
 end

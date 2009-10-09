@@ -1,10 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 
 describe "TocHeading" do
-  before(:all) do
-    stub_doc_loader
-  end
-  
   uses_scene :documentation
   
   before(:each) do

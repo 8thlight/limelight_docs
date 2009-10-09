@@ -2,7 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 require "documentation/players/toggle_source"
 
 describe "ToggleSource" do
-  uses_scene :documentation
+  uses_limelight :scene_path => "documentation" do
+    toggle_source :text => "Show Source", :id => "toggle_source"
+    method_source_codeblock :id => "method_source_codeblock"
+  end
   
   def toggle_source_prop
     return scene.find("toggle_source")
@@ -14,12 +17,6 @@ describe "ToggleSource" do
 
   before(:each) do
     scene.find("content_pane").stub!(:update_now)
-    scene.build do
-      source do
-        toggle_source :text => "Show Source", :id => "toggle_source"
-        method_source_codeblock :id => "method_source_codeblock"
-      end
-    end
   end
 
   it "should show the Source" do
