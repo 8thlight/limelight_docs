@@ -1,25 +1,25 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
-require 'documentation/players/class_link'
 require 'entrance'
 
 describe "ClassLink" do
-  uses_player :class_link
+  uses_limelight :with_player => "class_link", :scene_path => "documentation", :scene_name => "documentation"
   
   it "should cue the props from the dsl in the rdoc hash" do
     stub_select_link
     scene.rdoc = {"class_text" => "Prop DSL"}
-    player.class_name = "class_text"
     
-    Entrance.should_receive(:cue_rdoc).with(player.scene, "Prop DSL")
+    class_link.class_name = "class_text"
     
-    player.mouse_clicked(nil)
+    Entrance.should_receive(:cue_rdoc).with(scene, "Prop DSL")
+    
+    class_link.mouse_clicked(nil)
   end
   
   it "should select this link" do
     stub_cueing_rdoc
-    scene.should_receive(:select_toc_prop).with(player)
+    scene.should_receive(:select_toc_prop).with(class_link)
     
-    player.mouse_clicked(nil)
+    class_link.mouse_clicked(nil)
   end
   
   def stub_cueing_rdoc

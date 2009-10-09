@@ -2,10 +2,6 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require 'entrance'
 
 describe "CreatingProps" do
-  before(:each) do
-    stub_doc_loader
-  end
-  
   uses_scene :documentation
   
   before(:each) do

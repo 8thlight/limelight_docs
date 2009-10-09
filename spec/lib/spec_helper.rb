@@ -5,9 +5,9 @@ require 'spec'
 
 unless defined?($PRODUCTION_PATH)
   $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../../") unless defined?($PRODUCTION_PATH)
-  Gem.use_paths(File.join($PRODUCTION_PATH , "__resources"), Gem.default_path)
+  Gem.use_paths(File.join($PRODUCTION_PATH , "__resources", "gems"), Gem.default_path)
 end
 
-Dir.glob(File.join("__resources", "gems", "**", "lib")).each do |dir|
+Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
   $: << dir
 end

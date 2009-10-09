@@ -1,6 +1,3 @@
-require 'documentation/players/section_header'
-require 'documentation/players/shrinkable'
-require 'documentation/players/class_link'
 require 'section_stack'
 
 module RdocLinks
@@ -38,40 +35,28 @@ module RdocLinks
   def write_section_headers
     @head.each do |text|
       add_header_prop_with(text)
-      new_section = create_rdoc_section_with(text)
-      @section_props.add(text, new_section)
+      create_rdoc_section_with(text)
     end
   end
   
   def write_class_link
-    class_link = Limelight::Prop.new(:text => @tail, :name => "class_link")
-    class_link.include_player(ClassLink)
-    class_link.class_name = @class_name
-    parent_prop.add class_link    
+    parent_prop.build(:text => @tail, :class_name => @class_name) do
+      class_link :text => @text, :class_name => @class_name
+    end
   end
   
   def add_header_prop_with(text)
-    parent_prop.add header_prop_with(text)
-  end
-  
-  def header_prop_with(text)
-    header = Limelight::Prop.new(:text => text, :name => "class_header")
-    header.include_player(SectionHeader)
-    header.prop_to_remove = "#{section_id_from(text)}"
-    return header
+    parent_prop.build(:text => text, :prop_to_remove => section_id_from(text)) do
+      class_header :text => @text, :players => "section_header", :prop_to_remove => @prop_to_remove
+    end
   end
   
   def create_rdoc_section_with(text)
-    shrinkable_prop = make_shrinkable_prop_with(text)
-    parent_prop.add shrinkable_prop
-    return shrinkable_prop
-  end
-  
-  def make_shrinkable_prop_with(text)
-    prop = Limelight::Prop.new(:id => "#{section_id_from(text)}", :name => 'class_section')
-    prop.include_player(Shrinkable)
-    prop.shrink
-    return prop
+    parent_prop.build(:id => "#{section_id_from(text)}") do
+      class_section :id => @id, :players => "shrinkable", :start_shrunk => true
+    end
+    
+    @section_props.add(text, parent_prop.children.last)
   end
   
   def split_class
