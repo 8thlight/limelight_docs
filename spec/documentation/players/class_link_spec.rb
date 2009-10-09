@@ -1,5 +1,4 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
-require 'documentation/players/class_link'
 require 'entrance'
 
 describe "ClassLink" do
