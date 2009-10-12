@@ -1,5 +1,5 @@
 slide do
-  directions :text => "At some point you may want do more than just edit existing props on the scene, whether it be adding new props or remving existing props entirely.  This tutorial will teach you how to do these things."
+  directions :text => "At some point you may want do more than just edit existing props on the scene, whether it be adding new props or removing existing props entirely.  This tutorial will teach you how to do these things."
 end
 
 slide do

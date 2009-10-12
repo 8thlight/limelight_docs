@@ -168,6 +168,7 @@ list {
 list_item {
   extends :directions
   font_size 12
+  width "100%"
 }
 
 parent_prop {
@@ -299,4 +300,13 @@ attribute_description {
 
 attribute_read_write {
   font_size 6
+}
+
+rdoc_list {
+  left_padding 10
+}
+
+rdoc_list_item {
+  extends :class_description
+  width "100%"
 }

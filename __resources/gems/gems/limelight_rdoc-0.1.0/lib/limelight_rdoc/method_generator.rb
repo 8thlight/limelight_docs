@@ -16,10 +16,10 @@ module LimelightRDoc
       @props.puts "method_parameters :text => '#{@method.params}'"
       @props.puts "end"
       CommentFormatter.format("method", @method.comment).each { |line|  @props.puts line }
+      @props.puts "end"
       @props.puts "source do"
       @props.puts "toggle_source :text => 'Show Source'"
       source_lines.each { |line| @props.puts line }
-      @props.puts "end"
       @props.puts "end"
     end
     

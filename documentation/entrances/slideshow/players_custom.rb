@@ -8,7 +8,9 @@ end
 slide do
   heading :text => "Change Style"
   
-  directions :text => "In order to do anything interesting you have to be able to manipulate the Scene.  You've seen this already in the previous examples, where the first thing done is to find a Prop in the Scene, and then do something with it.  The Prop below is red, but when it is clicked I want it to turn black and move to the right.  Fortunately all props have a style object, which you can change.  The code below will make the text change when you click it.  Note: The Run button will not change the text - it will only add the mouse_clicked behavior.  You must click Apply to apply the behavior, then click the example Prop to see it."
+  directions :text => "In order to do anything interesting you have to be able to manipulate the Scene.  You've seen this already in the previous examples, where the first thing done is to find a Prop in the Scene, and then do something with it.  The Prop below is red, but when it is clicked I want it to turn black and move to the right."
+  line_break
+  directions :text => "Fortunately all props have a style object, which you can change.  The code below will make the text change when you click it.  Note: The Run button will not change the text - it will only add the mouse_clicked behavior.  You must click Apply to apply the behavior, then click the example Prop to see it."
   
   sandbox_codeblock do
     code :text => "def mouse_clicked(e)"
@@ -64,7 +66,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black', :height => 80
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black', :height => 120
   
 end
 
@@ -74,7 +76,7 @@ slide do
   
   sandbox_codeblock do
     code :text => "def mouse_moved(event)"
-    code :text => "  self.style.transparency = self.style.transparency.to_i + 1"
+    code :text => "  self.style.transparency = (self.style.transparency.to_i + 1) % 100"
     code :text => "end"
   end
   
