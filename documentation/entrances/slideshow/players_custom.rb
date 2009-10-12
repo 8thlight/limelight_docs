@@ -117,5 +117,5 @@ slide do
   line_break
   directions :text => "This will load the Scene for you, and you can use the scene method to access it in your specs."
 end
-
+  
 __install "documentation/common/finished_slide.rb"
