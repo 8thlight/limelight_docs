@@ -24,6 +24,18 @@ describe "RunPlayersButton" do
     @code.text.should == "changed"
   end
   
+  it "should append behavior to a second prop" do
+    @prop_to_extend = Limelight::Prop.new(:name => "prop_to_extend", :id => "prop two")
+    @canvas << @prop_to_extend
+    
+    @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"
+    
+    @players_button.mouse_clicked(nil)
+    @prop_to_extend.mouse_clicked(nil)
+    
+    @code.text.should == "changed"
+  end
+  
   it "should nicely handle errors" do
     @code.text = "I am not ruby code"
   

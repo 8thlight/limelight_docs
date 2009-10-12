@@ -60,11 +60,11 @@ slide do
 
   sandbox_codeblock do
     code :text => "def mouse_clicked(event)"
-    code :text => "  scene.find('my_list_a ').remove(self)"
+    code :text => "  scene.find('my_list').remove(self)"
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'list(:id => "my_list_a") do; prop_to_extend :text => "Click Me!";prop_to_extend :text => "Click Me!";prop_to_extend :text => "Click Me!";prop_to_extend :text => "Click Me!";prop_to_extend :text => "Click Me!"; end'
+  __install "documentation/common/players_sandbox.rb", :prop => 'list(:id => "my_list") do; prop_to_extend :text => "Click Me 1!", :width => "100%";prop_to_extend :text => "Click Me 2!", :width => "100%";prop_to_extend :text => "Click Me 3!", :width => "100%";prop_to_extend :text => "Click Me 4!", :width => "100%";prop_to_extend :text => "Click Me 5!", :width => "100%"; end'
   
 end
 

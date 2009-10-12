@@ -10,7 +10,7 @@ module RunPlayersButton
   def init
     @code = scene.find('code')
     @canvas = scene.find('canvas')
-    @prop_to_extend = @canvas.find_by_name('prop_to_extend')[0]
+    @props_to_extend = @canvas.find_by_name('prop_to_extend')
   end
   
   def clear_errors
@@ -20,7 +20,7 @@ module RunPlayersButton
   
   def attach_code
     begin
-      @prop_to_extend.instance_eval(@code.text)
+      @props_to_extend.each { |prop| prop.instance_eval(@code.text) }
     rescue Exception => e
       @canvas << Limelight::Prop.new(:name => "error_message", :text => e.message)
     end
