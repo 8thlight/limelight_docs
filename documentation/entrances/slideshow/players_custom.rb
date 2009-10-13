@@ -97,6 +97,17 @@ slide do
 end  
 
 slide do
+  heading :text => "Cast"
+  directions :text => "When Players are put into a Production they are cast.  In limelight the casted method is called when Players are first put into a Scene.  Use this for any initialization needed for the Player, and remember Players are modules so overriding initialize is a big no no."
+  
+  codeblock do
+    code :text => "def casted"
+    code :text => "  # Here I do setup"
+    code :text => "end"
+  end
+end
+
+slide do
   heading :text => "Testing"
   directions :text => "Testing Player behavior is done using the RSpec tests generated with the Production.  In order to test a Player the simplest thing to do is load the Scene and find the Prop, at which point you call methods on the Prop directly.  You saw this test in the Getting Started tutorial:"
   

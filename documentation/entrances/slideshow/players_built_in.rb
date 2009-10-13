@@ -172,15 +172,4 @@ slide do
   __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb"
 end
 
-slide do
-  heading :text => "Cast"
-  directions :text => "When Players are put into a Production they are cast.  In limelight the casted method is called when Players are first put into a Scene.  Use this for any initialization needed for the Player, and remember Players are modules so overriding initialize is a big no no."
-  
-  codeblock do
-    code :text => "def casted"
-    code :text => "  # Here I do setup"
-    code :text => "end"
-  end
-end
-
 __install "documentation/common/finished_slide.rb"
