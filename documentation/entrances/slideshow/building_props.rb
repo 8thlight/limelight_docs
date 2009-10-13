@@ -4,7 +4,7 @@ end
 
 slide do
   heading :text => "Build"
-  directions :text => "First let's look at adding props.  All Props have access to the build method which takes a block as its parameter.  Inside this block you can add Props to the scene using the same syntax as you would in a Props file."
+  directions :text => "First let's look at adding props.  All Props have access to the build method which takes a block as its parameter.  Inside this block you can add Props to the scene using the same DSL as you would in a Props file."
   line_break
   directions :text => "In this example, clicking the text will add a new label to the scene with the text of \"Stop Clicking Me!\""
   sandbox_codeblock do
@@ -20,9 +20,9 @@ end
 
 slide do
   heading :text => "Build with Options"
-  directions :text => "Sometimes you may want to add props to the scene with variable data.  You can do this by passing a has of options into the build method.  Passed in values will appear as instance variables in the props syntax."
+  directions :text => "Sometimes you may want to add props to the scene with variable data.  You can do this by passing a hash of variables into the build method.  Passed in values will appear as instance variables in the props DSL."
   line_break
-  directions :text => "In this example, we have a text_area with the id of \"my_text\" and a prop with the id of \"label_list\".  When you click the button, whatever text you have entered in \"my_text\" will be added as a new prop in the list."
+  directions :text => "In this example, we have a text_area with the id of \"my_text\" and a Prop with the id of \"label_list\".  When you click the button, whatever text you have entered in \"my_text\" will be added as a new Prop in the list."
   sandbox_codeblock do
     code :text => "def mouse_clicked(event)"
     code :text => "  my_text = scene.find('my_text').text"
@@ -36,9 +36,11 @@ slide do
 end
 
 slide do
-  heading :text => "Install"
-  directions :text => "Sometimes, you may need to add a large amount of props to a scene at once or the same props from multiple players.  One way to simplify this is through the install command."
+  heading :text => "__Install"
+  # sometimes you may find yourself with very large ugly build block or you may find yourself duplicating the same build block
+  directions :text => "Sometimes, you may need to add a large number of Props to a Scene at once or add the same Props from multiple Players.  One way to simplify this is through the __install command."
   line_break
+  #reference Prop Partials tutorial
   directions :text => "You can install Prop Partials inside the build block just as you can inside a regular Props file.  In this example, \"partial_one\" contains a label with the text of \"Good Job!\""
   
   sandbox_codeblock do
@@ -56,7 +58,7 @@ slide do
   heading :text => "Remove"
   directions :text => "Up to this point, we have only been editing and adding Props to the Scene.  The next logical step would be to remove them."
   line_break
-  directions :text => "Removing Props is really easy.  You simple call the remove method passing in the Prop you want to remove from the scene.  The Prop that is being removed must be a child of the Prop you call remove on."
+  directions :text => "Removing Props is really easy.  You simply call the remove method passing in the Prop you want to remove from the scene.  The Prop that is being removed must be a direct descendent of the Prop on which you call remove."
 
   sandbox_codeblock do
     code :text => "def mouse_clicked(event)"
@@ -70,7 +72,7 @@ end
 
 slide do
   heading :text => "Remove All"
-  directions :text => "The remove_all command is a good way to remove many Props from the Scene at the same time.  Calling remove all on a Prop removes all children of that Prop from the Scene."
+  directions :text => "The remove_all command is a good way to remove many Props from the Scene at the same time.  Calling remove_all on a Prop removes all children of that Prop from the Scene."
   line_break
   directions :text => "In this example, the Prop wrapping all the labels is the Prop that will have the following behavior."
   sandbox_codeblock do
