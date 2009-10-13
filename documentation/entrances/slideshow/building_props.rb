@@ -10,12 +10,12 @@ slide do
   sandbox_codeblock do
     code :text => "def mouse_clicked(event)"
     code :text => "  scene.find('red_prop').build do"
-    code :text => "    label :text => 'Stop Clicking Me!'"
+    code :text => "    wide_label :text => 'Stop Clicking Me!'"
     code :text => "  end"
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "red_prop") do label :text => "Click Me!", :text_color => :red end'
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "red_prop") do wide_label :text => "Click Me!", :text_color => :red end'
 end
 
 slide do
@@ -27,31 +27,29 @@ slide do
     code :text => "def mouse_clicked(event)"
     code :text => "  my_text = scene.find('my_text').text"
     code :text => "  scene.find('label_list').build(:text => my_text) do"
-    code :text => "    label :text => @text"
+    code :text => "    wide_label :text => @text"
     code :text => "  end"
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => "group(:id => 'label_list') do text_area_prop(:players => 'text_area', :id => 'my_text', :height => 25); prop_to_extend(:players => 'button', :text => 'Add to List'); end"
+  __install "documentation/common/players_sandbox.rb", :prop => "group(:id => 'label_list', :width => '100%') do text_area_prop(:players => 'text_area', :id => 'my_text', :height => 25); prop_to_extend(:players => 'button', :text => 'Add to List'); end"
 end
 
 slide do
-  heading :text => "__Install"
-  # sometimes you may find yourself with very large ugly build block or you may find yourself duplicating the same build block
-  directions :text => "Sometimes, you may need to add a large number of Props to a Scene at once or add the same Props from multiple Players.  One way to simplify this is through the __install command."
+  heading :text => "Install"
+  directions :text => "Sometimes, you may find yourself with a very large, ugly build block, or you may find yourself duplicating the same build block across multiple Players.  One way to remove this duplication/complexity is through the __install command."
   line_break
-  #reference Prop Partials tutorial
-  directions :text => "You can install Prop Partials inside the build block just as you can inside a regular Props file.  In this example, \"partial_one\" contains a label with the text of \"Good Job!\""
+  directions :text => "You can install Prop Partials inside the build block using the exact same method as you already learned in the \"Prop Partials\" tutorial.  In this example, \"partial_four\" contains a wide_label with the text of \"Good Job!\""
   
   sandbox_codeblock do
     code :text => "def mouse_clicked(event)"
     code :text => "  scene.find('my_list').build do"
-    code :text => "    __install 'sandbox_toys/partial_one.rb'"
+    code :text => "    __install 'sandbox_toys/partial_four.rb'"
     code :text => "  end"
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "my_list") do label :text => "Click Me!" end'
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "my_list") do wide_label :text => "Click Me!" end'
 end
 
 slide do
@@ -81,7 +79,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "my_list") do; label :text => "Click Me!";label :text => "Click Me!";label :text => "Click Me!";label :text => "Click Me!";label :text => "Click Me!"; end'
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "my_list") do; wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!"; end'
   
 end
 

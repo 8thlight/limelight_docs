@@ -212,6 +212,10 @@ big_label {
   width "100%"
 }
 
+wide_label {
+  width "100%"
+}
+
 # RDoc styles
 rdoc_canvas {
   height "100%"
