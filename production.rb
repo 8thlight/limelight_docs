@@ -18,10 +18,12 @@ module Production
   # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
   # any scenes have been opened.
   def production_loaded
+    require 'limelight_rdoc/limelight_rdoc'
   end
 
   # Hook #3.  Called when the production, and all the scenes, have fully opened.
   def production_opened
+    start_loading_rdoc
   end
 
   # The system will call this methods when it wishes to close the production, perhaps when the user quits the
@@ -37,6 +39,17 @@ module Production
 
   # Called when the production is fully closed.
   def production_closed
+  end
+  
+  private #################################################
+  
+  THREAD_PRIORITY = -1000
+  def start_loading_rdoc
+    thread = Thread.new do
+      self.rdoc = LimelightRDoc::LimelightRDoc.new.props_from($LIMELIGHT_LIB)
+      theater["default"].current_scene.enable_rdoc_tab
+    end
+    thread.priority = THREAD_PRIORITY
   end
 
 end

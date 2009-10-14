@@ -1,6 +1,7 @@
 require 'section_stack'
 
 module RdocLinks
+  
   def casted
     @section_props = SectionStack.new self
     if scene.rdoc != nil
@@ -22,11 +23,11 @@ module RdocLinks
     end
   end
   
-  def build_class_link
+  def build_class_link 
     write_section
   end
   
-  def write_section
+  def write_section  
     @head, @tail = split_class
     write_section_headers
     write_class_link
