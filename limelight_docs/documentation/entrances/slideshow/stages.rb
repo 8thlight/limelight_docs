@@ -8,13 +8,13 @@ slide do
   screenshot_div do
     directions :text => "Windows"
     line_break
-    screenshot :image => "images/stages_windoze.png", :height => 160, :scaled => true, :players => "image"
+    screenshot :image => "images/stages_windoze.jpg", :height => 160, :scaled => true, :players => "image"
   end
   
   screenshot_div do
     directions :text => "Mac"
     line_break
-    screenshot :image => "images/stages_mac.png", :height => 160, :scaled => true, :players => "image"
+    screenshot :image => "images/stages_mac.jpg", :height => 160, :scaled => true, :players => "image"
   end
 end
 
@@ -155,7 +155,7 @@ slide do
   end
   
   screenshot_div do
-    screenshot :image => "images/stages_noframe.png", :height => 300, :scaled => true, :players => "image"
+    screenshot :image => "images/stages_noframe.jpg", :height => 300, :scaled => true, :players => "image"
   end
   
 end
