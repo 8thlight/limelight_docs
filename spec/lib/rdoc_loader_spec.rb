@@ -4,14 +4,7 @@ require 'limelight_rdoc/limelight_rdoc'
 
 describe "RDocLoader" do
   
-  # Hack because the rdoc stubbing is carrying into the lib directory.  Must be a better way - but it's late and I"m tired
-  def unstub_rdoc
-    RDocLoader.unstub(:new)
-    rescue Exception => ex
-  end
-
   before(:each) do
-    unstub_rdoc
     @styles = {}
     @style = mock("Style", :add_extension => nil, :remove_extension => nil)
     @prop = mock("Prop", :style => @style)
