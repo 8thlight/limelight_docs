@@ -9,20 +9,24 @@ slide do
   line_break
   directions :text => "The root directory may also contain a styles.rb file that defines Styles shared by all the Scenes in the Production."
   line_break
-  screenshot :image => "images/production_directory.jpg", :players => "image"
+  screenshot_div do
+    screenshot :image => "images/production_directory.jpg", :players => "image"
+  end
   
   line_break
   
   directions :text => "Here's a brief description of each file / folder:"
   line_break
-  code :text => "+ default_scene - Each scene is in its own folder."
-  code :text => "  + players - Contains Players (controllers) for the Scene."
-  code :text => "  + props.rb - Specifies the Prop structure for the Scene."
-  code :text => "  + styles.rb - Specifies the Styles for the Scene."
-  code :text => "+ spec - Your tests go here."
-  code :text => "+ production.rb - For configuring the Production."  
-  code :text => "+ stages.rb - Defines and configures the Stages in the Production."
-  code :text => "+ styles.rb - Production Styles go here, shared across all scenes."
+  codeblock do
+    code :text => "+ default_scene - Each scene is in its own folder."
+    code :text => "  + players - Contains Players (controllers) for the Scene."
+    code :text => "  + props.rb - Specifies the Prop structure for the Scene."
+    code :text => "  + styles.rb - Specifies the Styles for the Scene."
+    code :text => "+ spec - Your tests go here."
+    code :text => "+ production.rb - For configuring the Production."  
+    code :text => "+ stages.rb - Defines and configures the Stages in the Production."
+    code :text => "+ styles.rb - Production Styles go here, shared across all scenes."
+  end
 end
 
 slide do
@@ -36,11 +40,13 @@ slide do
   heading :text => "Setting the Name of a Production"
   directions :text => "To set the name of a Production, override the name method in your production.rb file.  If the name method is not overridden, the name will default to the titleized name of the production directory."
   line_break
-  code :text => "module Production"
-  code :text => "  def name"
-  code :text => "    return \"My Production Name\""
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def name"
+    code :text => "    return \"My Production Name\""
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 slide do
@@ -48,16 +54,20 @@ slide do
   
   directions :text => "Key business logic objects can be instantiated from any of the hooks in production.rb.  To access these objects from anywhere within your Production, you must first specify an accessor."
   line_break
-  code :text => "module Production"
-  bold_code :text => "  attr_accessor :business_object"
-  code :text => "  def production_opened"
-  code :text => "    @business_object = BusinessObject.new"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    bold_code :text => "  attr_accessor :business_object"
+    code :text => "  def production_opened"
+    code :text => "    @business_object = BusinessObject.new"
+    code :text => "  end"
+    code :text => "end"
+  end
   line_break
   directions :text => "Then, to access this business object from elsewhere in you Production, you can do this:"
   line_break
-  code :text => "production.business_object"
+  codeblock do
+    code :text => "production.business_object"
+  end
 end
 
 slide do
@@ -72,11 +82,13 @@ slide do
   directions :text => "This returns true by defuault.  If false is returned, Limelight will prevent the production from being closed."
   
   line_break
-  code :text => "module Production"
-  code :text => "  def allow_close?"
-  code :text => "    return false"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def allow_close?"
+    code :text => "    return false"
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 slide do
@@ -90,11 +102,13 @@ slide do
   directions :text => "This method is called when the Production is newly created.  This is a good place to require needed files, append search paths to $:, and instantiate key business logic objects."
   
   line_break
-  code :text => "module Production"
-  code :text => "  def production_opening"
-  code :text => "    $:<< File.expand_path(File.dirname(__FILE__) + \"/lib\")"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def production_opening"
+    code :text => "    $:<< File.expand_path(File.dirname(__FILE__) + \"/lib\")"
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 slide do
@@ -105,10 +119,12 @@ slide do
   directions :text => "If you have business logic objects that are dependent on classes defined in a gem or you need to interact with the stage(s), you can access both here."
   
   line_break
-  code :text => "module Production"
-  code :text => "  def production_loaded"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def production_loaded"
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 slide do
@@ -117,10 +133,12 @@ slide do
   directions :text => "This method is called when the production, and all the scenes, have fully opened.  Since the scene is displayed at this point, you can make changes that will be immediately visible."
   
   line_break
-  code :text => "module Production"
-  code :text => "  def production_opened"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def production_opened"
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 slide do
@@ -129,10 +147,12 @@ slide do
   directions :text => "This method is called when the production is about to be closed."
   
   line_break
-  code :text => "module Production"
-  code :text => "  def production_closing"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def production_closing"
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 slide do
@@ -141,10 +161,12 @@ slide do
   directions :text => "This method is called when the production is fully closed."
   
   line_break
-  code :text => "module Production"
-  code :text => "  def production_closed"
-  code :text => "  end"
-  code :text => "end"
+  codeblock do
+    code :text => "module Production"
+    code :text => "  def production_closed"
+    code :text => "  end"
+    code :text => "end"
+  end
 end
 
 __install "documentation/common/finished_slide.rb"

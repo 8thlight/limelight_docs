@@ -58,16 +58,20 @@ module Slideshow
   def update_previous_button
     if at_beginning?
       @previous_button.style.transparency = "100%"
+      @previous_button.hover_style = nil
     else
       @previous_button.style.transparency = "0%"
+      @previous_button.hover_style = scene.styles["previous_button.hover"]
     end
   end
   
   def update_next_button
     if at_end?
       @next_button.style.transparency = "100%"
+      @next_button.hover_style = nil
     else
       @next_button.style.transparency = "0%"
+      @next_button.hover_style = scene.styles["next_button.hover"]
     end
   end
   
