@@ -40,7 +40,7 @@ content_pane {
 }
 
 slide {
-  height "100%"
+  height "85%"
 }
 
 directions {
