@@ -1,10 +1,11 @@
 module Slideshow
-
+    
   def casted
     @current_slide = 0
     @slides = self.children
     @previous_button = scene.find("previous")
     @next_button = scene.find("next")
+    @progress_observers = []
     update_slideshow { @current_slide = 0 }
   end
   
@@ -20,9 +21,14 @@ module Slideshow
     return @slides.length
   end
   
+  def current_slide_number
+    return @current_slide + 1
+  end
+  
   def update_slideshow
     clear_sideshow
     yield
+    notifty_progress_observers
     update_arrows
     show_current_slide
   end
@@ -52,16 +58,20 @@ module Slideshow
   def update_previous_button
     if at_beginning?
       @previous_button.style.transparency = "100%"
+      @previous_button.hover_style = nil
     else
       @previous_button.style.transparency = "0%"
+      @previous_button.hover_style = scene.styles["previous_button.hover"]
     end
   end
   
   def update_next_button
     if at_end?
       @next_button.style.transparency = "100%"
+      @next_button.hover_style = nil
     else
       @next_button.style.transparency = "0%"
+      @next_button.hover_style = scene.styles["next_button.hover"]
     end
   end
   
@@ -71,5 +81,13 @@ module Slideshow
   
   def at_beginning?
     @current_slide <= 0
+  end
+  
+  def register_progress_observer(observer)
+    @progress_observers << observer
+  end
+  
+  def notifty_progress_observers
+    @progress_observers.each { |observer| observer.observe }
   end
 end

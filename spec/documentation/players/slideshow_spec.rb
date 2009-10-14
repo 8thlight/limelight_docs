@@ -8,6 +8,11 @@ class TestSlideshow < Limelight::Prop
   
 end
 
+class ProgressObserver
+  def observe
+  end
+end
+
 describe "Slideshow" do
   
   before(:each) do
@@ -20,10 +25,14 @@ describe "Slideshow" do
     
     @previous_button = Limelight::Prop.new
     @next_button = Limelight::Prop.new
-    @scene = mock(Limelight::Scene, :null_object => true)
+    @styles = mock("style hash", :[] => nil)
+    @scene = mock(Limelight::Scene, :styles => @styles, :null_object => true)
     @scene.stub!(:find).with("previous").and_return(@previous_button)
     @scene.stub!(:find).with("next").and_return(@next_button)
     @slideshow.scene = @scene
+    
+    @previous_button.hover_style = "some style"
+    @next_button.hover_style = "some style"
     
     @slideshow.casted
   end
@@ -32,6 +41,10 @@ describe "Slideshow" do
     
     it "should know number of slides" do
       @slideshow.num_slides.should == 3
+    end
+    
+    it "should know the current slide" do
+      @slideshow.current_slide_number.should == 1
     end
     
     it "should make the next slide visible on next" do
@@ -72,9 +85,11 @@ describe "Slideshow" do
     end
     
     it "should show the previous prop when it is available" do
+      @styles.should_receive(:[]).with("previous_button.hover").and_return("hover style")
       @slideshow.next
       
       @previous_button.style.transparency.should == "0%"
+      @previous_button.hover_style.should == "hover style"
     end
     
     it "should hide the previous prop when it is no longer available" do
@@ -82,6 +97,7 @@ describe "Slideshow" do
       @slideshow.previous
       
       @previous_button.style.transparency.should == "100%"
+      @previous_button.hover_style.should == nil
     end
     
     it "should hide the next button when it reaches the end of the slideshow" do
@@ -89,6 +105,7 @@ describe "Slideshow" do
       @slideshow.next
       
       @next_button.style.transparency.should == "100%"
+      @next_button.hover_style.should == nil
     end
     
     it "should show the next button on init" do
@@ -97,9 +114,12 @@ describe "Slideshow" do
     
     it "should show the next button after going backwards again" do
       @slideshow.next
+      @slideshow.next
+      @styles.should_receive(:[]).with("next_button.hover").and_return("hover style")
       @slideshow.previous
       
       @next_button.style.transparency.should == "0%"
+      @next_button.hover_style.should == "hover style"
     end
     
     it "should not crash if there are no slides" do
@@ -110,4 +130,22 @@ describe "Slideshow" do
     end
   end
   
+  describe "progress observers" do
+    before(:each) do
+      @observer = ProgressObserver.new
+      @slideshow.register_progress_observer(@observer)
+    end
+
+    it "should notify progress observers on next" do
+      @observer.should_receive(:observe)
+      
+      @slideshow.next
+    end
+    
+    it "should notify progress observers on previous" do
+      @observer.should_receive(:observe)
+      
+      @slideshow.previous
+    end
+  end
 end
