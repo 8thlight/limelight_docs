@@ -8,6 +8,11 @@ class TestSlideshow < Limelight::Prop
   
 end
 
+class ProgressObserver
+  def observe
+  end
+end
+
 describe "Slideshow" do
   
   before(:each) do
@@ -32,6 +37,10 @@ describe "Slideshow" do
     
     it "should know number of slides" do
       @slideshow.num_slides.should == 3
+    end
+    
+    it "should know the current slide" do
+      @slideshow.current_slide_number.should == 1
     end
     
     it "should make the next slide visible on next" do
@@ -110,4 +119,22 @@ describe "Slideshow" do
     end
   end
   
+  describe "progress observers" do
+    before(:each) do
+      @observer = ProgressObserver.new
+      @slideshow.register_progress_observer(@observer)
+    end
+
+    it "should notify progress observers on next" do
+      @observer.should_receive(:observe)
+      
+      @slideshow.next
+    end
+    
+    it "should notify progress observers on previous" do
+      @observer.should_receive(:observe)
+      
+      @slideshow.previous
+    end
+  end
 end

@@ -1,10 +1,11 @@
 module Slideshow
-
+    
   def casted
     @current_slide = 0
     @slides = self.children
     @previous_button = scene.find("previous")
     @next_button = scene.find("next")
+    @progress_observers = []
     update_slideshow { @current_slide = 0 }
   end
   
@@ -20,9 +21,14 @@ module Slideshow
     return @slides.length
   end
   
+  def current_slide_number
+    return @current_slide + 1
+  end
+  
   def update_slideshow
     clear_sideshow
     yield
+    notifty_progress_observers
     update_arrows
     show_current_slide
   end
@@ -71,5 +77,13 @@ module Slideshow
   
   def at_beginning?
     @current_slide <= 0
+  end
+  
+  def register_progress_observer(observer)
+    @progress_observers << observer
+  end
+  
+  def notifty_progress_observers
+    @progress_observers.each { |observer| observer.observe }
   end
 end

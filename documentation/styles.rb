@@ -240,3 +240,33 @@ middle_navigation {
 
 heading {
 }
+
+slideshow_progress {
+  font_size 12
+  font_face "Arial Rounded MT Bold"
+  height 20
+  width 200
+  background_color "#DDD"
+  border_width 1
+  border_color "#CCC"
+  gradient :on
+  secondary_background_color "#F5F5F5"
+  background_color "#FFFF"
+}
+
+progress_text {
+  float :on
+  x 90
+  y 0
+  text_color default_text_color
+  font_face "Arial Rounded MT Bold"
+}
+
+progress_bar {
+  left_padding 10
+  gradient :on
+  background_color dark_limegreen
+  secondary_background_color light_limegreen
+  font_size 12
+  height "100%"
+}
