@@ -4,7 +4,13 @@ module SlideshowProgress
   end
   
   def update_content
-    self.text = "#{slideshow.current_slide_number}/#{slideshow.num_slides}"
+    self.children[0].text = "#{slideshow.current_slide_number}/#{slideshow.num_slides}"
+    self.children[1].style.width = "#{percent_complete}%"
+  end
+  
+  def percent_complete
+    return 0 if slideshow.num_slides == 0
+    return (slideshow.current_slide_number.to_f/slideshow.num_slides) * 100
   end
   
   def slideshow
