@@ -240,10 +240,6 @@ slideshow_progress {
   gradient :on
   secondary_background_color "#F5F5F5"
   background_color "#FFFF"
-  # float :on
-  # horizontal_alignment :center
-  x 0
-  y 15
 }
 
 progress_text {
