@@ -1,16 +1,14 @@
-require 'rdoc_loader'
 module Documentation
-  THREAD_PRIORITY = -1000
   
-  attr_accessor :rdoc
-  
+  def enable_rdoc_tab
+    prop = find('RDoc') 
+    return if prop.nil?
+    prop.style.add_extension(styles['unselected_toc_heading'])
+    prop.style.remove_extension(styles['disabled_toc_heading'])
+  end
+    
   def scene_opened(we_dont_care)
-    thread = Thread.new(scene) do |scene|
-      sleep_to_allow_interactivity
-      rdoc_loader = RDocLoader.new(scene)
-      rdoc_loader.load
-    end
-    thread.priority = THREAD_PRIORITY
+    enable_rdoc_tab if rdoc != nil
   end
   
   def select_toc_prop(prop)
@@ -19,9 +17,8 @@ module Documentation
     prop.style.add_extension(scene.styles['selected_toc_item'])
   end
   
-  private ########################
-  
-  def sleep_to_allow_interactivity
-    Kernel.sleep(2)
+  def rdoc
+    return production.rdoc
   end
+  
 end

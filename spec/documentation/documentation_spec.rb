@@ -5,36 +5,6 @@ require 'documentation/players/documentation'
 describe "Documentation" do  
   uses_scene :documentation
   
-  describe "Loading RDoc" do
-    before(:each) do
-      @loader = mock(RDocLoader, :load => nil)
-      @thread = mock(Thread, :priority= => nil)
-      Thread.stub!(:new).and_yield("scene").and_return(@thread)
-      RDocLoader.stub!(:new).and_return(@loader)
-      scene
-    end
-        
-    it "should load the RDoc with the RDoc loader" do
-      RDocLoader.should_receive(:new).with("scene").and_return(@loader)
-      @loader.should_receive(:load)
-      
-      scene.scene_opened(nil)
-    end
-    
-    it "should run it all in a thread" do
-      Thread.should_receive(:new).ordered.and_yield("i dont care yet")
-      RDocLoader.should_receive(:new).ordered.and_return(@loader)
-      
-      scene.scene_opened(nil)
-    end
-    
-    it "should set the thread priority to -1000" do
-      @thread.should_receive(:priority=).with(Documentation::THREAD_PRIORITY)
-      
-      scene.scene_opened(nil)
-    end
-  end
-  
   describe "toc_categories" do
     it "should have the walkthrough tutorial initially selected" do
       walkthrough = scene.find('Walkthrough')
@@ -44,6 +14,7 @@ describe "Documentation" do
     end
     
     it "should have the rdoc section initially unselected " do
+      production.rdoc = nil
       rdoc = scene.find('RDoc')
       
       rdoc.should have_style_extension("disabled_toc_heading")

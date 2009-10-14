@@ -6,7 +6,7 @@ describe "ClassLink" do
   
   it "should cue the props from the dsl in the rdoc hash" do
     stub_select_link
-    scene.rdoc = {"class_text" => "Prop DSL"}
+    production.rdoc = {"class_text" => "Prop DSL"}
     
     class_link.class_name = "class_text"
     
@@ -23,7 +23,7 @@ describe "ClassLink" do
   end
   
   def stub_cueing_rdoc
-    scene.rdoc = {}
+    production.rdoc = {}
     Entrance.stub!(:cue_rdoc)
   end
   

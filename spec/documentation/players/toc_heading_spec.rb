@@ -5,6 +5,7 @@ describe "TocHeading" do
   
   before(:each) do
     @rdoc_link = scene.find("RDoc")
+    production.rdoc = {}
   end
   
   describe "rdoc disabled" do

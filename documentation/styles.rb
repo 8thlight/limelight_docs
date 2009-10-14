@@ -92,23 +92,6 @@ main_column {
   height "100%"
 }
 
-toggle_source {
-  text_color "#333"
-  font_face "Arial Rounded MT Bold"
-  hover {
-    text_color "#555"
-  }
-}
-
-method_source_codeblock {
-  height 0
-  margin 10
-  padding 10
-  border_color "black"
-  border_width 1
-  background_color "#F5F5F5"
-}
-
 content_pane {
   width "562"
 }
@@ -239,4 +222,128 @@ middle_navigation {
 }
 
 heading {
+}
+
+# RDoc styles
+rdoc_canvas {
+  height "100%"
+  width "100%"
+  vertical_scrollbar :on
+}
+
+rdoc_writable_area {
+  right_padding 8
+}
+
+rdoc_font {
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+}
+
+class_name {
+  extends :rdoc_font
+  font_size 20
+  bottom_padding 10
+  width "100%"
+}
+
+method {
+  top_margin 5
+  left_margin 5
+  padding 8
+  border_width 1
+  border_color dark_limegreen
+  background_color light_limegreen
+  rounded_corner_radius 5
+}
+
+method_header {
+  width "100%"
+  bottom_padding 8
+}
+
+method_name {
+  extends :rdoc_font
+  font_size 12
+}
+
+method_parameters {
+  extends :method_name
+  font_style :italic
+}
+
+public_methods_header {
+  extends :rdoc_font
+  font_size 14
+  width "100%"
+  bottom_padding 5
+  top_padding 5
+}
+
+class_description {
+  left_padding 10
+  right_padding 10
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+  font_size 10
+  bottom_padding 5
+}
+
+method_description {
+  extends :class_description
+  left_margin 5
+}
+
+attributes_header {
+  extends :public_methods_header
+}
+
+attributes {
+  extends :method
+}
+
+attribute_header {
+  extends :method_header
+}
+
+attribute_name {
+  extends :method_name
+}
+
+attribute_description {
+  extends :class_description
+  left_padding 6
+}
+
+attribute_read_write {
+  font_size 6
+}
+
+rdoc_list {
+  left_padding 10
+}
+
+rdoc_list_item {
+  extends :class_description
+  width "100%"
+}
+
+toggle_source {
+  text_color dark_limegreen
+  font_face "Arial Rounded MT Bold"
+  font_size 10
+  font_style "italic"
+  hover {
+    text_color compliment
+  }
+}
+
+method_source_codeblock {
+  height 0
+  margin 10
+  padding 10
+  border_color dark_limegreen
+  border_width 1
+  rounded_corner_radius 5
+  background_color :white
 }

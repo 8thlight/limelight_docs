@@ -1,10 +1,16 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 
 describe "RDoc Links Player" do
+  
   uses_limelight :scene_path => "documentation", :scene_name => 'documentation', :with_player => 'rdoc_links'  
+  
+  before(:each) do
+    production.rdoc = nil
+    scene # this will cast the player without rdoc so that we can cast it later with the desired rdoc
+  end
     
   it "should display the props as table of contents when casted" do
-    scene.rdoc = {"classname" => "Prop DSL"}
+    production.rdoc = {"classname" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -12,7 +18,7 @@ describe "RDoc Links Player" do
   end
 
   it "should display all the keys, not just the first" do
-    scene.rdoc = {"animation" => "Prop DSL", "classname" => "Prop DSL"}
+    production.rdoc = {"animation" => "Prop DSL", "classname" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -21,7 +27,7 @@ describe "RDoc Links Player" do
   end
     
   it "should sort them alphabetically" do
-    scene.rdoc =  {"zeeeclassname" => "Prop DSL", "aaaaaclassname" => "Prop DSL"}
+    production.rdoc =  {"zeeeclassname" => "Prop DSL", "aaaaaclassname" => "Prop DSL"}
   
     rdoc_links.casted
     
@@ -30,7 +36,7 @@ describe "RDoc Links Player" do
   end
   
   it "should sort all the unnamespaced names after the props with namespaces" do
-    scene.rdoc =  {"aaaclassname" => "Prop DSL", "Limelight::Prop" => "Prop DSL"}
+    production.rdoc =  {"aaaclassname" => "Prop DSL", "Limelight::Prop" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -39,13 +45,13 @@ describe "RDoc Links Player" do
   end
   
   it "should not throw an exception if production.props is nil" do
-    scene.rdoc = nil
+    production.rdoc = nil
     
     lambda{ rdoc_links.casted }.should_not raise_error
   end
   
   it "should write class section headers when classes are namespaced" do
-    scene.rdoc = {"Class" => "DSL", "Limelight::Builtin" => "Monkey"}
+    production.rdoc = {"Class" => "DSL", "Limelight::Builtin" => "Monkey"}
     
     rdoc_links.casted
     
@@ -53,7 +59,7 @@ describe "RDoc Links Player" do
   end
   
   it "should not write class section headers for the last entry in a name" do
-    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    production.rdoc = {"Limelight::Builtin" => "Monkey"}
     
     rdoc_links.casted
     
@@ -61,7 +67,7 @@ describe "RDoc Links Player" do
   end
   
   it "should not write class sections more than once" do
-    scene.rdoc = {"Limelight::Builtin" => "Monkey", "Limelight::Player" => "Man"}
+    production.rdoc = {"Limelight::Builtin" => "Monkey", "Limelight::Player" => "Man"}
     
     rdoc_links.casted
     
@@ -69,7 +75,7 @@ describe "RDoc Links Player" do
   end
   
   it "should have a header prop with the right prop to remove" do
-    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    production.rdoc = {"Limelight::Builtin" => "Monkey"}
     
     rdoc_links.casted
     
@@ -78,7 +84,7 @@ describe "RDoc Links Player" do
   end
   
   it "should write a shrinkable section for the built in - already shrunk" do
-    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    production.rdoc = {"Limelight::Builtin" => "Monkey"}
     
     rdoc_links.casted
 
@@ -87,7 +93,7 @@ describe "RDoc Links Player" do
   end
   
   it "should add the classname to that shrinkable prop" do
-    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    production.rdoc = {"Limelight::Builtin" => "Monkey"}
     
     rdoc_links.casted
     
@@ -97,7 +103,7 @@ describe "RDoc Links Player" do
   end
   
   it "should append the id to the shrinkable prop" do
-    scene.rdoc = {"Limelight::Builtin" => "Monkey"}
+    production.rdoc = {"Limelight::Builtin" => "Monkey"}
     
     rdoc_links.casted
     
@@ -106,7 +112,7 @@ describe "RDoc Links Player" do
   end
   
   it "should continue nesting deeper into the namespace" do
-    scene.rdoc = {"Limelight::Builtin::Players" => "Prop DSL"}
+    production.rdoc = {"Limelight::Builtin::Players" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -117,7 +123,7 @@ describe "RDoc Links Player" do
   end
   
   it "should put the class link in the final shrunken prop" do
-    scene.rdoc = {"Limelight::Builtin::Players" => "Prop DSL"}
+    production.rdoc = {"Limelight::Builtin::Players" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -125,7 +131,7 @@ describe "RDoc Links Player" do
   end
     
   it "should have links for more than one class all in one prop" do
-    scene.rdoc = {"Limelight::Builtin" => "Prop DSL", "Limelight::Monkey" => "Prop DSL"}
+    production.rdoc = {"Limelight::Builtin" => "Prop DSL", "Limelight::Monkey" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -135,7 +141,7 @@ describe "RDoc Links Player" do
   end
   
   it "should handle backup up in the namespaces" do
-    scene.rdoc = {"Limelight::Player" => "", "Limelight::Player::Builtin" => "", "Limelight::Quiz" => ""}
+    production.rdoc = {"Limelight::Player" => "", "Limelight::Player::Builtin" => "", "Limelight::Quiz" => ""}
     
     rdoc_links.casted
     
@@ -145,7 +151,7 @@ describe "RDoc Links Player" do
   end
   
   it "should make sure the class_section id is unique by using full name with underscores" do
-    scene.rdoc = {"Limelight::Builtin::Test" => "Prop DSL"}
+    production.rdoc = {"Limelight::Builtin::Test" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -154,7 +160,7 @@ describe "RDoc Links Player" do
   end
   
   it "should link the header with the right name" do
-    scene.rdoc = {"Limelight::Builtin::Test" => "Prop DSL"}
+    production.rdoc = {"Limelight::Builtin::Test" => "Prop DSL"}
     
     rdoc_links.casted
     
@@ -163,7 +169,7 @@ describe "RDoc Links Player" do
   end
   
   it "should put the full class name on the class link" do
-    scene.rdoc = {"Limelight::Builtin::Test" => "Prop Blah"}
+    production.rdoc = {"Limelight::Builtin::Test" => "Prop Blah"}
     
     rdoc_links.casted
     
