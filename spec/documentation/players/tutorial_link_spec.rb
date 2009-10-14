@@ -5,6 +5,7 @@ describe "TutorialLink" do
     tutorial_link :id => 'tutorial_link'
     link_to_select :id => 'link_to_select'
     slideshow_progress :id => 'slideshow_progress'
+    mock_slideshow :id => "slideshow"
   end
   
   def tutorial_link
@@ -13,6 +14,7 @@ describe "TutorialLink" do
   
   before(:each) do
     scene.find("slideshow_progress").stub!(:update_content)
+    scene.find("slideshow").stub!(:register_progress_observer)
     stub_select_link
     stub_entrance
   end
@@ -36,6 +38,20 @@ describe "TutorialLink" do
     scene.find(:slideshow_progress).should_receive(:update_content)
     
     tutorial_link.mouse_clicked(nil)    
+  end
+  
+  it "should register the progress bar as an observer of the slideshow" do
+    slideshow.should_receive(:register_progress_observer).with(slideshow_progress)
+    
+    tutorial_link.mouse_clicked(nil)
+  end
+  
+  def slideshow_progress
+    scene.find("slideshow_progress")
+  end
+  
+  def slideshow
+    scene.find("slideshow")
   end
   
   def stub_entrance

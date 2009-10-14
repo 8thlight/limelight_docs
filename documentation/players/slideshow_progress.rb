@@ -1,6 +1,10 @@
 module SlideshowProgress
+  def observe
+    update_content
+  end
+  
   def update_content
-    self.text = "#{slideshow.current_slide}/#{slideshow.num_slides}"
+    self.text = "#{slideshow.current_slide_number}/#{slideshow.num_slides}"
   end
   
   def slideshow
