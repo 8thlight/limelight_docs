@@ -8,6 +8,7 @@ module TutorialLink
     Entrance.cue_tutorial(scene, self.slideshow, self.title)
     
     scene.select_toc_prop(scene.find(toc_link_id))
+    scene.find("slideshow_progress").update_content
   end
   
 end

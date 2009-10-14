@@ -34,6 +34,10 @@ describe "Slideshow" do
       @slideshow.num_slides.should == 3
     end
     
+    it "should know the current slide" do
+      @slideshow.current_slide.should == 0
+    end
+    
     it "should make the next slide visible on next" do
       @slideshow.next
       

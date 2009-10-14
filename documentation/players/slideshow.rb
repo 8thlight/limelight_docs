@@ -1,5 +1,6 @@
 module Slideshow
-
+  attr_reader :current_slide
+  
   def casted
     @current_slide = 0
     @slides = self.children

@@ -4,14 +4,20 @@ describe "TutorialLink" do
   uses_limelight :scene_path => "documentation" do
     tutorial_link :id => 'tutorial_link'
     link_to_select :id => 'link_to_select'
+    slideshow_progress :id => 'slideshow_progress'
   end
   
   def tutorial_link
     scene.find(:tutorial_link)
   end
-    
-  it "should cue an entrance" do
+  
+  before(:each) do
+    scene.find("slideshow_progress").stub!(:update_content)
     stub_select_link
+    stub_entrance
+  end
+  
+  it "should cue an entrance" do
     tutorial_link.slideshow = "walkthrough"
     tutorial_link.title = "The Walkthrough"
     
@@ -20,11 +26,16 @@ describe "TutorialLink" do
   end
   
   it "should select the link with the select link method object - based on the toc_link_id" do
-    stub_entrance
     tutorial_link.toc_link_id = "link_to_select"
     
     scene.should_receive(:select_toc_prop).with(scene.find('link_to_select'))
     tutorial_link.mouse_clicked(nil)
+  end
+
+  it "should update the progress bar" do
+    scene.find(:slideshow_progress).should_receive(:update_content)
+    
+    tutorial_link.mouse_clicked(nil)    
   end
   
   def stub_entrance
