@@ -10,6 +10,8 @@ module TocHeading
   end
   
   def enable
+    style.text_color = "#222"
+    
     self.style.add_extension(unselected_style)
     self.style.remove_extension(disabled_style)
     self.style.remove_extension(selected_style)
@@ -25,12 +27,16 @@ module TocHeading
   
   def unselect_all_headings
     scene.find_by_name('toc_heading').each do |heading|
+      heading.style.background_color = "#ccc"
+
       heading.style.add_extension(unselected_style)
       heading.style.remove_extension(selected_style)
     end
   end
   
   def select_current_heading
+    style.background_color = "#8fc927"
+    
     style.add_extension(selected_style)
     style.remove_extension(unselected_style)
   end
@@ -63,11 +69,11 @@ module TocHeading
   def selected_style
     scene.styles['selected_toc_heading']
   end
-  
+
   def unselected_style
     scene.styles['unselected_toc_heading']
   end
-  
+
   def disabled_style
     scene.styles['disabled_toc_heading']
   end

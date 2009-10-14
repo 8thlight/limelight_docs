@@ -13,6 +13,7 @@ module Production
   # This is a good place to require needed files and instantiate objects in the business layer.
   def production_opening
     $: << File.expand_path(File.dirname(__FILE__) + "/lib")
+    require 'output_observer'
   end
 
   # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before
@@ -40,14 +41,28 @@ module Production
   # Called when the production is fully closed.
   def production_closed
   end
-  
+
   private #################################################
-  
+
   THREAD_PRIORITY = -1000
+
   def start_loading_rdoc
     thread = Thread.new do
-      self.rdoc = LimelightRDoc::LimelightRDoc.new.props_from($LIMELIGHT_LIB)
-      theater["default"].current_scene.enable_rdoc_tab
+      begin
+        doc_scene = theater["default"].current_scene
+        output_observer = OutputObserver.new
+        begin
+          output_observer.infiltrate! { |line| doc_scene.show_activity("Parsing rdoc: #{line}") }
+          self.rdoc = LimelightRDoc::LimelightRDoc.new.props_from($LIMELIGHT_LIB)
+          doc_scene.enable_rdoc_tab
+        ensure
+          output_observer.retreat!
+        end
+        doc_scene.show_activity("")
+      rescue StandardError => e
+        puts e
+        puts e.backtrace
+      end
     end
     thread.priority = THREAD_PRIORITY
   end

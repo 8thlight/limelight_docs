@@ -26,9 +26,9 @@ class Entrance
   
   def self.update_content_pane_from_dsl(prop_dsl)
     find_content_pane
-    
+
     @@pane.build do
-      eval prop_dsl
+      eval "rdoc_canvas do\n#{prop_dsl}\nend"
     end
   end
   

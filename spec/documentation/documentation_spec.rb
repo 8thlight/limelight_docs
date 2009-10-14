@@ -5,12 +5,17 @@ require 'documentation/players/documentation'
 describe "Documentation" do
   uses_limelight :scene => "documentation"
 
+  it "should show activity" do
+    scene.show_activity("I'm being tested")
+    scene.activity_text.text.should == "I'm being tested"
+  end
+
   describe "toc_categories" do
     it "should have the walkthrough tutorial initially selected" do
       walkthrough = scene.find('Walkthrough')
 
       walkthrough.should have_style_extension("selected_toc_heading")
-      walkthrough.should have_style_extension("left_toc_heading")
+      walkthrough.should have_style_extension("left_panel_cap")
     end
 
     it "should have the rdoc section initially unselected " do
@@ -18,7 +23,7 @@ describe "Documentation" do
       rdoc = scene.find('RDoc')
 
       rdoc.should have_style_extension("disabled_toc_heading")
-      rdoc.should have_style_extension("right_toc_heading")
+      rdoc.should have_style_extension("right_panel_cap")
     end
   end
 

@@ -30,7 +30,7 @@ describe Entrance, "installing props from a file" do
   end
   
   it "should install the props from a DSL passed in" do
-    Entrance.should_receive(:eval).with("prop :id => 'test prop'")
+    Entrance.should_receive(:eval).with("rdoc_canvas do\nprop :id => 'test prop'\nend")
     @content_pane.should_receive(:build).and_yield
     
     Entrance.cue_rdoc(@scene, "prop :id => 'test prop'")

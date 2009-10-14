@@ -4,6 +4,227 @@ light_limegreen = "#eaffbe"
 compliment = "#b1226d"
 light_compliment = "#d88b7a"
 default_text_color = "#333"
+light_grey = "#eee"
+
+header {
+  width "100%"
+  horizontal_alignment :center
+}
+
+heading {
+  width "100%"
+  horizontal_alignment :center
+  font_size 22
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+  bottom_padding 10
+}
+
+canvas {
+  width "100%"
+  rounded_corner_radius 10
+  secondary_background_color "#fff"
+  background_color light_limegreen
+  gradient :on
+  gradient_angle 90
+  gradient_penetration "25%"
+  border_width 1
+  border_color dark_limegreen
+  padding 10
+  margin 15
+  height 200
+}
+
+content_pane {
+  extends :canvas
+  height 615
+}
+
+slide {
+  padding 5
+#  height "100%"
+}
+
+directions {
+  left_padding 10
+  right_padding 10
+  font_size 14
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+}
+
+link_in_directions {
+  extends :directions
+  font_style :bold
+  hover {
+    text_color "#000"
+  }
+}
+
+line_break {
+  width "100%"
+  bottom_padding 10
+}
+
+jruby_button {
+  width "100%"
+  horizontal_alignment :center
+}
+
+green_button {
+  font_size 28
+  background_color "#59A615"
+  text_color :white
+  font_style :bold
+  font_face "Helvetica"
+  top_margin 10
+  top_padding 7
+  bottom_padding 7
+  left_padding 15
+  right_padding 15
+  rounded_corner_radius 12
+
+  hover {
+    text_color "#9CFF88"
+  }
+}
+
+codeblock {
+  width "100%"
+  top_padding 10
+  bottom_padding 10
+  left_padding 30
+}
+
+code {
+  width "100%"
+  font_face "Courier New"
+  font_size 12
+}
+
+bold_code {
+  extends :code
+  font_style :bold
+}
+
+sandbox_codeblock {
+  extends :codeblock
+  hover
+}
+
+code_text_area {
+  width "100%"
+  margin "2%"
+}
+
+navigation_pane {
+  bottom_padding 6
+}
+
+sandbox_editing_area {
+  width "100%"
+  horizontal_alignment :right
+}
+
+sandbox_button {
+  horizontal_alignment :right
+}
+
+middle_navigation {
+  horizontal_alignment :center
+  vertical_alignment :center
+  font_size 30
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+  height 44
+}
+
+navigation_buttons {
+  width 62
+  height 44
+}
+
+previous_button {
+  extends :navigation_buttons
+  background_image "images/previous.png"
+  hover
+}
+
+next_button {
+  extends :navigation_buttons
+  background_image "images/next.png"
+  hover
+}
+
+screenshot_div {
+  width "100%"
+  top_padding 15
+  horizontal_alignment :center
+}
+
+list {
+  top_padding 10
+  left_padding 10
+}
+
+list_item {
+  extends :directions
+  font_size 12
+  width "100%"
+}
+
+parent_prop {
+  border_width  1
+  border_color :black
+}
+
+box_with_child_with_margin {
+  height 60
+  width 60
+}
+
+child_prop {
+  height 10
+  width 10
+}
+
+full_size {
+  width "100%"
+  height "100%"
+}
+
+tiny_prop {
+  border_width  1
+  border_color :blue
+  margin 3
+  height 12
+  width 12
+}
+
+style_error {
+  text_color :red
+  font_style :bold
+  width "100%"
+  font_size 16
+  top_padding 4
+}
+
+big_label {
+  font_size 36
+  width "100%"
+}
+
+wide_label {
+  width "100%"
+}
+
+copyrights {
+  width "100%"
+  font_size 8
+  text_color "#333"
+  horizontal_alignment :center
+  bottom_padding 3
+}
 
 documentation {
   background_color light_limegreen
@@ -30,6 +251,7 @@ title_bar {
 main_body {
   width "100%"
   padding 10
+  bottom_padding 3
   min_height 50
   height :greedy
 }
@@ -38,6 +260,15 @@ scene_title {
   background_image "images/title.png"
   height 100
   width 200
+}
+
+activity_text {
+  float :on
+  x 5
+  y 84
+  text_color light_grey
+  font_face "Arial Rounded MT Bold"
+  font_size 10
 }
 
 panel {
@@ -64,9 +295,28 @@ tabbed_panel_cap {
   padding 0
 }
 
+left_panel_cap {
+  extends :panel_cap
+  width "60%"
+  top_right_rounded_corner_radius 0
+  background_image_fill_strategy :static
+  background_image_x :left
+}
+
+right_panel_cap {
+  extends :panel_cap
+  border_color "#aaa"
+  left_border_width 1
+  width "40%"
+  top_left_rounded_corner_radius 0
+  background_image_fill_strategy :static
+  background_image_x :right
+  background_color "#ccc"
+}
+
 panel_title {
-  font_style :bold
-  font_face "arial black"
+#  font_style :bold
+#  font_face "arial black"
   text_color default_text_color
 }
 
@@ -124,35 +374,27 @@ toc_categories {
 }
 
 toc_heading {
-  padding 8
+#  padding 8
   horizontal_alignment :center
+  text_color "#222"
+  font_face "Arial Rounded MT Bold"
   hover {}
 }
 
-left_toc_heading {
-  width "60%"
-}
-
-right_toc_heading {
-  border_color "#aaa"
-  left_border_width 1
-  width "40%"
-}
-
 selected_toc_heading {
-  text_color "#222"
-  font_face "Arial Rounded MT Bold"
+#  text_color "#222"
+#  font_face "Arial Rounded MT Bold"
 }
 
 unselected_toc_heading {
-  text_color "#aaa"
-  font_face "Arial Rounded MT"
+#  text_color "#aaa"
+#  font_face "Arial Rounded MT"
 }
 
 disabled_toc_heading {
   extends :unselected_toc_heading
-  text_color "#AAA"
-  font_style :italic
+  text_color "#aaa"
+#  font_style :italic
 }
 
 section_header {
@@ -186,8 +428,10 @@ section_links {
 directions_tutorial_link {
   extends :directions
   font_style :italic
+  text_color dark_limegreen
+  font_size 20
   hover {
-    text_color "#000"
+    text_color compliment
   }
 }
 
@@ -225,10 +469,9 @@ heading {
 }
 
 # RDoc styles
-rdoc_canvas {
-  height "100%"
+rdoc_canvas { 
   width "100%"
-  vertical_scrollbar :on
+  padding 5
 }
 
 rdoc_writable_area {
@@ -340,8 +583,8 @@ toggle_source {
 
 method_source_codeblock {
   height 0
-  margin 10
-  padding 10
+#  margin 10
+  padding 5
   border_color dark_limegreen
   border_width 1
   rounded_corner_radius 5

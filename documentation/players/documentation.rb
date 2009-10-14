@@ -1,10 +1,19 @@
 module Documentation
-  
+
+  prop_reader :activity_text
+
   def enable_rdoc_tab
     prop = find('RDoc') 
-    return if prop.nil?
+    return if prop.nil?  
+
+    prop.style.text_color = "#222"
+
     prop.style.add_extension(styles['unselected_toc_heading'])
     prop.style.remove_extension(styles['disabled_toc_heading'])
+  end
+
+  def show_activity(message)
+    activity_text.text = message   
   end
     
   def scene_opened(we_dont_care)
