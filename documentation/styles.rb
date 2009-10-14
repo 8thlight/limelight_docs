@@ -224,6 +224,11 @@ middle_navigation {
 heading {
 }
 
+slideshow_progress_wrapper {
+  width "100%"
+  horizontal_alignment :center
+}
+
 slideshow_progress {
   font_size 12
   font_face "Arial Rounded MT Bold"
@@ -235,11 +240,15 @@ slideshow_progress {
   gradient :on
   secondary_background_color "#F5F5F5"
   background_color "#FFFF"
+  # float :on
+  # horizontal_alignment :center
+  x 0
+  y 15
 }
 
 progress_text {
   float :on
-  x 90
+  x 75
   y 0
   text_color default_text_color
   font_face "Arial Rounded MT Bold"
