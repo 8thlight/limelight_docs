@@ -605,6 +605,10 @@ rdoc_constants {
   extends :attributes
 }
 
+rdoc_constant {
+  extends :attribute_header
+}
+
 rdoc_constant_name {
   extends :attribute_name
 }

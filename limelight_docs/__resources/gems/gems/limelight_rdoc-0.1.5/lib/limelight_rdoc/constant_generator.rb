@@ -1,3 +1,5 @@
+require 'limelight_rdoc/comment_formatter'
+
 module LimelightRDoc
   class ConstantGenerator
     def initialize(constant, props)
@@ -6,8 +8,10 @@ module LimelightRDoc
     end
     
     def generate
+      @props.puts "rdoc_constant do"
       @props.puts "rdoc_constant_name :text => '#{@constant.name}'"
-      @props.puts "rdoc_constant_value :text => '#{@constant.value}'"
+      CommentFormatter.format("rdoc_constant", @constant.comment).each { |line| @props.puts line }
+      @props.puts "end"
     end
   end
 end
