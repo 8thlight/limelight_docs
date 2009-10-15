@@ -41,7 +41,7 @@ content_pane {
 }
 
 slide {
-  height "85%"
+#  height "85%"
 }
 
 directions {
@@ -117,7 +117,9 @@ code_text_area {
 }
 
 navigation_pane {
-  bottom_padding 6
+#  bottom_padding 6
+  width "100%"
+  horizontal_alignment :center
 }
 
 sandbox_editing_area {
@@ -132,10 +134,29 @@ sandbox_button {
 middle_navigation {
   horizontal_alignment :center
   vertical_alignment :center
-  font_size 30
+  width "60%"
+}
+
+navigation_title {
+  width "100%"
+  horizontal_alignment :center
+  top_padding 5
+  bottom_padding 5
+  font_size 23
   font_face "Arial Rounded MT Bold"
   text_color default_text_color
-  height 44
+}
+
+left_navigation {
+  width "20%"
+  padding 5
+  horizontal_alignment :left
+}
+
+right_navigation {
+  width "20%"
+  padding 5
+  horizontal_alignment :right
 }
 
 navigation_buttons {
@@ -280,7 +301,7 @@ panel_cap {
   background_image "images/top_glare_rr5.png"
   background_image_fill_strategy :scale_x
   background_image_x :right
-  background_image_y :top
+  background_image_y 1
   top_rounded_corner_radius 5
   height 20
   width "100%"
@@ -425,12 +446,23 @@ section_links {
 }
 
 directions_tutorial_link {
-  extends :directions
-  font_style :italic
-  text_color dark_limegreen
+  width "100%"
+  horizontal_alignment :center
+  margin 10
+  padding 5
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+  background_color light_limegreen
+  rounded_corner_radius 5
   font_size 20
+  background_image "images/top_glare_rr5.png"
+  background_image_fill_strategy :scale_x
+  background_image_x :right
+  background_image_y 1
   hover {
-    text_color compliment
+    secondary_background_color dark_limegreen
+    gradient_angle 270
+    gradient :on
   }
 }
 
@@ -459,11 +491,6 @@ selected_toc_item {
   gradient :on
 }
 
-middle_navigation {
-  width "100%"
-  top_padding 5
-}
-
 heading {
 }
 
@@ -473,33 +500,34 @@ slideshow_progress_wrapper {
 }
 
 slideshow_progress {
-  font_size 12
-  font_face "Arial Rounded MT Bold"
-  height 20
-  width 200
+  height 12
+  width "100%"
   background_color "#DDD"
   border_width 1
   border_color "#CCC"
   gradient :on
-  secondary_background_color "#F5F5F5"
-  background_color "#FFFF"
+  secondary_background_color "#eee"
+  background_color "#FFF"
 }
 
 progress_text {
   float :on
-  x 75
-  y 0
+  width "100%"
+  height "100%"
+  horizontal_alignment :center
+  vertical_alignment :center
   text_color default_text_color
   font_face "Arial Rounded MT Bold"
+  font_size 10
 }
 
 progress_bar {
-  left_padding 10
+  float :on
+  width "100%"
+  height "100%"
   gradient :on
   background_color dark_limegreen
   secondary_background_color light_limegreen
-  font_size 12
-  height "100%"
 }
 
 # RDoc styles
