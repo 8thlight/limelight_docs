@@ -78,6 +78,11 @@ describe "Section Header" do
     section_header.style.background_image.should == "images/arrow_right.png"
   end
 
+  it "should have a start shunk attribute" do
+    section_header.start_shrunk = true
+    section_header.start_shrunk.should == true
+  end
+  
   def cast_prop_with_id(id)
     @prop = Limelight::Prop.new(:id => id)
     section_header << @prop

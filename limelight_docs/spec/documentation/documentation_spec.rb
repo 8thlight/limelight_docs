@@ -64,3 +64,33 @@ describe "Documentation" do
     # end
   end
 end
+
+describe "Documentation scene with shrinkables" do
+  uses_limelight :scene_path => "documentation" do
+    section_header :prop_to_remove => "shrinkable_one", :start_shrunk => false
+    section_links :id => "shrinkable_one", :players => "shrinkable"
+
+    section_header :prop_to_remove => "shrinkable_two", :start_shrunk => true
+    section_links :id => "shrinkable_two", :players => "shrinkable"
+
+    section_header :prop_to_remove => "shrinkable_three", :start_shrunk => false
+    section_links :id => "shrinkable_three", :players => "shrinkable"
+  end
+
+  before(:each) do
+    scene.include_player(Documentation)
+    scene.scene_opened(nil)
+  end
+
+  it "should not shrink the first shrinkable prop" do
+    scene.find("shrinkable_one").should_not be_shrunk
+  end
+
+  it "should shrink the second shrinkable prop" do
+    scene.find("shrinkable_two").should be_shrunk
+  end
+  
+  it "should not shrink the third shrinkable prop" do
+    scene.find("shrinkable_three").should_not be_shrunk
+  end
+end
