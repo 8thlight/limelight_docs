@@ -36,4 +36,4 @@ main_body do
   end
 
 end
-copyrights :text => "Copyrights 2009, 8th Light, Inc."
+copyrights :text => "Copyright 2009, 8th Light, Inc."

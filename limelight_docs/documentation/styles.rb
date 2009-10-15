@@ -502,6 +502,13 @@ progress_bar {
   height "100%"
 }
 
+search_label {
+  text_color dark_limegreen
+  font_face "Arial Rounded MT Bold"
+  font_size 10
+  font_style "italic"
+}
+
 # RDoc styles
 rdoc_canvas { 
   width "100%"
