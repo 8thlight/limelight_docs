@@ -2,7 +2,7 @@ require "toc_section"
 TocSection.all.each do |section|
   section do
     section_header :text => section.name, :width => "100%", :prop_to_remove => "#{section.name}_links", :start_shrunk => section.start_shrunk?
-    section_links :id => "#{section.name}_links", :players => "shrinkable", :start_shrunk => section.start_shrunk? do
+    section_links :id => "#{section.name}_links", :players => "shrinkable" do
       section.links.each do |link|
         tutorial_link :id => link.id,  :text => link.text, :slideshow => link.slideshow, :title => link.title, :styles => "toc_tutorial_link", :toc_link_id => link.id
       end

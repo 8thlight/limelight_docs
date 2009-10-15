@@ -17,10 +17,7 @@ module Documentation
   end
     
   def scene_opened(we_dont_care)
-    scene.find_by_name("section_header").each do |header|
-      # puts "shrinkable: #{shrinkable.start_shrunk.inspect}"
-      header.mouse_clicked(nil) unless header.start_shrunk
-    end
+    toggle_section_headers
     enable_rdoc_tab if rdoc != nil
   end
   
@@ -34,4 +31,11 @@ module Documentation
     return production.rdoc
   end
   
+  private ##################################
+  
+  def toggle_section_headers
+    scene.find_by_name("section_header").each do |header|
+      header.mouse_clicked(nil) unless header.start_shrunk
+    end
+  end
 end
