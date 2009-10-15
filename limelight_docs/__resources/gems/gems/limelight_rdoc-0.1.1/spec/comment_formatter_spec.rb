@@ -71,6 +71,10 @@ describe LimelightRDoc::CommentFormatter do
   it "should start parsing lines again after a line with '++'" do
     LimelightRDoc::CommentFormatter.format("method", "#Included Comment\n#--\n#Do Not Include\n#++\n#Include Again").should == ["method_description :text => 'Included Comment Include Again'"]
   end
+
+  it "should successfully skip two lines" do
+    LimelightRDoc::CommentFormatter.format("method", "#Included Comment\n#--\n#Do Not Include\n#Do Not Include\n#++\n#Include Again").should == ["method_description :text => 'Included Comment Include Again'"]
+  end
   
   it "should handle pausing multiple times in a row" do
     LimelightRDoc::CommentFormatter.format("method", "#Included Comment\n#--\n#Do Not Include\n#--\n#Do Not Include Again").should == ["method_description :text => 'Included Comment'"]

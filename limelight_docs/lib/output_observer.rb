@@ -24,7 +24,7 @@ class OutputObserver < IO
 
   def write(c)
     @buffer << c
-    report_lines()
+    report_lines
   end
   
   def report_lines()
