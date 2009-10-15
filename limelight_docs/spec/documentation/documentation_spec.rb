@@ -35,7 +35,6 @@ describe "Documentation" do
       link.slideshow.should == "getting_started"
       link.text.should == "Getting Started"
       link.title.should == "Getting Started"
-      link.toc_link_id.should == "getting_started_walkthrough"
     end
   end
 
