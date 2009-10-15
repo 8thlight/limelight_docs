@@ -597,6 +597,22 @@ attribute_read_write {
   font_size 6
 }
 
+rdoc_constant_header {
+  extends :attributes_header
+}
+
+rdoc_constants {
+  extends :attributes
+}
+
+rdoc_constant_name {
+  extends :attribute_name
+}
+
+rdoc_constant_description {
+  extends :attribute_description
+}
+
 rdoc_list {
   left_padding 10
 }
