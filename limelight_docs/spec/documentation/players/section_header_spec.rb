@@ -1,5 +1,4 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
-require 'documentation/players/section_header'
 
 describe "Section Header" do
   uses_limelight :with_player => "section_header", :scene_path => "documentation"
