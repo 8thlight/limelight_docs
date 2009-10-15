@@ -1,6 +1,6 @@
 module SectionHeader
-  attr_accessor :prop_to_remove
-  
+  attr_accessor :prop_to_remove, :start_shrunk
+
   def controlled_prop
     @controlled_prop ||= scene.find(@prop_to_remove)
   end

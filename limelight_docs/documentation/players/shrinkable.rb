@@ -7,14 +7,16 @@ module Shrinkable
   end
   
   def shrink
+    @shrunk = true
     self.style.height = '0'
   end
   
   def grow
+    @shrunk = false
     self.style.height = @height
   end
   
   def shrunk?
-    return true if self.style.height == '0'
+    return @shrunk
   end
 end
