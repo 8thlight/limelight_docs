@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby -wKU
-
-require 'limelight_rdoc'
-
-# Arguments are directory to parse, directory to output.
-# If you decide to release this you should parse this, and maybe respond to all the rdoc flags, but since this is internal for 
-# debugging, just keep it light
-LimelightRDoc::LimelightRDoc.document(ARGV[0], ARGV[1])
