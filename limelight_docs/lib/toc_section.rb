@@ -24,6 +24,11 @@ class TocSection
     @@sections = sections
   end
   
+  def self.section_for_walkthrough_id(walkthrough)
+    section_hash = @@sections.select {|section| section[:links].include?(walkthrough) }
+    return TocSection.new(section_hash.first)
+  end
+  
   def start_shrunk?
     return @start_shrunk
   end

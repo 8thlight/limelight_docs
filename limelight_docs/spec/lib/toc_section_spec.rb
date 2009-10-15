@@ -28,8 +28,11 @@ describe TocSection do
     TocSection.new(:name => "Some Name", :links => []).name.should == "Some Name"
   end
   
-  
   it "should parse the real sections" do
     lambda{TocSection.all}.should_not raise_error
+  end
+  
+  it "should return the section of based on a walkthrough id" do
+    TocSection.section_for_walkthrough_id('getting_started_walkthrough').name.should == "Getting Started"
   end
 end

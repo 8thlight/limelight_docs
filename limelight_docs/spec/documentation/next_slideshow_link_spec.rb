@@ -16,6 +16,7 @@ describe "Documentation" do
     next_slideshow.should_not be_nil
     next_slideshow.name.should == "directions_tutorial_link"
     next_slideshow.toc_link_id.should == second.id
+    next_slideshow.section_id.should == TocSection.section_for_walkthrough_id(second.id).name
   end
 
   it "should not have the link to the next slideshow for the last slideshow" do

@@ -2,7 +2,6 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 
 describe "TutorialLink" do
   uses_limelight :scene_path => "documentation" do
-    section :id => "section"
     tutorial_link :id => 'tutorial_link'
     link_to_select :id => 'link_to_select'
     slideshow_progress :id => 'slideshow_progress'
@@ -43,12 +42,6 @@ describe "TutorialLink" do
     slideshow.should_receive(:register_progress_observer).with(slideshow_progress)
     
     tutorial_link.mouse_clicked(nil)
-  end
-  
-  it "should return the section it is in based on the id" do
-    tutorial_link.section_id = "section"
-    
-    tutorial_link.section.should == scene.find('section')
   end
   
   def slideshow_progress

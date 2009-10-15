@@ -15,14 +15,14 @@ module SectionHeader
     end
   end
   
-  def close_section
-    controlled_prop.shrink
-    self.style.background_image = "images/arrow_right.png"
-  end
-  
   def open_section
     controlled_prop.grow
     self.style.background_image = "images/arrow_down.png"
   end
   
+  def close_section
+    controlled_prop.shrink
+    self.style.background_image = "images/arrow_right.png"
+  end
+    
 end
