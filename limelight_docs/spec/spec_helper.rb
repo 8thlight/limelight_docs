@@ -1,7 +1,7 @@
 $: << File.expand_path(File.dirname(__FILE__) + "/../lib") # See if you can move this to lib spec helper
 $: << File.expand_path(File.dirname(__FILE__) + "/..")
 
-$: << "/Users/eric/Projects/limelight/lib/"
+# $: << "/Users/eric/Projects/limelight/lib/"
 require 'limelight/specs/spec_helper'
 require 'rubygems'
 require 'spec'

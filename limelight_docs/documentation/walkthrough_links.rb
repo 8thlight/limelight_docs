@@ -1,4 +1,3 @@
-require "toc_section"
 TocSection.all.each do |section|
   section do
     section_header :id => "#{section.name}", :text => section.name, :width => "100%", :prop_to_remove => "#{section.name}_links", :start_shrunk => section.start_shrunk?
