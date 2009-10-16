@@ -1,17 +1,17 @@
-require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
-require 'limelight_rdoc/method_generator'
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'limelight_rdoc/generators/method'
 require 'limelight_rdoc/prop_string'
 
-describe LimelightRDoc::MethodGenerator do
+describe LimelightRDoc::Generators::Method do
   before(:each) do
     @method = mock("RDoc::AnyMethod", :name => 'method_name', :comment => "# Comment is here", :params => "(block, params)", :token_stream => [])
     @props = LimelightRDoc::PropString.new
     
     LimelightRDoc::CommentFormatter.stub!(:format).and_return([])
-    @writer = LimelightRDoc::MethodGenerator.new(@method, @props)
+    @writer = LimelightRDoc::Generators::Method.new(@method, @props)
     
-    @source_generator = mock("MethodSourceGenerator", :convert => [])
-    LimelightRDoc::MethodSourceGenerator.stub!(:new).and_return(@source_generator)
+    @source_generator = mock(LimelightRDoc::Generators::MethodSource, :convert => [])
+    LimelightRDoc::Generators::MethodSource.stub!(:new).and_return(@source_generator)
   end
     
   it "should list the methods underneath the class name in a method block" do

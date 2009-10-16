@@ -1,12 +1,12 @@
-require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
-require 'limelight_rdoc/constant_generator'
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'limelight_rdoc/generators/constant'
 require 'limelight_rdoc/prop_string'
 
-describe LimelightRDoc::ConstantGenerator do
+describe LimelightRDoc::Generators::Constant do
   it "should generate the name and value for the constant" do
     constant = mock("Constant", :name => "Name", :comment => nil)
     props = LimelightRDoc::PropString.new
-    generator = LimelightRDoc::ConstantGenerator.new(constant, props)
+    generator = LimelightRDoc::Generators::Constant.new(constant, props)
     
     generator.generate
     
@@ -16,7 +16,7 @@ describe LimelightRDoc::ConstantGenerator do
   it "should format the comment if it has one" do
     constant = mock("Constant", :name => "Name", :comment => "comment")
     props = LimelightRDoc::PropString.new
-    generator = LimelightRDoc::ConstantGenerator.new(constant, props)
+    generator = LimelightRDoc::Generators::Constant.new(constant, props)
     
     LimelightRDoc::CommentFormatter.should_receive(:format).with("rdoc_constant", "comment").and_return(["rdoc_constant_description => blah"])
     generator.generate

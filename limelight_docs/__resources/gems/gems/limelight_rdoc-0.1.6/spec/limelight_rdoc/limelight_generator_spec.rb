@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
+require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require 'limelight_rdoc/limelight_generator'
 
 describe RDoc::Generator::Limelight do
@@ -23,46 +23,46 @@ describe RDoc::Generator::Limelight do
 
   describe "Class Generation" do
     before(:each) do
-      @class_writer = mock(LimelightRDoc::ClassFileGenerator, :props => [])
+      @class_writer = mock(LimelightRDoc::Generators::ClassFile, :props => [])
     end
     
     it "should generate a class for each module" do
       @all_classes_and_modules = [mock(RDoc::Context, :full_name => "one", :document_self => true), mock(RDoc::Context, :full_name => "two", :document_self => true)]
       RDoc::TopLevel.stub!(:all_classes_and_modules).and_return(@all_classes_and_modules)
       
-      LimelightRDoc::ClassFileGenerator.should_receive(:new).with(@all_classes_and_modules[0]).and_return(@null_writer)
-      LimelightRDoc::ClassFileGenerator.should_receive(:new).with(@all_classes_and_modules[1]).and_return(@null_writer)
+      LimelightRDoc::Generators::ClassFile.should_receive(:new).with(@all_classes_and_modules[0]).and_return(@null_writer)
+      LimelightRDoc::Generators::ClassFile.should_receive(:new).with(@all_classes_and_modules[1]).and_return(@null_writer)
       
       @generator.generate
     end
     
     it "should generate all the class files" do
-      LimelightRDoc::ClassFileGenerator.should_receive(:new).with(@all_classes_and_modules[0]).and_return(@class_writer)
+      LimelightRDoc::Generators::ClassFile.should_receive(:new).with(@all_classes_and_modules[0]).and_return(@class_writer)
       @class_writer.should_receive(:write)
     
       @generator.generate
     end
     
     it "should add the class to the props" do
-      writer = mock(LimelightRDoc::ClassFileGenerator, :write => nil)
-      LimelightRDoc::ClassFileGenerator.stub!(:new).and_return(writer)
+      writer = mock(LimelightRDoc::Generators::ClassFile, :write => nil)
+      LimelightRDoc::Generators::ClassFile.stub!(:new).and_return(writer)
       writer.stub!(:props).and_return("Hey there")
       
       @generator.generate
       
-      @generator.props.should == {"AA::FullClassName" => "Hey there"}
+      @generator.props['AA::FullClassName'].should == "Hey there"
     end
     
     it "should not generate props for undocumented classes" do
       @all_classes_and_modules = [mock(RDoc::Context, :full_name => "one", :document_self => false)]
       RDoc::TopLevel.stub!(:all_classes_and_modules).and_return(@all_classes_and_modules)
       
-      writer = mock(LimelightRDoc::ClassFileGenerator, :write => nil, :props => "I am a prop you should not see")
-      LimelightRDoc::ClassFileGenerator.stub!(:new).and_return(writer)
+      writer = mock(LimelightRDoc::Generators::ClassFile, :write => nil, :props => "I am a prop you should not see")
+      LimelightRDoc::Generators::ClassFile.stub!(:new).and_return(writer)
       
       @generator.generate
       
-      @generator.props.should == {}
+      @generator.props.should be_empty
     end
   
   end
