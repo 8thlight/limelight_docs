@@ -3,7 +3,6 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs")
 
 require 'limelight/specs/spec_helper'
 require 'rubygems'
-# require 'spec'
 
 $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs")
 Gem.use_paths(File.join($PRODUCTION_PATH , "__resources", "gems"), Gem.default_path)
@@ -11,8 +10,6 @@ Gem.use_paths(File.join($PRODUCTION_PATH , "__resources", "gems"), Gem.default_p
 Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
   $: << dir
 end
-
-require 'limelight/specs/spec_helper'
 
 Before do
   Limelight::Main.initializeTestContext
