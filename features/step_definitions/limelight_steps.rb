@@ -23,6 +23,8 @@ Before do
   $scene = Limelight::Specs.producer.open_scene("documentation", stage)
 end
 
+#TODO - EWM - Figure out how to close limelight after each scenario properly.  Right now, one instance gets open per scenario.
+# "After do" makes scenarios not run
 at_exit do
   unless Limelight::Specs.producer.nil?
     Limelight::Specs.producer.theater.stages.each do |stage|
@@ -32,6 +34,10 @@ at_exit do
   end
 end
 
-When /^I click "([^\"]*)"$/ do |prop_id|
-  $scene.find(prop_id).mouse_clicked(nil)
+Transform /^prop "([^\"]*)"$/ do |prop_id|
+  $scene.find(prop_id)
+end
+
+When /^I click the (prop "[^\"]*")$/ do |prop|
+  prop.mouse_clicked(nil)
 end

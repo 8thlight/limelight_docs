@@ -1,12 +1,12 @@
-Feature: Blah
+Feature: Second
   In order to blah
   As a blah
   I want blah
   
-  Scenario: title
+  Scenario: title three
     When I click the prop "Multimedia"
     Then the "Multimedia" should be open
   
-  Scenario: title two
+  Scenario: title four
     When I click the prop "Multimedia"
     Then the "Multimedia" should be open
