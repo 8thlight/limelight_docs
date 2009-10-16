@@ -35,7 +35,7 @@ describe "Search Text" do
   describe "Searching" do
     before(:all) do
       SearchResults = Struct.new(:classes)
-      ClassResult = Struct.new(:name)
+      ClassResult = Struct.new(:full_name)
     end
     
     before(:each) do
