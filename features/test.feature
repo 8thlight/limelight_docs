@@ -4,9 +4,6 @@ Feature: Blah
   I want blah
   
   Scenario: title
-    Given I open the production
     When I click "Multimedia"
     Then the "Multimedia" should be open
-
-  
   

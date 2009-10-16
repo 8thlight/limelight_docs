@@ -12,22 +12,27 @@ Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
   $: << dir
 end
 
-
-
-
-
-gem 'limelight'
 require 'limelight/specs/spec_helper'
 
-
-Given /^I open the production$/ do
+Before do
   Limelight::Main.initializeTestContext
   Limelight::Specs.producer = Limelight::Producer.new($PRODUCTION_PATH)
-  Limelight::Specs.producer.load #also returns stages
+  Limelight::Specs.producer.load
   Limelight::Specs.producer.production.production_opening
 
   stage = Limelight::Specs.producer.theater.default_stage
+  
+  #TODO - EWM - Don't hardcode the scene name
   $scene = Limelight::Specs.producer.open_scene("documentation", stage)
+end
+
+at_exit do
+  unless Limelight::Specs.producer.nil?
+    Limelight::Specs.producer.theater.stages.each do |stage|
+      frame = stage.instance_variable_get("@frame")
+      frame.close if frame
+    end
+  end
 end
 
 When /^I click "([^\"]*)"$/ do |prop_id|
