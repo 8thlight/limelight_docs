@@ -13,6 +13,7 @@ module Production
   # This is a good place to require needed files and instantiate objects in the business layer.
   def production_opening
     $: << File.expand_path(File.dirname(__FILE__) + "/lib")
+    require "toc_section"
     require 'output_observer'
   end
 

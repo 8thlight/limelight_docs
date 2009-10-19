@@ -77,7 +77,7 @@ describe "Section Header" do
 
     section_header.style.background_image.should == "images/arrow_right.png"
   end
-
+    
   it "should have a start shunk attribute" do
     section_header.start_shrunk = true
     section_header.start_shrunk.should == true
@@ -86,5 +86,24 @@ describe "Section Header" do
   def cast_prop_with_id(id)
     @prop = Limelight::Prop.new(:id => id)
     section_header << @prop
+  end
+end
+
+describe "with real props" do
+  uses_limelight :scene_path => "documentation" do
+    section_header :id => "section_header", :prop_to_remove => "section_header_links", :start_shrunk => true
+    section_links :id => "section_header_links", :players => "shrinkable"
+  end
+  
+  it "should be open after opening" do
+    scene.find("section_header").open_section
+    
+    scene.find("section_header").should be_open
+  end
+  
+  it "should be closed after closing" do
+    scene.find("section_header").close_section
+    
+    scene.find("section_header").should_not be_open
   end
 end

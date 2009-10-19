@@ -28,7 +28,9 @@ main_body do
         panel_title :text => ""
       end
       panel_body :id => "content_pane", :vertical_scrollbar => :on do
-        middle_navigation :text => "Welcome to Limelight"
+        navigation_pane do
+          navigation_title :text => "Welcome to Limelight"
+        end 
         heading :text => "Choose one the of Tutorials on the left."
       end
     end

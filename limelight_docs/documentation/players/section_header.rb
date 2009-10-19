@@ -24,5 +24,9 @@ module SectionHeader
     controlled_prop.shrink
     self.style.background_image = "images/arrow_right.png"
   end
+  
+  def open?
+    return !controlled_prop.shrunk?
+  end
     
 end

@@ -6,8 +6,8 @@ describe SlideshowProgress do
     __install "documentation/common/navigation_buttons.rb", :title => "Some Title"
     slideshow :id => "slideshow"
     slideshow_progress :id => "progress" do
-      progress_text :id => "progress_text"
       progress_bar :id => "progress_bar", :width => "0%"
+      progress_text :id => "progress_text"
     end
   end
   
