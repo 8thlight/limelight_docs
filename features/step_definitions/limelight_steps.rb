@@ -1,6 +1,7 @@
 $: << File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs/lib")
 $: << File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs")
 
+require File.expand_path(File.dirname(__FILE__) + "/../support/env")
 require 'limelight/specs/spec_helper'
 require 'rubygems'
 
@@ -14,13 +15,11 @@ end
 Before do
   Limelight::Main.initializeTestContext
   Limelight::Specs.producer = Limelight::Producer.new($PRODUCTION_PATH)
-  Limelight::Specs.producer.load
-  Limelight::Specs.producer.production.production_opening
+  Limelight::Specs.producer.production.extend(MockProduction)
+  Limelight::Specs.producer.open
 
-  stage = Limelight::Specs.producer.theater.default_stage
-  
-  #TODO - EWM - Don't hardcode the scene name
-  $scene = Limelight::Specs.producer.open_scene("documentation", stage)
+  stage = Limelight::Specs.producer.theater.stages[0]
+  $scene = stage.current_scene
 end
 
 #TODO - EWM - Figure out how to close limelight after each scenario properly.  Right now, one instance gets open per scenario.
