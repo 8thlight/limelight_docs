@@ -59,7 +59,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/two_props_with_different_names.rb", :height => 160
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/two_props_with_different_names.rb", :height => 160, :text_area_height => 200
 end
 
 slide do
@@ -114,7 +114,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop => "extended_prop :text => \"I am named extended_prop - note how I get both styles.\"", :height => 130
+  __install "documentation/common/styles_sandbox.rb", :prop => "extended_prop :text => \"I am named extended_prop - note how I get both styles.\"", :height => 130, :text_area_height => 200
 end
 
 slide do
@@ -131,7 +131,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/inner_and_outer_prop.rb", :height => 130    
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/inner_and_outer_prop.rb", :height => 130, :text_area_height => 200    
 end
 
 slide do

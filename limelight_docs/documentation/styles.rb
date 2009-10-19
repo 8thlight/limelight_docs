@@ -492,7 +492,7 @@ selected_toc_item {
 }
 
 heading {
-}
+        }
 
 slideshow_progress_wrapper {
   width "100%"
@@ -531,7 +531,7 @@ progress_bar {
 }
 
 # RDoc styles
-rdoc_canvas { 
+rdoc_canvas {
   width "100%"
   padding 5
 }
