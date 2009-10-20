@@ -20,7 +20,7 @@ slide do
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black.", :text_color => :red', :height => 90
+  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black.", :text_color => :red', :height => 90, :text_area_height => 200
 end
 
 slide do

@@ -492,7 +492,7 @@ selected_toc_item {
 }
 
 heading {
-}
+        }
 
 slideshow_progress_wrapper {
   width "100%"
@@ -538,7 +538,7 @@ search_label {
 }
 
 # RDoc styles
-rdoc_canvas { 
+rdoc_canvas {
   width "100%"
   padding 5
 }

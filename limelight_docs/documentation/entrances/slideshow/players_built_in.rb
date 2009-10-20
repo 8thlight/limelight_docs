@@ -130,7 +130,7 @@ slide do
      code :text => "                  :group => 'button_group'"
    end
 
-   __install "documentation/common/prop_sandbox.rb", :height => 120
+   __install "documentation/common/prop_sandbox.rb", :height => 120, :text_area_height => 200
 end
 
 slide do
@@ -144,7 +144,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/button_props.rb", :height => 140
+  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/button_props.rb", :height => 140, :text_area_height => 100
 end
 
 slide do
@@ -169,7 +169,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb"
+  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb", :text_area_height => 100
 end
 
 __install "documentation/common/finished_slide.rb"

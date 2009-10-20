@@ -57,7 +57,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/combination.rb", :height => 130
+  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/combination.rb", :height => 130, :text_area_height => 200
 end
 
 slide do
