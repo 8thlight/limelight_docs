@@ -10,11 +10,11 @@ module Slideshow
   end
   
   def next
-    update_slideshow { increment_current_slide }
+    update_slideshow { increment_current_slide } unless at_end?
   end
   
   def previous
-    update_slideshow { decrement_current_slide }
+    update_slideshow { decrement_current_slide } unless at_beginning?
   end
   
   def num_slides

@@ -143,9 +143,24 @@ describe "Slideshow" do
     end
     
     it "should notify progress observers on previous" do
+      @slideshow.next
       @observer.should_receive(:observe)
       
       @slideshow.previous
+    end
+    
+    it "should not notify the observers if the slideshow is at the beginning and previous is pressed" do
+      @observer.should_not_receive(:observe)
+      
+      @slideshow.previous
+    end
+
+    it "should not notify the observers if the slideshow is at the end and next is pressed" do
+      @slideshow.next
+      @slideshow.next
+      @observer.should_not_receive(:observe)
+      
+      @slideshow.next
     end
   end
 end
