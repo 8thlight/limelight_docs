@@ -1,12 +1,12 @@
-require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
-require 'limelight_rdoc/attribute_generator'
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'limelight_rdoc/generators/attribute'
 require 'limelight_rdoc/prop_string'
 
-describe LimelightRDoc::AttributeGenerator do
+describe LimelightRDoc::Generators::Attribute do
   before(:each) do
     @attribute = mock("RDoc::Normal", :name => "name", :rw => "r", :comment => '')
     @props = LimelightRDoc::PropString.new
-    @writer = LimelightRDoc::AttributeGenerator.new(@attribute, @props)
+    @writer = LimelightRDoc::Generators::Attribute.new(@attribute, @props)
   end   
   
   it "should write out each attribute in a header" do

@@ -1,7 +1,7 @@
-require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
-require 'limelight_rdoc/class_file_generator'
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'limelight_rdoc/generators/class_file'
 
-describe LimelightRDoc::ClassFileGenerator do  
+describe LimelightRDoc::Generators::ClassFile do
   
   before(:each) do
     @rdoc_class = mock("RDoc::NormalClass", :name => "MyClassName", :full_name => 'Limelight::MyClassName', 
@@ -9,7 +9,7 @@ describe LimelightRDoc::ClassFileGenerator do
                                             :each_method => nil, :each_attribute => nil, :attributes => [],
                                             :method_list => [], :constants => [])
                                             
-    @writer = LimelightRDoc::ClassFileGenerator.new(@rdoc_class)
+    @writer = LimelightRDoc::Generators::ClassFile.new(@rdoc_class)
   end
   
   
@@ -20,7 +20,7 @@ describe LimelightRDoc::ClassFileGenerator do
   end
   
   it "should not generate the method writer if there are no methods in method_list" do
-    LimelightRDoc::MethodGenerator.should_not_receive(:new)
+    LimelightRDoc::Generators::Method.should_not_receive(:new)
   end
   
   
@@ -39,8 +39,8 @@ describe LimelightRDoc::ClassFileGenerator do
     end
         
     it "should use the method writer to make the method" do
-      method_writer = mock(LimelightRDoc::MethodGenerator)
-      LimelightRDoc::MethodGenerator.should_receive(:new).with(@method, "class_name :text => 'ClassName: Limelight::MyClassName'\npublic_methods_header :text => 'Public Methods'\n").and_return(method_writer)
+      method_writer = mock(LimelightRDoc::Generators::Method)
+      LimelightRDoc::Generators::Method.should_receive(:new).with(@method, "class_name :text => 'ClassName: Limelight::MyClassName'\npublic_methods_header :text => 'Public Methods'\n").and_return(method_writer)
       method_writer.should_receive(:write)
       
       @writer.write
@@ -57,7 +57,7 @@ describe LimelightRDoc::ClassFileGenerator do
     
     it "should not write out the attributes if there are none" do
       @rdoc_class.stub!(:attributes).and_return([])
-      LimelightRDoc::AttributeGenerator.should_not_receive(:new)
+      LimelightRDoc::Generators::Attribute.should_not_receive(:new)
       
       @writer.write
       
@@ -71,8 +71,8 @@ describe LimelightRDoc::ClassFileGenerator do
     end
     
     it "should should write out the Attribute Generator if there are attributes" do
-      attribute_gen = mock(LimelightRDoc::AttributeGenerator)
-      LimelightRDoc::AttributeGenerator.should_receive(:new).with(@attribute, "class_name :text => 'ClassName: Limelight::MyClassName'\nattributes_header :text => 'Attributes'\nattributes do\n").and_return(attribute_gen)
+      attribute_gen = mock(LimelightRDoc::Generators::Attribute)
+      LimelightRDoc::Generators::Attribute.should_receive(:new).with(@attribute, "class_name :text => 'ClassName: Limelight::MyClassName'\nattributes_header :text => 'Attributes'\nattributes do\n").and_return(attribute_gen)
       attribute_gen.should_receive(:write)
       
       @writer.write
@@ -83,7 +83,7 @@ describe LimelightRDoc::ClassFileGenerator do
     before(:each) do
       @rdoc_class.stub!(:constants).and_return([@constant])
       @rdoc_class.stub!(:each_constant).and_yield(nil)
-      LimelightRDoc::ConstantGenerator.stub!(:new).and_return(mock(:null_object => true))
+      LimelightRDoc::Generators::Constant.stub!(:new).and_return(mock(:null_object => true))
     end
     
     it "should write the rdoc_constants_header do/end block if there are constants" do
@@ -112,8 +112,8 @@ rdoc_constant_header :text => 'Constants'
 rdoc_constants do
 END
       
-      constant_generator = mock(LimelightRDoc::ConstantGenerator)
-      LimelightRDoc::ConstantGenerator.should_receive(:new).with(constant, expected_text).and_return(constant_generator)
+      constant_generator = mock(LimelightRDoc::Generators::Constant)
+      LimelightRDoc::Generators::Constant.should_receive(:new).with(constant, expected_text).and_return(constant_generator)
       constant_generator.should_receive(:generate)
       
       @writer.write

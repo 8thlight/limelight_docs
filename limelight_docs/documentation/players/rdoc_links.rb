@@ -42,7 +42,7 @@ module RdocLinks
   
   def write_class_link
     parent_prop.build(:text => @tail, :class_name => @class_name) do
-      class_link :text => @text, :class_name => @class_name
+      class_link :text => @text, :class_name => @class_name, :id => "class_link_#{@class_name}"
     end
   end
   

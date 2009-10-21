@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
+require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require 'limelight_rdoc/limelight_rdoc'
 
 describe LimelightRDoc::LimelightRDoc do

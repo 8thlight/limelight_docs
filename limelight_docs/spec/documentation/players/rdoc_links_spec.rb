@@ -25,7 +25,15 @@ describe "RDoc Links Player" do
     scene.find_by_name("class_link")[0].text.should == "animation"
     scene.find_by_name("class_link")[1].text.should == "classname"
   end
-
+  
+  it "should add id with the class name" do
+    production.rdoc = {"animation" => "Prop DSL"}
+    
+    rdoc_links.casted
+    
+    scene.find_by_name("class_link")[0].id.should == "class_link_animation"
+  end
+  
   it "should sort them alphabetically" do
     production.rdoc =  {"zeeeclassname" => "Prop DSL", "aaaaaclassname" => "Prop DSL"}
 

@@ -65,15 +65,26 @@ describe "TocHeading" do
     describe "clicking rdoc then clicking walkthrough" do
       before(:each) do
         @walkthrough = scene.find("Walkthrough")
-        @walkthrough.mouse_clicked(nil)
       end
 
       it "should unselect the rdoc" do
+        @walkthrough.mouse_clicked(nil)
         @rdoc_link.should have_style_extension("unselected_toc_heading")
       end
 
       it "should unselect the rdoc" do
+        @walkthrough.mouse_clicked(nil)
         @walkthrough.should have_style_extension("selected_toc_heading")
+      end
+      
+      it "should delete the search_results_screen" do
+        scene.build do
+          screen :id => 'search_results_screen'
+        end
+        
+        @walkthrough.mouse_clicked(nil)
+        
+        scene.find('search_results_screen').should be_nil
       end
     end
 

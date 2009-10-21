@@ -7,6 +7,7 @@ module TocHeading
     select_current_heading
     load_new_toc_links
     clear_content_pane
+    clear_search_results
   end
   
   def enable
@@ -64,6 +65,10 @@ module TocHeading
     content_pane = scene.find("content_pane")
     content_pane.remove_all
     handle_redraw_bug_with_full_size_prop_on(content_pane)
+  end
+  
+  def clear_search_results
+    scene.remove(scene.find('search_results_screen')) # I Hate hate hate hate hate hate hate hate hate hate hate hate this being here EMS
   end
     
   def selected_style

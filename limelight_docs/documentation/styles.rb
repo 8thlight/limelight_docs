@@ -530,6 +530,30 @@ progress_bar {
   secondary_background_color light_limegreen
 }
 
+search_area {
+  left_padding "3"
+  top_padding "5"
+  vertical_alignment :center
+}
+
+search_text {
+  width "87%"
+  right_margin '1' 
+}
+
+search_results_screen {
+  width "450"
+  float :on
+  x '15'
+  y "162"
+  padding 1
+  border_width 1
+  rounded_corner_radius 5
+  border_color dark_limegreen
+  background_color light_limegreen
+  transparency "20%"
+}
+
 search_label {
   text_color dark_limegreen
   font_face "Arial Rounded MT Bold"

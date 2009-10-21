@@ -48,8 +48,12 @@ end
 
 task :default => :spec
 
+task :hack_spec do
+  system "spec spec"
+end
+
 desc "Runs gemspec, then build to build the newest gem"
-task :gem => [:gemspec, :build]
+task :gem => [:hack_spec, :gemspec, :build]
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|

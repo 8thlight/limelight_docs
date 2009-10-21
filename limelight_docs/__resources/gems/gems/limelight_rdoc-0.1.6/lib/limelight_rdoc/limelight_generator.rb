@@ -1,5 +1,6 @@
 gem 'rdoc'
-require 'limelight_rdoc/class_file_generator'
+require 'limelight_rdoc/generators/class_file'
+require 'limelight_rdoc/documentation'
 require 'rdoc/rdoc'
 require 'rdoc/top_level'
 
@@ -14,7 +15,7 @@ module RDoc
       end
       
       def initialize
-        @props = {}
+        @props = LimelightRDoc::Documentation.new
       end
     
       def generate(top_levels = nil)
@@ -22,7 +23,7 @@ module RDoc
       end
       
       def write_class_file_for(klass)
-        writer = LimelightRDoc::ClassFileGenerator.new(klass)
+        writer = LimelightRDoc::Generators::ClassFile.new(klass)
         writer.write
         @props[klass.full_name] = writer.props
       end

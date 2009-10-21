@@ -1,8 +1,8 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
-require 'limelight_rdoc/method_source_generator'
+require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
+require 'limelight_rdoc/generators/method_source'
 require "rdoc/parser/ruby"
 
-describe LimelightRDoc::MethodSourceGenerator do
+describe LimelightRDoc::Generators::MethodSource do
   def token(klass, text)
     case klass
     when "TkCOMMENT"
@@ -27,7 +27,7 @@ describe LimelightRDoc::MethodSourceGenerator do
   end
   
   before(:each) do
-    @generator = LimelightRDoc::MethodSourceGenerator.new
+    @generator = LimelightRDoc::Generators::MethodSource.new
   end
   
   it "should return no props for a nil token_stream" do
