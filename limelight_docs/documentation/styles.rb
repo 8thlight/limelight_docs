@@ -576,7 +576,7 @@ rdoc_font {
   text_color default_text_color
 }
 
-class_name {
+rdoc_class_name {
   extends :rdoc_font
   font_size 20
   bottom_padding 10
@@ -586,6 +586,10 @@ class_name {
   background_image "images/rdoc_module_icon.png"
   height "50"
   background_image_fill_strategy "static"
+}
+
+rdoc_module_name {
+  extends :rdoc_class_name
 }
 
 method {

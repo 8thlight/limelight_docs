@@ -22,7 +22,7 @@ module LimelightRDoc
       end
   
       def write_class_info
-        @props.puts "class_name :text => 'ClassName: #{@klass.full_name}'"
+        @props.puts "#{prop_name} :text => '#{prop_text}: #{@klass.full_name}'";
         CommentFormatter.format("class", @klass.comment).each { |line| @props.puts line }
       end
     
@@ -52,6 +52,14 @@ module LimelightRDoc
         @klass.each_method do |method|
           Method.new(method, @props).write
         end
+      end
+      
+      def prop_text
+        @klass.module? ? "Module Name": "Class Name"
+      end
+      
+      def prop_name
+        @klass.module? ? "rdoc_module_name" : "rdoc_class_name"        
       end
     end
   end  
