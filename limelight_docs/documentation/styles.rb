@@ -580,7 +580,12 @@ class_name {
   extends :rdoc_font
   font_size 20
   bottom_padding 10
+  vertical_alignment :center
+  left_padding 40
   width "100%"
+  background_image "images/rdoc_module_icon.png"
+  height "50"
+  background_image_fill_strategy "static"
 }
 
 method {
@@ -595,7 +600,12 @@ method {
 
 method_header {
   width "100%"
-  bottom_padding 8
+  height 33
+  background_image "images/rdoc_method_icon.png"
+  background_image_fill_strategy "static"
+  vertical_alignment :center
+  left_padding 28
+  bottom_margin 8
 }
 
 method_name {
@@ -627,6 +637,7 @@ class_description {
 
 method_description {
   extends :class_description
+  
   left_margin 5
 }
 
