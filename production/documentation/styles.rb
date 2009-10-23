@@ -475,11 +475,22 @@ class_section {
   extends :section_links
 }
 
-class_link {
+class_link {  
   extends :toc_tutorial_link
   hover {
-    text_color "#000"
+    gradient :on
+    background_color darker_limegreen
+    secondary_background_color light_limegreen
   }
+}
+
+search_result_link {
+  font_face "Arial Rounded MT Bold"
+  text_color default_text_color
+  font_size 12
+  left_margin 3
+  top_padding 2
+  bottom_padding 2
 }
 
 selected_toc_item {
@@ -576,20 +587,25 @@ rdoc_font {
   text_color default_text_color
 }
 
-rdoc_class_name {
+rdoc_class_and_module_name {
   extends :rdoc_font
   font_size 20
-  bottom_padding 10
+  bottom_margin 20
   vertical_alignment :center
-  left_padding 40
+  left_padding 35
   width "100%"
-  background_image "images/rdoc_module_icon.png"
   height "50"
   background_image_fill_strategy "static"
 }
 
+rdoc_class_name {
+  extends :rdoc_class_and_module_name
+  background_image "images/rdoc_class_icon.png"
+}
+
 rdoc_module_name {
-  extends :rdoc_class_name
+  extends :rdoc_class_and_module_name
+  background_image "images/rdoc_module_icon.png"
 }
 
 method {
@@ -600,6 +616,11 @@ method {
   border_color dark_limegreen
   background_color light_limegreen
   rounded_corner_radius 5
+}
+
+rdoc_header {
+  width "100%"
+  bottom_padding 8
 }
 
 method_header {
@@ -654,7 +675,7 @@ attributes {
 }
 
 attribute_header {
-  extends :method_header
+  extends :rdoc_header
 }
 
 attribute_name {
@@ -717,4 +738,25 @@ method_source_codeblock {
   border_width 1
   rounded_corner_radius 5
   background_color :white
+}
+
+class_result {
+  hover {
+    gradient :on
+    background_color darker_limegreen
+    secondary_background_color light_limegreen
+  }
+}
+
+method_result {
+  hover {
+    gradient :on
+    background_color darker_limegreen
+    secondary_background_color light_limegreen
+  }
+}
+selected_result {
+  gradient :on
+  background_color darker_limegreen
+  secondary_background_color light_limegreen
 }

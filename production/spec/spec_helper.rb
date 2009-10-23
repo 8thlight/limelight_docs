@@ -13,8 +13,5 @@ Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
   $: << dir
 end
 
-require File.expand_path(File.dirname(__FILE__) + "/custom_matchers/have_style_extension")
+Dir[File.expand_path(File.dirname(__FILE__) + "/support/*.rb")].each {|f| require f}
 
-Spec::Runner.configure do |config|
-  config.include(HaveStyleExtensionMatcher)
-end

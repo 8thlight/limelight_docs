@@ -1,11 +1,11 @@
-$: << File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs/lib")
-$: << File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs")
+$: << File.expand_path(File.dirname(__FILE__) + "/../../production/lib")
+$: << File.expand_path(File.dirname(__FILE__) + "/../../production")
 
 require File.expand_path(File.dirname(__FILE__) + "/../support/env")
 require 'limelight/specs/spec_helper'
 require 'rubygems'
 
-$PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../../limelight_docs")
+$PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../../production")
 Gem.use_paths(File.join($PRODUCTION_PATH , "__resources", "gems"), Gem.default_path)
 
 Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
