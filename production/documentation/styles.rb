@@ -627,11 +627,11 @@ rdoc_header {
 
 method_header {
   width "100%"
-  height 33
+  height 27
   background_image "images/rdoc_method_icon.png"
   background_image_fill_strategy "static"
   vertical_alignment :center
-  left_padding 28
+  left_padding 22
   bottom_margin 8
 }
 
@@ -678,6 +678,11 @@ attributes {
 
 attribute_header {
   extends :rdoc_header
+  height 27
+  background_image "images/rdoc_attribute_icon.png"
+  background_image_fill_strategy "static"
+  vertical_alignment :center
+  left_padding 22
 }
 
 attribute_name {
