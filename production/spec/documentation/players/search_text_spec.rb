@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require "documentation/players/search_text"
 
-SearchResults = Struct.new(:classes, :found_methods)
+SearchResults = Struct.new(:classes, :found_methods, :comments)
 ClassResult = Struct.new(:full_name)
 
 describe "Search Text" do
@@ -43,7 +43,7 @@ describe "Search Text" do
   describe "Searching" do
     
     before(:each) do
-      @rmock = mock("RDoc", :search => SearchResults.new([], []))
+      @rmock = mock("RDoc", :search => SearchResults.new([], [], []))
       production.rdoc = @rmock
       search_text.text = "ninja"
     end
@@ -61,23 +61,23 @@ describe "Search Text" do
     end
     
     it "should install a class for each returned class" do
-      @rmock.stub!(:search).and_return(SearchResults.new([ClassResult.new("classname_1"), ClassResult.new("class_name2")], []))
+      @rmock.stub!(:search).and_return(SearchResults.new([ClassResult.new("classname_1"), ClassResult.new("class_name2")], [], []))
       
       search_text.key_released(event)
       
-      scene.find_by_name("class_result").size.should == 2
+      scene.find_by_name("search_result").size.should == 2
     end
     
     it "should rebuild the class results when new keys are pressed" do
-      first_result = SearchResults.new([ClassResult.new("classname_1"), ClassResult.new("class_name2")], [])
-      second_result = SearchResults.new([ClassResult.new("classname_1"), ClassResult.new("class_name2"), ClassResult.new("class_name3")], [])
+      first_result = SearchResults.new([ClassResult.new("classname_1"), ClassResult.new("class_name2")], [], [])
+      second_result = SearchResults.new([ClassResult.new("classname_1"), ClassResult.new("class_name2"), ClassResult.new("class_name3")], [], [])
       @rmock.stub!(:search).and_return(first_result, second_result)
       
       search_text.key_released(event)
       search_text.text = "class_name"
       search_text.key_released(event)
       
-      scene.find_by_name("class_result").size.should == 3
+      scene.find_by_name("search_result").size.should == 3
     end
     
     describe "Modifying Search Criteria" do

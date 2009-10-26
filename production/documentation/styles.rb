@@ -563,6 +563,8 @@ search_results_screen {
   border_color dark_limegreen
   background_color light_limegreen
   transparency "20%"
+  max_height 300
+  vertical_scrollbar :on
 }
 
 search_label {
@@ -740,7 +742,11 @@ method_source_codeblock {
   background_color :white
 }
 
-class_result {
+search_result {
+  height 18
+  width "100%"
+  vertical_alignment :center
+  left_padding 7
   hover {
     gradient :on
     background_color darker_limegreen
@@ -748,13 +754,6 @@ class_result {
   }
 }
 
-method_result {
-  hover {
-    gradient :on
-    background_color darker_limegreen
-    secondary_background_color light_limegreen
-  }
-}
 selected_result {
   gradient :on
   background_color darker_limegreen
