@@ -12,7 +12,7 @@ end
 end
 @match.comments.each do |comment|
   search_result do
-    icon :players => "image", :image => "images/rdoc_method_result_icon.png", :height => 15
-    search_result_link :text => "#{comment.text[0,20]}... in #{comment.class_name}", :class_name => comment.class_name, :players => "search_result"
+    icon :players => "image", :image => "images/rdoc_comment_result_icon.png", :height => 15
+    search_result_link :text => "#{comment.text[1,20]}... in #{comment.class_name}", :class_name => comment.class_name, :players => "search_result"
   end
 end

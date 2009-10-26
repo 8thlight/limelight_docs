@@ -707,7 +707,12 @@ rdoc_constants {
 }
 
 rdoc_constant {
-  extends :attribute_header
+  extends :rdoc_header
+  height 27
+  background_image "images/rdoc_constant_icon.png"
+  background_image_fill_strategy "static"
+  vertical_alignment :center
+  left_padding 22
 }
 
 rdoc_constant_name {
