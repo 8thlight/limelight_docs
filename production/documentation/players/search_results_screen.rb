@@ -1,8 +1,5 @@
 module SearchResultsScreen
-  # def mouse_moved(event)
-  #   select_child(-1)
-  #   @select_child = -1
-  # end
+  attr_reader :selected
   
   def next
     with_children do
@@ -24,13 +21,8 @@ module SearchResultsScreen
     children[@selected].mouse_clicked(nil) if @selected
   end
   
-private
-  
-  def with_children
-    yield unless children.empty?
-  end
-  
   def select_child(selected)
+    @selected = selected
     children.each_with_index do |child, index|
       if index == selected
         select(child)
@@ -38,6 +30,12 @@ private
         deselect(child)
       end
     end
+  end
+
+private
+  
+  def with_children
+    yield unless children.empty?
   end
 
   def select(child)

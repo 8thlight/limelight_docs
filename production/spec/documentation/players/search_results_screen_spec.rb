@@ -92,6 +92,16 @@ describe SearchResultsScreen do
       results[2].should_not be_selected
     end
   end
+  
+  context "selecting a specific child" do
+    it "should set the selected attribute" do
+      search_results_screen.select_child(1)
+      results[0].should_not be_selected
+      results[1].should be_selected
+      results[2].should_not be_selected
+      search_results_screen.selected.should == 1
+    end
+  end
 end
 
 describe SearchResultsScreen, "with no children" do

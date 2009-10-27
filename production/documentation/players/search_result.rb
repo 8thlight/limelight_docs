@@ -6,7 +6,9 @@ module SearchResult
     scene.remove(scene.find('search_results_screen'))
   end
   
-  # def mouse_entered(e)
-  #   puts "index: #{self.parent.children.rindex(self)}"
-  # end
+  def mouse_entered(e)
+    #test me
+    index = self.parent.children.rindex(self)
+    self.parent.select_child(index)
+  end
 end
