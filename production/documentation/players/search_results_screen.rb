@@ -1,9 +1,14 @@
 module SearchResultsScreen
+  # def mouse_moved(event)
+  #   select_child(-1)
+  #   @select_child = -1
+  # end
+  
   def next
     with_children do
       @selected ||= -1
       (@selected = (@selected + 1) % children.size)
-      select_child(@selected);
+      select_child(@selected)
     end
   end
   
@@ -16,7 +21,7 @@ module SearchResultsScreen
   end
 
   def show_current
-    children[@selected].children[1].mouse_clicked(nil) if @selected
+    children[@selected].mouse_clicked(nil) if @selected
   end
   
 private

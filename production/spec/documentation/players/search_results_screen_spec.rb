@@ -10,12 +10,12 @@ end
 describe SearchResultsScreen do
   uses_limelight :scene_path => "documentation" do
     search_results_screen :id => "search_results_screen" do
-      class_result :id => "found_class_1" do
+      search_result :id => "found_class_1" do
         icon :text => "Some Image"
-        class_link :id => "search_result_1", :players => "search_result"
+        class_link :id => "search_result_1"
       end
-      class_result :id => "found_class_2"
-      class_result :id => "found_class_3"
+      search_result :id => "found_class_2"
+      search_result :id => "found_class_3"
     end
   end
   
@@ -68,7 +68,7 @@ describe SearchResultsScreen do
     end
     
     it "should show the selected child" do
-      scene.find("search_result_1").should_receive(:mouse_clicked).with(nil)
+      scene.find("found_class_1").should_receive(:mouse_clicked).with(nil)
       search_results_screen.show_current
     end
   end
