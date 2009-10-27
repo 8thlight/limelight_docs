@@ -16,14 +16,14 @@ describe LimelightRDoc::Generators::ClassFile do
   it "should return the props written" do
     @writer.write
       
-    @writer.props.should == "rdoc_class_name :text => 'Class Name: Limelight::MyClassName'\nclass_description :text => 'The stupid class for Eric the younger'\n"
+    @writer.props.should == "rdoc_class_name :text => 'Limelight::MyClassName'\nclass_description :text => 'The stupid class for Eric the younger'\n"
   end
   
   it "should write a module" do
     @rdoc_class.stub!(:module?).and_return(true)
     @writer.write
       
-    @writer.props.should == "rdoc_module_name :text => 'Module Name: Limelight::MyClassName'\nclass_description :text => 'The stupid class for Eric the younger'\n"
+    @writer.props.should == "rdoc_module_name :text => 'Limelight::MyClassName'\nclass_description :text => 'The stupid class for Eric the younger'\n"
   end
 
   it "should not generate the method writer if there are no methods in method_list" do
@@ -47,7 +47,7 @@ describe LimelightRDoc::Generators::ClassFile do
         
     it "should use the method writer to make the method" do
       method_writer = mock(LimelightRDoc::Generators::Method)
-      LimelightRDoc::Generators::Method.should_receive(:new).with(@method, "rdoc_class_name :text => 'Class Name: Limelight::MyClassName'\npublic_methods_header :text => 'Public Methods'\n").and_return(method_writer)
+      LimelightRDoc::Generators::Method.should_receive(:new).with(@method, "rdoc_class_name :text => 'Limelight::MyClassName'\npublic_methods_header :text => 'Public Methods'\n").and_return(method_writer)
       method_writer.should_receive(:write)
       
       @writer.write
@@ -79,7 +79,7 @@ describe LimelightRDoc::Generators::ClassFile do
     
     it "should should write out the Attribute Generator if there are attributes" do
       attribute_gen = mock(LimelightRDoc::Generators::Attribute)
-      LimelightRDoc::Generators::Attribute.should_receive(:new).with(@attribute, "rdoc_class_name :text => 'Class Name: Limelight::MyClassName'\nattributes_header :text => 'Attributes'\nattributes do\n").and_return(attribute_gen)
+      LimelightRDoc::Generators::Attribute.should_receive(:new).with(@attribute, "rdoc_class_name :text => 'Limelight::MyClassName'\nattributes_header :text => 'Attributes'\nattributes do\n").and_return(attribute_gen)
       attribute_gen.should_receive(:write)
       
       @writer.write
@@ -113,7 +113,7 @@ describe LimelightRDoc::Generators::ClassFile do
       @rdoc_class.stub!(:each_constant).and_yield(constant)
       
 expected_text =<<END
-rdoc_class_name :text => 'Class Name: Limelight::MyClassName'
+rdoc_class_name :text => 'Limelight::MyClassName'
 class_description :text => 'The stupid class for Eric the younger'
 rdoc_constant_header :text => 'Constants'
 rdoc_constants do

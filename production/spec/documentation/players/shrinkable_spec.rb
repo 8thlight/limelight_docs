@@ -3,6 +3,10 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 describe "Shrinkable" do
   uses_limelight :scene_path => "documentation" do
     shrinkable :id => "shrinkable", :height => 'auto'
+    shrinkable :id => "shrinkable_parent" do
+      shrinkable :id => "shrinkable_child"
+      prop :id => "shrinkable_child_two", :players => "shrinkable"
+    end
   end
 
   def shrinkable
@@ -33,5 +37,17 @@ describe "Shrinkable" do
 
   it "should start things shrunk" do
     shrinkable.should be_shrunk
+  end
+  
+  it "should grow a parent if it is named shrinkable" do
+    scene.find("shrinkable_parent").should_receive(:grow)
+    
+    scene.find("shrinkable_child").grow
+  end
+  
+  it "should grow the parent if it has the shrinkable player" do
+    scene.find("shrinkable_parent").should_receive(:grow)
+    
+    scene.find("shrinkable_child_two").grow
   end
 end
