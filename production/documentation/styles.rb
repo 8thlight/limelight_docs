@@ -553,7 +553,7 @@ search_text {
 }
 
 search_results_screen {
-  width "450"
+  width "550"
   float :on
   x '15'
   y "162"
