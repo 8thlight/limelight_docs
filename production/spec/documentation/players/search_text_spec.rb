@@ -140,6 +140,14 @@ describe "Search Text" do
           search_text.key_pressed(event(:get_key_code => SearchText::KEY[:enter]))
         end
       end
+      
+      describe "navigating empty search results" do
+        it "should search when down is pressed" do
+          search_text.key_pressed(event(:get_key_code => SearchText::KEY[:down]))
+          
+          scene.find("search_results_screen").should_not be_nil
+        end
+      end
     end
   end
 end

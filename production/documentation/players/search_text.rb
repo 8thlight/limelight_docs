@@ -14,7 +14,12 @@ module SearchText
     when KEY[:esc]
       self.text = ""
     when KEY[:down]
-      search_results_screen.next if search_results_screen
+      if search_results_screen
+        search_results_screen.next
+      else
+        @last_search_criteria = ""
+        key_released(nil)
+      end
     when KEY[:up]
       search_results_screen.previous if search_results_screen
     when KEY[:enter]
