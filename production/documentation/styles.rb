@@ -764,6 +764,9 @@ search_result {
   # }
 }
 
+search_result_message {
+  extends :class_link
+}
 selected_result {
   gradient :on
   background_color darker_limegreen
