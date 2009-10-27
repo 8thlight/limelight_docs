@@ -21,13 +21,17 @@ describe SearchResultsScreen do
   
   let(:search_results_screen) {scene.find("search_results_screen")}
   let(:results) {search_results_screen.children}
+  let(:vertical_scroll_bar) {mock("vertical_scroll_bar", :value= => nil)}
+  before(:each) do
+    search_results_screen.panel.stub!(:vertical_scroll_bar).and_return(vertical_scroll_bar)
+  end
   
   it "should have nothing selected by default" do
     search_results_screen.children.each do |child|
       child.should_not be_selected
     end
   end
-    
+
   context "with nothing selected" do
     it "should select the first element on next()" do
       search_results_screen.next
