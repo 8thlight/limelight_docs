@@ -64,7 +64,10 @@ module TocHeading
   def clear_content_pane
     content_pane = scene.find("content_pane")
     content_pane.remove_all
-    handle_redraw_bug_with_full_size_prop_on(content_pane)
+    content_pane.build(:id => self.id) do
+      __install "documentation/#{@id}_content_pane.rb"
+    end
+    # handle_redraw_bug_with_full_size_prop_on(content_pane)
   end
   
   def clear_search_results

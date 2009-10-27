@@ -30,9 +30,16 @@ module SearchResultsScreen
         deselect(child)
       end
     end
+    adjust_scroll_bar if selected_offscreen?
   end
 
 private
+  
+  def adjust_scroll_bar
+  end
+  
+  def selected_offscreen?
+  end
   
   def with_children
     yield unless children.empty?

@@ -118,15 +118,19 @@ describe "TocHeading" do
 
       it "should clear the content pane when a new tab is selected" do
         Entrance.cue_tutorial scene, :animations
+        content_pane.should_receive(:remove_all)
+        content_pane.should_receive(:build).with(:id => "Walkthrough")
 
         click_walkthrough_tab
-
-        content_pane_should_be_childless
       end
 
+      def content_pane
+        scene.find('content_pane')
+      end
+      
       def content_pane_should_be_childless
         #EWM - empty_prop is not a real prop.  It is only used to handle the redraw bug
-        scene.find('content_pane').children.should == [scene.find_by_name("empty_prop")[0]]
+        content_pane.children.should == [scene.find_by_name("empty_prop")[0]]
       end
 
       def click_walkthrough_tab
