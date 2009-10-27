@@ -757,11 +757,11 @@ search_result {
   width "100%"
   vertical_alignment :center
   left_padding 7
-  hover {
-    gradient :on
-    background_color darker_limegreen
-    secondary_background_color light_limegreen
-  }
+  # hover {
+  #   gradient :on
+  #   background_color darker_limegreen
+  #   secondary_background_color light_limegreen
+  # }
 }
 
 selected_result {
