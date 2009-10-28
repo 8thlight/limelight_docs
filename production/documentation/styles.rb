@@ -475,12 +475,19 @@ class_section {
   extends :section_links
 }
 
+selected_class_link {
+  gradient :on
+  background_color light_limegreen
+  secondary_background_color darker_limegreen
+  top_left_rounded_corner_radius 5
+  bottom_left_rounded_corner_radius 5
+  gradient_angle 270
+}
+
 class_link {  
   extends :toc_tutorial_link
   hover {
-    gradient :on
-    background_color darker_limegreen
-    secondary_background_color light_limegreen
+    extends :selected_class_link
   }
 }
 
@@ -494,12 +501,7 @@ search_result_link {
 }
 
 selected_toc_item {
-  top_left_rounded_corner_radius 5
-  bottom_left_rounded_corner_radius 5
-  background_color light_limegreen
-  secondary_background_color darker_limegreen
-  gradient_angle 270
-  gradient :on
+  extends :selected_class_link
 }
 
 heading {
