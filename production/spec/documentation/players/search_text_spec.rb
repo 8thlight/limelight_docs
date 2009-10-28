@@ -91,12 +91,12 @@ describe "Search Text" do
       end
       
       describe "escape is pressed" do
-        it "should clear the text" do
+        it "should not clear the text" do
           search_text.text = "Not empty"
           event.should_receive(:get_key_code).and_return(SearchText::KEY[:esc])
           search_text.key_pressed(event)
           
-          search_text.text.should == ""
+          search_text.text.should == "Not empty"
         end
       end
       

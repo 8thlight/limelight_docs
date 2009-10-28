@@ -12,13 +12,12 @@ module SearchText
   def key_pressed(event)
     case event.get_key_code
     when KEY[:esc]
-      self.text = ""
+      clear_results_screen
     when KEY[:down]
       if search_results_screen
         search_results_screen.next
       else
-        @last_search_criteria = ""
-        key_released(nil)
+        build_search_results
       end
     when KEY[:up]
       search_results_screen.previous if search_results_screen
