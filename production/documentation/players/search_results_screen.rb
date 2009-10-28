@@ -36,15 +36,19 @@ module SearchResultsScreen
 private
   
   def adjust_scroll_bar
-    if selected_child_offscreen?
+    if selected_child_below?      
       self.panel.vertical_scroll_bar.value = (@selected + 2) * 18 - 300
-    else
-      self.panel.vertical_scroll_bar.value = 0
+    elsif selected_child_above?
+      self.panel.vertical_scroll_bar.value = (@selected - 1) * 18
     end
   end
   
-  def selected_child_offscreen?
-    (@selected + 2) * 18 > 300
+  def selected_child_below?
+    (@selected + 2) * 18 > (300 + self.panel.vertical_scroll_bar.value)
+  end
+
+  def selected_child_above?
+    (@selected - 1) * 18 < self.panel.vertical_scroll_bar.value
   end
   
   def with_children

@@ -15,7 +15,7 @@ describe SearchResultsScreen do
   
   let(:search_results_screen) {scene.find("search_results_screen")}
   let(:results) {search_results_screen.children}
-  let(:vertical_scroll_bar) {mock("vertical_scroll_bar", :value= => nil)}
+  let(:vertical_scroll_bar) {mock("vertical_scroll_bar", :value= => nil, :value => 0)}
   before(:each) do
     search_results_screen.panel.stub!(:vertical_scroll_bar).and_return(vertical_scroll_bar)
   end
