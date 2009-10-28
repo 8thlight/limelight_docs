@@ -13,14 +13,14 @@ module LimelightRDoc
     end
     
     def found_classes
-      return documented_classes.select { |klass| klass.full_name.downcase.match(@criteria.downcase) }
+      return documented_classes.select { |klass| check_for_match(klass.full_name) }
     end
     
     def found_methods
       list = []
       documented_classes.each do |klass|
         klass.method_list.each do |method|
-          list << FoundMethod.new(method.name, klass.full_name) if method.name.downcase.match(@criteria.downcase)
+          list << FoundMethod.new(method.name, klass.full_name) if check_for_match(method.name)
         end
       end
       return list
@@ -29,7 +29,7 @@ module LimelightRDoc
     def found_comments
       comments = []
       documented_classes.each do |klass|
-        comments << Comment.new(klass.comment, klass.full_name) if klass.comment.downcase.match(@criteria.downcase)
+        comments << Comment.new(klass.comment, klass.full_name) if check_for_match(klass.comment)
       end
       comments
     end
@@ -39,5 +39,14 @@ module LimelightRDoc
       RDoc::TopLevel.all_classes_and_modules.select{|klass| klass.document_self }
     end
     
+    private ##########################################
+    
+    def check_for_match(test_string)
+      begin
+        return test_string.downcase.match(@criteria.downcase)
+      rescue RegexpError
+        return false
+      end
+    end
   end
 end

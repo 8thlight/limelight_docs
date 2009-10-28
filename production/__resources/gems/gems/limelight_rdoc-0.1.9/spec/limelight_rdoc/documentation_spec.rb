@@ -9,6 +9,13 @@ describe LimelightRDoc::Documentation do
     @documentation = LimelightRDoc::Documentation.new
   end
   
+  it "should handle regexp errors" do
+    match = @documentation.search('\\')
+    match.classes.should == []
+    match.found_methods.should == []
+    match.comments.should == []
+  end
+  
   describe "classes" do
     it "should return no classes on an empty search" do
       @documentation.search("").classes.should == []

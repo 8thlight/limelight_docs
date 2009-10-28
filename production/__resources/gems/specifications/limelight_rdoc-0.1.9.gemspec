@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{limelight_rdoc}
-  s.version = "0.1.8"
+  s.version = "0.1.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Eric Smith"]
-  s.date = %q{2009-10-27}
+  s.date = %q{2009-10-28}
   s.default_executable = %q{ll_rdoc}
   s.description = %q{longer description}
   s.email = %q{eric@8thlight.com}
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/paytonrules/limelight_rdoc}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.3}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Generates rdoc in limelight format}
   s.test_files = ["spec/limelight_rdoc/comment_formatter_spec.rb", "spec/limelight_rdoc/documentation_spec.rb", "spec/limelight_rdoc/generators/attribute_spec.rb", "spec/limelight_rdoc/generators/class_file_spec.rb", "spec/limelight_rdoc/generators/constant_spec.rb", "spec/limelight_rdoc/generators/method_source_spec.rb", "spec/limelight_rdoc/generators/method_spec.rb", "spec/limelight_rdoc/limelight_generator_spec.rb", "spec/limelight_rdoc/limelight_rdoc_spec.rb", "spec/spec_helper.rb"]
 
