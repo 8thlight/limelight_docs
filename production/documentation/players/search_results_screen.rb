@@ -56,6 +56,6 @@ private
   end
   
   def deselect(child)
-    child.style.remove_extension(scene.styles['selected_result'])
+    child.style.remove_extension(scene.styles['selected_result']) if child.selected?
   end
 end

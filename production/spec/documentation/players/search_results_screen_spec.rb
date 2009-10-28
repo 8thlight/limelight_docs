@@ -1,12 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 require "documentation/players/search_results_screen"
 
-Spec::Matchers.define :be_selected do
-  match do |klass|
-    have_style_extension("selected_result").matches?(klass)
-  end
-end
-
 describe SearchResultsScreen do
   uses_limelight :scene_path => "documentation" do
     search_results_screen :id => "search_results_screen" do
@@ -49,6 +43,12 @@ describe SearchResultsScreen do
     
     it "should not show anything" do
       expect{search_results_screen.show_current}.to_not raise_error
+    end
+    
+    it "should not remove the style from a child that doesn't have it" do
+      scene.find("found_class_2").style.should_not_receive(:remove_extension)
+      
+      search_results_screen.next
     end
   end
   

@@ -28,4 +28,15 @@ describe SearchResult do
     
     search_result.mouse_clicked(nil)
   end
+  
+  describe "selected?" do
+    it "should not be selected" do
+      search_result.should_not be_selected
+    end
+    
+    it "should be selected if it has the appropriate style" do
+      search_result.style.add_extension(scene.styles['selected_result'])
+      search_result.should be_selected
+    end
+  end
 end

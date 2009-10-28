@@ -559,9 +559,7 @@ search_results_screen {
   float :on
   x '15'
   y "162"
-  padding 1
   border_width 1
-  rounded_corner_radius 5
   border_color dark_limegreen
   background_color light_limegreen
   transparency "20%"

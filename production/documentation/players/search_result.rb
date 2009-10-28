@@ -11,4 +11,8 @@ module SearchResult
     index = self.parent.children.rindex(self)
     self.parent.select_child(index)
   end
+  
+  def selected?
+    self.style.has_extension(scene.styles['selected_result'])
+  end
 end
