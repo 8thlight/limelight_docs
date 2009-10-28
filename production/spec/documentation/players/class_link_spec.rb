@@ -5,7 +5,7 @@ describe "ClassLink" do
   uses_limelight :with_player => "class_link", :scene_path => "documentation", :scene_name => "documentation" 
 
   before(:each) do
-    @parent = mock("prop", :grow => nil)
+    @parent = mock("prop", :grow => nil, :players => "shrinkable", :name => nil)
     class_link.stub!(:parent).and_return(@parent)
     stub_select_link
     stub_cueing_rdoc
@@ -30,6 +30,28 @@ describe "ClassLink" do
   it "should grow the parent" do
     @parent.should_receive(:grow)
 
+    class_link.mouse_clicked(nil)
+  end
+  
+  it "should not grow the parent if the parent's players are nil" do
+    @parent.stub!(:players).and_return(nil)
+    @parent.should_not_receive(:grow)
+    
+    class_link.mouse_clicked(nil)
+  end
+  
+  it "should not grow the parent if the parent's players are not shrinkable" do
+    @parent.stub!(:players).and_return("player")
+    @parent.should_not_receive(:grow)
+    
+    class_link.mouse_clicked(nil)
+  end
+  
+  it "should grow the parent if the parent's players are not shrinkable but its name is" do
+    @parent.stub!(:players).and_return(nil)
+    @parent.stub!(:name).and_return("shrinkable")
+    @parent.should_receive(:grow)
+    
     class_link.mouse_clicked(nil)
   end
   
