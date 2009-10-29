@@ -22,7 +22,6 @@ module Shrinkable
   private ####################
   
   def shrinkable_parent?
-    # EWM - Can't figure out a test to expose the first half of this statement.
     self.parent.players && self.parent.players.match(/shrinkable/) || self.parent.name == "shrinkable"
   end
 end
