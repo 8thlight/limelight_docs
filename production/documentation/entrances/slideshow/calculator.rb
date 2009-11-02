@@ -222,7 +222,7 @@ slide do
 end
 
 slide do
-  heading :text => "6.a Equals Key cont"
+  heading :text => "6.b Equals Key cont"
   line_break
   directions :text => "We can also add some error handling in to the CalculatorEquals Player.  In the case of a bad expression, we just clear the display."
   line_break
@@ -284,10 +284,17 @@ slide do
 end
 
 slide do
-  #all finished! - show working production inside of our production.
-  simple_style :text => "test"
+  heading :text => "Finished!"
+  line_break
+  directions :text => "This completes the calculator production.  Feel free to play around with it below.  If you have completed your calculator correctly, it should behave like the one here."
+  line_break
+  calculator_production do
+    __install "documentation/calculator_props.rb"
+  end
 end
 
 slide do
-  #play around more - make it work more like a "real" calculator.  add more features, like a square root, parentheses, etc
+  heading :text => "What Next?"
+  line_break
+  directions :text => "If you'd like, you can try adding more operations to the calculator, such as a square root, factorial or parentheses.  You can also try to change the calculator to behave more like an actual calculator."
 end
