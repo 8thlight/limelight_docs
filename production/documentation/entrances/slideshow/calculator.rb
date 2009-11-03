@@ -36,17 +36,17 @@ slide do
     code :text => "calculator_button :text => '-'"
     code :text => "calculator_button :text => '*'"
     code :text => "calculator_button :text => '/'"
+    code :text => "calculator_button :text => '='"
   end
   line_break
   directions :text => "This will give us this:"
   screenshot_div do
-    screenshot :image => "images/calculator/001_add_numbers.png", :players => "image"
+    screenshot :image => "images/calculator/001_add_numbers.tiff", :players => "image"
   end
   
 end
 
 slide do
-  #styling the number keys
   heading :text => "3.a Styling the Keys"
   line_break
   directions :text => "Now that we have the keys displayed on the screen we need to do some work to make them look better."
@@ -85,6 +85,8 @@ slide do
   line_break
   directions :text => "The next step is to define the styles for our buttons.  These all go in the default_scene styles.rb file.  As you can see, even though the number keys and the function keys are appear differently, they do share some common styling.  Feel free to play around with these styles."
   line_break
+  directions :text => "You may also want to change your stage size to 530 x 620.  To do this, open the stages.rb file and change \"size [800, 800]\" to \"size [530, 620]\""
+  line_break
   codeblock do
     code :text => "default_scene {"
     code :text => "  gradient :on"
@@ -92,7 +94,7 @@ slide do
     code :text => "  secondary_background_color '#777'"
     code :text => "  vertical_alignment :center"
     code :text => "  width '100%'"
-    code :text => "  height '100%''"
+    code :text => "  height '100%'"
     code :text => "}"
     code :text => ""
     code :text => "row {"
@@ -179,7 +181,6 @@ slide do
 end
 
 slide do
-  #look at new awesomeness
   heading :text => "4.b Adding a Display cont"
   line_break
   directions :text => "Here's what our added display looks like.  Our calculator is starting to take shape."
@@ -189,12 +190,11 @@ slide do
 end
 
 slide do
-  #adding behavior for the non-equal keys
   heading :text => "5. Handling Key Presses"
   line_break
   directions :text => "Now that we have all the buttons on the screen we need to enable them to update the display.  This will define the behavior for all the keys except the equals key."
   line_break
-  directions :text => "First create a player in the default_scene named calculator_button.rb.  Next, add the following code to the player"
+  directions :text => "First create a player in the default_scene/players directory named calculator_button.rb.  Next, add the following code to the player"
   codeblock do
     code :text => 'module CalculatorButton'
     code :text => '  def mouse_clicked(event)'
@@ -209,7 +209,7 @@ slide do
   line_break
   directions :text => "Next we have to define the behavior for the equals key.  We want to evaluate the given expression and update the display with the result."
   line_break
-  directions :text => "First create another player in the default_scene and name this one calculator_equals.  Give it the following code."
+  directions :text => "First create another player in the default_scene/players directory and name this one calculator_equals.  Give it the following code."
   line_break
   codeblock do
     code :text => 'module CalculatorEquals'
@@ -272,7 +272,7 @@ end
 slide do
   heading :text => "7.b Clear Key cont"
   line_break
-  directions :text => "Now to define the behavior for the clear key.  Create a third player named calculator_clear.rb and give it the following behavior.  It simply finds the display prop and sets the text to empty string."
+  directions :text => "Now to define the behavior for the clear key.  Create a third player in the default_scene/players directory named calculator_clear.rb and give it the following behavior.  It simply finds the display prop and sets the text to empty string."
   line_break
   codeblock do
     code :text => 'module CalculatorClear'
