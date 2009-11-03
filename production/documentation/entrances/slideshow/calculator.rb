@@ -289,7 +289,7 @@ end
 slide do
   heading :text => "6.b Equals Key cont"
   line_break
-  directions :text => "We can also add some error handling in to the CalculatorEquals Player.  In the case of a bad expression, we just clear the display."
+  directions :text => "We can also add some error handling to the CalculatorEquals Player.  In the case of a bad expression, we just clear the display."
   line_break
   codeblock do
     code :text => 'module CalculatorEquals'

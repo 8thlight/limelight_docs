@@ -3,7 +3,11 @@ if @match.classes.empty? && @match.found_methods.empty? && @match.comments.empty
 else  
   @match.classes.each do |klass|
     search_result :class_name => klass.full_name do
-      icon :players => "image", :image => "images/rdoc_class_result_icon.png"
+      if klass.module?
+        icon :players => "image", :image => "images/rdoc_module_result_icon.png"
+      else
+        icon :players => "image", :image => "images/rdoc_class_result_icon.png"
+      end
       search_result_link :text => klass.full_name
     end
   end
