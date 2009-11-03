@@ -4,6 +4,7 @@ module SearchResultsScreen
   def next
     with_children do
       @selected ||= -1
+      deselect(children[@selected]) if children[@selected]
       (@selected = (@selected + 1) % children.size)
       select_child(@selected)
     end
@@ -12,6 +13,7 @@ module SearchResultsScreen
   def previous
     with_children do
       @selected ||= children.size
+      deselect(children[@selected]) if children[@selected]
       @selected = (@selected - 1) % children.size
       select_child(@selected)
     end
@@ -22,14 +24,9 @@ module SearchResultsScreen
   end
   
   def select_child(selected)
+    deselect(children[@selected]) if @selected && children[@selected]
     @selected = selected
-    children.each_with_index do |child, index|
-      if index == selected
-        select(child)
-      else
-        deselect(child)
-      end
-    end
+    select(children[@selected])
     adjust_scroll_bar
   end
 
