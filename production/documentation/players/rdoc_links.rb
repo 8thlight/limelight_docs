@@ -12,15 +12,7 @@ module RdocLinks
   protected ###############################################
   
   def sorted_rdoc_classes
-    return scene.rdoc.keys.sort do |a, b|
-      if a.match(/::/) and b.match(/::/).nil?
-        -1
-      elsif b.match(/::/) and a.match(/::/).nil?
-        1
-      else
-        a <=> b
-      end
-    end
+    return scene.rdoc.keys.sort { |a, b| a.downcase <=> b.downcase }
   end
   
   def build_class_link 
