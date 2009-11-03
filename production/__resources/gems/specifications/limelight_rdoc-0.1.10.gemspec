@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{limelight_rdoc}
-  s.version = "0.1.9"
+  s.version = "0.1.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Eric Smith"]
-  s.date = %q{2009-10-28}
+  s.date = %q{2009-11-03}
   s.default_executable = %q{ll_rdoc}
   s.description = %q{longer description}
   s.email = %q{eric@8thlight.com}

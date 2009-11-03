@@ -127,7 +127,7 @@ module LimelightRDoc
     end
     
     def codeblock?
-      @current_line =~ /^#\s\s/ || @current_line =~ /^#\t/
+      @current_line.strip =~ /^#\s\s/ || @current_line.strip =~ /^#\t/
     end
     
     def evaluate_codeblock
