@@ -1,7 +1,12 @@
 slide do
   heading :text => "Building a Calculator"
   line_break
-  directions :text => "Up until this point, all of the walkthroughs has been showing you just a part of Limelight.  In this walkthrough, we will build simple calculator starting from generating an empty to Production finishing with a working calculator."
+  directions :text => "Up until this point, all of the walkthroughs have been showing you just a part of Limelight.  In this walkthrough, we will build a simple calculator starting from generating an empty Production and finishing with a working calculator."
+  line_break
+  directions :text => "To give you an idea of what we are working towards, here is the completed calculator."
+  calculator_production do
+    __install "documentation/calculator_props.rb"
+  end
 end
 
 slide do
@@ -19,7 +24,7 @@ end
 slide do
   heading :text => "2. Add the Calculator Keys"
   line_break
-  directions :text => "Now that we have the Production generated, we can get started on the calculator.  The next step is to add the buttons to the props.rb file in the default scene.  Don't to clear out the existing props and styles."
+  directions :text => "Now that we have the Production generated, we can get started on the calculator.  The next step is to add the buttons to the props.rb file in the default scene.  Don't forget to clear out the existing props and styles."
   line_break
   codeblock do
     code :text => "calculator_button :text => 0"
@@ -51,7 +56,9 @@ slide do
   line_break
   directions :text => "Now that we have the keys displayed on the screen we need to do some work to make them look better."
   line_break
-  directions :text => "First we need to make some slight changes to the props file to arrange the props in the way we want to.  As you can see, we are going to be styling the number keys differently than we are styling the function keys."
+  directions :text => "First we need to make some slight changes to the props file to arrange the props in the way we want.  As you can see, we are going to be styling the number keys differently than we are styling the function keys."
+  line_break
+  directions :text => "The reason we are using the styles attribute is because all the keys except the equals key will merely append their text to the display.  That means we can have the same player for each of them.  The equals key is different, because it has perform a calculation based on the current data in the display."
   line_break
   codeblock do
     code :text => 'row do'
@@ -83,15 +90,13 @@ end
 slide do
   heading :text => "3.b Styling the Keys cont"
   line_break
-  directions :text => "The next step is to define the styles for our buttons.  These all go in the default_scene styles.rb file.  As you can see, even though the number keys and the function keys are appear differently, they do share some common styling.  Feel free to play around with these styles."
+  directions :text => "The next step is to define the styles for our buttons.  These all go in the default_scene styles.rb file.  As you can see, even though the number keys and the function keys are appear differently, they do share some common styling.  We have started with some simple styling, and soon will add more."
   line_break
-  directions :text => "You may also want to change your stage size to 530 x 620.  To do this, open the stages.rb file and change \"size [800, 800]\" to \"size [530, 620]\""
+  directions :text => "You also need to change your stage size to 530 x 620 in order to remove extra space from around the keys.  To do this, open the stages.rb file and change \"size [800, 800]\" to \"size [530, 620]\""
   line_break
   codeblock do
     code :text => "default_scene {"
-    code :text => "  gradient :on"
     code :text => "  background_color '#555'"
-    code :text => "  secondary_background_color '#777'"
     code :text => "  vertical_alignment :center"
     code :text => "  width '100%'"
     code :text => "  height '100%'"
@@ -111,28 +116,23 @@ slide do
     code :text => "  horizontal_alignment :center"
     code :text => "  vertical_alignment :center"
     code :text => "  margin 5"
-    code :text => "  gradient :on"
     code :text => "  font_size 48"
     code :text => "}"
     code :text => ""
     code :text => "calculator_number {"
     code :text => "  extends :calculator_button"
     code :text => "  background_color '#999'"
-    code :text => "  secondary_background_color '#CCC'"
     code :text => "  hover {"
     code :text => "    border_color '#555'"
     code :text => "    background_color '#AAA'"
-    code :text => "    secondary_background_color '#DDD'"
     code :text => "  }"
     code :text => "}"
     code :text => ""
     code :text => "calculator_function {"
     code :text => "  extends :calculator_button"
     code :text => "  background_color '#a76200'"
-    code :text => "  secondary_background_color '#db8100'"
     code :text => "  hover {"
     code :text => "    background_color '#db8100'"
-    code :text => "    secondary_background_color '#ff9600'"
     code :text => "  }"
     code :text => "}"
   end
@@ -141,7 +141,72 @@ end
 slide do
   heading :text => "3.c Styling the Keys cont"
   line_break
-  directions :text => "Here you can see the effects of our style changes."
+  directions :text => "Here you can see the effects of our initial style changes.  Let's try adding some gradients."
+  screenshot_div do
+    screenshot :image => "images/calculator/002a_style_keys_no_gradient.tiff", :width => "70%", :players => "image"
+  end
+end
+
+slide do
+  heading :text => "3.d Styling the Keys cont"
+  line_break
+  directions :text => "Lets add some gradients to both the buttons and the background of the scene.  Update the default_scene styles.rb file to look like this.  The new lines are in bold."
+  line_break
+  codeblock do
+    code :text => "default_scene {"
+    code :text => "  gradient :on", :styles => "bold_code"
+    code :text => "  background_color '#555'"
+    code :text => "  secondary_background_color '#777'", :styles => "bold_code"
+    code :text => "  vertical_alignment :center"
+    code :text => "  width '100%'"
+    code :text => "  height '100%'"
+    code :text => "}"
+    code :text => ""
+    code :text => "row {"
+    code :text => "  width '100%'"
+    code :text => "  horizontal_alignment :center"
+    code :text => "}"
+    code :text => ""
+    code :text => "calculator_button {"
+    code :text => "  height 130"
+    code :text => "  width 130"
+    code :text => "  rounded_corner_radius 60"
+    code :text => "  border_color :black"
+    code :text => "  border_width 1"
+    code :text => "  horizontal_alignment :center"
+    code :text => "  vertical_alignment :center"
+    code :text => "  margin 5"
+    code :text => "  gradient :on", :styles => "bold_code"
+    code :text => "  font_size 48"
+    code :text => "}"
+    code :text => ""
+    code :text => "calculator_number {"
+    code :text => "  extends :calculator_button"
+    code :text => "  background_color '#999'"
+    code :text => "  secondary_background_color '#CCC'", :styles => "bold_code"
+    code :text => "  hover {"
+    code :text => "    border_color '#555'"
+    code :text => "    background_color '#AAA'"
+    code :text => "    secondary_background_color '#DDD'", :styles => "bold_code"
+    code :text => "  }"
+    code :text => "}"
+    code :text => ""
+    code :text => "calculator_function {"
+    code :text => "  extends :calculator_button"
+    code :text => "  background_color '#a76200'"
+    code :text => "  secondary_background_color '#db8100'", :styles => "bold_code"
+    code :text => "  hover {"
+    code :text => "    background_color '#db8100'"
+    code :text => "    secondary_background_color '#ff9600'", :styles => "bold_code"
+    code :text => "  }"
+    code :text => "}"
+  end
+end
+
+slide do
+  heading :text => "3.e Styling the Keys"
+  line_break
+  directions :text => "Here you can see the effects of the added gradients.  Feel free to play around with the styles we added to get the desired look and feel."
   screenshot_div do
     screenshot :image => "images/calculator/002_style_keys.tiff", :width => "70%", :players => "image"
   end
@@ -194,7 +259,7 @@ slide do
   line_break
   directions :text => "Now that we have all the buttons on the screen we need to enable them to update the display.  This will define the behavior for all the keys except the equals key."
   line_break
-  directions :text => "First create a player in the default_scene/players directory named calculator_button.rb.  Next, add the following code to the player"
+  directions :text => "First create a Player in the default_scene/players directory named calculator_button.rb.  Next, add the following code to the Player."
   codeblock do
     code :text => 'module CalculatorButton'
     code :text => '  def mouse_clicked(event)'
