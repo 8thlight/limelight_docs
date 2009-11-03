@@ -4,18 +4,14 @@ module SearchResultsScreen
   def next
     with_children do
       @selected ||= -1
-      deselect(children[@selected]) if children[@selected]
-      (@selected = (@selected + 1) % children.size)
-      select_child(@selected)
+      update_selected(@selected) {@selected = (@selected + 1) % children.size}
     end
   end
   
   def previous
     with_children do
       @selected ||= children.size
-      deselect(children[@selected]) if children[@selected]
-      @selected = (@selected - 1) % children.size
-      select_child(@selected)
+      update_selected(@selected) {@selected = (@selected - 1) % children.size}
     end
   end
 
@@ -24,13 +20,17 @@ module SearchResultsScreen
   end
   
   def select_child(selected)
-    deselect(children[@selected]) if @selected && children[@selected]
-    @selected = selected
-    select(children[@selected])
-    adjust_scroll_bar
+    update_selected(selected) { @selected = selected }
   end
 
 private
+
+  def update_selected(selected, &block)
+    deselect(children[@selected]) if @selected && children[@selected]
+    yield
+    select(children[@selected])
+    adjust_scroll_bar
+  end
   
   def adjust_scroll_bar
     if selected_child_below?      
