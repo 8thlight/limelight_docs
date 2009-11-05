@@ -13,5 +13,5 @@ task :features do
 end
 
 task :llp do
-  system "jruby -S limelight pack limelight_docs"
+  system "jruby -S limelight pack --name=limelight_docs production"
 end

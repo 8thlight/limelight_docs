@@ -29,23 +29,23 @@ private
     deselect(children[@selected]) if @selected && children[@selected]
     yield
     select(children[@selected])
-    adjust_scroll_bar
+    adjust_scrollbar
   end
   
-  def adjust_scroll_bar
+  def adjust_scrollbar
     if selected_child_below?      
-      self.panel.vertical_scroll_bar.value = (@selected + 2) * 18 - 300
+      self.panel.vertical_scrollbar.value = (@selected + 2) * 18 - 300
     elsif selected_child_above?
-      self.panel.vertical_scroll_bar.value = (@selected - 1) * 18
+      self.panel.vertical_scrollbar.value = (@selected - 1) * 18
     end
   end
   
   def selected_child_below?
-    (@selected + 2) * 18 > (300 + self.panel.vertical_scroll_bar.value)
+    (@selected + 2) * 18 > (300 + self.panel.vertical_scrollbar.value)
   end
 
   def selected_child_above?
-    (@selected - 1) * 18 < self.panel.vertical_scroll_bar.value
+    (@selected - 1) * 18 < self.panel.vertical_scrollbar.value
   end
   
   def with_children
