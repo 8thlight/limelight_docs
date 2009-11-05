@@ -13,8 +13,8 @@ module LimelightRDoc
         @props.puts "attribute_header do"
         @props.puts "attribute_name :text => '#{@attribute.name}'"
         @props.puts "attribute_read_write :text => '[#{@attribute.rw}]'"
-        CommentFormatter.format("attribute", @attribute.comment).each {|line| @props.puts line}
         @props.puts "end"
+        CommentFormatter.format("attribute", @attribute.comment).each {|line| @props.puts line}
       end
     end
   end

@@ -107,6 +107,10 @@ describe WalkthroughLink do
     check_link("stages_walkthrough", "stages", "Stages")
   end
   
+  it "should have link for a complete production" do
+    check_link("calculator_walkthrough", "calculator", "Calculator")
+  end
+
   describe "next" do
     before(:each) do
       @first = WalkthroughLink.all[0]

@@ -5,6 +5,10 @@ require File.expand_path(File.dirname(__FILE__) + "/../support/env")
 require 'limelight/specs/spec_helper'
 require 'rubygems'
 
+import java.awt.event.KeyEvent
+import javax.swing.JPanel
+
+
 $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../../production")
 Gem.use_paths(File.join($PRODUCTION_PATH , "__resources", "gems"), Gem.default_path)
 
@@ -39,4 +43,23 @@ end
 
 When /^I click the (prop "[^\"]*")$/ do |prop|
   prop.mouse_clicked(nil)
+end
+
+
+def key_press_event(char)
+  # KeyEvent event = new KeyEvent(new JPanel(), 1, 2, 3, 4, 'a');
+  event = KeyEvent.new(JPanel.new, 1, 2, 3, 4, char)
+  return event
+end
+
+When /^I type "([^\"]*)" in the prop "([^\"]*)"$/ do |text, prop_id|
+  pending
+  text_area = $scene.find(prop_id)
+  text_area.text = text
+  text.each_byte do |byte|
+    event = key_press_event(byte.chr)
+    text_area.key_pressed(event)
+    text_area.key_typed(event)
+    text_area.key_released(event)
+  end
 end

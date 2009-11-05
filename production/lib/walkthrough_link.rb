@@ -20,6 +20,7 @@ class WalkthroughLink
                     {:id => "building_props_walkthrough",   :text => "Building Props",  :slideshow => "building_props", :title => "Building Props"},
                     {:id => "productions_walkthrough",      :text => "Productions",     :slideshow => "productions", :title => "Productions"},
                     {:id => "stages_walkthrough",           :text => "Stages",          :slideshow => "stages", :title => "Stages"},
+                    {:id => "calculator_walkthrough",       :text => "Calculator",      :slideshow => "calculator", :title => "Calculator"},
                     {:id => "images_walkthrough",           :text => "Images",          :slideshow => "images", :title => "Images"},
                     {:id => "animations_walkthrough",       :text => "Animations",      :slideshow => "animations", :title => "Animations"},
                     {:id => "sound_walkthrough",            :text => "Audio",           :slideshow => "sound", :title => "Audio"}]

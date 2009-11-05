@@ -772,3 +772,81 @@ selected_result {
   background_color darker_limegreen
   secondary_background_color light_limegreen
 }
+
+calculator_production {
+  width "100%"
+  horizontal_alignment :center
+}
+
+calculator_container {
+ height 350
+ width 300
+ background_color "#555" 
+ secondary_background_color "#777"
+ gradient :on
+ vertical_alignment :center
+ border_color :black
+ border_width 1
+}
+
+calculator_display {
+  font_size 32
+  height 38
+  width "90%"
+  background_color :white
+  border_color "#AAA"
+  border_width 1
+  horizontal_alignment :right
+  vertical_alignment :center
+  right_padding 5
+  bottom_margin 5
+}
+
+calculator_row {
+  width "100%"
+  horizontal_alignment :center
+}
+
+calculator_button {
+  height 70
+  width 70
+  rounded_corner_radius 30
+  border_color :black
+  border_width 1
+  horizontal_alignment :center
+  vertical_alignment :center
+  margin 5
+  gradient :on
+  font_size 24
+}
+
+calculator_number {
+  extends :calculator_button
+  background_color "#999"
+  secondary_background_color "#CCC"
+  hover {
+    border_color "#555"
+    background_color "#AAA"
+    secondary_background_color "#DDD"
+  }
+}
+
+calculator_function {
+  extends :calculator_button
+  background_color "#a76200"
+  secondary_background_color "#db8100"
+  hover {
+    background_color "#db8100"
+    secondary_background_color "#ff9600"
+  }
+}
+
+calculator_clear {
+  extends :calculator_button
+  background_color "#6f0000"
+  secondary_background_color "#920000"
+  hover {
+    background_color "#910000"
+    secondary_background_color "#a90000"
+  }
+}

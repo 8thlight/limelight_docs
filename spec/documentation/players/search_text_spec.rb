@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require "documentation/players/search_text"
 
 SearchResults = Struct.new(:classes, :found_methods, :comments)
-ClassResult = Struct.new(:full_name)
+ClassResult = Struct.new(:full_name, :module?)
 
 describe "Search Text" do
   uses_limelight :with_player => "search_text", :scene_path => "documentation"

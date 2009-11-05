@@ -277,4 +277,17 @@ COMMENT
                                                                             "end"]      
     end
   end
+  
+  it "should format an attribute comment" do
+    comment = <<COMMENT
+    # Specifies the Width attribute of a prop.
+    #   type:           dimension
+    #   default_value:  auto
+COMMENT
+    LimelightRDoc::CommentFormatter.format("attribute", comment).should == ["attribute_description :text => 'Specifies the Width attribute of a prop.'",
+                                                                            "codeblock do",
+                                                                              "code :text => '   type:           dimension'",
+                                                                              "code :text => '   default_value:  auto'",
+                                                                            "end"]
+  end
 end

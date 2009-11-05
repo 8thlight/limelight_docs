@@ -20,6 +20,6 @@ describe LimelightRDoc::Generators::Attribute do
 
     @writer.write
     
-    @props.should match(/attribute_header do\n(.*\n)*attribute_description1\nattribute_description2\nend\n/)
+    @props.should match(/attribute_header do\n(.*\n)*attribute_description1\nattribute_description2/)
   end
 end
