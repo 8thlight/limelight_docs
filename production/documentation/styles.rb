@@ -653,6 +653,15 @@ public_methods_header {
   top_padding 5
 }
 
+rdoc_comment_heading {
+  extends :public_methods_header
+  left_padding 5
+}
+
+rdoc_heading {
+  extends :rdoc_comment_heading
+}
+
 class_description {
   left_padding 10
   right_padding 10
