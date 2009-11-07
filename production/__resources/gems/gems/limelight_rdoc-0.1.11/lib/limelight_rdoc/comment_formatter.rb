@@ -27,7 +27,13 @@ module LimelightRDoc
               event :codeblock, :codeblock, :write_codeblock
               event :pause, :pause
               event :skip_line, :skip_line
+              event :write_heading, :write_heading, :complete_description
               event :start_list, :evaluate_list_item, :complete_description
+            end
+
+            state :write_heading do
+              on_entry :write_heading
+              event :done, :wait
             end
             
             event :complete, :end, :complete_description
@@ -98,6 +104,8 @@ module LimelightRDoc
         @statemachine.skip_line
       elsif @current_line.match(/--/)
         @statemachine.pause
+      elsif @current_line.match(/^# ==/)
+        @statemachine.write_heading
       elsif list?
         @statemachine.start_list
       elsif plain_text_from_comment.empty?
@@ -117,6 +125,15 @@ module LimelightRDoc
       @props << "#{@prefix}_description :text => '#{plain_text_from_comment(@current_description)}'" unless plain_text_from_comment(@current_description).empty?
       @current_description = ""
     end
+
+    def write_heading
+      heading = line_without_initial_pound.split[1]
+      comment = line_without_initial_pound.split[2..-1].join(" ")
+      @props << "rdoc_heading :text => '#{heading}'"
+      @current_description << comment
+      @statemachine.done
+    end
+      
     
     def should_resume
       @statemachine.resume if @current_line.match(/\+\+/)
