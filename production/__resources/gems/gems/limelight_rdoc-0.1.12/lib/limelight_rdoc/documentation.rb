@@ -13,12 +13,12 @@ module LimelightRDoc
     end
     
     def found_classes
-      return documented_classes.select { |klass| check_for_match(klass.full_name) }
+      return Documentation.documented_classes.select { |klass| check_for_match(klass.full_name) }
     end
     
     def found_methods
       list = []
-      documented_classes.each do |klass|
+      Documentation.documented_classes.each do |klass|
         klass.method_list.each do |method|
           list << FoundMethod.new(method.name, klass.full_name) if check_for_match(method.name)
         end
@@ -28,14 +28,13 @@ module LimelightRDoc
 
     def found_comments
       comments = []
-      documented_classes.each do |klass|
+      Documentation.documented_classes.each do |klass|
         comments << Comment.new(klass.comment, klass.full_name) if check_for_match(klass.comment)
       end
       comments
     end
 
-    # I can be a class level method to remove duplication hint hint
-    def documented_classes
+    def self.documented_classes
       RDoc::TopLevel.all_classes_and_modules.select{|klass| klass.document_self }
     end
     

@@ -6,6 +6,10 @@ describe LimelightRDoc::CommentFormatter do
   it "should remove the pound sign from a one line comment" do
     LimelightRDoc::CommentFormatter.format("method", "# Comment is here").should == ["method_description :text => 'Comment is here'"]
   end
+
+  it "ignores the #- in front of a line - note this is inconsistent with official RDoc markup" do
+    LimelightRDoc::CommentFormatter.format("method", "#- Ignore me\n# Write me").should == ["method_description :text => 'Write me'"] 
+  end
   
   it "should keep two new lines in a row" do
     LimelightRDoc::CommentFormatter.format("method", "# Comment is here\n\t#\n\t# Second Line").should == ["method_description :text => 'Comment is here'", "method_description :text => 'Second Line'"]
@@ -90,6 +94,14 @@ describe LimelightRDoc::CommentFormatter do
 
   it "should parse comments normally if begin/end comment with rdoc flag" do
     LimelightRDoc::CommentFormatter.format("method", "=begin rdoc\nIncluded Comment\n=end").should == ["method_description :text => 'Included Comment'" ]
+  end
+
+  it "should skip the # -- line" do
+    LimelightRDoc::CommentFormatter.format("method", "# ---").should == []
+  end
+  
+  it "should display the line after the # --- line" do
+    LimelightRDoc::CommentFormatter.format("method", "# ---\n# Comment\n").should == ["method_description :text => 'Comment'"]
   end
   
   describe "lists" do

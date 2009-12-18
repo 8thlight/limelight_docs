@@ -19,13 +19,21 @@ module RDoc
       end
     
       def generate(top_levels = nil)
-        TopLevel.all_classes_and_modules.select{|klass| klass.document_self}.each { |klass| write_class_file_for(klass) }
+        LimelightRDoc::Documentation.documented_classes.each { |klass| write_class_file_for(klass) }
       end
       
       def write_class_file_for(klass)
         writer = LimelightRDoc::Generators::ClassFile.new(klass)
         writer.write
-        @props[klass.full_name] = writer.props
+        append_to_props(klass, writer.props)
+      end
+
+      def append_to_props(klass, props)
+        if @props[klass.full_name].nil?
+          @props[klass.full_name] = props
+        else
+          @props[klass.full_name] << props
+        end 
       end
     end
   end

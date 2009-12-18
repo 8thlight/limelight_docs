@@ -52,6 +52,19 @@ describe RDoc::Generator::Limelight do
       
       @generator.props['AA::FullClassName'].should == "Hey there"
     end
+
+    it "appends to the key if more than one context has the same name" do
+      @all_classes_and_modules = [mock(RDoc::Context, :full_name => "AA::FullClassName", :document_self => true),
+                                  mock(RDoc::Context, :full_name => "AA::FullClassName", :document_self => true)]
+      RDoc::TopLevel.stub!(:all_classes_and_modules).and_return(@all_classes_and_modules)
+      writer = mock(LimelightRDoc::Generators::ClassFile, :write => nil)
+      LimelightRDoc::Generators::ClassFile.stub!(:new).and_return(writer)
+      writer.stub!(:props).and_return("Props ")
+
+      @generator.generate
+
+      @generator.props['AA::FullClassName'].should == "Props Props "
+    end
     
     it "should not generate props for undocumented classes" do
       @all_classes_and_modules = [mock(RDoc::Context, :full_name => "one", :document_self => false)]
@@ -64,6 +77,5 @@ describe RDoc::Generator::Limelight do
       
       @generator.props.should be_empty
     end
-  
   end
 end

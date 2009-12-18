@@ -102,6 +102,8 @@ module LimelightRDoc
         @statemachine.pause
       elsif @current_line.match(/^=end/)
         @statemachine.skip_line
+      elsif matches_skip_line?
+        @statemachine.skip_line
       elsif @current_line.match(/--/)
         @statemachine.pause
       elsif @current_line.match(/^# ==/)
@@ -115,6 +117,10 @@ module LimelightRDoc
       else
         @statemachine.continue_line
       end
+    end
+
+    def matches_skip_line?
+      @current_line.match(/^#- /) || @current_line.match(/^# ---/)
     end
         
     def append_to_current_description
