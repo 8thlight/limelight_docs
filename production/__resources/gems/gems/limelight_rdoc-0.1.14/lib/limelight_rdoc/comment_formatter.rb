@@ -106,6 +106,8 @@ module LimelightRDoc
         @statemachine.skip_line
       elsif @current_line.match(/--/)
         @statemachine.pause
+      elsif @current_line.match(/^# = /)
+        @statemachine.write_heading
       elsif @current_line.match(/^# ==/)
         @statemachine.write_heading
       elsif list?
@@ -139,7 +141,6 @@ module LimelightRDoc
       @current_description << comment
       @statemachine.done
     end
-      
     
     def should_resume
       @statemachine.resume if @current_line.match(/\+\+/)

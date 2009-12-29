@@ -7,7 +7,8 @@ describe LimelightRDoc::Generators::ClassFile do
     @rdoc_class = mock("RDoc::NormalClass", :name => "MyClassName", :full_name => 'Limelight::MyClassName', 
                                             :comment => "# The stupid class for Eric the younger", 
                                             :each_method => nil, :each_attribute => nil, :attributes => [],
-                                            :method_list => [], :constants => [], :module? => false)
+                                            :method_list => [], :constants => [], :module? => false,
+                                            :classes_and_modules => [])
                                             
     @writer = LimelightRDoc::Generators::ClassFile.new(@rdoc_class)
   end
@@ -29,7 +30,26 @@ describe LimelightRDoc::Generators::ClassFile do
   it "should not generate the method writer if there are no methods in method_list" do
     LimelightRDoc::Generators::Method.should_not_receive(:new)
   end
-  
+
+  describe "Classes aand Modules Section" do
+    it "write out nothing for its classes and modules if there are none" do
+      @rdoc_class.stub!(:classes_and_modules).and_return([])
+
+      @writer.write
+
+      @writer.props.should_not include("rdoc_classes_and_modules_header :text => 'Classes and Modules'")
+    end
+
+    it "writes out the contents of the classes and modules" do
+      mock_class = mock("Class", :full_name => "FullName")
+      @rdoc_class.stub!(:classes_and_modules).and_return([mock_class])
+
+      @writer.write
+
+      @writer.props.should include("rdoc_classes_and_modules_header :text => 'Classes and Modules'")
+      @writer.props.should include("rdoc_classes_and_modules do\nrdoc_class_or_module :text => 'FullName'\nend")
+    end
+  end 
   
   describe "Method generation" do
     before(:each) do

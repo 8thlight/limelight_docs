@@ -103,6 +103,10 @@ describe LimelightRDoc::CommentFormatter do
   it "should display the line after the # --- line" do
     LimelightRDoc::CommentFormatter.format("method", "# ---\n# Comment\n").should == ["method_description :text => 'Comment'"]
   end
+
+  it "makes the = line an rdoc_heading" do
+    LimelightRDoc::CommentFormatter.format("method", "# = Limelight").should == ["rdoc_heading :text => 'Limelight'"]
+  end
   
   describe "lists" do
     it "should parse a one item ordered list" do

@@ -16,6 +16,7 @@ module LimelightRDoc
   
       def write
         write_class_info
+        write_classes_and_modules
         write_constants
         write_attribute_info
         write_methods
@@ -24,6 +25,16 @@ module LimelightRDoc
       def write_class_info
         @props.puts "#{prop_name} :text => '#{@klass.full_name}'";
         CommentFormatter.format("class", @klass.comment).each { |line| @props.puts line }
+      end
+
+      def write_classes_and_modules
+        return if @klass.classes_and_modules.empty?
+        @props.puts "rdoc_classes_and_modules_header :text => 'Classes and Modules'"
+        @props.puts "rdoc_classes_and_modules do"
+        @klass.classes_and_modules.each do |klass|
+          @props.puts "rdoc_class_or_module :text => '#{klass.full_name}'" 
+        end
+        @props.puts "end"
       end
     
       def write_constants
