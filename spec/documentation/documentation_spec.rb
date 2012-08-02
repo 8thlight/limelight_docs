@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
+require 'spec_helper'
 require "toc_section"
 require 'documentation/players/documentation'
 

@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'spec_helper'
 
 describe "TutorialLink" do
   uses_limelight :scene_path => "documentation" do

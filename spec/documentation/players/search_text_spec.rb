@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
+require 'spec_helper'
 require "documentation/players/search_text"
 
 SearchResults = Struct.new(:classes, :found_methods, :comments)

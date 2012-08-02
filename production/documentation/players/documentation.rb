@@ -1,6 +1,6 @@
 module Documentation
 
-  prop_reader :activity_text
+  def activity_text; return scene.find('activity_text') end
 
   def enable_rdoc_tab
     prop = find('RDoc') 
