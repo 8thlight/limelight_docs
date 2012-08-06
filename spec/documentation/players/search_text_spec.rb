@@ -9,7 +9,7 @@ describe "Search Text" do
 
   describe "Showing and Hiding" do
     before(:each) do
-      production.rdoc = mock("RDoc", :null_object => true)
+      production.rdoc = mock("RDoc").as_null_object
     end
     
     it "should build the search results screen when a key is pressed" do

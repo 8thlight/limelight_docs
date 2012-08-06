@@ -11,12 +11,8 @@ end
 describe "Previous Button Clicked" do
   
   
-  before(:each) do
-    @slideshow.stub!(:previous)
-  end
-
   it "should reverse the slide show" do
-    scene = mock(Limelight::Scene, :null_object => true)
+    scene = mock(Limelight::Scene).as_null_object
     prev_button = TestPreviousButton.new
     prev_button.scene = scene
     slideshow  = mock("Slideshow")

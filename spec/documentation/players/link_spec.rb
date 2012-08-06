@@ -13,7 +13,7 @@ describe "Link" do
     @slideshow = mock("Slideshow")
     @slideshow.stub!(:next)
     
-    @scene = mock("Scene", :find => @slideshow, :null_object => true)
+    @scene = mock("Scene", :find => @slideshow).as_null_object
     @link = TestLink.new
     @link.scene = @scene
     @link.stub!(:launch)    

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'entrance'
 
 describe "ClearSandboxButton" do
-  uses_scene :documentation
+  uses_limelight :scene => "documentation"
 
   describe "Prop Sandbox" do
 

@@ -26,7 +26,7 @@ describe "Slideshow" do
     @previous_button = Limelight::Prop.new
     @next_button = Limelight::Prop.new
     @styles = mock("style hash", :[] => nil)
-    @scene = mock(Limelight::Scene, :styles => @styles, :null_object => true)
+    @scene = mock(Limelight::Scene, :styles => @styles).as_null_object
     @scene.stub!(:find).with("previous").and_return(@previous_button)
     @scene.stub!(:find).with("next").and_return(@next_button)
     @slideshow.scene = @scene

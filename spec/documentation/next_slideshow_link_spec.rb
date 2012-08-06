@@ -4,7 +4,7 @@ require "entrance"
 
 # This test is excrutiatingly slow.  Why? EMS
 describe "Documentation" do
-  uses_scene :documentation
+  uses_limelight :scene => "documentation"
 
   it "should have a link to the next slideshow on the last slide of the current slideshow" do
     first = WalkthroughLink.all[0]

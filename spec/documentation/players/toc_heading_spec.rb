@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "TocHeading" do
-  uses_scene :documentation
+  uses_limelight :scene => "documentation"
 
   before(:each) do
     @rdoc_link = scene.find("RDoc")

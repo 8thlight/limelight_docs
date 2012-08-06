@@ -14,7 +14,7 @@ describe "codeblock" do
       @block = TestCodeblock.new
       @code_prop = mock("code prop", :text= => nil)
 
-      @scene = mock("scene", :null_object => true)
+      @scene = mock("scene").as_null_object
       @scene.stub!(:find).with("code").and_return(@code_prop)
       @block.scene = @scene
     end

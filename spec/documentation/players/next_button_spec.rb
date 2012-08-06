@@ -9,7 +9,7 @@ end
 
 describe "Next Button" do
   it "should advance the slideshow" do
-    scene = mock(Limelight::Scene, :null_object => true)
+    scene = mock(Limelight::Scene).as_null_object
     next_button = TestNextButton.new
     next_button.scene = scene
     slideshow  = mock("Slideshow")

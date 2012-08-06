@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'entrance'
 
 describe "Styles Tutorial" do
-  uses_scene :documentation
+  uses_limelight :scene => "documentation"
 
   before(:each) do
     Entrance.cue_tutorial scene, :editing_styles
