@@ -4,7 +4,7 @@ require 'output_observer'
 
 describe "Limelight Docs Production" do
 
-  uses_limelight :scene => "blah", :stage => "default"
+  uses_limelight :scene => "documentation"
 
   it "should load rdocs" do
     rdoc = mock("rdoc")
