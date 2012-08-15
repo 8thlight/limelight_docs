@@ -2,7 +2,7 @@ source :rubygems
 
 gem 'rspec', '~> 2.0'
 gem 'cucumber'
-gem "limelight", :require => "ruby/lib/limelight"
+gem "limelight"
 gem 'rake'
 
 #gem 'statemachine', '0.4.7'
