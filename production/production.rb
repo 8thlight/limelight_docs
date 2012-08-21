@@ -2,7 +2,13 @@
 # The containing production will acquire all the behavior defined in this module.
 # You may define several hooks and initialization steps here.
 module Production
-  attr_accessor :rdoc
+  def rdoc
+    @rdoc
+  end
+
+  def rdoc=(doc)
+    @rdoc = doc
+  end
 
   # Define this method if you want the production name to be different from the default, directory name.
   def name

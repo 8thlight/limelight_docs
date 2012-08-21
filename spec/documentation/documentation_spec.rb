@@ -71,8 +71,8 @@ describe "Documentation scene with shrinkables" do
   end
 
   before(:each) do
-    scene.include_player(Documentation)
-    scene.scene_opened(nil)
+    #scene.include_player(Documentation)
+    #scene.scene_opened(nil)
   end
 
   it "should not shrink the first shrinkable prop" do

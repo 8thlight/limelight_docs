@@ -1,9 +1,8 @@
 require 'entrance'
 
-
 prop_reader :slideshow, :title
 
-on_mouse_clicked(e) do
+on_mouse_clicked do
   Entrance.cue_tutorial(scene, slideshow, title)
   scene.select_toc_prop(self)
   slideshow_progress = scene.find("slideshow_progress")

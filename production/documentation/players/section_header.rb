@@ -4,7 +4,7 @@ def controlled_prop
   @controlled_prop ||= scene.find(prop_to_remove)
 end
 
-on_mouse_clicked(event) do
+on_mouse_clicked do
   return if controlled_prop.nil?
 
   if controlled_prop.shrunk?

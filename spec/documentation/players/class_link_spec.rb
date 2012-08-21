@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'entrance'
 
 describe "ClassLink" do
-  uses_limelight :with_player => "class_link", :scene_path => "documentation", :scene_name => "documentation" 
+  uses_limelight :with_players => "class_link", :scene_path => "documentation", :scene_name => "documentation" 
 
   before(:each) do
     @parent = mock("prop", :grow => nil, :players => "shrinkable", :name => nil)
