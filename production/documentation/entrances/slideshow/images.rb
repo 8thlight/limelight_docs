@@ -11,7 +11,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -22,7 +22,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :scaled => true, :height => '100%'"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => 140
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => 140
 end
 
 
@@ -34,7 +34,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :scaled => false, :height => 40"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -45,7 +45,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :height => 150, :width => 400"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -55,7 +55,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :scaled => true, :height => 130, :rotation => '-90'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

@@ -1,6 +1,6 @@
 require 'entrance'
 
-prop_reader :slideshow, :title
+attr_accessor :slideshow, :title
 
 on_mouse_clicked do
   Entrance.cue_tutorial(scene, slideshow, title)
@@ -9,4 +9,3 @@ on_mouse_clicked do
   slideshow_progress.update_content
   scene.find("slideshow").register_progress_observer(slideshow_progress)
 end
-

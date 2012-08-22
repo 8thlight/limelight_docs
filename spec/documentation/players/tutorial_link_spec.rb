@@ -24,24 +24,24 @@ describe "TutorialLink" do
     tutorial_link.title = "The Walkthrough"
 
     Entrance.should_receive(:cue_tutorial).with(scene, "walkthrough", "The Walkthrough")
-    tutorial_link.mouse_clicked(nil)
+    mouse.click tutorial_link
   end
 
   it "should select the link with itself" do
     scene.should_receive(:select_toc_prop).with(tutorial_link)
-    tutorial_link.mouse_clicked(nil)
+    mouse.click tutorial_link
   end
 
   it "should update the progress bar" do
     scene.find(:slideshow_progress).should_receive(:update_content)
     
-    tutorial_link.mouse_clicked(nil)    
+    mouse.click tutorial_link    
   end
   
   it "should register the progress bar as an observer of the slideshow" do
     slideshow.should_receive(:register_progress_observer).with(slideshow_progress)
     
-    tutorial_link.mouse_clicked(nil)
+    mouse.click tutorial_link
   end
   
   def slideshow_progress

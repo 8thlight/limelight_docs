@@ -18,7 +18,7 @@ describe "TocHeading" do
       toc_links.should_not_receive(:remove_all)
       scene.stub!(:find).and_return(toc_links)
 
-      @rdoc_link.mouse_clicked(nil)
+      mouse.click @rdoc_link
     end
   end
 
@@ -36,14 +36,14 @@ describe "TocHeading" do
       toc_links.should_not_receive(:remove_all)
       scene.stub!(:find).and_return(toc_links)
 
-      @rdoc_link.mouse_clicked(nil)
+      mouse.click @rdoc_link
     end
   end
 
   describe "clicking rdoc" do
     before(:each) do
       @rdoc_link.enable
-      @rdoc_link.mouse_clicked(nil)
+      mouse.click @rdoc_link
     end
 
     it "should select the rdoc" do
@@ -68,12 +68,12 @@ describe "TocHeading" do
       end
 
       it "should unselect the rdoc" do
-        @walkthrough.mouse_clicked(nil)
+        mouse.click @walkthrough
         @rdoc_link.should have_style_extension("unselected_toc_heading")
       end
 
       it "should unselect the rdoc" do
-        @walkthrough.mouse_clicked(nil)
+        mouse.click @walkthrough
         @walkthrough.should have_style_extension("selected_toc_heading")
       end
       
@@ -82,7 +82,7 @@ describe "TocHeading" do
           screen :id => 'search_results_screen'
         end
         
-        @walkthrough.mouse_clicked(nil)
+        mouse.click @walkthrough
         
         scene.find('search_results_screen').should be_nil
       end
@@ -113,7 +113,7 @@ describe "TocHeading" do
         toc_links.should_not_receive(:remove_all)
         scene.stub!(:find).with("toc_links").and_return(toc_links)
 
-        @rdoc_link.mouse_clicked(nil)
+        mouse.click @rdoc_link
       end
 
       it "should clear the content pane when a new tab is selected" do
@@ -135,7 +135,7 @@ describe "TocHeading" do
 
       def click_walkthrough_tab
         @walkthrough = scene.find("Walkthrough")
-        @walkthrough.mouse_clicked(nil)
+        mouse.click @walkthrough
       end
     end
   end

@@ -29,7 +29,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/image.jpg', :scaled => true, :height => 190"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => 190
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => 190
 end
 
 slide do
@@ -41,7 +41,7 @@ slide do
     code :text => "text_box_prop :players => 'text_box'"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => 190
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => 190
 end
 
 slide do
@@ -82,7 +82,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :height => 120, :prop_file => "documentation/entrances/player_examples/typing_props.rb"
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :height => 120, :prop_file => "documentation/entrances/player_examples/typing_props.rb"
 end
 
 slide do
@@ -102,7 +102,7 @@ slide do
     code :text => "end"    
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/focus_props.rb", :height => 125
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/focus_props.rb", :height => 125
 end
 
 slide do
@@ -114,7 +114,7 @@ slide do
      code :text => "checkbox_prop :players => 'check_box', :checked => true"
    end
 
-   __install "documentation/common/prop_sandbox.rb", :height => 140
+   __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => 140
 end
 
 slide do
@@ -130,7 +130,7 @@ slide do
      code :text => "                  :group => 'button_group'"
    end
 
-   __install "documentation/common/prop_sandbox.rb", :height => 120, :text_area_height => 200
+   __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => 120, :text_area_height => 200
 end
 
 slide do
@@ -144,7 +144,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/button_props.rb", :height => 140, :text_area_height => 100
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/button_props.rb", :height => 140, :text_area_height => 100
 end
 
 slide do
@@ -155,7 +155,7 @@ slide do
     code :text => "combo_box_prop :players => 'combo_box', :choices => ['red', 'blue', 'green', 'black'], :value => 'black'"
   end
   
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -169,7 +169,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb", :text_area_height => 100
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb", :text_area_height => 100
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

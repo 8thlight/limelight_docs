@@ -5,7 +5,7 @@ slide do
   line_break
   directions :text => "To give you an idea of what we are working towards, here is the completed calculator."
   calculator_production do
-    __install "documentation/calculator_props.rb"
+    __install "#{Dir.pwd}/production/documentation/calculator_props.rb"
   end
 end
 
@@ -354,7 +354,7 @@ slide do
   directions :text => "This completes the calculator production.  Feel free to play around with it below.  If you have completed your calculator correctly, it should behave like the one here."
   line_break
   calculator_production do
-    __install "documentation/calculator_props.rb"
+    __install "#{Dir.pwd}/production/documentation/calculator_props.rb"
   end
 end
 

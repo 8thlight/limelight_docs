@@ -1,21 +1,19 @@
 require 'spec_helper'
-require 'documentation/players/link'
-
-class TestLink < Limelight::Prop
-  attr_accessor :scene
-  
-  include Link
-end
-
 
 describe "Link" do
+
+  uses_limelight :scene_path => "documentation" do
+    prop :id => "previous"
+    prop :id => "next"
+    slideshow :id => "slideshow"
+    link :id => "link"
+  end
+
   before(:each) do
-    @slideshow = mock("Slideshow")
+    @slideshow = scene.find("slideshow")
     @slideshow.stub!(:next)
     
-    @scene = mock("Scene", :find => @slideshow).as_null_object
-    @link = TestLink.new
-    @link.scene = @scene
+    @link = scene.find("link")
     @link.stub!(:launch)    
   end
   
@@ -23,13 +21,13 @@ describe "Link" do
     @link.url = "test url"
     @link.should_receive(:launch).with("test url")
 
-    @link.mouse_clicked(nil)
+    mouse.click @link
   end
 
   it "should advance to the next scene" do
     @slideshow.should_receive(:next)
-    @scene.should_receive(:find).with("slideshow").and_return(@slideshow)
+    scene.should_receive(:find).with("slideshow").and_return(@slideshow)
   
-    @link.mouse_clicked(nil)    
+    mouse.click @link
   end
 end

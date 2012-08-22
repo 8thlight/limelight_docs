@@ -18,33 +18,33 @@ describe "ClassLink" do
 
     Entrance.should_receive(:cue_rdoc).with(scene, "Prop DSL")
 
-    class_link.mouse_clicked(nil)
+    mouse.click class_link
   end
 
   it "should select this link" do
     scene.should_receive(:select_toc_prop).with(class_link)
 
-    class_link.mouse_clicked(nil)
+    mouse.click class_link
   end
 
   it "should grow the parent" do
     @parent.should_receive(:grow)
 
-    class_link.mouse_clicked(nil)
+    mouse.click class_link
   end
   
   it "should not grow the parent if the parent's players are nil" do
     @parent.stub!(:players).and_return(nil)
     @parent.should_not_receive(:grow)
     
-    class_link.mouse_clicked(nil)
+    mouse.click class_link
   end
   
   it "should not grow the parent if the parent's players are not shrinkable" do
     @parent.stub!(:players).and_return("player")
     @parent.should_not_receive(:grow)
     
-    class_link.mouse_clicked(nil)
+    mouse.click class_link
   end
   
   it "should grow the parent if the parent's players are not shrinkable but its name is" do
@@ -52,7 +52,7 @@ describe "ClassLink" do
     @parent.stub!(:name).and_return("shrinkable")
     @parent.should_receive(:grow)
     
-    class_link.mouse_clicked(nil)
+    mouse.click class_link
   end
   
   def stub_cueing_rdoc

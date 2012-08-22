@@ -33,7 +33,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
 slide do
@@ -61,7 +61,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
 slide do
@@ -77,7 +77,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/entrances/colors_sandbox/colors_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/entrances/colors_sandbox/colors_sandbox.rb"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

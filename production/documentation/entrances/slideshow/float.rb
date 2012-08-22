@@ -15,7 +15,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/homer_small.jpg'"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => "140"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => "140"
 end
 
 slide do
@@ -25,7 +25,7 @@ slide do
     code :text => "image_prop :players => 'image', :image => 'images/homer_small.jpg', :float => :on, :x => 50, :y => '50%'"
     code :text => "label :text => 'Top Prop', :float => :on, :x => 50, :y => '50%'"
   end
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

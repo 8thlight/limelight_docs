@@ -1,9 +1,6 @@
-module Link
-  attr_accessor :url
-  
-  def mouse_clicked(e)
-    launch(self.url)
-    scene.find("slideshow").next
-  end
-  
+attr_accessor :url
+
+on_mouse_clicked do
+  launch(self.url)
+  scene.find("slideshow").next
 end

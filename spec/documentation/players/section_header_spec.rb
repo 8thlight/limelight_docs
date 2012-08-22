@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Section Header" do
-  uses_limelight :with_player => "section_header", :scene_path => "documentation"
+  uses_limelight :with_players => "section_header", :scene_path => "documentation"
 
   it "should shrink the specified prop when clicked to 0 by 0" do
     section_header.prop_to_remove = "my_prop"
@@ -10,7 +10,7 @@ describe "Section Header" do
     @prop.stub!(:shrunk?).and_return(false)
     @prop.should_receive(:shrink)
 
-    section_header.mouse_clicked(nil)
+    mouse.click section_header
   end
 
   it "should shrink other props" do
@@ -19,7 +19,7 @@ describe "Section Header" do
 
     @prop.should_not_receive(:shrink)
 
-    section_header.mouse_clicked(nil)
+    mouse.click section_header
   end
 
   it "should resize prop back if the prop is shrunk" do
@@ -30,7 +30,7 @@ describe "Section Header" do
     @prop.should_receive(:grow)
     @prop.should_not_receive(:shrink)
 
-    section_header.mouse_clicked(nil)
+    mouse.click section_header
   end
 
   it "should change the background image to arrow_down if the section is being opened" do
@@ -39,7 +39,7 @@ describe "Section Header" do
     @prop.stub!(:shrunk?).and_return(true)
     @prop.stub!(:grow)
 
-    section_header.mouse_clicked(nil)
+    mouse.click section_header
 
     section_header.style.background_image.should == "images/arrow_down.png"
   end
@@ -50,7 +50,7 @@ describe "Section Header" do
     @prop.stub!(:shrunk?).and_return(false)
     @prop.stub!(:shrink)
 
-    section_header.mouse_clicked(nil)
+    mouse.click section_header
 
     section_header.style.background_image.should == "images/arrow_right.png"
   end

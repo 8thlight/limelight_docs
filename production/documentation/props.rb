@@ -13,7 +13,7 @@ main_body do
       panel_body do
         toc_links :id => "toc_links" do
           arbitrary_wrapper :id => "arbitrary_wrapper" do
-            __install "documentation/walkthrough_links.rb"
+            __install "#{Dir.pwd}/production/documentation/walkthrough_links.rb"
           end
         end
       end
@@ -28,7 +28,7 @@ main_body do
         panel_title :text => ""
       end
       panel_body :id => "content_pane", :vertical_scrollbar => :on do
-        __install "documentation/Walkthrough_content_pane.rb"
+        __install "#{Dir.pwd}/production/documentation/Walkthrough_content_pane.rb"
       end
     end
 

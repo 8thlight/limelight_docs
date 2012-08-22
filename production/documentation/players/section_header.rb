@@ -1,16 +1,16 @@
-prop_reader :prop_to_remove, :start_shrunk
+attr_accessor :prop_to_remove, :start_shrunk
 
 def controlled_prop
   @controlled_prop ||= scene.find(prop_to_remove)
 end
 
 on_mouse_clicked do
-  return if controlled_prop.nil?
-
-  if controlled_prop.shrunk?
-    open_section
-  else
-    close_section
+  unless controlled_prop.nil?
+    if controlled_prop.shrunk?
+      open_section
+    else
+      close_section
+    end
   end
 end
 

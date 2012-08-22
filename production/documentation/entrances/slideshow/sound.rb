@@ -15,7 +15,7 @@ slide do
     code :text => "label :text => 'Dog', :on_mouse_clicked => \"play_sound('sandbox_toys/sounds/dog.au')\""
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => "130"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => "130"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

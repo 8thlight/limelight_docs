@@ -20,7 +20,7 @@ describe "ClearSandboxButton" do
       prop = Limelight::Prop.new
       @canvas << prop
 
-      @clear_button.button_pressed(nil)
+      mouse.push @clear_button
 
       @canvas.children.include?(prop).should_not be_true
     end

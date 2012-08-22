@@ -1,25 +1,20 @@
 require 'spec_helper'
-require 'documentation/players/previous_button'
-
-class TestPreviousButton < Limelight::Prop
-  attr_accessor :scene
-  
-  include PreviousButton
-end
-
 
 describe "Previous Button Clicked" do
   
+  uses_limelight :scene_path => "documentation" do
+    previous_button :id => "previous"
+  end
   
   it "should reverse the slide show" do
-    scene = mock(Limelight::Scene).as_null_object
-    prev_button = TestPreviousButton.new
-    prev_button.scene = scene
+    prev_button = scene.find("previous")
     slideshow  = mock("Slideshow")
-    
+    slideshow.stub!(:previous)
+    scene.stub!(:find)
+
     scene.should_receive(:find).with("slideshow").and_return(slideshow)
     slideshow.should_receive(:previous)
     
-    prev_button.mouse_clicked(nil)
+    mouse.click prev_button
   end
 end

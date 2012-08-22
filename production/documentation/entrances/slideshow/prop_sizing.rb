@@ -14,7 +14,7 @@ slide do
     code :text => "}"
   end
     
-  __install "documentation/common/styles_sandbox_with_box.rb" 
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox_with_box.rb" 
 end
 
 slide do
@@ -28,7 +28,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/prop_sizing_examples/percentage_sizing.rb"
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/prop_sizing_examples/percentage_sizing.rb"
 end
 
 slide do
@@ -42,7 +42,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/auto_size.rb"
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/auto_size.rb"
 end
 
 slide do
@@ -56,7 +56,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/auto_size_with_text.rb"
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/auto_size_with_text.rb"
 end
 
 slide do
@@ -81,8 +81,8 @@ slide do
   sandbox_codeblock do
   end
   
-  __install "documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/prop_constrainment.rb"
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :height => 150, :prop_file => "documentation/entrances/prop_sizing_examples/prop_constrainment.rb"
 end
 
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

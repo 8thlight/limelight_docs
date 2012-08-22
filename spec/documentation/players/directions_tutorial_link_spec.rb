@@ -23,13 +23,13 @@ describe "DirectionsTutorialLink" do
     section.stub!(:open_section)
     
     toc_link.should_receive(:mouse_clicked)
-    directions_tutorial_link.mouse_clicked(nil)
+    mouse.click directions_tutorial_link
   end
   
   it "should open the section before it is in it" do
     section.should_receive(:open_section).ordered
     toc_link.should_receive(:mouse_clicked).ordered
     
-    directions_tutorial_link.mouse_clicked(nil)
+    mouse.click directions_tutorial_link
   end
 end

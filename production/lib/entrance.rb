@@ -2,12 +2,12 @@ class Entrance
   
   def self.cue_tutorial(scene, slideshow, title=nil)
     @@scene = scene
-    update_content_pane_from_file("production/documentation/entrances/tutorial.rb", {:slideshow => slideshow, :title => title})
+    update_content_pane_from_file("../documentation/entrances/tutorial.rb", {:slideshow => slideshow, :title => title})
   end
     
   def self.cue_common(scene, name)
     @@scene = scene
-    update_content_pane_from_file("production/documentation/common/#{name}.rb")
+    update_content_pane_from_file("../documentation/common/#{name}.rb")
   end
   
   def self.cue_rdoc(scene, prop_dsl)

@@ -21,5 +21,6 @@ end
 private ####################
 
 def shrinkable_parent?
-  self.parent.players && self.parent.players.match(/shrinkable/) || self.parent.name == "shrinkable"
+  #self.parent.players && self.parent.players.match(/shrinkable/) || self.parent.name == "shrinkable"
+  self.parent.name == "shrinkable"
 end

@@ -1,6 +1,3 @@
-module NextButton
-  
-  def mouse_clicked(event)
-    scene.find("slideshow").next
-  end
+on_mouse_clicked do
+  scene.find("slideshow").next
 end

@@ -55,7 +55,7 @@ slide do
   line_break
   directions :text => "Click in the box to make the text move there."
   line_break
-  __install "documentation/entrances/animation_examples/here_boy.rb"
+  __install "#{Dir.pwd}/production/documentation/entrances/animation_examples/here_boy.rb"
 end
 
 slide do
@@ -128,4 +128,4 @@ slide do
   
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

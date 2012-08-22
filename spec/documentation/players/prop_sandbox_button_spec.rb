@@ -16,7 +16,7 @@ describe "PropSandboxButton" do
     prop = Limelight::Prop.new
     @canvas << prop
 
-    @sandbox_button.button_pressed(nil)
+    mouse.push @sandbox_button
 
     @canvas.children.include?(prop).should be_false
   end
@@ -24,7 +24,7 @@ describe "PropSandboxButton" do
   it "should execute the text in the code prop" do
     @code.text = "prop :id => 'my_prop'"
 
-    @sandbox_button.button_pressed(nil)
+    mouse.push @sandbox_button
 
     scene.find('my_prop').should_not be_nil
   end
@@ -32,7 +32,7 @@ describe "PropSandboxButton" do
   it "should do error handling on the eval" do
     @code.text = "fjfjfj do"
 
-    @sandbox_button.button_pressed(nil)
+    mouse.push @sandbox_button
 
     scene.find('error').should_not be_nil
   end
@@ -40,7 +40,7 @@ describe "PropSandboxButton" do
   it "should display a prettied up error message" do
     @code.text = "fjfjfj do"
 
-    @sandbox_button.button_pressed(nil)
+    mouse.push @sandbox_button
 
     scene.find('error').text.should match(/^Syntax error: .*/)
     scene.find('error').text.should_not match(/eval/)

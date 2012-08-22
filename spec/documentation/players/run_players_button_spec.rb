@@ -15,11 +15,11 @@ describe "RunPlayersButton" do
   end
 
   it "should append behavior on click to prop" do
-    @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"
+    @code.text = "on_mouse_clicked do; scene.find('code').text = 'changed';end"
 
-    @players_button.mouse_clicked(nil)
+    mouse.click @players_button
     @prop_to_extend = @canvas.find_by_name("prop_to_extend")[0]
-    @prop_to_extend.mouse_clicked(nil)
+    mouse.click @prop_to_extend
 
     @code.text.should == "changed"
   end
@@ -28,10 +28,10 @@ describe "RunPlayersButton" do
     @prop_to_extend = Limelight::Prop.new(:name => "prop_to_extend", :id => "prop two")
     @canvas << @prop_to_extend
 
-    @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"
+    @code.text = "on_mouse_clicked do; scene.find('code').text = 'changed';end"
 
-    @players_button.mouse_clicked(nil)
-    @prop_to_extend.mouse_clicked(nil)
+    mouse.click @players_button
+    mouse.click @prop_to_extend
 
     @code.text.should == "changed"
   end
@@ -39,18 +39,18 @@ describe "RunPlayersButton" do
   it "should nicely handle errors" do
     @code.text = "I am not ruby code"
 
-    @players_button.mouse_clicked(nil)
+    mouse.click @players_button
     prop = @canvas.children[1]
     prop.name.should == "error_message"
-    prop.text.should == "(eval):1: , unexpected kNOT\n"
+    prop.text.should =~ /unexpected kNOT/
   end
 
   it "should clear the errors on repeated clicks" do
     @code.text = "I am not ruby code"
-    @players_button.mouse_clicked(nil)
+    mouse.click @players_button
 
     @code.text = "def mouse_clicked(e); scene.find('code').text = 'changed';end"
-    @players_button.mouse_clicked(nil)
+    mouse.click @players_button
 
     @canvas.children.size.should == 1
   end

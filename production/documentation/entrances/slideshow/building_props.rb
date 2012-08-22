@@ -15,7 +15,7 @@ slide do
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "red_prop") do wide_label :text => "Click Me!", :text_color => :red end', :text_area_height => 200
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "red_prop") do wide_label :text => "Click Me!", :text_color => :red end', :text_area_height => 200
 end
 
 slide do
@@ -32,7 +32,7 @@ slide do
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => "group(:id => 'label_list', :width => '100%') do text_area_prop(:players => 'text_area', :id => 'my_text', :height => 25); prop_to_extend(:players => 'button', :text => 'Add to List'); end", :text_area_height => 200
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => "group(:id => 'label_list', :width => '100%') do text_area_prop(:players => 'text_area', :id => 'my_text', :height => 25); prop_to_extend(:players => 'button', :text => 'Add to List'); end", :text_area_height => 200
 end
 
 slide do
@@ -64,7 +64,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'list(:id => "my_list") do; prop_to_extend :text => "Click Me 1!", :width => "100%";prop_to_extend :text => "Click Me 2!", :width => "100%";prop_to_extend :text => "Click Me 3!", :width => "100%";prop_to_extend :text => "Click Me 4!", :width => "100%";prop_to_extend :text => "Click Me 5!", :width => "100%"; end', :text_area_height => 100
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'list(:id => "my_list") do; prop_to_extend :text => "Click Me 1!", :width => "100%";prop_to_extend :text => "Click Me 2!", :width => "100%";prop_to_extend :text => "Click Me 3!", :width => "100%";prop_to_extend :text => "Click Me 4!", :width => "100%";prop_to_extend :text => "Click Me 5!", :width => "100%"; end', :text_area_height => 100
   
 end
 
@@ -79,8 +79,8 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "my_list") do; wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!"; end', :text_area_height => 100
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend(:id => "my_list") do; wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!";wide_label :text => "Click Me!"; end', :text_area_height => 100
   
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

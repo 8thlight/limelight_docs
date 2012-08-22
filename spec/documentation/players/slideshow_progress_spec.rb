@@ -1,7 +1,6 @@
 require 'spec_helper'
-require 'documentation/players/slideshow_progress'
 
-describe SlideshowProgress do
+describe "SlideshowProgress" do
   uses_limelight :scene_path => "documentation" do
     __install "documentation/common/navigation_buttons.rb", :title => "Some Title"
     slideshow :id => "slideshow"

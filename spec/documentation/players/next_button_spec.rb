@@ -1,22 +1,20 @@
 require 'spec_helper'
-require 'documentation/players/next_button'
-
-class TestNextButton < Limelight::Prop
-  attr_accessor :scene
-  
-  include NextButton
-end
 
 describe "Next Button" do
+
+  uses_limelight :scene_path => "documentation" do
+    next_button :id => "next"
+  end
+
   it "should advance the slideshow" do
-    scene = mock(Limelight::Scene).as_null_object
-    next_button = TestNextButton.new
-    next_button.scene = scene
+    next_button = scene.find("next")
     slideshow  = mock("Slideshow")
+    slideshow.stub!(:next)
+    scene.stub!(:find)
     
     scene.should_receive(:find).with("slideshow").and_return(slideshow)
     slideshow.should_receive(:next)
     
-    next_button.mouse_clicked(nil)
+    mouse.click next_button
   end
 end

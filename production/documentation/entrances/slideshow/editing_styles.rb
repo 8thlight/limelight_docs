@@ -28,7 +28,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/common/styles_sandbox.rb", :prop => "prop :text => \"Turn Me Blue!\", :id => \"test_prop\""
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop => "prop :text => \"Turn Me Blue!\", :id => \"test_prop\""
 end
 
 slide do
@@ -42,7 +42,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop => "multiple_attributes :text => \"Make me translucent with a border!\", :id => \"test_prop\", :font_size => 14"
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop => "multiple_attributes :text => \"Make me translucent with a border!\", :id => \"test_prop\", :font_size => 14"
 end
 
 slide do
@@ -59,7 +59,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/two_props_with_different_names.rb", :height => 160, :text_area_height => 200
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "#{Dir.pwd}/production/documentation/entrances/editing_styles_examples/two_props_with_different_names.rb", :height => 160, :text_area_height => 200
 end
 
 slide do
@@ -74,7 +74,7 @@ slide do
     code :text => "}"
   end
 
-  __install "documentation/common/styles_sandbox.rb", :prop => "interesting_values :text => \"I've got interesting values\"", :height => 150
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop => "interesting_values :text => \"I've got interesting values\"", :height => 150
 end
 
 
@@ -97,7 +97,7 @@ slide do
     end
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/red_and_green_props.rb", :height => 160  
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "#{Dir.pwd}/production/documentation/entrances/editing_styles_examples/red_and_green_props.rb", :height => 160  
 end
 
 slide do
@@ -114,7 +114,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop => "extended_prop :text => \"I am named extended_prop - note how I get both styles.\"", :height => 130, :text_area_height => 200
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop => "extended_prop :text => \"I am named extended_prop - note how I get both styles.\"", :height => 130, :text_area_height => 200
 end
 
 slide do
@@ -131,7 +131,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/editing_styles_examples/inner_and_outer_prop.rb", :height => 130, :text_area_height => 200    
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "#{Dir.pwd}/production/documentation/entrances/editing_styles_examples/inner_and_outer_prop.rb", :height => 130, :text_area_height => 200    
 end
 
 slide do
@@ -171,4 +171,4 @@ slide do
   link :text => " click here.", :url => "http://limelightwiki.8thlight.com/wiki/Style_Attributes", :styles => "link_in_directions"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

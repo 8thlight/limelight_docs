@@ -12,7 +12,7 @@ slide do
     code :text => "label :text => 'Good Job'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -24,7 +24,7 @@ slide do
     code :text => "label :text => 'Good Job', :font_size => 72"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -37,7 +37,7 @@ slide do
     code :text => "big_label :text => 'Good Job', :text_color => :red"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -49,7 +49,7 @@ slide do
     code :text => "big_label :text => 'Good Job', :font_face => 'Times'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -62,7 +62,7 @@ slide do
     code :text => "big_label :text => 'Good Job', :font_style => 'bold italic'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
 slide do
@@ -76,7 +76,7 @@ slide do
     code :text => "      :font_style => 'bold italic'"
   end
 
-  __install "documentation/common/prop_sandbox.rb"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

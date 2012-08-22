@@ -1,5 +1,4 @@
 require 'spec_helper'
-require "documentation/players/toggle_source"
 
 describe "ToggleSource" do
   uses_limelight :scene_path => "documentation" do
@@ -12,7 +11,7 @@ describe "ToggleSource" do
   end
 
   def click_toggle_source
-    toggle_source_prop.mouse_clicked(nil)
+    mouse.click toggle_source_prop
   end
 
   before(:each) do

@@ -19,7 +19,7 @@ slide do
     code :text => "__install 'sandbox_toys/partial_one.rb'"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => "130"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => "130"
 end
 
 slide do
@@ -37,7 +37,7 @@ slide do
     code :text => "__install 'sandbox_toys/partial_two.rb', :text => 'Change me!'"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => "140"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => "140"
 end
 
 slide do
@@ -58,7 +58,7 @@ slide do
     code :text => "__install 'sandbox_toys/partial_three.rb', :text => 'Change me!'"
   end
 
-  __install "documentation/common/prop_sandbox.rb", :height => "130"
+  __install "#{Dir.pwd}/production/documentation/common/prop_sandbox.rb", :height => "130"
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

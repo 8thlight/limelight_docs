@@ -20,7 +20,7 @@ slide do
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black.", :text_color => :red', :height => 90, :text_area_height => 200
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "red_prop", :text => "I am red, make me black.", :text_color => :red', :height => 90, :text_area_height => 200
 end
 
 slide do
@@ -43,7 +43,7 @@ slide do
     code :text => "end"
   end
 
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "found_prop", :text => "Blue", :text_color => :blue, :font_size => 24', :height => 100
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :id => "found_prop", :text => "Blue", :text_color => :blue, :font_size => 24', :height => 100
 end
 
 slide do
@@ -66,7 +66,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black', :height => 120
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black', :height => 120
   
 end
 
@@ -80,7 +80,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black, :background_color => :red'
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :width => "100%", :height => "100%", :border_width => 1, :border_color => :black, :background_color => :red'
 end
 
 slide do
@@ -93,7 +93,7 @@ slide do
     code :text => "end"
   end
   
-  __install "documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :text => "The mouse has not been clicked yet.", :width => "100%", :height => "100%"'
+  __install "#{Dir.pwd}/production/documentation/common/players_sandbox.rb", :prop => 'prop_to_extend :text => "The mouse has not been clicked yet.", :width => "100%", :height => "100%"'
 end  
 
 slide do
@@ -131,4 +131,4 @@ slide do
   directions :text => "This will load the Scene for you, and you can use the scene method to access it in your specs."
 end
   
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

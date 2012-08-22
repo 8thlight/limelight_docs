@@ -1,7 +1,3 @@
-module ClearSandboxButton
-  
-  def button_pressed(e)    
-    scene.find('canvas').remove_all
-  end
-  
+on_button_pushed do
+  scene.find('canvas').remove_all
 end

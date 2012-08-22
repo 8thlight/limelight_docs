@@ -14,7 +14,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :height => 155, :prop => "prop :height => '100%', :width => '100%', :padding => 15, :text => \"Add a border.\""
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :height => 155, :prop => "prop :height => '100%', :width => '100%', :padding => 15, :text => \"Add a border.\""
 end
 
 slide do
@@ -45,7 +45,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :height => 155, :prop => "prop :height => '100%', :width => '100%', :padding => 15, :text => \"Add a border, then check out the top border.\""
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :height => 155, :prop => "prop :height => '100%', :width => '100%', :padding => 15, :text => \"Add a border, then check out the top border.\""
 end
 
 slide do
@@ -60,7 +60,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :height => 155, :prop => "prop :padding => 15, :height => '100%', :width => '100%', :text => \"Add some rounded corners, then check out the top-right rounded corner.\""
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :height => 155, :prop => "prop :padding => 15, :height => '100%', :width => '100%', :text => \"Add some rounded corners, then check out the top-right rounded corner.\""
 end
 
 slide do
@@ -89,4 +89,4 @@ slide do
   end
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

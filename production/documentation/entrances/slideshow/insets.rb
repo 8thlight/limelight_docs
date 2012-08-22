@@ -14,7 +14,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/left_top_margin.rb", :height => 120
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/left_top_margin.rb", :height => 120
 end
 
 slide do
@@ -28,7 +28,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/percentage_margin.rb", :height => 160
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/percentage_margin.rb", :height => 160
 end
 
 slide do
@@ -41,7 +41,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop => "cramped_text :text => 'A little room please!', :border_width => 1, :border_color => :black"
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop => "cramped_text :text => 'A little room please!', :border_width => 1, :border_color => :black"
 end
 
 slide do
@@ -57,7 +57,7 @@ slide do
     code :text => "}"
   end
   
-  __install "documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/combination.rb", :height => 130, :text_area_height => 200
+  __install "#{Dir.pwd}/production/documentation/common/styles_sandbox.rb", :prop_file => "documentation/entrances/inset_examples/combination.rb", :height => 130, :text_area_height => 200
 end
 
 slide do
@@ -77,4 +77,4 @@ slide do
   
 end
 
-__install "documentation/common/finished_slide.rb"
+__install "#{Dir.pwd}/production/documentation/common/finished_slide.rb"

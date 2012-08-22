@@ -1,7 +1,6 @@
 require 'spec_helper'
-require "documentation/players/search_results_screen"
 
-describe SearchResultsScreen do
+describe "SearchResultsScreen" do
   uses_limelight :scene_path => "documentation" do
     search_results_screen :id => "search_results_screen" do
       search_result :id => "found_class_1" do
@@ -18,7 +17,7 @@ describe SearchResultsScreen do
   let(:vertical_scrollbar) {mock("vertical_scroll_bar", :value= => nil, :value => 0)}
   
   before(:each) do
-    search_results_screen.panel.stub!(:vertical_scrollbar).and_return(vertical_scrollbar)
+    search_results_screen.peer.stub!(:vertical_scrollbar).and_return(vertical_scrollbar)
   end
   
   it "should have nothing selected by default" do
@@ -109,7 +108,7 @@ describe SearchResultsScreen do
   end
 end
 
-describe SearchResultsScreen, "with no children" do
+describe "SearchResultsScreen with no children" do
   uses_limelight :scene_path => "documentation" do
     search_results_screen :id => "search_results_screen"
   end
