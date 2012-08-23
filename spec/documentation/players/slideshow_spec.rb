@@ -1,12 +1,4 @@
 require 'spec_helper'
-#require 'documentation/players/slideshow'
-#
-#class TestSlideshow < Limelight::Prop
-#  attr_accessor :scene
-#  
-#  include Slideshow
-#  
-#end
 
 class ProgressObserver
   def observe
@@ -26,10 +18,6 @@ describe "Slideshow" do
   
   before(:each) do
     @slideshow = scene.find("slideshow")
-    @prop1 = scene.find("prop1")
-    @prop2 = scene.find("prop2")
-    @prop3 = scene.find("prop3")
-
     @previous_button = scene.find("previous")
     @next_button = scene.find("next")
   end
@@ -48,7 +36,7 @@ describe "Slideshow" do
       @slideshow.next
       
       @slideshow.children.length.should == 1
-      @slideshow.children[0].should == @prop2
+      @slideshow.children[0].should == scene.find("prop2")
     end
 
     it "should halt at the end if you try to advance past it" do
@@ -57,7 +45,7 @@ describe "Slideshow" do
       @slideshow.next
   
       @slideshow.children.length.should == 1
-      @slideshow.children[0].should == @prop3
+      @slideshow.children[0].should == scene.find("prop3")
     end
   
     it "should move backwards with previous" do
@@ -65,7 +53,7 @@ describe "Slideshow" do
       @slideshow.previous
   
       @slideshow.children.length.should == 1
-      @slideshow.children[0].should == @prop1
+      @slideshow.children[0].should == scene.find("prop1")
     end
   
     it "should not move past 0" do
@@ -74,7 +62,7 @@ describe "Slideshow" do
       @slideshow.previous
   
       @slideshow.children.length.should == 1
-      @slideshow.children[0].should == @prop1
+      @slideshow.children[0].should == scene.find("prop1")
     end
     
     it "should make the previous button prop transparent on casting" do

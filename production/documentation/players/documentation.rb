@@ -1,4 +1,4 @@
-#def activity_text; return scene.find('activity_text') end
+def activity_text; return scene.find('activity_text') end
 
 def enable_rdoc_tab
   prop = find('RDoc') 
@@ -14,7 +14,7 @@ def show_activity(message)
   activity_text.text = message   
 end
 
-def scene_opened(we_dont_care)
+on_scene_opened do
   toggle_section_headers
   enable_rdoc_tab if rdoc != nil
 end
@@ -33,6 +33,6 @@ private ##################################
 
 def toggle_section_headers
   scene.find_by_name("section_header").each do |header|
-    header.mouse_clicked(nil) unless header.start_shrunk
+    header.open_section unless header.start_shrunk
   end
 end

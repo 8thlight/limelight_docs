@@ -15,10 +15,14 @@ describe "Limelight Docs Production" do
     scene.should_receive(:show_activity).at_least(1)
     scene.should_receive(:enable_rdoc_tab)
 
-    production.production_opened
+    trigger_opened(production)
     sleep(0.5)
     
     production.rdoc.should == rdoc
+  end
+
+  def trigger_opened(production)
+    Java::limelight.model.events.ProductionOpenedEvent.new.dispatch(production)
   end
 
 end

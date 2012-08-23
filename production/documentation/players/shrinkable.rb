@@ -1,4 +1,4 @@
-def casted
+on_cast do
   @height = self.style.height
   self.shrink
 end

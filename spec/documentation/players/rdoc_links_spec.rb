@@ -5,11 +5,6 @@ describe "RDoc Links Player" do
   uses_limelight :scene_path => "documentation", :scene_name => 'documentation', 
     :with_players => 'rdoc_links'
 
-  before(:each) do
-    production.rdoc = nil
-    scene # this will cast the player without rdoc so that we can cast it later with the desired rdoc
-  end
-
   it "should display the props as table of contents when casted" do
     production.rdoc = {"classname" => "Prop DSL"}
 

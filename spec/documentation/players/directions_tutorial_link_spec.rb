@@ -20,15 +20,22 @@ describe "DirectionsTutorialLink" do
   end
   
   it "should click the selected toc_link" do
+    mouse # Get a mouse object instantiated
     section.stub!(:open_section)
+    mouse_mock = mock("mouse")
+    Limelight::Mouse.stub!(:new).and_return(mouse_mock)
+    mouse_mock.should_receive(:click).with(toc_link)
     
-    toc_link.should_receive(:mouse_clicked)
     mouse.click directions_tutorial_link
   end
   
   it "should open the section before it is in it" do
+    mouse # Get a mouse object instantiated
+    mouse_mock = mock("mouse")
+    Limelight::Mouse.stub!(:new).and_return(mouse_mock)
+
     section.should_receive(:open_section).ordered
-    toc_link.should_receive(:mouse_clicked).ordered
+    mouse_mock.should_receive(:click).with(toc_link).ordered
     
     mouse.click directions_tutorial_link
   end

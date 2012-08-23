@@ -10,11 +10,15 @@ describe "Shrinkable" do
   end
 
   def shrinkable
-    return scene.find(:shrinkable)
+    return scene.find("shrinkable")
+  end
+
+  def cast_prop(prop)
+    Java::limelight.ui.events.panel.CastEvent.new(prop.peer).dispatch(prop.peer)
   end
 
   before(:each) do
-    shrinkable.casted
+    cast_prop(shrinkable)
   end
 
   it "should grow the height and width back to where they started" do

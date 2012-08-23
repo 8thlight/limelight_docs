@@ -1,5 +1,3 @@
-module CalculatorButton
-  def mouse_clicked(event)
-    scene.find("calculator_display").text += self.text
-  end
+on_mouse_clicked do
+  scene.find("calculator_display").text += self.text
 end

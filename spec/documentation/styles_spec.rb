@@ -33,7 +33,7 @@ describe "Styles Tutorial" do
 
     it "should convert the text to a style - and apply it to the object" do
       @code_area.text = "prop { text_color :blue }"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       prop = scene.find("test_prop")
       prop.style.text_color.should == "#0000ffff"
@@ -41,7 +41,7 @@ describe "Styles Tutorial" do
 
     it "should apply to the prop specified in the style and nothing else" do
       @code_area.text = "my_prop { text_color :red }"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       prop = scene.find('test_prop')
       prop.style.text_color.should == "#000000ff"
@@ -51,22 +51,22 @@ describe "Styles Tutorial" do
       style_dsl = "my_prop { text_color :blue }"
 
       @code_area.text = style_dsl
-      lambda{@styles_sandbox_button.button_pressed(nil)}.should_not raise_error
+      lambda{mouse.push @styles_sandbox_button}.should_not raise_error
     end
 
     it "should only apply the styles to the children of the canvas" do
       @code_area.text = "code { text_color :blue }"
 
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
       code_prop = scene.find_by_name("code")[0]
       code_prop.style.text_color.should == "#000000ff"
     end
 
     it "should work properly if run twice - removing the styles then adding them" do
       @code_area.text = "prop { text_color :blue }"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
       @code_area.text = "prop { text_color :red }"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       test_prop = scene.find('test_prop')
       test_prop.style.text_color.should == "#ff0000ff"
@@ -79,8 +79,9 @@ describe "Styles Tutorial" do
       @slideshow.next
 
       @code_area = scene.find('code')
+      @styles_sandbox_button = scene.find("sandbox_button")
       @code_area.text = "green_prop { text_color :blue }"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       props = scene.find_by_name('green_prop')
       props[0].style.text_color.should == "#0000ffff"
@@ -89,7 +90,7 @@ describe "Styles Tutorial" do
 
     it "should not apply to the canvas" do
       @code_area.text = "canvas {text_color :blue}"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       prop = scene.find_by_name("canvas")[0]
       prop.style.text_color.should_not == "#0000ffff"
@@ -97,7 +98,7 @@ describe "Styles Tutorial" do
 
     it "should set the text to the error message if the style is invalid" do
       @code_area.text = "canvas {monkey_butler :red}"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       prop = scene.find('canvas')
 
@@ -107,9 +108,9 @@ describe "Styles Tutorial" do
 
     it "should clear out the error child if it exists" do
       @code_area.text = "canvas {monkey_butler :red}"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
       @code_area.text = "canvas {text_color :blue}"
-      @styles_sandbox_button.button_pressed(nil)
+      mouse.push @styles_sandbox_button
 
       scene.find('canvas').find_by_name("style_error").should be_empty
     end

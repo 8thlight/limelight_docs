@@ -1,7 +1,5 @@
-module RdocHeading
-  # alias_method :toc_mouse_clicked, :mouse_clicked
-  # 
-  # def mouse_clicked(event)
-  #   toc_mouse_clicked(event)
-  # end
-end
+# alias_method :toc_mouse_clicked, :mouse_clicked
+# 
+# on_mouse_clicked do
+#   toc_mouse_clicked(event)
+# end

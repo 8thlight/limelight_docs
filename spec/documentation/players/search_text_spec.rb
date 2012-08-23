@@ -18,7 +18,7 @@ describe "Search Text" do
       keyboard.release KEY[:a], search_text
       screen = scene.find('search_results_screen')
 
-      screen.name.should == 'search_results_screen'
+      screen.should_not be_nil
     end
 
     it "should destroy the search_results_screen if the text is empty (the key press was a delete)" do

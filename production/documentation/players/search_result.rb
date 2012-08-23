@@ -20,6 +20,5 @@ def _click_class_link(link)
 end
 
 def _has_seclected_result?
-  puts scene.styles.keys.inspect
   style.has_extension(scene.styles['selected_result'])
 end

@@ -7,7 +7,9 @@ def build_search_results
 end
 
 def create_search_results_screen
-  scene.build { search_results_screen :id => 'search_results_screen' } if search_results_screen.nil?
+  scene.build do
+    search_results_screen :id => 'search_results_screen' 
+  end if search_results_screen.nil?
 end
 
 def rebuild_results(results)

@@ -13,7 +13,7 @@ slide do
   directions :text => "Fortunately all props have a style object, which you can change.  The code below will make the text change when you click it.  Note: The Run button will not change the text - it will only add the mouse_clicked behavior.  You must click Apply to apply the behavior, then click the example Prop to see it."
   
   sandbox_codeblock do
-    code :text => "def mouse_clicked(e)"
+    code :text => "on_mouse_clicked do"
     code :text => "  prop = scene.find('red_prop')"
     code :text => "  prop.style.text_color = :black"
     code :text => "  prop.style.left_padding = 10"
@@ -29,14 +29,14 @@ slide do
   
   
   sandbox_codeblock do
-    code :text => "def mouse_entered(e)"
+    code :text => "on_mouse_entered do"
     code :text => "  prop = scene.find('found_prop')"
     code :text => "  prop.text = 'Gray'"
     code :text => "  prop.style.text_color = :gray"
     code :text => "end"
     line_break
     
-    code :text => "def mouse_exited(e)"
+    code :text => "on_mouse_exited do"
     code :text => "  prop = scene.find('found_prop')"
     code :text => "  prop.text = 'Blue'"
     code :text => "  prop.style.text_color = :blue"

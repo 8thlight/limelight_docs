@@ -1,3 +1,5 @@
+require 'rubygems'
+require "bundler/setup"
 # This file (production.rb) is the first file loaded opening a production.  It must define a module named 'Production'.
 # The containing production will acquire all the behavior defined in this module.
 # You may define several hooks and initialization steps here.

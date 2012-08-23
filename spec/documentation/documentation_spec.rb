@@ -1,6 +1,6 @@
 require 'spec_helper'
 require "toc_section"
-require 'documentation/players/documentation'
+require 'pry'
 
 describe "Documentation" do
   uses_limelight :scene => "documentation"
@@ -59,7 +59,7 @@ describe "Documentation" do
 end
 
 describe "Documentation scene with shrinkables" do
-  uses_limelight :scene_path => "documentation" do
+  uses_limelight :scene_path => "documentation", :scene_name => "documentation" do
     section_header :prop_to_remove => "shrinkable_one", :start_shrunk => false
     section_links :id => "shrinkable_one", :players => "shrinkable"
 
@@ -71,8 +71,7 @@ describe "Documentation scene with shrinkables" do
   end
 
   before(:each) do
-    #scene.include_player(Documentation)
-    #scene.scene_opened(nil)
+    Java::limelight.ui.events.panel.SceneOpenedEvent.new.dispatch(scene.peer)
   end
 
   it "should not shrink the first shrinkable prop" do

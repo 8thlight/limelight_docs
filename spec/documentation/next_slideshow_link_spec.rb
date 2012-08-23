@@ -30,6 +30,6 @@ describe "Documentation" do
   def go_to_end_of_tutorial(tutorial)
     Entrance.cue_tutorial(scene, tutorial.slideshow, tutorial.title)
     current_slideshow = scene.find("slideshow")
-    (current_slideshow.num_slides - 1).times { scene.find("next").mouse_clicked(nil) }
+    (current_slideshow.num_slides - 1).times { mouse.click scene.find("next") }
   end
 end
