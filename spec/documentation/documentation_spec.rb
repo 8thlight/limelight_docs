@@ -1,6 +1,5 @@
 require 'spec_helper'
 require "toc_section"
-require 'pry'
 
 describe "Documentation" do
   uses_limelight :scene => "documentation"
