@@ -68,7 +68,7 @@ slide do
   
   sandbox_codeblock do
     code :text => "interesting_values {"
-    code :text => "  width 200"
+    code :text => "  width '100%'"
     code :text => "  horizontal_alignment :center"
     code :text => "  text_color 'dark_red'"
     code :text => "}"
