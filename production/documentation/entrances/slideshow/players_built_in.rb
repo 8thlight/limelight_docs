@@ -18,7 +18,14 @@ slide do
   codeblock do
     code :text => "built_in_player :text => 'Hello!'"
   end
-  
+  directions :text => "For example, 'text_box' is a built-in Prop.  This is the correct way to create one called 'my_text_box':"
+  line_break
+  codeblock do
+    # -------------------------------------------------------------------------------------
+    # -- the extra apostrophe at the end is needed to get the code to display correctly --
+    # -------------------------------------------------------------------------------------
+    code :text => "my_text_box :players => 'text_box', :text => 'Hello!''"
+  end
 end
 
 slide do
@@ -48,26 +55,33 @@ slide do
   heading :text => "Multiple Players"
   directions :text => "Before we continue with more text events, let's go more in depth with multiple Players.  You've seen how to add multiple Players to a single Prop, but what does that do for us?  When you have multiple Players on a Prop, any events taken on this Prop will call the methods for those events on all the Players on the Prop, not just one of them."
   line_break
-  directions :text => "Here we have a prop with players PlayerOne and PlayerTwo.  When this prop is clicked, the mouse_clicked will be called on both of those modules."
+  directions :text => "Here we have a prop with players PlayerOne and PlayerTwo.  When this prop is clicked, the mouse_clicked event will be called on both of those modules."
   codeblock do
-    code :text => "label :text => 'Hello', :players => 'player_one, player_two'"
+    # -------------------------------------------------------------------------------------
+    # -- the extra apostrophe at the end is needed to get the code to display correctly --
+    # -------------------------------------------------------------------------------------
+    code :text => "label :text => 'Hello', :players => 'player_one, player_two''"
   end
   
 end
 
 slide do
   heading :text => "Custom Text Events"
-  directions :text => "We can use the idea of multiple Player to add custom events to a built-in Player.  The next examples will do this using the text_area Player. Text input fields can detect key presses and focus changes, and to add behavior when those events occur you add a second Player to the prop as shown on the previous slide."
-  directions :text => "In this example the Text Area below would first mixin the text_area player, then also mixin the Custom Player of your own design.  Any events  In the upcoming steps we'll describe how to implement the needed events."
-  
+  directions :text => "We can use the idea of multiple Player to add custom events to a built-in Player.  The next examples will do this using the text_area Player. Text input fields can detect key presses and focus changes. To add behavior when those events occur, you add a second Player to the prop as shown on the previous slide."
+  line_break
+  directions :text => "In this example the Text Area below would first mixin the text_area player, then also mixin the Custom Player of your own design.  In the upcoming steps we'll describe how to implement the needed events."
+  line_break
   codeblock do
-    code :text => "text_area_prop :players => 'text_area, custom'"
+    # -------------------------------------------------------------------------------------
+    # -- the extra apostrophe at the end is needed to get the code to display correctly --
+    # -------------------------------------------------------------------------------------
+    code :text => "text_area_prop :players => 'text_area, custom''"
   end
 end
 
 slide do
   heading :text => "Key Presses"
-  directions :text =>  "Key presses are detected by any of the built-in Players, and can be handled by your Custom Player.  Ditto key releases and key types.  The event in the key press will contain the key....pressed.  What you thought it was hard?  Applying the code below to the Prop on the screen will allow you to count key presses and releases."
+  directions :text =>  "Key presses are detected by any of the built-in Players, and can be handled by your Custom Player.  The same is true for key releases and key types.  The event in the key press will contain the key that was pressed.  What, you thought it was hard?  Applying the code below to the Prop on the screen will allow you to count key presses and releases."
   
   sandbox_codeblock do
     code :text => "def key_pressed(event)"
@@ -87,7 +101,7 @@ end
 
 slide do
   heading :text => "Focus"
-  directions :text => "The focus of the control can also be dectected.  When focus is gained or lost an event is sent.  Let's use the focus change to change the color of a Prop.  When the focus leaves the text area on the left the Prop will turn blue, when it is gained it will turn red."
+  directions :text => "The focus of the control can also be dectected.  When focus is gained or lost an event is sent.  Let's use the focus change to change the color of a Prop.  When the focus leaves the text area on the left the Prop will turn blue, when focus is regained it will turn red."
   
   sandbox_codeblock do
     code :text => "def focus_gained(event)"
@@ -107,7 +121,7 @@ end
 
 slide do
   heading :text => "Buttons"
-  directions :text => "We're done with the text_area Player, and now it's time to move on to a few more built-in Players.  There are three variations on the same thing that we will discuss next: the Button, the Checkbox and the Radio Button.  These work as you might expect, with the Checkbox and Radio Buttons having extra attributes in order to create them.  The two props on the scene here are a Checkbox that is checked, and a traditional button."
+  directions :text => "We're done with the text_area Player and now it's time to move on to a few more built-in Players.  There are three variations on the same theme that we will discuss next: the Button, the Checkbox and the Radio Button.  These work as you might expect, with the Checkbox and Radio Buttons having extra attributes in order to create them.  The two props on the scene here are a Checkbox that is checked, and a traditional button."
   
   sandbox_codeblock do
      code :text => "button_prop :players => 'button', :text => 'button'"
@@ -119,8 +133,9 @@ end
 
 slide do
   heading :text => "Radio Button"
-  directions :text => "The Radio Button requires a small amount of explanation.  Radio Buttons need to be grouped by a group name in order to properly select and unselect the buttons. This is done with the group attribute."
-    
+  directions :text => "The Radio Button requires a small amount of explanation.  Only one radio button in any group can be selected at one time.  Radio Buttons are grouped by assigning the same group name to the group attribute."
+  line_break
+  directions :text => "After running the code below, change the group name of one of the buttons and observe the resulting behavior."
   sandbox_codeblock do
      code :text => "radio_button_prop :players => 'radio_button',"
      code :text => "                  :group => 'button_group'"
@@ -148,14 +163,18 @@ slide do
 end
 
 slide do
+  # ------------------
+  # -- this crashes --
+  # ------------------
   heading :text => "Combo Box Player"
-  directions :text => "The last built-in Player is the Combo Box.  The Combo Box is setup with an array of possible choices, and the current value.  Don't you wish HTML was this simple?"
+  directions :text => "The last built-in Player is the Combo Box.  The Combo Box is setup with an array of possible choices and the current value.  Don't you wish HTML was this simple?"
   
   sandbox_codeblock do
-    code :text => "combo_box_prop :players => 'combo_box', :choices => ['red', 'blue', 'green', 'black'], :value => 'black'"
+    code :text => "combo_box_prop :players => 'combo_box', :choices => ['blue', 'red', 'green', 'black'], :value => 'black'"
   end
   
   __install "documentation/common/prop_sandbox.rb"
+  #__install "documentation/common/players_sandbox.rb", :prop_file => "documentation/entrances/player_examples/combo_box_props.rb", :text_area_height => 100
 end
 
 slide do
