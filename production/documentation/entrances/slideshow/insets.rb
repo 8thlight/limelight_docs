@@ -70,7 +70,7 @@ slide do
     code :text => "padding, top_padding, bottom_padding, left_padding, right_padding"
   end
   
-  directions :text => "Margi Options"
+  directions :text => "Margin Options"
   codeblock do
     code :text => "margin, margin_padding, margin_padding, margin_padding, margin_padding"
   end

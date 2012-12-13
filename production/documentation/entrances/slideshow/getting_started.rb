@@ -30,7 +30,7 @@ end
 
 slide do
   heading :text => "3. Installing Limelight"
-  directions :text => "Next we need toto install the Limelight gem.  In the command prompt you opened before type:"
+  directions :text => "Next we need to install the Limelight gem.  In the command prompt you opened before type:"
   codeblock do
     code :text => "jruby -S gem install limelight"
   end
@@ -45,8 +45,22 @@ slide do
 end
 
 slide do
+  heading :text => "3a. Installing Limelight"
+  directions :text => "Next we need to install the RSpec gem.  This version of Limelight (0.5.5) uses an early version of RSpec.  In the command prompt you opened before type:"
+  codeblock do
+    code :text => "jruby -S gem install rspec -v 1.3.2"
+  end
+
+  directions :text => "On successful completion you should see a message like this:"
+  codeblock do
+    code :text => "Successfully installed rspec-1.3.2"
+    code :text => "1 gem installed"
+  end
+end
+
+slide do
   heading :text => "4. Your First Limelight App"
-  directions :text => "Now that you've installed the gem you can create your first Limelight app.  At that same command prompt go to the directory of your choosing and type:"
+  directions :text => "Now that you've installed the gems you can create your first Limelight app.  At that same command prompt go to the directory of your choosing and type:"
   codeblock do
     code :text => "limelight create production hello_limelight"
   end
@@ -78,7 +92,7 @@ slide do
     code :text => "1 example, 0 failures"
   end
   
-  directions :text => "Good.  Now let's break them."
+  directions :text => "Good.  Now let's break the tests."
 end
 
 slide do
@@ -111,12 +125,12 @@ end
 
 slide do
   heading :text => "7. Text Attribute"
-  directions :text => "A failing test should never stay faling for very long.  Let's change that prop to match the expectation we set in the test.  Open the props.rb file in the default_scene directory.  There you'll see our prop:"
+  directions :text => "A failing test should never stay failing for very long.  Let's change that prop to match the expectation we set in the test.  Open the props.rb file in the default_scene directory.  There you'll see our prop:"
   codeblock do
     code :text => "root :text => \"This is the Default Scene scene.\""
   end
   
-  directions :text => "The text attribute tells the prop root to display the text you see on the screen.  To make our spec pass simple change it to this:"
+  directions :text => "The text attribute tells the prop root to display the text you see on the screen.  To make our spec pass simply change it to this:"
   codeblock do
     code :text => "root :text => \"Click Me!\""
   end
@@ -165,12 +179,16 @@ slide do
   heading :text => "10. A Pretty Prop"
   directions :text => "Okay you've made the scene interactive - now let's make that a little more interesting.  Props can have styles, and we can go ahead and use those to make a prettier prop.  Open your props.rb file again and make it look like this:"
   codeblock do
-    code :text => "root :text => \"Click Me!\"," 
-    code :text => "     :rounded_corner_radius => 10, :padding => 10,"
-    code :text => "     :background_color => '#fffa',"
-    code :text => "     :secondary_background_color => '#fff6',"
-    code :text => "     :gradient => :on, :gradient_angle => 270,"
-    code :text => "     :font_size => 28," 
+    # ------------------------------------------------------------------------------------------------------------------
+    # This does not display properly in the slide.  Specifically, the commas separating the hash values do not 
+    # appear consistently.  Placing an apostrophe after each undisplayed comma causes it to be displayed properly.
+    # ------------------------------------------------------------------------------------------------------------------
+    code :text => "root :text => \"Click Me!\",'" 
+    code :text => "     :rounded_corner_radius => 10, :padding => 10,'"
+    code :text => "     :background_color => '#fffa','"
+    code :text => "     :secondary_background_color => '#fff6','"
+    code :text => "     :gradient => :on, :gradient_angle => 270,'"
+    code :text => "     :font_size => 28,'" 
     code :text => "     :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
   end
   

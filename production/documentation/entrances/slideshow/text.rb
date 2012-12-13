@@ -17,7 +17,7 @@ end
 
 slide do
   heading :text => "Font Size"
-  directions :text => "Now that was pretty boring.  Let's try something a little more compliated, like changing the font size.  Let's make it bigger!"
+  directions :text => "Now that was pretty boring.  Let's try something a little more complicated, like changing the font size.  Let's make it bigger!"
   line_break
   line_break
   sandbox_codeblock do

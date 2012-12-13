@@ -25,7 +25,7 @@ end
 
 slide do
   heading :text => "Player File"
-  directions :text => "Each Scene has a \"players\" directory, which contains a Ruby module for each Player in that scene.  When the Scene is loaded it will attach the the Players to the Props in the Scene."
+  directions :text => "Each Scene has a \"players\" directory, which contains a Ruby module for each Player in that scene.  When the Scene is loaded it will attach the Players to the Props in the Scene."
   line_break
   directions :text => "In addition there can be Production level Players.  Those are created by creating a players directory in the root directory of the Production and putting Players in it.  Production level Players will be available to all Scenes in the Production."
   line_break
@@ -36,7 +36,7 @@ end
 
 slide do
   heading :text => "Players Attribute"
-  directions :text => "Sometimes its inappropriate to name the Prop and the Player the same thing, or perhaps you want to mix-in more than one Player.  This can be done through the players attribute which is used just like the styles attribute.  In the example below you we define this_prop with the Props DSL and assign it the Players NextButton and HighlightedButton."
+  directions :text => "Sometimes its inappropriate to name the Prop and the Player the same thing, or perhaps you want to mix-in more than one Player.  This can be done through the players attribute which is used just like the styles attribute.  In the example below we define this_prop with the Props DSL and assign it the Players NextButton and HighlightedButton."
   
   codeblock do
     code :text => "this_prop :players => 'NextButton, HighlightedButton', :text => 'I am text'"
