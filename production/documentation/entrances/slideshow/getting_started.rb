@@ -46,7 +46,7 @@ end
 
 slide do
   heading :text => "3a. Installing Limelight"
-  directions :text => "Next we need to install the RSpec gem.  The version of Limelight (0.5.5) uses an early version of RSpec.  In the command prompt you opened before type:"
+  directions :text => "Next we need to install the RSpec gem.  This version of Limelight (0.5.5) uses an early version of RSpec.  In the command prompt you opened before type:"
   codeblock do
     code :text => "jruby -S gem install rspec -v 1.3.2"
   end
@@ -180,8 +180,8 @@ slide do
   directions :text => "Okay you've made the scene interactive - now let's make that a little more interesting.  Props can have styles, and we can go ahead and use those to make a prettier prop.  Open your props.rb file again and make it look like this:"
   codeblock do
     # ------------------------------------------------------------------------------------------------------------------
-    # This does not display properly in the slide.  Specifically, the commas separating the hash values do consistently
-    # appear.  Placing an apostrophe after each undisplayed comma causes it to be displayed properly.
+    # This does not display properly in the slide.  Specifically, the commas separating the hash values do not 
+    # appear consistently.  Placing an apostrophe after each undisplayed comma causes it to be displayed properly.
     # ------------------------------------------------------------------------------------------------------------------
     code :text => "root :text => \"Click Me!\",'" 
     code :text => "     :rounded_corner_radius => 10, :padding => 10,'"

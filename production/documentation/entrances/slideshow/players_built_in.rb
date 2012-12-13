@@ -135,7 +135,7 @@ end
 
 slide do
   heading :text => "Button Pressed Event"
-  directions :text => "These new Players introduce a new event - the button press.  This can be implemented to respond to a button press in all the ways you might expect.  The props below are setup with a button and a Prop, ith this code you can make that Prop turn red."
+  directions :text => "These new Players introduce a new event - the button press.  This can be implemented to respond to a button press in all the ways you might expect.  The props below are setup with a button and a Prop, with this code you can make that Prop turn red."
  
   sandbox_codeblock do
     code :text => "def button_pressed(event)"
