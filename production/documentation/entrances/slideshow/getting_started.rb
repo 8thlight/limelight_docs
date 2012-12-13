@@ -45,6 +45,20 @@ slide do
 end
 
 slide do
+  heading :text => "3a. Installing Limelight"
+  directions :text => "Next we need to install the RSpec gem.  The version of Limelight (0.5.5) uses an early version of RSpec.  In the command prompt you opened before type:"
+  codeblock do
+    code :text => "jruby -S gem install rspec -v 1.3.2"
+  end
+
+  directions :text => "On successful completion you should see a message like this:"
+  codeblock do
+    code :text => "Successfully installed rspec-1.3.2"
+    code :text => "1 gem installed"
+  end
+end
+
+slide do
   heading :text => "4. Your First Limelight App"
   directions :text => "Now that you've installed the gem you can create your first Limelight app.  At that same command prompt go to the directory of your choosing and type:"
   codeblock do
