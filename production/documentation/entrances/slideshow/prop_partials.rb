@@ -24,7 +24,7 @@ end
 
 slide do
   heading :text => "Instance Variables"
-  directions :text => "When loading a Prop Partial, you can also pass in instance variables.  Let's try that out now.  Here is the already creatd Partial:"
+  directions :text => "When loading a Prop Partial, you can also pass in instance variables.  Let's try that out now.  Here is the already created Partial:"
   
   codeblock do
     code :text => "example_partial do"
