@@ -179,12 +179,16 @@ slide do
   heading :text => "10. A Pretty Prop"
   directions :text => "Okay you've made the scene interactive - now let's make that a little more interesting.  Props can have styles, and we can go ahead and use those to make a prettier prop.  Open your props.rb file again and make it look like this:"
   codeblock do
-    code :text => "root :text => \"Click Me!\"," 
-    code :text => "     :rounded_corner_radius => 10, :padding => 10,"
-    code :text => "     :background_color => '#fffa',"
-    code :text => "     :secondary_background_color => '#fff6',"
-    code :text => "     :gradient => :on, :gradient_angle => 270,"
-    code :text => "     :font_size => 28," 
+    # ------------------------------------------------------------------------------------------------------------------
+    # This does not display properly in the slide.  Specifically, the commas separating the hash values do consistently
+    # appear.  Placing an apostrophe after each undisplayed comma causes it to be displayed properly.
+    # ------------------------------------------------------------------------------------------------------------------
+    code :text => "root :text => \"Click Me!\",'" 
+    code :text => "     :rounded_corner_radius => 10, :padding => 10,'"
+    code :text => "     :background_color => '#fffa','"
+    code :text => "     :secondary_background_color => '#fff6','"
+    code :text => "     :gradient => :on, :gradient_angle => 270,'"
+    code :text => "     :font_size => 28,'" 
     code :text => "     :on_mouse_clicked => \"self.text = 'Hello Limelight!'\""
   end
   
